@@ -1,0 +1,642 @@
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence, useInView, useScroll, useTransform } from "motion/react";
+import {
+  Target,
+  Eye,
+  Award,
+  Users,
+  X,
+  BookOpen,
+  Briefcase,
+  Star,
+  ArrowRight,
+  Shield,
+  TrendingUp,
+  Heart,
+  ChevronDown,
+} from "lucide-react";
+import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+
+const leaders = [
+  {
+    id: 0,
+    name: "Prasad Patil",
+    role: "Founder & Chief Executive Officer",
+    education: "Based in Thane, Maharashtra",
+    tagline: "Building the infrastructure partner India's healthcare sector needs",
+    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+    accentColor: "#4bd1d9",
+    stats: [{ label: "Focus", value: "100%" }, { label: "Healthcare", value: "Only" }, { label: "Accountability", value: "Full" }],
+    shortBio: "Prasad founded ARCHORA to give every healthcare promoter in India access to world-class infrastructure expertise.",
+    fullBio: [
+      "Prasad Patil founded ARCHORA with one goal — to build a healthcare infrastructure company that gives Indian healthcare promoters access to the same depth of expertise available in the world's most advanced healthcare systems.",
+      "As CEO, Prasad leads ARCHORA's business strategy, client relationships, and growth across India. He works closely with every client from initial enquiry through to project delivery — ensuring that ARCHORA's promise of single-window accountability is not just a marketing claim but a lived experience.",
+      "Prasad's vision for ARCHORA is clear: to be India's most trusted healthcare infrastructure partner — not the biggest, but the most reliable, the most knowledgeable, and the most committed to client outcomes.",
+    ],
+    credentials: ["Founder — ARCHORA Healthcare Infrastructure", "Single-Window Accountability Model", "Pan-India Delivery Network", "Based in Thane, Maharashtra"],
+    expertise: ["Business Strategy", "Client Relations", "Healthcare Infrastructure", "Pan-India Growth"],
+    linkedin: "linkedin.com/in/prasadpatilll",
+  },
+  {
+    id: 1,
+    name: "Ar. Vivek Patil",
+    role: "Director & Principal Architect",
+    education: "Based in Thane, Maharashtra",
+    tagline: "Every design clinically functional, compliant, and buildable",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+    accentColor: "#7eb8f7",
+    stats: [{ label: "Focus", value: "100%" }, { label: "Healthcare", value: "Only" }, { label: "Compliance", value: "First" }],
+    shortBio: "Ar. Vivek Patil is ARCHORA's Principal Architect — technical lead for every project, bringing clinical design knowledge and compliance expertise.",
+    fullBio: [
+      "Ar. Vivek Patil is ARCHORA's Principal Architect and the technical lead for every project the company undertakes. With hands-on experience in healthcare architecture and infrastructure delivery, Vivek brings clinical design knowledge, compliance expertise, and construction-stage rigour to every ARCHORA project.",
+      "Vivek's work spans hospital architectural design, modular OT and ICU infrastructure, diagnostic centre planning, clinical space programming, and construction coordination — from single-room clinic renovations to multi-floor hospital developments.",
+      "At ARCHORA, Vivek leads the architectural and technical team — ensuring that every design is not only aesthetically strong but clinically functional, regulation-compliant, and buildable within the project's budget and timeline.",
+    ],
+    credentials: ["Principal Architect — ARCHORA", "Healthcare Architecture & NABH Design", "Modular OT & ICU Infrastructure", "Based in Thane, Maharashtra"],
+    expertise: ["Hospital Architecture", "Modular OT Design", "NABH Compliance", "Clinical Space Planning"],
+    linkedin: "linkedin.com/in/ar-vivek-patil-844b1b384",
+  },
+  {
+    id: 2,
+    name: "Aditya Kashikar",
+    role: "Senior Advisor — Healthcare Infrastructure",
+    education: "India & United Kingdom",
+    tagline: "NHS-level knowledge, rare in the Indian healthcare sector",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+    accentColor: "#a78bfa",
+    stats: [{ label: "Experience", value: "17+" }, { label: "NHS", value: "Projects" }, { label: "Countries", value: "2" }],
+    shortBio: "Aditya brings 17+ years of healthcare infrastructure experience across India and the UK, including senior NHS project roles with WSP as Associate Director.",
+    fullBio: [
+      "Aditya Kashikar brings over 17 years of healthcare infrastructure experience across India and the United Kingdom to the ARCHORA advisory team. His career includes senior roles in NHS healthcare infrastructure projects in the UK — where he worked with WSP, one of the world's leading engineering and professional services firms, as an Associate Director.",
+      "During his time in the UK, Aditya was involved in the planning, design coordination, and delivery of major NHS healthcare facilities — gaining exposure to the highest standards of clinical infrastructure design, regulatory compliance, and project management in one of the world's most demanding healthcare environments.",
+      "Aditya advises ARCHORA on complex healthcare infrastructure projects, technical standards, international best practices, and strategic project planning — bringing a depth of NHS-level knowledge that is rare in the Indian healthcare infrastructure sector.",
+    ],
+    credentials: ["Associate Director — WSP (UK)", "NHS Healthcare Infrastructure Delivery", "17+ Years Cross-Border Experience", "India & United Kingdom"],
+    expertise: ["NHS Standards", "International Best Practices", "Strategic Project Planning", "Technical Standards"],
+    linkedin: "linkedin.com/in/aditya-kashikar-a7434731",
+  },
+];
+
+const missionPillars = [
+  { icon: <Shield size={16} />, text: "Evidence-based spatial planning for clinical excellence" },
+  { icon: <Users size={16} />, text: "Optimised workflows for medical professionals" },
+  { icon: <Award size={16} />, text: "Safety, compliance, and dignity at every scale" },
+];
+
+const visionPillars = [
+  { icon: <TrendingUp size={16} />, text: "India's most trusted healthcare infrastructure partner" },
+  { icon: <Shield size={16} />, text: "Facilities that protect patients and empower clinicians" },
+  { icon: <Award size={16} />, text: "Sustainable returns for promoters" },
+];
+
+const milestones = [
+  { year: "Founded", chapter: "Chapter I", title: "ARCHORA is Born", description: "Founded with a simple but powerful conviction — India's healthcare infrastructure crisis is not a funding problem alone. It is an expertise problem. Too many hospitals are built by teams that do not understand the clinical, regulatory, and operational demands of healthcare environments.", num: "01" },
+  { year: "Year 1", chapter: "Chapter II", title: "First Projects Delivered", description: "Completed projects across hospital design, modular OT delivery, clinic renovations, nursing college infrastructure, and diagnostic centre fit-outs. Pipeline spans greenfield hospital projects, brownfield expansions, and infrastructure upgrades for existing healthcare facilities across India.", num: "02" },
+  { year: "Today", chapter: "Chapter III", title: "Growing Across India", description: "ARCHORA is growing — learning from every project and building into the infrastructure partner that doctors, investors, and healthcare promoters across India can trust completely. One team, one point of contact, full accountability from the first meeting to the day you open your doors.", num: "03", isCurrent: true },
+];
+
+const philosophy = [
+  {
+    icon: <Shield size={22} />,
+    number: "01",
+    title: "Healthcare Only. Always.",
+    description: "We do not design offices, residences, or commercial spaces. Every member of our team works exclusively on healthcare projects.",
+    detail: "Our knowledge, our processes, and our vendor relationships are entirely focused on one outcome — delivering better healthcare facilities across India.",
+  },
+  {
+    icon: <Heart size={22} />,
+    number: "02",
+    title: "Compliance Built In.",
+    description: "Every design integrates NABH, NABL, INC, NMC, AERB, fire safety standards from the very first drawing. Never an afterthought.",
+    detail: "No retrofitting. No last-minute corrections. Every standard integrated from the very first drawing — protecting your timeline, your budget, and your patients.",
+  },
+  {
+    icon: <TrendingUp size={22} />,
+    number: "03",
+    title: "Single-Window Accountability.",
+    description: "One team, one contract, one point of accountability — from concept to commissioning. You manage one relationship, not fifteen vendors.",
+    detail: "From feasibility study and architecture through structural engineering, MEP, construction, equipment planning, and commissioning — ARCHORA owns it all.",
+  },
+];
+
+const statsData = [
+  { value: "20+", label: "Years Collective Experience" },
+  { value: "100%", label: "Healthcare Focus" },
+  { value: "10", label: "Core Service Disciplines" },
+  { value: "35+", label: "Facility Type Specialisations" },
+];
+
+const services = [
+  "Feasibility Studies & DPRs",
+  "Healthcare Architecture & Space Planning",
+  "Regulatory Compliance & Accreditation-Ready Design",
+  "Hospital Licensing & Approvals Support",
+  "Structural Design for Healthcare",
+  "MEP Engineering for Healthcare",
+  "Modular OT & ICU Infrastructure",
+  "Turnkey Civil & Interior Execution",
+  "Medical Equipment Planning & Procurement",
+  "Project Management & Commissioning",
+];
+
+function LeaderModal({ leader, onClose }: { leader: (typeof leaders)[0]; onClose: () => void }) {
+  return (
+    <AnimatePresence>
+      <motion.div
+        className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        style={{ background: "rgba(4,18,30,0.88)", backdropFilter: "blur(12px)" }}
+        onClick={onClose}
+      >
+        <motion.div
+          className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl"
+          style={{ background: "#071e2e", border: "1px solid rgba(75,209,217,0.18)" }}
+          initial={{ opacity: 0, y: 40, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 20, scale: 0.97 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button onClick={onClose} className="absolute top-5 right-5 z-10 flex items-center justify-center w-9 h-9 rounded-full transition-all" style={{ background: "rgba(255,255,255,0.08)", color: "#fff" }}>
+            <X size={18} />
+          </button>
+          <div className="relative h-56 overflow-hidden rounded-t-2xl">
+            <ImageWithFallback src={leader.image} alt={leader.name} className="w-full h-full object-cover" style={{ filter: "brightness(0.35) saturate(0.7)" }} />
+            <div className="absolute inset-0" style={{ background: `linear-gradient(to right, rgba(7,30,46,0.95) 0%, rgba(7,30,46,0.5) 60%, transparent 100%)` }} />
+            <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: `linear-gradient(to right, ${leader.accentColor}, transparent)` }} />
+            <div className="absolute bottom-6 left-8">
+              <div className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: leader.accentColor }}>{leader.role}</div>
+              <h2 className="text-3xl font-light text-white" style={{ fontFamily: "serif" }}>{leader.name}</h2>
+              <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.55)" }}>{leader.education}</p>
+            </div>
+          </div>
+          <div className="p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="space-y-6">
+              <div className="grid grid-cols-3 gap-3">
+                {leader.stats.map((s) => (
+                  <div key={s.label} className="text-center rounded-lg py-3 px-2" style={{ background: "rgba(75,209,217,0.07)", border: "1px solid rgba(75,209,217,0.12)" }}>
+                    <div className="text-xl font-semibold" style={{ color: leader.accentColor }}>{s.value}</div>
+                    <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>{s.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div>
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: leader.accentColor }}><Award size={13} />Credentials</div>
+                <ul className="space-y-2">
+                  {leader.credentials.map((c) => (
+                    <li key={c} className="flex items-start gap-2 text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>
+                      <Star size={11} className="mt-1 flex-shrink-0" style={{ color: leader.accentColor }} />{c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: leader.accentColor }}><Briefcase size={13} />Expertise</div>
+                <div className="flex flex-wrap gap-2">
+                  {leader.expertise.map((e) => (
+                    <span key={e} className="text-xs px-2.5 py-1 rounded-full" style={{ background: `${leader.accentColor}15`, border: `1px solid ${leader.accentColor}30`, color: leader.accentColor }}>{e}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="lg:col-span-2 space-y-4">
+              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: leader.accentColor }}><BookOpen size={13} />Full Profile</div>
+              {leader.fullBio.map((para, i) => (
+                <p key={i} className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.72)" }}>{para}</p>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+function LeaderCard({ leader, isActive, onHover, onClick }: { leader: (typeof leaders)[0]; isActive: boolean; onHover: (id: number | null) => void; onClick: (leader: (typeof leaders)[0]) => void }) {
+  return (
+    <motion.div
+      className="relative flex-shrink-0 cursor-pointer"
+      style={{ width: isActive ? "420px" : "260px", borderRadius: "16px", overflow: "hidden", transition: "width 0.5s cubic-bezier(0.22,1,0.36,1)", border: `1px solid ${isActive ? leader.accentColor + "60" : "rgba(255,255,255,0.08)"}` }}
+      onMouseEnter={() => onHover(leader.id)}
+      onMouseLeave={() => onHover(null)}
+      onClick={() => onClick(leader)}
+    >
+      <div className="relative h-[420px] overflow-hidden">
+        <ImageWithFallback src={leader.image} alt={leader.name} className="w-full h-full object-cover transition-transform duration-700" style={{ transform: isActive ? "scale(1.05)" : "scale(1)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(4,14,26,1) 0%, rgba(4,14,26,0.6) 45%, rgba(4,14,26,0.1) 75%)" }} />
+        <motion.div className="absolute inset-0" animate={{ opacity: isActive ? 1 : 0 }} transition={{ duration: 0.4 }} style={{ background: `linear-gradient(135deg, ${leader.accentColor}18 0%, transparent 60%)` }} />
+        <motion.div className="absolute top-0 left-0 right-0 h-0.5" animate={{ scaleX: isActive ? 1 : 0 }} transition={{ duration: 0.4, ease: "easeOut" }} style={{ background: `linear-gradient(to right, ${leader.accentColor}, transparent)`, transformOrigin: "left" }} />
+        <div className="absolute bottom-0 left-0 right-0 p-5">
+          <div className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: leader.accentColor }}>{leader.role}</div>
+          <h3 className="text-xl text-white font-light mb-1" style={{ fontFamily: "serif" }}>{leader.name}</h3>
+          <p className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>{leader.education}</p>
+          <motion.div animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }} transition={{ duration: 0.35, delay: isActive ? 0.1 : 0 }} className="overflow-hidden" style={{ height: isActive ? "auto" : 0 }}>
+            <p className="text-sm mt-3 leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>{leader.shortBio}</p>
+            <button className="flex items-center gap-2 mt-4 text-sm font-medium group" style={{ color: leader.accentColor }} onClick={(e) => { e.stopPropagation(); onClick(leader); }}>
+              Read Full Profile <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+            </button>
+          </motion.div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function MilestoneItem({ milestone, index }: { milestone: (typeof milestones)[0]; index: number }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <motion.div ref={ref} className="relative flex gap-7" initial={{ opacity: 0, x: -24 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }} style={{ paddingBottom: index < milestones.length - 1 ? "44px" : 0 }}>
+      <div className="flex-shrink-0 flex flex-col items-center" style={{ width: "52px", position: "relative", zIndex: 2 }}>
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "1.5px", color: milestone.isCurrent ? "#7eb8f7" : "#4bd1d9", marginBottom: "8px", whiteSpace: "nowrap" }}>{milestone.year}</span>
+        <div style={{ width: "11px", height: "11px", borderRadius: "50%", border: `1.5px solid ${milestone.isCurrent ? "#7eb8f7" : "#4bd1d9"}`, background: milestone.isCurrent ? "rgba(75,209,217,0.15)" : "#040e1a" }} />
+      </div>
+      <motion.div className="flex-1 relative overflow-hidden cursor-pointer" style={{ padding: "18px 20px", borderRadius: "2px", border: `0.5px solid ${milestone.isCurrent ? "rgba(126,184,247,0.25)" : "rgba(75,209,217,0.12)"}`, background: "rgba(255,255,255,0.025)" }} whileHover={{ x: 5, borderColor: milestone.isCurrent ? "rgba(126,184,247,0.4)" : "rgba(75,209,217,0.3)", background: "rgba(75,209,217,0.04)", transition: { duration: 0.25 } }}>
+        <motion.div initial={{ scaleX: 0 }} whileHover={{ scaleX: 1 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }} style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1.5px", background: `linear-gradient(90deg, ${milestone.isCurrent ? "#7eb8f7" : "#4bd1d9"}, transparent)`, transformOrigin: "left" }} />
+        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "8px", letterSpacing: "3px", textTransform: "uppercase", color: milestone.isCurrent ? "#7eb8f7" : "#378ADD", marginBottom: "5px" }}>{milestone.chapter}</div>
+        <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.3rem", fontWeight: 300, color: "#fff", marginBottom: "5px", lineHeight: 1.2 }}>{milestone.title}</div>
+        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", lineHeight: 1.8, color: "rgba(255,255,255,0.5)" }}>{milestone.description}</div>
+        <div style={{ position: "absolute", top: "12px", right: "16px", fontFamily: "'Cormorant Garamond', serif", fontSize: "2.6rem", fontWeight: 300, color: milestone.isCurrent ? "rgba(126,184,247,0.07)" : "rgba(75,209,217,0.06)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>{milestone.num}</div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function PhilCard({ item, index, expanded, onToggle }: { item: (typeof philosophy)[0]; index: number; expanded: boolean; onToggle: () => void }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 28 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.55, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+      onClick={onToggle}
+      style={{
+        padding: "2.8rem 2.2rem 3rem",
+        border: "0.5px solid rgba(181,212,244,0.6)",
+        background: expanded ? "rgba(255,255,255,0.98)" : "rgba(255,255,255,0.65)",
+        cursor: "pointer",
+        position: "relative",
+        overflow: "hidden",
+        transition: "background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease",
+        ...(expanded ? { boxShadow: "0 20px 50px rgba(4,44,83,0.12)", transform: "translateY(-6px)" } : {}),
+      }}
+      whileHover={{ y: -6, background: "rgba(255,255,255,0.95)", boxShadow: "0 20px 50px rgba(4,44,83,0.12)", borderColor: "rgba(56,138,221,0.35)", transition: { duration: 0.25 } }}
+    >
+      <motion.div initial={{ scaleX: 0 }} animate={expanded ? { scaleX: 1 } : { scaleX: 0 }} whileHover={{ scaleX: 1 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }} style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, #185FA5, #378ADD)", transformOrigin: "left" }} />
+      <motion.div
+        animate={expanded ? { background: "linear-gradient(135deg, #185FA5, #378ADD)", color: "#fff" } : { background: "linear-gradient(135deg, #E6F1FB, #fff)", color: "#185FA5" }}
+        whileHover={{ background: "linear-gradient(135deg, #185FA5, #378ADD)", color: "#fff" }}
+        transition={{ duration: 0.3 }}
+        style={{ width: "56px", height: "56px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1.8rem", border: "0.5px solid rgba(181,212,244,0.8)", borderRadius: "2px" }}
+      >
+        {item.icon}
+      </motion.div>
+      <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "8px", letterSpacing: "3px", textTransform: "uppercase", color: "#85B7EB", marginBottom: "10px" }}>{item.number} — Principle</div>
+      <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 300, color: "#042C53", marginBottom: "14px", lineHeight: 1.25 }}>{item.title}</div>
+      <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", lineHeight: 1.9, color: "#185FA5" }}>{item.description}</div>
+      <AnimatePresence>
+        {expanded && (
+          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }} style={{ overflow: "hidden" }}>
+            <div style={{ marginTop: "16px", paddingTop: "16px", borderTop: "0.5px solid rgba(181,212,244,0.6)", fontFamily: "'DM Mono', monospace", fontSize: "11px", lineHeight: 1.9, color: "#378ADD" }}>{item.detail}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <motion.div animate={{ opacity: expanded ? 0 : 1, x: expanded ? -6 : 0 }} whileHover={{ opacity: 1, x: 0 }} style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "20px", fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "2px", textTransform: "uppercase", color: "#378ADD" }}>
+        {expanded ? "Close" : "Explore"}
+        <motion.div animate={{ width: expanded ? "8px" : "16px" }} whileHover={{ width: "24px" }} transition={{ duration: 0.3 }} style={{ height: "1px", background: "#378ADD" }} />
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function ServiceItem({ service, index }: { service: string; index: number }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+  return (
+    <motion.div ref={ref} initial={{ opacity: 0, x: -16 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }} className="group flex items-start gap-4 py-4 border-b" style={{ borderColor: "rgba(75,209,217,0.1)", cursor: "default" }} whileHover={{ x: 6, transition: { duration: 0.2 } }}>
+      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", color: "rgba(75,209,217,0.45)", letterSpacing: "1px", flexShrink: 0, marginTop: "2px", minWidth: "28px" }}>{String(index + 1).padStart(2, "0")}</span>
+      <motion.div className="flex-1 flex items-center justify-between" whileHover={{ color: "#4bd1d9" }}>
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, transition: "color 0.2s" }} className="group-hover:text-teal-300">{service}</span>
+        <motion.div initial={{ opacity: 0, x: -4 }} whileHover={{ opacity: 1, x: 0 }} style={{ color: "#4bd1d9", flexShrink: 0, marginLeft: "12px" }}><ArrowRight size={13} /></motion.div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+export function About() {
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [selectedLeader, setSelectedLeader] = useState<(typeof leaders)[0] | null>(null);
+  const [expandedPhil, setExpandedPhil] = useState<number | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const spineRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!spineRef.current || !timelineRef.current) return;
+      const rect = timelineRef.current.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      const scrolled = Math.max(0, windowH - rect.top);
+      const total = rect.height + windowH;
+      const pct = Math.min(100, (scrolled / total) * 180);
+      spineRef.current.style.height = `${pct}%`;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const fadeInUp = { initial: { opacity: 0, y: 60 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true }, transition: { duration: 0.8, ease: "easeOut" } } as const;
+
+  return (
+    <div className="min-h-screen pt-20" style={{ overflowX: "hidden" }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap');
+        .mv-card{position:relative;overflow:hidden;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s cubic-bezier(.22,1,.36,1);}
+        .mv-card:hover{transform:translateY(-8px);box-shadow:0 32px 64px rgba(4,44,83,.2);}
+        .mv-card-bar{position:absolute;top:0;left:0;right:0;height:3px;transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.22,1,.36,1);}
+        .mv-card:hover .mv-card-bar{transform:scaleX(1);}
+        .mv-icon-box{display:flex;align-items:center;justify-content:center;transition:all .4s ease;}
+        .mv-pillar-row{display:flex;align-items:flex-start;gap:14px;padding:13px 16px;transition:background .3s ease,border-color .3s ease;cursor:default;}
+        .mv-pillar-row:hover{background:rgba(55,138,221,0.08);}
+        .mv-divider{height:1px;margin:1.5rem 0;width:56px;transition:width .4s cubic-bezier(.22,1,.36,1);}
+        .mv-card:hover .mv-divider{width:110px;}
+        .blueprint-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(24,95,165,.07) 1px,transparent 1px);background-size:22px 22px;opacity:0;pointer-events:none;transition:opacity .4s ease;}
+        .mv-card:hover .blueprint-dots{opacity:1;}
+        .corner-mark{position:absolute;width:16px;height:16px;opacity:0;transition:opacity .4s ease;}
+        .corner-tl{top:12px;left:12px;border-top:1px solid;border-left:1px solid;}
+        .corner-br{bottom:12px;right:12px;border-bottom:1px solid;border-right:1px solid;}
+        .mv-card:hover .corner-mark{opacity:1;}
+        .mv-stat-item{position:relative;padding:2.25rem 1.75rem;text-align:center;transition:background .3s ease;overflow:hidden;}
+        .mv-stat-item::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:linear-gradient(90deg,#85B7EB,#378ADD);transition:width .5s cubic-bezier(.22,1,.36,1);}
+        .mv-stat-item:hover::after{width:100%;}
+        .mv-stat-item:hover{background:rgba(255,255,255,.06);}
+        .timeline-spine{position:absolute;left:25px;top:8px;bottom:8px;width:1px;background:rgba(75,209,217,.12);z-index:1;}
+        .timeline-spine-fill{position:absolute;left:0;top:0;width:100%;background:linear-gradient(to bottom,#4bd1d9,#378ADD);height:0%;transition:height 1.6s cubic-bezier(.22,1,.36,1);}
+        .hero-section{cursor:crosshair;}
+        @keyframes scrollBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+        .scroll-bounce{animation:scrollBounce 1.8s ease-in-out infinite;}
+        .phil-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+        @media (max-width: 900px) { .phil-grid { grid-template-columns: 1fr; } }
+      `}</style>
+
+      {/* ── Hero ── */}
+      <section ref={heroRef} className="hero-section relative overflow-hidden" style={{ height: "85vh", minHeight: "600px" }}>
+        <motion.div className="absolute inset-0" style={{ y: heroY }}>
+          <ImageWithFallback src="https://images.unsplash.com/photo-1714976327524-955ff45cfec7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBmaXJtJTIwdGVhbSUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NzkyOTE5Njh8MA&ixlib=rb-4.1.0&q=80&w=1400" alt="ARCHORA — Healthcare Infrastructure" className="w-full h-full object-cover" style={{ scale: 1.1 }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(120deg, rgba(4,28,46,0.94) 0%, rgba(4,28,46,0.6) 55%, rgba(4,28,46,0.35) 100%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(4,28,46,0.7) 0%, transparent 50%)" }} />
+          <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.07) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
+        </motion.div>
+        <motion.div className="absolute" style={{ top: "18%", right: "12%", opacity: 0.12, color: "#4bd1d9" }} animate={{ rotate: 360 }} transition={{ duration: 80, repeat: Infinity, ease: "linear" }}>
+          <svg width="120" height="120" viewBox="0 0 48 48" fill="none" stroke="currentColor"><circle cx="24" cy="24" r="9" strokeWidth="0.8" /><circle cx="24" cy="24" r="18" strokeWidth="0.4" strokeDasharray="3 4" /><line x1="24" y1="0" x2="24" y2="13" strokeWidth="0.8" /><line x1="24" y1="35" x2="24" y2="48" strokeWidth="0.8" /><line x1="0" y1="24" x2="13" y2="24" strokeWidth="0.8" /><line x1="35" y1="24" x2="48" y2="24" strokeWidth="0.8" /></svg>
+        </motion.div>
+        <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 z-10">
+          <div style={{ width: "1px", height: "60px", background: "rgba(255,255,255,0.12)" }} />
+          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4bd1d9" }} />
+          <div style={{ width: "1px", height: "60px", background: "rgba(255,255,255,0.12)" }} />
+        </div>
+        <motion.div className="relative h-full max-w-7xl mx-auto px-16 flex items-center z-10" style={{ opacity: heroOpacity }}>
+          <div style={{ maxWidth: "680px" }}>
+            <motion.div className="flex items-center gap-3 mb-6" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><rect x="6.5" y="1" width="7" height="18" rx="1.5" fill="#c0392b" opacity=".85" /><rect x="1" y="6.5" width="18" height="7" rx="1.5" fill="#c0392b" opacity=".85" /></svg>
+              <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(255,255,255,0.38)" }}>Healthcare Infrastructure</span>
+            </motion.div>
+            <motion.h1 initial={{ opacity: 0, y: 36, clipPath: "inset(100% 0 0 0)" }} animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }} transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }} style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.8rem,5.5vw,4.4rem)", fontWeight: 300, color: "#fff", lineHeight: 1.06, marginBottom: "24px", letterSpacing: "-0.01em" }}>
+              We Build the Infrastructure<br /><em style={{ fontStyle: "italic", color: "#4bccd4" }}>That Heals India.</em>
+            </motion.h1>
+            <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.6 }} style={{ fontSize: "14px", color: "rgba(255,255,255,0.58)", marginBottom: "40px", lineHeight: 1.85, maxWidth: "520px", fontFamily: "'DM Mono', monospace" }}>
+              ARCHORA is India's dedicated healthcare infrastructure partner. We do not do residential. We do not do commercial. We do not do retail.{" "}
+              <strong style={{ color: "rgba(75,204,212,0.85)" }}>We do one thing. We do it completely. We do it right.</strong>
+            </motion.p>
+            <motion.div className="flex gap-4 flex-wrap" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.8 }}>
+              <button style={{ padding: "13px 30px", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Book a Free Consultation</button>
+              <button style={{ padding: "13px 30px", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.3)", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.3)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Explore Our Services →</button>
+            </motion.div>
+          </div>
+        </motion.div>
+        <motion.div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}>
+          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "8px", letterSpacing: "0.28em", color: "rgba(75,204,212,0.4)", textTransform: "uppercase" }}>Scroll</span>
+          <div className="scroll-bounce" style={{ color: "rgba(75,204,212,0.4)" }}><ChevronDown size={16} /></div>
+        </motion.div>
+      </section>
+
+      {/* ── Firm Introduction ── */}
+      <section className="py-24" style={{ background: "linear-gradient(160deg,#ffffff 0%,#e8f4fd 100%)" }}>
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <motion.div className="text-center" {...fadeInUp}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: "14px", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" }}>
+              <span style={{ display: "block", width: "28px", height: "0.5px", background: "#185FA5" }} />Who We Are<span style={{ display: "block", width: "28px", height: "0.5px", background: "#185FA5" }} />
+            </p>
+            <h2 className="text-4xl md:text-5xl mb-8" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}>India's Dedicated Healthcare Infrastructure Partner</h2>
+            <p className="text-lg leading-relaxed mb-6" style={{ color: "#0f3352", fontFamily: "'DM Mono', monospace", fontSize: "11px", lineHeight: 1.9 }}>Healthcare infrastructure in India is broken in one critical way — most hospitals are designed by general architects who understand buildings but not clinical workflows, infection control, regulatory compliance, or the lived reality of running a hospital 24 hours a day.</p>
+            <p className="text-lg leading-relaxed mb-6" style={{ color: "#0f3352", fontFamily: "'DM Mono', monospace", fontSize: "11px", lineHeight: 1.9 }}>ARCHORA was founded to fix that. We are a team of healthcare infrastructure specialists — architects, engineers, and project managers who work exclusively in healthcare. From a doctor planning a 10-bed clinic in a tier-2 city to a healthcare investor building a 500-bed multispeciality hospital campus — ARCHORA is the single-window partner that takes full responsibility for designing, building, and delivering the infrastructure.</p>
+            <motion.div className="flex flex-wrap justify-center gap-4 mt-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
+              {[["20+", "Years Collective Experience"], ["100%", "Healthcare Focus"], ["NHS-Level", "UK Expertise"], ["Pan India", "Delivery"]].map(([val, lbl]) => (
+                <motion.div key={lbl} whileHover={{ y: -3, scale: 1.02 }} transition={{ duration: 0.2 }} style={{ padding: "14px 24px", background: "rgba(4,44,83,0.06)", border: "0.5px solid rgba(24,95,165,0.2)", textAlign: "center", minWidth: "130px" }}>
+                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.6rem", fontWeight: 300, color: "#042C53", lineHeight: 1 }}>{val}</div>
+                  <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "8px", letterSpacing: "1.5px", textTransform: "uppercase", color: "#185FA5", marginTop: "5px" }}>{lbl}</div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Leadership ── */}
+      <section className="py-24 relative" style={{ background: "linear-gradient(160deg,#040e1a 0%,#071e30 60%,#04141f 100%)" }}>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style={{ width: "80vw", height: "80vw", borderRadius: "50%", background: "radial-gradient(circle, rgba(75,209,217,0.04) 0%, transparent 70%)" }} />
+        <div style={{ position: "absolute", right: "-20px", top: "50%", transform: "translateY(-50%)", fontFamily: "'Cormorant Garamond',serif", fontSize: "18vw", fontWeight: 300, color: "rgba(75,209,217,0.025)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>04</div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <motion.div className="mb-14 text-center" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "3px", textTransform: "uppercase", color: "rgba(75,209,217,0.6)", marginBottom: "12px", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" }}>
+              <span style={{ display: "block", width: "28px", height: "0.5px", background: "rgba(75,209,217,0.4)" }} />Leadership<span style={{ display: "block", width: "28px", height: "0.5px", background: "rgba(75,209,217,0.4)" }} />
+            </p>
+            <h2 className="text-4xl md:text-5xl text-white font-light" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Built by People Who Know Healthcare Infrastructure</h2>
+            <p className="mt-3 text-base max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.38)", fontFamily: "'DM Mono', monospace", fontSize: "10px", lineHeight: 1.8 }}>A founding team that has designed and delivered healthcare facilities at every scale — from primary care clinics to large NHS hospitals in the United Kingdom.</p>
+          </motion.div>
+          <div ref={scrollRef} className="flex gap-5 overflow-x-auto pb-4 justify-center" style={{ scrollbarWidth: "none", msOverflowStyle: "none", paddingLeft: 8, paddingRight: 8, paddingTop: 8 }}>
+            {leaders.map((leader) => (<LeaderCard key={leader.id} leader={leader} isActive={hoveredId === leader.id} onHover={setHoveredId} onClick={setSelectedLeader} />))}
+          </div>
+        </div>
+        {selectedLeader && <LeaderModal leader={selectedLeader} onClose={() => setSelectedLeader(null)} />}
+      </section>
+
+      {/* ── Mission & Vision ── */}
+      <section style={{ background: "linear-gradient(160deg,#ffffff 0%,#daeef9 50%,#e8f4fd 100%)", padding: "7rem 0 8rem", fontFamily: "'DM Mono', monospace" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 3.5rem" }}>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "5rem" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
+              <span style={{ display: "block", width: 40, height: "0.5px", background: "#185FA5" }} />Our Foundation<span style={{ display: "block", width: 40, height: "0.5px", background: "#185FA5" }} />
+            </p>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.8rem, 5vw, 4.2rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.08, marginBottom: 18 }}>
+              Purpose Built.{" "}<em style={{ fontStyle: "italic", color: "#185FA5" }}>Precision Driven.</em>
+            </h2>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 12, color: "#378ADD", maxWidth: 520, margin: "0 auto", lineHeight: 1.9 }}>The guiding principles behind every hospital, clinic, and care facility we design.</p>
+          </motion.div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(480px, 1fr))", gap: "2.5rem", marginBottom: "2.5rem" }}>
+            {/* Mission */}
+            <motion.div className="mv-card" initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ background: "linear-gradient(145deg,#042C53 0%,#0C447C 55%,#185FA5 100%)", borderRadius: 4, padding: "3.5rem 3rem", border: "0.5px solid rgba(133,183,235,0.2)" }}>
+              <div className="blueprint-dots" />
+              <div className="mv-card-bar" style={{ background: "linear-gradient(90deg,#85B7EB,#378ADD,#B5D4F4)" }} />
+              <div className="corner-mark corner-tl" style={{ borderColor: "rgba(133,183,235,0.5)" }} />
+              <div className="corner-mark corner-br" style={{ borderColor: "rgba(133,183,235,0.5)" }} />
+              <div className="mv-icon-box" style={{ width: "64px", height: "64px", background: "rgba(55,138,221,0.18)", border: "0.5px solid rgba(133,183,235,0.3)", borderRadius: 2, marginBottom: "2rem", color: "#B5D4F4" }}><Target size={26} /></div>
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "3px", textTransform: "uppercase", color: "#85B7EB", marginBottom: 12 }}>Our Mission</p>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.9rem, 3vw, 2.5rem)", fontWeight: 300, color: "#E6F1FB", lineHeight: 1.2, marginBottom: 6 }}>
+                To design spaces that{" "}<em style={{ fontStyle: "italic", color: "#85B7EB" }}>actively heal</em>
+              </h3>
+              <div className="mv-divider" style={{ background: "linear-gradient(90deg,#85B7EB,#378ADD,transparent)" }} />
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, lineHeight: 1.95, color: "rgba(181,212,244,0.78)", marginBottom: "2rem" }}>To give every healthcare promoter in India access to world-class infrastructure expertise — so that the facilities they build are safe, compliant, efficient, and built to last.</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {missionPillars.map((p, i) => (
+                  <div key={i} className="mv-pillar-row" style={{ border: "0.5px solid rgba(55,138,221,0.25)", borderRadius: 2 }}>
+                    <span style={{ color: "#378ADD", marginTop: 2, flexShrink: 0 }}>{p.icon}</span>
+                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "rgba(181,212,244,0.85)", lineHeight: 1.65, letterSpacing: "0.3px" }}>{p.text}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Vision */}
+            <motion.div className="mv-card" initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} style={{ background: "linear-gradient(145deg,#ffffff 0%,#E6F1FB 55%,#daeef9 100%)", borderRadius: 4, padding: "3.5rem 3rem", border: "0.5px solid #B5D4F4" }}>
+              <div className="blueprint-dots" />
+              <div className="mv-card-bar" style={{ background: "linear-gradient(90deg,#185FA5,#378ADD,#85B7EB)" }} />
+              <div className="corner-mark corner-tl" style={{ borderColor: "#85B7EB" }} />
+              <div className="corner-mark corner-br" style={{ borderColor: "#85B7EB" }} />
+              <div className="mv-icon-box" style={{ width: "64px", height: "64px", background: "linear-gradient(135deg,#E6F1FB,#B5D4F4)", border: "0.5px solid #85B7EB", borderRadius: 2, marginBottom: "2rem", color: "#185FA5" }}><Eye size={26} /></div>
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 12 }}>Our Vision</p>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.9rem, 3vw, 2.5rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.2, marginBottom: 6 }}>
+                India's most{" "}<em style={{ fontStyle: "italic", color: "#185FA5" }}>trusted</em> design partner
+              </h3>
+              <div className="mv-divider" style={{ background: "linear-gradient(90deg,#185FA5,#378ADD,transparent)" }} />
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, lineHeight: 1.95, color: "#185FA5", marginBottom: "2rem" }}>To become India's most trusted healthcare infrastructure partner — known for delivering facilities that protect patients, empower clinicians, and generate sustainable returns for promoters.</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {visionPillars.map((p, i) => (
+                  <div key={i} className="mv-pillar-row" style={{ border: "0.5px solid #B5D4F4", background: "rgba(230,241,251,0.6)", borderRadius: 2 }}>
+                    <span style={{ color: "#185FA5", marginTop: 2, flexShrink: 0 }}>{p.icon}</span>
+                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#0C447C", lineHeight: 1.65, letterSpacing: "0.3px" }}>{p.text}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Stats bar */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", background: "linear-gradient(135deg,#042C53 0%,#0C447C 50%,#185FA5 100%)", border: "0.5px solid rgba(133,183,235,0.2)", borderRadius: 2, overflow: "hidden" }}>
+            {statsData.map((s, i) => (
+              <div key={i} className="mv-stat-item" style={{ borderRight: i < statsData.length - 1 ? "0.5px solid rgba(133,183,235,0.15)" : "none" }}>
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2.6rem", fontWeight: 300, color: "#E6F1FB", lineHeight: 1, marginBottom: 8 }}>{s.value}</div>
+                <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, letterSpacing: "2px", textTransform: "uppercase", color: "#85B7EB" }}>{s.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Our Story ── */}
+      <section style={{ background: "linear-gradient(170deg, #040e1a 0%, #071e30 55%, #04141f 100%)", padding: "88px 0 100px", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "700px", height: "700px", borderRadius: "50%", background: "radial-gradient(circle, rgba(75,209,217,0.05) 0%, transparent 65%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", left: "-20px", top: "50%", transform: "translateY(-50%)", fontFamily: "'Cormorant Garamond',serif", fontSize: "18vw", fontWeight: 300, color: "rgba(75,209,217,0.025)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>03</div>
+        <div style={{ maxWidth: 640, margin: "0 auto", padding: "0 32px", position: "relative", zIndex: 1 }}>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "64px" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "4px", textTransform: "uppercase", color: "#4bd1d9", marginBottom: "12px", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" }}>
+              <span style={{ display: "block", width: "28px", height: "0.5px", background: "#4bd1d9" }} />Our Story<span style={{ display: "block", width: "28px", height: "0.5px", background: "#4bd1d9" }} />
+            </p>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.2rem, 5vw, 3.2rem)", fontWeight: 300, color: "#fff", marginBottom: "10px" }}>Our Journey</h2>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(255,255,255,0.4)", lineHeight: 1.8 }}>Milestones in healthcare architecture excellence</p>
+          </motion.div>
+          <div ref={timelineRef} style={{ position: "relative" }}>
+            <div className="timeline-spine"><div className="timeline-spine-fill" ref={spineRef} /></div>
+            {milestones.map((m, i) => (<MilestoneItem key={m.year} milestone={m} index={i} />))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Design Philosophy ── */}
+      <section style={{ background: "linear-gradient(160deg, #fff 0%, #daeef9 50%, #e8f4fd 100%)", padding: "7rem 0 8rem", overflow: "hidden" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 3.5rem" }}>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "4.5rem" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "4px", textTransform: "uppercase", color: "#185FA5", marginBottom: "14px", display: "flex", alignItems: "center", justifyContent: "center", gap: "14px" }}>
+              <span style={{ display: "block", width: "40px", height: "0.5px", background: "#185FA5" }} />Guiding Principles<span style={{ display: "block", width: "40px", height: "0.5px", background: "#185FA5" }} />
+            </p>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.4rem, 5vw, 3.6rem)", fontWeight: 300, color: "#042C53", marginBottom: "14px", lineHeight: 1.1 }}>What Makes ARCHORA Different</h2>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "12px", color: "#185FA5", maxWidth: "440px", margin: "0 auto", lineHeight: 1.9 }}>The convictions that inform every line we draw, every space we shape.</p>
+          </motion.div>
+
+          <div className="phil-grid" style={{ gap: 0 }}>
+            {philosophy.map((item, i) => (
+              <PhilCard key={item.number} item={item} index={i} expanded={expandedPhil === i} onToggle={() => setExpandedPhil(expandedPhil === i ? null : i)} />
+            ))}
+          </div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} style={{ marginTop: "2.5rem", display: "grid", gridTemplateColumns: "repeat(4,1fr)", background: "linear-gradient(135deg, #042C53 0%, #0C447C 50%, #185FA5 100%)", borderRadius: "2px", overflow: "hidden" }}>
+            {statsData.map((s, i) => (
+              <div key={i} className="mv-stat-item" style={{ borderRight: i < statsData.length - 1 ? "0.5px solid rgba(133,183,235,0.15)" : "none" }}>
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2.4rem", fontWeight: 300, color: "#E6F1FB", lineHeight: 1, marginBottom: 6 }}>{s.value}</div>
+                <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "2px", textTransform: "uppercase", color: "#85B7EB" }}>{s.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Services ── */}
+      <section style={{ background: "linear-gradient(170deg,#040e1a 0%,#071e30 55%,#04141f 100%)", padding: "88px 0", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", right: "-20px", top: "50%", transform: "translateY(-50%)", fontFamily: "'Cormorant Garamond',serif", fontSize: "18vw", fontWeight: 300, color: "rgba(75,209,217,0.025)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>02</div>
+        <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 48px", position: "relative", zIndex: 1 }}>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ marginBottom: "56px" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "4px", textTransform: "uppercase", color: "#4bd1d9", marginBottom: "12px", display: "flex", alignItems: "center", gap: "12px" }}>
+              <span style={{ display: "block", width: "28px", height: "0.5px", background: "#4bd1d9" }} />What We Do
+            </p>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 300, color: "#fff", maxWidth: "560px" }}>Everything You Need to Design, Build & Deliver</h2>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(255,255,255,.38)", marginTop: "12px", maxWidth: "480px", lineHeight: 1.8 }}>ARCHORA provides the complete range of healthcare infrastructure services — from the first feasibility study to the day you open your doors.</p>
+          </motion.div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 48px" }}>
+            {services.map((s, i) => (<ServiceItem key={s} service={s} index={i} />))}
+          </div>
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }} style={{ marginTop: "48px", display: "flex", gap: "14px" }}>
+            <button style={{ padding: "13px 28px", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Explore All Services →</button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section style={{ background: "#060f1e", padding: "120px 0", position: "relative", overflow: "hidden" }}>
+        {[800, 580, 380, 220].map((size, i) => (
+          <motion.div key={size} style={{ position: "absolute", top: "50%", left: "50%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.02 + i * 0.01})`, pointerEvents: "none" }} animate={{ rotate: i % 2 === 0 ? 360 : -360 }} transition={{ duration: 60 + i * 20, repeat: Infinity, ease: "linear" }} />
+        ))}
+        <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 48px", textAlign: "center", position: "relative", zIndex: 10 }}>
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: "28px" }}>
+              <svg width="40" height="40" viewBox="0 0 20 20" fill="none"><rect x="6.5" y="1" width="7" height="18" rx="1.5" fill="#c0392b" opacity=".7" /><rect x="1" y="6.5" width="18" height="7" rx="1.5" fill="#c0392b" opacity=".7" /></svg>
+            </div>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "4px", textTransform: "uppercase", color: "rgba(75,204,212,0.55)", marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" }}>
+              <span style={{ display: "block", width: "28px", height: "0.5px", background: "rgba(75,204,212,0.4)" }} />Get In Touch<span style={{ display: "block", width: "28px", height: "0.5px", background: "rgba(75,204,212,0.4)" }} />
+            </p>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.2rem,4.5vw,3.6rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: "22px" }}>
+              Planning a Healthcare Facility?<br /><em style={{ fontStyle: "italic", color: "#4bccd4" }}>Let's Talk.</em>
+            </h2>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(255,255,255,0.38)", marginBottom: "44px", lineHeight: 1.85, maxWidth: "500px", margin: "0 auto 44px" }}>Whether you are starting from zero or need expert support at any stage — ARCHORA is ready to help you design, build, and deliver infrastructure that works.</p>
+            <div style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap" }}>
+              <button style={{ padding: "14px 32px", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Book a Free Consultation</button>
+              <button style={{ padding: "14px 32px", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>💬 WhatsApp Us</button>
+              <button style={{ padding: "14px 32px", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Send an Enquiry →</button>
+            </div>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", color: "rgba(255,255,255,0.18)", marginTop: "28px", letterSpacing: "0.1em" }}>No obligation · No sales pressure · Honest advice from healthcare infrastructure specialists</p>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+}
