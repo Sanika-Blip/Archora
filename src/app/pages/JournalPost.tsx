@@ -49,11 +49,11 @@ const articles: Article[] = [
     author: "Team ARCHORA",
     tags: ["Biophilic Design", "NABH", "Patient Recovery", "Acoustics", "HVAC"],
     image:
-      "https://images.unsplash.com/photo-1769147555720-71fc71bfc216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBob3NwaXRhbCUyMGFyY2hpdGVjdHVyZSUyMGV4dGVyaW9yfGVufDF8fHx8MTc3OTI5MTk2Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "/images/journal/healing-by-design.jpg",
     content: [
       {
         type: "paragraph",
-        text: "The hospital you design is not just a building. It is a clinical tool. Every corridor, every window orientation, every ceiling height, every material choice — each of these decisions has a measurable impact on how quickly patients recover, how safely staff operate, and how confidently families trust your facility.",
+        text: "The hospital you design is not just a building. It is a clinical tool. Every corridor, every window orientation, every ceiling height, every material choice, each of these decisions has a measurable impact on how quickly patients recover, how safely staff operate, and how confidently families trust your facility.",
       },
       {
         type: "paragraph",
@@ -63,10 +63,10 @@ const articles: Article[] = [
         type: "paragraph",
         text: "This article explores the science, the strategy, and the specific design interventions that transform a hospital from a place of treatment into a genuine environment of healing.",
       },
-      { type: "heading2", text: "1. Natural Light & Biophilic Design — The Evidence Is Undeniable" },
+      { type: "heading2", text: "1. Natural Light & Biophilic Design: The Evidence Is Undeniable" },
       {
         type: "paragraph",
-        text: "Biophilic design — the intentional integration of natural elements into the built environment — is no longer an architectural trend. It is an evidence-based clinical strategy.",
+        text: "Biophilic design (the intentional integration of natural elements into the built environment) is no longer an architectural trend. It is an evidence-based clinical strategy.",
       },
       {
         type: "paragraph",
@@ -75,8 +75,8 @@ const articles: Article[] = [
       {
         type: "bullets",
         items: [
-          "Experience shorter hospital stays — on average 8–20% fewer inpatient days",
-          "Require less pain medication — studies show up to 22% reduction in analgesic consumption",
+          "Experience shorter hospital stays, on average 8–20% fewer inpatient days",
+          "Require less pain medication, studies show up to 22% reduction in analgesic consumption",
           "Report significantly lower anxiety and depression scores",
           "Demonstrate better sleep quality due to regulated circadian rhythms",
           "Show faster post-surgical recovery across multiple specialties",
@@ -84,7 +84,7 @@ const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "The absence of natural light, by contrast, disrupts melatonin production, increases cortisol levels, and extends recovery timelines — measurably and consistently.",
+        text: "The absence of natural light, by contrast, disrupts melatonin production, increases cortisol levels, and extends recovery timelines, measurably and consistently.",
       },
       { type: "heading3", text: "How ARCHORA designs for natural light and biophilia:" },
       {
@@ -97,11 +97,11 @@ const articles: Article[] = [
           "Glazed nurse station partitions that preserve sightlines while controlling acoustics",
         ],
       },
-      { type: "callout", text: "The goal is not aesthetics — it is measurable clinical benefit delivered through architecture." },
-      { type: "heading2", text: "2. Acoustic Design — Silence Is a Clinical Intervention" },
+      { type: "callout", text: "The goal is not aesthetics, it is measurable clinical benefit delivered through architecture." },
+      { type: "heading2", text: "2. Acoustic Design: Silence Is a Clinical Intervention" },
       {
         type: "paragraph",
-        text: "Hospital noise is one of the most underestimated threats to patient recovery. The World Health Organisation recommends hospital noise levels not exceed 35 dBA in patient rooms at night. Studies across Indian hospitals have recorded average ICU noise levels of 60–90 dBA — nearly double the safe threshold.",
+        text: "Hospital noise is one of the most underestimated threats to patient recovery. The World Health Organisation recommends hospital noise levels not exceed 35 dBA in patient rooms at night. Studies across Indian hospitals have recorded average ICU noise levels of 60–90 dBA, nearly double the safe threshold.",
       },
       {
         type: "paragraph",
@@ -112,9 +112,9 @@ const articles: Article[] = [
         items: [
           "Elevated stress hormone (cortisol) levels",
           "Increased heart rate and blood pressure",
-          "Sleep fragmentation — directly linked to slower recovery",
+          "Sleep fragmentation, directly linked to slower recovery",
           "Heightened pain sensitivity",
-          "Increased incidence of ICU delirium — particularly in elderly patients",
+          "Increased incidence of ICU delirium, particularly in elderly patients",
         ],
       },
       { type: "heading3", text: "ARCHORA's acoustic design approach:" },
@@ -124,16 +124,16 @@ const articles: Article[] = [
           "Acoustic ceiling panels in ICUs, NICUs, post-operative wards, and recovery bays",
           "Sound-absorbing flooring systems in high-traffic clinical corridors",
           "Buffer corridors and zoned nurse stations that reduce ambient clinical noise reaching patient bays",
-          "Fully sealed and insulated HVAC ducting — mechanical noise is a frequently overlooked acoustic pollutant",
+          "Fully sealed and insulated HVAC ducting, mechanical noise is a frequently overlooked acoustic pollutant",
           "Sound masking systems in sensitive zones including psychiatric wards and consultation rooms",
           "Solid-core, acoustically rated doors for single-room ICU bays and isolation rooms",
         ],
       },
       { type: "callout", text: "Acoustic comfort is not a luxury specification. In an ICU or NICU, it is a clinical requirement." },
-      { type: "heading2", text: "3. HVAC & Air Quality — Infection Control Begins With Architecture" },
+      { type: "heading2", text: "3. HVAC & Air Quality: Infection Control Begins With Architecture" },
       {
         type: "paragraph",
-        text: "Hospital-acquired infections (HAIs) affect approximately 10% of hospitalised patients globally and are among the leading causes of preventable patient harm. A significant proportion of HAIs are airborne — meaning the HVAC system in your hospital is either part of the solution or part of the problem.",
+        text: "Hospital-acquired infections (HAIs) affect approximately 10% of hospitalised patients globally and are among the leading causes of preventable patient harm. A significant proportion of HAIs are airborne, meaning the HVAC system in your hospital is either part of the solution or part of the problem.",
       },
       {
         type: "paragraph",
@@ -157,47 +157,47 @@ const articles: Article[] = [
         items: [
           "Dedicated AHUs with HEPA H13/H14 filtration for OTs, ICUs, and NICUs",
           "Correctly maintained pressure differentials between clean, semi-clean, and contaminated zones",
-          "Negative-pressure isolation rooms for infectious patients — designed in from day one",
-          "Separate exhaust systems for sterile and non-sterile zones — no cross-contamination pathways",
+          "Negative-pressure isolation rooms for infectious patients, designed in from day one",
+          "Separate exhaust systems for sterile and non-sterile zones, no cross-contamination pathways",
           "Fresh air intake ratios designed per ASHRAE 170 and NABH standards for each zone type",
           "BMS (Building Management System) integration for real-time air quality monitoring",
         ],
       },
-      { type: "heading2", text: "4. Wayfinding & Circulation — Stress-Free Navigation Is a Design Responsibility" },
+      { type: "heading2", text: "4. Wayfinding & Circulation: Stress-Free Navigation Is a Design Responsibility" },
       {
         type: "paragraph",
         text: "A patient arriving at your hospital is often anxious, unwell, or in pain. A family member accompanying them is worried. Neither should spend a single unnecessary minute lost in a confusing corridor.",
       },
       {
         type: "paragraph",
-        text: "Poor wayfinding is not just an inconvenience — it delays emergency response, increases stress, creates congestion at critical zones, and communicates institutional disorganisation to every visitor who experiences it.",
+        text: "Poor wayfinding is not just an inconvenience, it delays emergency response, increases stress, creates congestion at critical zones, and communicates institutional disorganisation to every visitor who experiences it.",
       },
       { type: "heading3", text: "ARCHORA's circulation and wayfinding design principles:" },
       {
         type: "bullets",
         items: [
-          "Spine-based and radial layouts — clear primary circulation spines with secondary branches to departments",
-          "Departmental zoning — public zones (OPD, pharmacy, billing) separated from clinical zones (ICU, OT, wards) with clear transition points",
-          "Vertical alignment — Emergency, OT, and ICU positioned for shortest possible transfer path in trauma and cardiac scenarios",
-          "Single-direction patient loops — Entry → Registration → Waiting → Consultation → Diagnostics → Pharmacy → Exit — no backtracking, no crossing of streams",
-          "Color-coded floor and corridor systems — intuitive visual navigation without reliance on reading signage",
-          "Visual anchors — artwork, lighting features, and natural elements at key decision points in circulation routes",
-          "Multilingual digital wayfinding — for hospitals serving diverse patient populations",
+          "Spine-based and radial layouts, clear primary circulation spines with secondary branches to departments",
+          "Departmental zoning, public zones (OPD, pharmacy, billing) separated from clinical zones (ICU, OT, wards) with clear transition points",
+          "Vertical alignment, Emergency, OT, and ICU positioned for shortest possible transfer path in trauma and cardiac scenarios",
+          "Single-direction patient loops, Entry → Registration → Waiting → Consultation → Diagnostics → Pharmacy → Exit, no backtracking, no crossing of streams",
+          "Color-coded floor and corridor systems, intuitive visual navigation without reliance on reading signage",
+          "Visual anchors, artwork, lighting features, and natural elements at key decision points in circulation routes",
+          "Multilingual digital wayfinding, for hospitals serving diverse patient populations",
         ],
       },
-      { type: "heading2", text: "5. Human-Centric Interiors — Materials, Finishes & the Psychology of Colour" },
+      { type: "heading2", text: "5. Human-Centric Interiors: Materials, Finishes & the Psychology of Colour" },
       {
         type: "paragraph",
-        text: "Hospital interiors must simultaneously satisfy clinical requirements — infection control, durability, ease of cleaning — and human requirements — comfort, calm, dignity, and psychological safety. These are not competing goals. With the right design approach, they reinforce each other.",
+        text: "Hospital interiors must simultaneously satisfy clinical requirements, infection control, durability, ease of cleaning, and human requirements, comfort, calm, dignity, and psychological safety. These are not competing goals. With the right design approach, they reinforce each other.",
       },
       { type: "heading3", text: "ARCHORA's material and finish specifications:" },
       {
         type: "bullets",
         items: [
-          "Anti-microbial, non-slip flooring — seamless vinyl or epoxy systems in clinical zones; slip-resistant ceramic in public areas",
-          "Seamless wall coatings — no joints, gaps, or crevices where pathogens can accumulate",
-          "Non-glare surfaces throughout — reducing visual fatigue for patients and staff on long shifts",
-          "Washable, anti-fungal paints in all clinical zones — especially OTs, ICUs, and isolation areas",
+          "Anti-microbial, non-slip flooring, seamless vinyl or epoxy systems in clinical zones; slip-resistant ceramic in public areas",
+          "Seamless wall coatings, no joints, gaps, or crevices where pathogens can accumulate",
+          "Non-glare surfaces throughout, reducing visual fatigue for patients and staff on long shifts",
+          "Washable, anti-fungal paints in all clinical zones, especially OTs, ICUs, and isolation areas",
         ],
       },
       {
@@ -215,30 +215,30 @@ const articles: Article[] = [
       { type: "heading2", text: "6. Dignity, Privacy & Psychological Safety" },
       {
         type: "paragraph",
-        text: "Healing requires dignity. A patient who feels exposed, overheard, or visually observed without consent experiences measurably higher anxiety — and anxiety directly interferes with recovery. Privacy in hospital design is not simply a curtain around a bed. It requires architectural intention.",
+        text: "Healing requires dignity. A patient who feels exposed, overheard, or visually observed without consent experiences measurably higher anxiety, and anxiety directly interferes with recovery. Privacy in hospital design is not simply a curtain around a bed. It requires architectural intention.",
       },
       {
         type: "bullets",
         items: [
           "Recessed bed zones with privacy curtains and acoustic separation in semi-private wards",
-          "Consultation rooms with door-seal acoustic insulation — conversations cannot be overheard",
+          "Consultation rooms with door-seal acoustic insulation, conversations cannot be overheard",
           "Separate entrance and circulation paths for maternity, psychiatry, and oncology wings",
-          "Family zones designed adjacent to ICU and critical care — with sightlines managed to reduce anxiety without clinical intrusion",
-          "Patient-controlled environmental features — window blinds, lighting control, temperature adjustment where possible",
+          "Family zones designed adjacent to ICU and critical care, with sightlines managed to reduce anxiety without clinical intrusion",
+          "Patient-controlled environmental features, window blinds, lighting control, temperature adjustment where possible",
         ],
       },
-      { type: "heading2", text: "7. Neuroarchitecture & Smart Hospitals — The Next Frontier" },
+      { type: "heading2", text: "7. Neuroarchitecture & Smart Hospitals: The Next Frontier" },
       {
         type: "paragraph",
-        text: "The emerging discipline of neuroarchitecture — the study of how physical spaces affect neurological function, hormone production, and psychological state — is rapidly influencing how the world's best hospitals are being designed. At ARCHORA, we are already integrating these principles into our projects.",
+        text: "The emerging discipline of neuroarchitecture (the study of how physical spaces affect neurological function, hormone production, and psychological state) is rapidly influencing how the world's best hospitals are being designed. At ARCHORA, we are already integrating these principles into our projects.",
       },
       {
         type: "bullets",
         items: [
-          "Rhythmic spatial progression in corridors and transition spaces — avoiding long, unbroken institutional hallways that increase anxiety",
-          "Visual symmetry in key clinical spaces — reducing cognitive load for patients and staff",
-          "Circadian lighting systems — tunable LED systems that shift colour temperature throughout the day, supporting natural biological rhythms",
-          "Sensory modulation — deliberate use of texture, material variation, and spatial volume changes to create a varied, human-scale environment",
+          "Rhythmic spatial progression in corridors and transition spaces, avoiding long, unbroken institutional hallways that increase anxiety",
+          "Visual symmetry in key clinical spaces, reducing cognitive load for patients and staff",
+          "Circadian lighting systems, tunable LED systems that shift colour temperature throughout the day, supporting natural biological rhythms",
+          "Sensory modulation, deliberate use of texture, material variation, and spatial volume changes to create a varied, human-scale environment",
         ],
       },
       { type: "callout", text: "Every corridor is a clinical decision. Every window is a therapeutic intervention. Every material choice is a statement of care." },
@@ -259,7 +259,7 @@ const articles: Article[] = [
           },
           {
             q: "How does ARCHORA ensure NABH compliance in hospital design?",
-            a: "ARCHORA integrates NABH compliance requirements — including infection control zoning, HVAC specifications, air change rates, pressure differentials, and material standards — into the design from day one. This eliminates costly retrofitting after construction and ensures facilities are accreditation-ready at opening.",
+            a: "ARCHORA integrates NABH compliance requirements (including infection control zoning, HVAC specifications, air change rates, pressure differentials, and material standards) into the design from day one. This eliminates costly retrofitting after construction and ensures facilities are accreditation-ready at opening.",
           },
         ],
       },
@@ -278,34 +278,34 @@ const articles: Article[] = [
     category: "Healthcare Compliance",
     title: "Hospital Licenses & Approvals in India: A Complete Design-to-Commissioning Guide (2025)",
     excerpt:
-      "From Land Use Clearance to NABH accreditation — a practitioner's guide to every regulatory approval required, and how your design decisions directly determine how smoothly you move through each stage.",
+      "From Land Use Clearance to NABH accreditation, a practitioner's guide to every regulatory approval required, and how your design decisions directly determine how smoothly you move through each stage.",
     date: "July 1, 2025",
     readTime: "9–10 min read",
     author: "Team ARCHORA",
     tags: ["NABH", "Licensing", "Compliance", "Building Approval", "Biomedical Waste"],
     image:
-      "https://images.unsplash.com/photo-1764885415760-d3d8fff41fe3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlJTIwbWVkaWNhbCUyMGNlbnRlciUyMGJ1aWxkaW5nfGVufDF8fHx8MTc3OTI5MTk2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "/images/journal/hospital-licenses-approvals.jpg",
     content: [
       {
         type: "paragraph",
-        text: "Planning a hospital in India is one of the most rewarding and one of the most complex infrastructure undertakings you can pursue. The clinical vision, the capital investment, the community need — all of it is real and significant. But between your vision and your opening day lies a regulatory pathway that most hospital promoters underestimate, and many navigate without a clear map.",
+        text: "Planning a hospital in India is one of the most rewarding and one of the most complex infrastructure undertakings you can pursue. The clinical vision, the capital investment, the community need, all of it is real and significant. But between your vision and your opening day lies a regulatory pathway that most hospital promoters underestimate, and many navigate without a clear map.",
       },
       {
         type: "paragraph",
-        text: "The result is predictable: delayed approvals, redesign costs, stalled construction, and deferred revenues. At ARCHORA, we have worked through this regulatory pathway across multiple hospital projects. This guide exists because we believe every hospital promoter deserves a clear, honest, and complete picture of what approvals are required — and critically, how your architectural and MEP design decisions directly determine how smoothly you move through each stage.",
+        text: "The result is predictable: delayed approvals, redesign costs, stalled construction, and deferred revenues. At ARCHORA, we have worked through this regulatory pathway across multiple hospital projects. This guide exists because we believe every hospital promoter deserves a clear, honest, and complete picture of what approvals are required, and critically, how your architectural and MEP design decisions directly determine how smoothly you move through each stage.",
       },
       { type: "callout", text: "This is not generic regulatory information. This is a practitioner's guide, written from the experience of designing NABH-compliant hospitals from the ground up." },
-      { type: "heading2", text: "Why Licensing Must Begin at the Design Stage — Not After It" },
+      { type: "heading2", text: "Why Licensing Must Begin at the Design Stage: Not After It" },
       {
         type: "paragraph",
-        text: "Most hospital promoters treat licensing as a post-design activity — something to address once the building is designed, or worse, once it is built. This approach is expensive, time-consuming, and frequently forces redesign of completed construction.",
+        text: "Most hospital promoters treat licensing as a post-design activity, something to address once the building is designed, or worse, once it is built. This approach is expensive, time-consuming, and frequently forces redesign of completed construction.",
       },
       {
         type: "paragraph",
-        text: "Regulatory bodies in India — from municipal corporations to the State Pollution Control Board to NABH — evaluate your facility against specific spatial, technical, and operational criteria. If your design does not meet those criteria, you redesign. If you have already built, you reconstruct.",
+        text: "Regulatory bodies in India (from municipal corporations to the State Pollution Control Board to NABH) evaluate your facility against specific spatial, technical, and operational criteria. If your design does not meet those criteria, you redesign. If you have already built, you reconstruct.",
       },
-      { type: "callout", text: "The right approach — and the ARCHORA approach — is to treat compliance as a design input, not a post-construction checklist." },
-      { type: "heading2", text: "Stage 1 — Land & Construction Approvals" },
+      { type: "callout", text: "The right approach (and the ARCHORA approach) is to treat compliance as a design input, not a post-construction checklist." },
+      { type: "heading2", text: "Stage 1: Land & Construction Approvals" },
       {
         type: "paragraph",
         text: "Before a single column is cast, your project must clear land and construction-stage regulatory requirements. These approvals establish the legal right to build and define the physical parameters of your facility.",
@@ -334,11 +334,11 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Key design parameters evaluated at this stage:",
         items: [
-          "FAR / FSI compliance — built-up area relative to plot area, as per local development control regulations",
-          "Setback compliance — front, rear, and side setbacks as per NBC and local bylaws",
-          "Parking norms — number of ECS (equivalent car spaces) per bed or built-up area",
-          "Building height — compliance with aviation authority restrictions where applicable",
-          "Access and circulation — vehicular access width, ambulance bay, separate entry-exit planning",
+          "FAR / FSI compliance, built-up area relative to plot area, as per local development control regulations",
+          "Setback compliance, front, rear, and side setbacks as per NBC and local bylaws",
+          "Parking norms, number of ECS (equivalent car spaces) per bed or built-up area",
+          "Building height, compliance with aviation authority restrictions where applicable",
+          "Access and circulation, vehicular access width, ambulance bay, separate entry-exit planning",
         ],
       },
       {
@@ -358,7 +358,7 @@ const articles: Article[] = [
         rows: [
           ["Built-up area between 20,000–1,50,000 sq.m", "State SEIAA"],
           ["Built-up area above 1,50,000 sq.m", "MoEFCC (Central)"],
-          ["Below 20,000 sq.m", "Generally exempt — confirm with state authority"],
+          ["Below 20,000 sq.m", "Generally exempt, confirm with state authority"],
         ],
       },
       {
@@ -371,19 +371,19 @@ const articles: Article[] = [
           "Green belt area requirements must be incorporated into site planning",
         ],
       },
-      { type: "heading2", text: "Stage 2 — Fire Safety & Structural Compliance" },
+      { type: "heading2", text: "Stage 2: Fire Safety & Structural Compliance" },
       { type: "heading3", text: "2A. Fire NOC (No Objection Certificate)" },
       {
         type: "paragraph",
-        text: "Certificate issued by the State Fire Department confirming that your building design and installed systems comply with fire safety standards. Governing standard: National Building Code of India (NBC) 2016, Part 4 — Fire and Life Safety.",
+        text: "Certificate issued by the State Fire Department confirming that your building design and installed systems comply with fire safety standards. Governing standard: National Building Code of India (NBC) 2016, Part 4, Fire and Life Safety.",
       },
       {
         type: "bullets",
         intro: "Key fire safety requirements for hospitals:",
         items: [
           "Escape routes: Minimum two staircases, clearly marked, unobstructed at all times",
-          "Fire compartmentalisation: Fire-rated walls and doors separating zones — especially between clinical and non-clinical areas",
-          "Detection systems: Smoke detectors in all zones — addressable fire alarm systems preferred",
+          "Fire compartmentalisation: Fire-rated walls and doors separating zones, especially between clinical and non-clinical areas",
+          "Detection systems: Smoke detectors in all zones, addressable fire alarm systems preferred",
           "Suppression systems: Sprinklers in high-risk zones; fire hydrant systems with adequate pressure and coverage",
           "Emergency lighting: Maintained luminance on all escape routes during power failure",
           "Signage: Photoluminescent exit signage throughout",
@@ -398,11 +398,11 @@ const articles: Article[] = [
           "Generator rooms and electrical panels require fire-rated separation and suppression systems",
         ],
       },
-      { type: "heading2", text: "Stage 3 — Pollution Control, Biomedical Waste & Health Safety" },
-      { type: "heading3", text: "3A. Consent to Establish (CTE) — State Pollution Control Board" },
+      { type: "heading2", text: "Stage 3: Pollution Control, Biomedical Waste & Health Safety" },
+      { type: "heading3", text: "3A. Consent to Establish (CTE), State Pollution Control Board" },
       {
         type: "paragraph",
-        text: "Approval from the State Pollution Control Board (SPCB) to establish a facility that will generate effluents or emissions — which hospitals do. This must be obtained before construction begins.",
+        text: "Approval from the State Pollution Control Board (SPCB) to establish a facility that will generate effluents or emissions, which hospitals do. This must be obtained before construction begins.",
       },
       { type: "heading3", text: "3B. Biomedical Waste Management Authorization" },
       {
@@ -419,16 +419,16 @@ const articles: Article[] = [
           ["Black", "Incineration ash, cytotoxic waste"],
         ],
       },
-      { type: "heading2", text: "Stage 4 — Electrical, MEP & Utility Compliance" },
+      { type: "heading2", text: "Stage 4: Electrical, MEP & Utility Compliance" },
       { type: "heading3", text: "4A. Electrical Safety Certificate" },
       {
         type: "bullets",
         intro: "Hospital-specific electrical requirements:",
         items: [
-          "100% backup power for ICU, OT, emergency, and critical care areas — mandatory",
-          "Essential supply circuits for life support equipment — separate from general power",
+          "100% backup power for ICU, OT, emergency, and critical care areas, mandatory",
+          "Essential supply circuits for life support equipment, separate from general power",
           "UPS with minimum 30-minute backup for critical zones",
-          "Isolation transformers for OT power supply — reduces electrical hazard risk",
+          "Isolation transformers for OT power supply, reduces electrical hazard risk",
         ],
       },
       { type: "heading3", text: "4C. Medical Gas Pipeline System (MGPS) Compliance" },
@@ -440,10 +440,10 @@ const articles: Article[] = [
           "Nitrous oxide (N₂O)",
           "Medical air (compressed)",
           "Vacuum (suction)",
-          "Carbon dioxide (CO₂) — where applicable",
+          "Carbon dioxide (CO₂), where applicable",
         ],
       },
-      { type: "heading2", text: "Stage 5 — NABH Accreditation" },
+      { type: "heading2", text: "Stage 5: NABH Accreditation" },
       {
         type: "paragraph",
         text: "NABH (National Accreditation Board for Hospitals & Healthcare Providers) accreditation is the gold standard of quality recognition for hospitals in India. While not legally mandatory in most states, it is increasingly required for empanelment with government health schemes (Ayushman Bharat, CGHS, ECHS), insurance company partnerships, medical tourism credibility, and premium patient trust.",
@@ -478,7 +478,7 @@ const articles: Article[] = [
           ["Pre-Design", "CLU / Land Use Clearance", "1–6 months"],
           ["Design Stage", "Building Plan Sanction", "1–4 months"],
           ["Design Stage", "Environmental Clearance", "3–9 months"],
-          ["Design Stage", "CTE — Pollution Control Board", "2–4 months"],
+          ["Design Stage", "CTE, Pollution Control Board", "2–4 months"],
           ["Construction", "Structural Stability Certificate", "1–2 months"],
           ["Pre-Completion", "Fire NOC", "1–3 months"],
           ["Pre-Completion", "Electrical Safety Certificate", "1–2 months"],
@@ -488,7 +488,7 @@ const articles: Article[] = [
           ["Post-Opening", "NABH Accreditation", "6–18 months"],
         ],
       },
-      { type: "callout", text: "Important: Timelines vary significantly by state, jurisdiction, and project complexity. Early engagement with regulatory authorities — and a compliance-first design approach — significantly compresses the overall timeline." },
+      { type: "callout", text: "Important: Timelines vary significantly by state, jurisdiction, and project complexity. Early engagement with regulatory authorities (and a compliance-first design approach) significantly compresses the overall timeline." },
       {
         type: "faq",
         items: [
@@ -525,13 +525,13 @@ const articles: Article[] = [
     category: "Hospital Design",
     title: "Hospital Zoning & Circulation Planning: Designing for Safety, Hygiene, and Efficiency",
     excerpt:
-      "Patients moving through the wrong corridors. Waste crossing clean zones. Sterile areas compromised by inadequate air pressure differentials. These are not hypothetical problems — they are the daily reality of hospitals designed without rigorous zoning strategy.",
+      "Patients moving through the wrong corridors. Waste crossing clean zones. Sterile areas compromised by inadequate air pressure differentials. These are not hypothetical problems, they are the daily reality of hospitals designed without rigorous zoning strategy.",
     date: "July 4, 2025",
     readTime: "8–9 min read",
     author: "Team ARCHORA",
     tags: ["Zoning", "Infection Control", "NABH", "Circulation", "Spatial Planning"],
     image:
-      "https://images.unsplash.com/photo-1779062553594-7c84878a9266?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob3NwaXRhbCUyMGNvcnJpZG9yJTIwaGFsbHdheSUyMGFyY2hpdGVjdHVyZXxlbnwxfHx8fDE3NzkyOTE5Njl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "/images/journal/hospital-zoning-circulation.jpg",
     content: [
       {
         type: "paragraph",
@@ -550,13 +550,13 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Effective zoning is simultaneously:",
         items: [
-          "A clinical tool — it protects patients and staff from cross-contamination",
-          "An operational tool — it makes staff movement and material flow efficient",
-          "A regulatory tool — it is evaluated by NABH, fire authorities, and pollution control boards during approvals",
+          "A clinical tool, it protects patients and staff from cross-contamination",
+          "An operational tool, it makes staff movement and material flow efficient",
+          "A regulatory tool, it is evaluated by NABH, fire authorities, and pollution control boards during approvals",
         ],
       },
       { type: "heading2", text: "The Four Primary Hospital Zones" },
-      { type: "heading3", text: "Zone 1 — Clean Zone (Highest Hygiene Sensitivity)" },
+      { type: "heading3", text: "Zone 1, Clean Zone (Highest Hygiene Sensitivity)" },
       {
         type: "paragraph",
         text: "Spaces included: Operating theatres, ICU, CSSD (Central Sterile Supply Department), NICU, catheterisation labs, modular OTs, sterile corridors.",
@@ -565,11 +565,11 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Defining characteristics:",
         items: [
-          "Highest air quality standards — HEPA filtration, 20+ air changes per hour",
-          "Positive pressure maintained relative to adjacent zones — prevents ingress of contaminated air",
-          "Strictly controlled access — clinical staff only, with proper scrub and PPE protocols",
-          "Seamless, anti-microbial surfaces — no joints, crevices, or porous materials",
-          "No through-traffic — these zones are destination-only, never circulation pathways",
+          "Highest air quality standards, HEPA filtration, 20+ air changes per hour",
+          "Positive pressure maintained relative to adjacent zones, prevents ingress of contaminated air",
+          "Strictly controlled access, clinical staff only, with proper scrub and PPE protocols",
+          "Seamless, anti-microbial surfaces, no joints, crevices, or porous materials",
+          "No through-traffic, these zones are destination-only, never circulation pathways",
         ],
       },
       {
@@ -577,12 +577,12 @@ const articles: Article[] = [
         intro: "Design requirements:",
         items: [
           "Anterooms and airlocks between clean zones and adjacent semi-clean zones",
-          "Separate AHU (Air Handling Unit) dedicated to each clean zone — no shared air supply",
+          "Separate AHU (Air Handling Unit) dedicated to each clean zone, no shared air supply",
           "MGPS (Medical Gas Pipeline System) outlets at every point of clinical need",
           "Nurse call systems and emergency alert integration at every station",
         ],
       },
-      { type: "heading3", text: "Zone 2 — Semi-Clean Zone (Moderate Hygiene Sensitivity)" },
+      { type: "heading3", text: "Zone 2, Semi-Clean Zone (Moderate Hygiene Sensitivity)" },
       {
         type: "paragraph",
         text: "Spaces included: OPD consultation rooms, diagnostic laboratories, radiology, pharmacy, nurse stations, patient wards, physiotherapy.",
@@ -591,13 +591,13 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Design requirements:",
         items: [
-          "Clear physical separation from clean zones — typically achieved through corridors, doors, and pressure differentials",
+          "Clear physical separation from clean zones, typically achieved through corridors, doors, and pressure differentials",
           "Adequate hand hygiene facilities at every entry and exit point",
           "Nurse station placement with direct sightlines to patient bays",
           "Separation of inpatient ward zones from OPD zones to prevent cross-flow of patients",
         ],
       },
-      { type: "heading3", text: "Zone 3 — Non-Clean / Public Zone (General Access)" },
+      { type: "heading3", text: "Zone 3, Non-Clean / Public Zone (General Access)" },
       {
         type: "paragraph",
         text: "Spaces included: Main entrance lobby, reception and registration, waiting areas, visitor seating, cafeteria, billing and administration, pharmacy counter.",
@@ -609,10 +609,10 @@ const articles: Article[] = [
           "Clear visual separation and physical distance from semi-clean and clean zones",
           "Intuitive wayfinding from entry to registration to relevant departments",
           "Security checkpoint or access transition point before entry to clinical zones",
-          "Separate toilet facilities for public — not shared with clinical staff or inpatient zones",
+          "Separate toilet facilities for public, not shared with clinical staff or inpatient zones",
         ],
       },
-      { type: "heading3", text: "Zone 4 — Dirty Zone (Waste and Soiled Materials)" },
+      { type: "heading3", text: "Zone 4, Dirty Zone (Waste and Soiled Materials)" },
       {
         type: "paragraph",
         text: "Spaces included: Biomedical waste storage, soiled linen holding, janitor rooms, sluice rooms, utility corridors, morgue.",
@@ -621,8 +621,8 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Design requirements:",
         items: [
-          "Dedicated access — waste movement routes must never cross patient or staff circulation paths",
-          "Direct connection to external waste collection point — shortest possible route",
+          "Dedicated access, waste movement routes must never cross patient or staff circulation paths",
+          "Direct connection to external waste collection point, shortest possible route",
           "Wash-down facility within the zone for cleaning waste trolleys and containers",
           "Colour-coded waste storage as per Biomedical Waste Management Rules 2016",
         ],
@@ -630,7 +630,7 @@ const articles: Article[] = [
       { type: "heading2", text: "Circulation Planning: Managing Every Flow in the Hospital" },
       {
         type: "paragraph",
-        text: "If zoning defines where each function lives, circulation planning defines how everything moves between those zones. A hospital manages multiple simultaneous flows — each with its own logic, its own risk profile, and its own spatial requirements.",
+        text: "If zoning defines where each function lives, circulation planning defines how everything moves between those zones. A hospital manages multiple simultaneous flows, each with its own logic, its own risk profile, and its own spatial requirements.",
       },
       { type: "heading3", text: "Patient Flow" },
       {
@@ -638,28 +638,28 @@ const articles: Article[] = [
         intro: "Outpatients (OPD patients):",
         items: [
           "Entry from main public entrance",
-          "Registration, waiting, consultation, diagnostics, pharmacy, exit — a sequential loop that should require no backtracking",
+          "Registration, waiting, consultation, diagnostics, pharmacy, exit, a sequential loop that should require no backtracking",
           "OPD zones must be completely separated from inpatient and critical care zones",
-          "High volume at peak times — waiting areas, corridors, and service counters must be sized accordingly",
+          "High volume at peak times, waiting areas, corridors, and service counters must be sized accordingly",
         ],
       },
       {
         type: "bullets",
         intro: "Emergency patients:",
         items: [
-          "Dedicated emergency entry — direct access from external drop-off to resuscitation and emergency bays",
+          "Dedicated emergency entry, direct access from external drop-off to resuscitation and emergency bays",
           "Must bypass all public and OPD zones entirely",
-          "Direct vertical connection to ICU, OT, and blood bank — critical for response time",
+          "Direct vertical connection to ICU, OT, and blood bank, critical for response time",
         ],
       },
       { type: "heading3", text: "Staff Flow" },
       {
         type: "bullets",
         items: [
-          "Dedicated staff entry and exit points — separate from patient and public access",
-          "Clean change rooms at the entry to sterile zones — staff change into scrubs before entering OT or ICU zones and change back before leaving",
-          "Service corridors for staff movement in clinical zones — keeping staff circulation separate from patient movement corridors",
-          "Rest areas and pantries located within staff zones — staff should not need to enter public zones during clinical duties",
+          "Dedicated staff entry and exit points, separate from patient and public access",
+          "Clean change rooms at the entry to sterile zones, staff change into scrubs before entering OT or ICU zones and change back before leaving",
+          "Service corridors for staff movement in clinical zones, keeping staff circulation separate from patient movement corridors",
+          "Rest areas and pantries located within staff zones, staff should not need to enter public zones during clinical duties",
         ],
       },
       { type: "heading3", text: "Biomedical Waste Flow" },
@@ -672,8 +672,8 @@ const articles: Article[] = [
         items: [
           "Dedicated waste holding areas at point of generation in each clinical department",
           "Colour-coded waste bins and trolleys as per BMW Rules 2016",
-          "Designated waste movement time windows — typically outside peak clinical hours",
-          "Dedicated waste lift or service corridor for vertical movement — never shared with patients, visitors, or clean materials",
+          "Designated waste movement time windows, typically outside peak clinical hours",
+          "Dedicated waste lift or service corridor for vertical movement, never shared with patients, visitors, or clean materials",
         ],
       },
       { type: "heading2", text: "Vertical and Horizontal Zoning in Multistorey Hospitals" },
@@ -690,10 +690,10 @@ const articles: Article[] = [
         type: "table",
         headers: ["Floor Level", "Recommended Functions", "Rationale"],
         rows: [
-          ["Ground Floor", "Emergency, OPD, radiology, pharmacy, admin", "Highest public access — easiest entry and exit"],
-          ["First / Second Floor", "Wards, step-down ICU, diagnostics", "Moderate access — inpatient movement"],
-          ["Upper Floors", "Main ICU, OT complex, CSSD, sterile storage", "Restricted access — controlled environment easier to maintain"],
-          ["Basement", "Laundry, engineering, biomedical waste, parking", "Service functions — no clinical activity"],
+          ["Ground Floor", "Emergency, OPD, radiology, pharmacy, admin", "Highest public access, easiest entry and exit"],
+          ["First / Second Floor", "Wards, step-down ICU, diagnostics", "Moderate access, inpatient movement"],
+          ["Upper Floors", "Main ICU, OT complex, CSSD, sterile storage", "Restricted access, controlled environment easier to maintain"],
+          ["Basement", "Laundry, engineering, biomedical waste, parking", "Service functions, no clinical activity"],
         ],
       },
       { type: "heading2", text: "Access Control and Infection Barriers" },
@@ -701,20 +701,20 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Architectural access control elements:",
         items: [
-          "Airlocks and anterooms at entries to clean zones — contamination is managed in the transition space before entering the sterile environment",
-          "Vision panels in zone entry doors — allowing staff to check for clearance before entering",
-          "Sensor-operated or foot-operated doors in high-traffic clinical zones — minimising touch surfaces",
-          "Keycard or badge access to restricted zones — ICU, OT, CSSD, pharmacy stores",
+          "Airlocks and anterooms at entries to clean zones, contamination is managed in the transition space before entering the sterile environment",
+          "Vision panels in zone entry doors, allowing staff to check for clearance before entering",
+          "Sensor-operated or foot-operated doors in high-traffic clinical zones, minimising touch surfaces",
+          "Keycard or badge access to restricted zones, ICU, OT, CSSD, pharmacy stores",
         ],
       },
       {
         type: "bullets",
         intro: "HVAC as an access control tool:",
         items: [
-          "Positive pressure in clean zones pushes air outward — preventing contaminated air from entering",
-          "Negative pressure in dirty zones pulls air inward — preventing contaminated air from escaping",
-          "Each zone served by a dedicated AHU — no shared air supply between clean and non-clean zones",
-          "Pressure differential monitoring — BMS alerts if pressure relationships are compromised",
+          "Positive pressure in clean zones pushes air outward, preventing contaminated air from entering",
+          "Negative pressure in dirty zones pulls air inward, preventing contaminated air from escaping",
+          "Each zone served by a dedicated AHU, no shared air supply between clean and non-clean zones",
+          "Pressure differential monitoring, BMS alerts if pressure relationships are compromised",
         ],
       },
       { type: "callout", text: "At ARCHORA, zoning is not something we add to a design. It is the starting point of every design. The result is a hospital that works as well on day 3,650 of operation as it does on day one." },
@@ -727,7 +727,7 @@ const articles: Article[] = [
           },
           {
             q: "What are the four zones in hospital design?",
-            a: "The four primary zones are: the clean zone (OT, ICU, CSSD — highest hygiene sensitivity), the semi-clean zone (OPD, wards, diagnostics — moderate hygiene sensitivity), the non-clean or public zone (reception, waiting, administration — general access), and the dirty zone (biomedical waste, soiled linen, utility — highest contamination risk).",
+            a: "The four primary zones are: the clean zone (OT, ICU, CSSD, highest hygiene sensitivity), the semi-clean zone (OPD, wards, diagnostics, moderate hygiene sensitivity), the non-clean or public zone (reception, waiting, administration, general access), and the dirty zone (biomedical waste, soiled linen, utility, highest contamination risk).",
           },
           {
             q: "How does hospital circulation planning affect infection control?",
@@ -746,7 +746,7 @@ const articles: Article[] = [
       {
         type: "cta",
         heading: "Ready to Plan Your Hospital the Right Way?",
-        body: "ARCHORA's team can develop a zoning and circulation strategy that is clinically intelligent, compliance-ready, and operationally efficient — whether you are planning a greenfield hospital, expanding an existing facility, or redesigning a clinical area.",
+        body: "ARCHORA's team can develop a zoning and circulation strategy that is clinically intelligent, compliance-ready, and operationally efficient, whether you are planning a greenfield hospital, expanding an existing facility, or redesigning a clinical area.",
       },
     ],
   },
@@ -758,13 +758,13 @@ const articles: Article[] = [
     category: "Modular OT",
     title: "How to Design a Modular OT That Meets NABH Standards: Complete Guide (2025)",
     excerpt:
-      "The operating theatre is the most demanding space in any hospital. A well-designed modular OT makes doing the right thing easy — the right air pressure differentials, zoning, surface finishes, and MEP integration, all working invisibly.",
+      "The operating theatre is the most demanding space in any hospital. A well-designed modular OT makes doing the right thing easy, the right air pressure differentials, zoning, surface finishes, and MEP integration, all working invisibly.",
     date: "July 11, 2025",
     readTime: "9–10 min read",
     author: "Team ARCHORA",
     tags: ["Modular OT", "Laminar Airflow", "HVAC", "NABH", "MEP"],
     image:
-      "https://images.unsplash.com/photo-1778151270757-f3793f65e2de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob3NwaXRhbCUyMElDVSUyMG1lZGljYWwlMjBlcXVpcG1lbnR8ZW58MXx8fHwxNzc5MjkxOTY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "/images/journal/modular-ot-design.jpg",
     content: [
       {
         type: "paragraph",
@@ -776,12 +776,12 @@ const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "A well-designed modular OT, on the other hand, does something remarkable: it makes doing the right thing easy. The right air pressure differentials, the right zoning, the right surface finishes, the right MEP integration — all of it working together to create an environment where surgical teams can focus entirely on patient care because the infrastructure is doing its job invisibly and reliably.",
+        text: "A well-designed modular OT, on the other hand, does something remarkable: it makes doing the right thing easy. The right air pressure differentials, the right zoning, the right surface finishes, the right MEP integration, all of it working together to create an environment where surgical teams can focus entirely on patient care because the infrastructure is doing its job invisibly and reliably.",
       },
       { type: "heading2", text: "Why Modular OTs Have Become the Standard in Indian Healthcare" },
       {
         type: "paragraph",
-        text: "Traditional OT construction — brick, plaster, paint — was the norm in Indian hospitals for decades. It is now widely recognised as inadequate for modern infection control standards.",
+        text: "Traditional OT construction (brick, plaster, paint) was the norm in Indian hospitals for decades. It is now widely recognised as inadequate for modern infection control standards.",
       },
       {
         type: "bullets",
@@ -813,10 +813,10 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Key zoning design requirements:",
         items: [
-          "Physical separation between zones — not just signage, but architectural barriers with controlled transition points",
-          "One-directional patient flow — patient enters from non-sterile zone, moves to semi-sterile for preparation, enters sterile zone for surgery, exits to recovery in semi-sterile zone",
-          "Instrument flow must mirror this logic — clean instruments enter through a sterile pass-through, used instruments exit through a separate soiled pass-through",
-          "Staff changing area at the boundary of the non-sterile and semi-sterile zones — surgical scrubs changed before entry",
+          "Physical separation between zones, not just signage, but architectural barriers with controlled transition points",
+          "One-directional patient flow, patient enters from non-sterile zone, moves to semi-sterile for preparation, enters sterile zone for surgery, exits to recovery in semi-sterile zone",
+          "Instrument flow must mirror this logic, clean instruments enter through a sterile pass-through, used instruments exit through a separate soiled pass-through",
+          "Staff changing area at the boundary of the non-sterile and semi-sterile zones, surgical scrubs changed before entry",
         ],
       },
       { type: "heading3", text: "Air Quality and Pressure Differential Requirements" },
@@ -827,8 +827,8 @@ const articles: Article[] = [
       {
         type: "bullets",
         items: [
-          "Laminar airflow (LAF) in the sterile zone: Ultra-low turbulence, unidirectional airflow directed downward over the surgical field — typically delivered through a ceiling-mounted LAF canopy directly above the operating table",
-          "HEPA filtration: Minimum H13 or H14 HEPA filters in the AHU serving the OT — capturing 99.95% or greater of airborne particulates at 0.3 microns",
+          "Laminar airflow (LAF) in the sterile zone: Ultra-low turbulence, unidirectional airflow directed downward over the surgical field, typically delivered through a ceiling-mounted LAF canopy directly above the operating table",
+          "HEPA filtration: Minimum H13 or H14 HEPA filters in the AHU serving the OT, capturing 99.95% or greater of airborne particulates at 0.3 microns",
           "Air changes per hour (ACH): Minimum 20 ACH in the OT room, with some standards specifying 25 ACH or higher for specialised procedures",
           "Positive pressure gradient: The sterile zone must be maintained at higher air pressure than the semi-sterile zone, which must be at higher pressure than the non-sterile zone",
           "Temperature and humidity control: OT temperature maintained at 18–22°C, relative humidity at 40–60%, consistently",
@@ -848,27 +848,27 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Walls:",
         items: [
-          "Smooth, non-porous, impervious surface — no paint on plaster (paint cracks, plaster absorbs moisture)",
-          "Anti-bacterial and anti-fungal properties — inherent to material, not just surface coating",
-          "Seamless panel-to-panel joints — or sealed with an approved medical-grade sealant",
-          "Curved internal corners — no sharp 90-degree wall-to-wall joints where contamination accumulates",
+          "Smooth, non-porous, impervious surface, no paint on plaster (paint cracks, plaster absorbs moisture)",
+          "Anti-bacterial and anti-fungal properties, inherent to material, not just surface coating",
+          "Seamless panel-to-panel joints, or sealed with an approved medical-grade sealant",
+          "Curved internal corners, no sharp 90-degree wall-to-wall joints where contamination accumulates",
         ],
       },
       {
         type: "bullets",
         intro: "Flooring:",
         items: [
-          "Conductive vinyl or static-dissipative vinyl — reduces electrostatic charge that can affect monitoring equipment",
-          "Continuous sheet installation — welded seams, no joins or gaps",
-          "Coving at wall-floor junction — minimum 50mm radius cove, eliminating the wall-floor corner entirely",
+          "Conductive vinyl or static-dissipative vinyl, reduces electrostatic charge that can affect monitoring equipment",
+          "Continuous sheet installation, welded seams, no joins or gaps",
+          "Coving at wall-floor junction, minimum 50mm radius cove, eliminating the wall-floor corner entirely",
         ],
       },
       {
         type: "bullets",
         intro: "Ceiling:",
         items: [
-          "Flush-fitted, sealed panels — no exposed ceiling tiles, no gaps around fixtures",
-          "Integrated LAF canopy — engineered as part of the ceiling system, not retrofitted",
+          "Flush-fitted, sealed panels, no exposed ceiling tiles, no gaps around fixtures",
+          "Integrated LAF canopy, engineered as part of the ceiling system, not retrofitted",
           "All ceiling penetrations (lights, sensors, sprinklers, pendants) fully sealed",
         ],
       },
@@ -888,7 +888,7 @@ const articles: Article[] = [
       {
         type: "bullets",
         items: [
-          "Stainless steel (SS 304 or SS 316): Highest durability, best chemical resistance, easiest to disinfect, longest lifespan — premium specification",
+          "Stainless steel (SS 304 or SS 316): Highest durability, best chemical resistance, easiest to disinfect, longest lifespan, premium specification",
           "GI with anti-bacterial powder coating: Cost-effective, good performance, widely used in Indian hospital OTs",
           "HPL (High Pressure Laminate): Excellent aesthetic options, good cleanability, slightly lower chemical resistance than stainless steel",
           "Aluminium composite with anti-bacterial coating: Lightweight, corrosion-resistant, cost-effective for lower-intensity environments",
@@ -900,11 +900,11 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Air Handling Unit (AHU):",
         items: [
-          "Dedicated AHU for each OT room — no shared air supply",
+          "Dedicated AHU for each OT room, no shared air supply",
           "Pre-filter, medium filter, and HEPA filter stages in series",
           "Chilled water cooling coil with precise temperature control",
           "Humidification and dehumidification capability",
-          "100% fresh air supply — no recirculation from OT exhaust",
+          "100% fresh air supply, no recirculation from OT exhaust",
         ],
       },
       {
@@ -914,7 +914,7 @@ const articles: Article[] = [
           "Ceiling-mounted, directly above the operating table",
           "Typically 2400mm x 1800mm or larger depending on OT room size",
           "Delivers ultra-low turbulence, unidirectional downward airflow over the surgical field",
-          "HEPA-filtered air at the point of delivery — terminal HEPA filtration",
+          "HEPA-filtered air at the point of delivery, terminal HEPA filtration",
         ],
       },
       { type: "heading3", text: "Medical Gas Pipeline System (MGPS)" },
@@ -926,7 +926,7 @@ const articles: Article[] = [
           "Nitrous oxide (N₂O)",
           "Medical air (compressed, oil-free)",
           "Vacuum (suction)",
-          "Anaesthetic gas scavenging system (AGSS) — for safe removal of exhaled anaesthetic gases",
+          "Anaesthetic gas scavenging system (AGSS), for safe removal of exhaled anaesthetic gases",
         ],
       },
       { type: "heading2", text: "Infection Control: Designing Sterility Into the System" },
@@ -934,9 +934,9 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Architectural infection control measures:",
         items: [
-          "Pass-through boxes (pass boxes): Double-door, interlocked transfer hatches at the sterile zone boundary — allow sterile instruments in and used instruments out without opening the OT door. Mechanical interlock ensures only one door can open at a time.",
-          "Scrub sink design: Elbow-operated or sensor-operated taps — no hand contact with tap handles after scrubbing. Minimum two scrub positions per OT. Positioned in the semi-sterile zone immediately outside the OT room entry.",
-          "Hermetically sealed doors: Slide-operated, automatically sealing against the door frame when closed — no air gap around the door perimeter. Foot pedal or sensor operation eliminates door-handle touch points.",
+          "Pass-through boxes (pass boxes): Double-door, interlocked transfer hatches at the sterile zone boundary, allow sterile instruments in and used instruments out without opening the OT door. Mechanical interlock ensures only one door can open at a time.",
+          "Scrub sink design: Elbow-operated or sensor-operated taps, no hand contact with tap handles after scrubbing. Minimum two scrub positions per OT. Positioned in the semi-sterile zone immediately outside the OT room entry.",
+          "Hermetically sealed doors: Slide-operated, automatically sealing against the door frame when closed, no air gap around the door perimeter. Foot pedal or sensor operation eliminates door-handle touch points.",
           "No unnecessary penetrations: Every cable, pipe, or duct penetration through an OT panel must be sealed with approved medical-grade sealant.",
         ],
       },
@@ -946,12 +946,12 @@ const articles: Article[] = [
         intro: "Our process:",
         items: [
           "Clinical brief: We work with the surgical team and hospital management to understand the specialties to be served, the case mix, the projected surgical volume, and any specific equipment or workflow requirements",
-          "OT zoning and layout design: Sterile, semi-sterile, and non-sterile zones are defined and spatially resolved — patient flow, instrument flow, staff flow, and waste flow all mapped before any panel is specified",
-          "MEP coordination: HVAC, electrical, MGPS, and pendant design are developed in parallel with the architectural design — not sequentially",
+          "OT zoning and layout design: Sterile, semi-sterile, and non-sterile zones are defined and spatially resolved, patient flow, instrument flow, staff flow, and waste flow all mapped before any panel is specified",
+          "MEP coordination: HVAC, electrical, MGPS, and pendant design are developed in parallel with the architectural design, not sequentially",
           "Panel system specification: Panel type, core material, facing material, coving system, door specifications, pass-box positions, and all penetrations are specified and coordinated with the panel manufacturer",
-          "NABH pre-compliance review: Before finalising the design, we review it against NABH OT standards — identifying and resolving any compliance gaps before construction begins",
-          "Installation and commissioning: Our team supervises installation, coordinates MEP integration, and conducts pre-commissioning testing of all systems — including air balance, pressure differential verification, filter testing, and electrical safety testing",
-          "Documentation: We prepare the technical documentation package required for NABH submission — including OT layout drawings, HVAC design documents, MEP specifications, and material specifications",
+          "NABH pre-compliance review: Before finalising the design, we review it against NABH OT standards, identifying and resolving any compliance gaps before construction begins",
+          "Installation and commissioning: Our team supervises installation, coordinates MEP integration, and conducts pre-commissioning testing of all systems, including air balance, pressure differential verification, filter testing, and electrical safety testing",
+          "Documentation: We prepare the technical documentation package required for NABH submission, including OT layout drawings, HVAC design documents, MEP specifications, and material specifications",
         ],
       },
       {
@@ -994,13 +994,13 @@ const articles: Article[] = [
     category: "Modular OT",
     title: "Digitally Integrated OTs: What Modern Surgeons Expect & How to Design for It",
     excerpt:
-      "Modern surgeons work within a digital ecosystem. An OT that cannot support real-time imaging, electronic records, smart environmental controls, and seamless communication is not just inconvenient — it is a clinical liability.",
+      "Modern surgeons work within a digital ecosystem. An OT that cannot support real-time imaging, electronic records, smart environmental controls, and seamless communication is not just inconvenient, it is a clinical liability.",
     date: "July 18, 2025",
     readTime: "9–10 min read",
     author: "Team ARCHORA",
     tags: ["Smart OT", "PACS Integration", "Digital OT", "NABH", "MEP"],
     image:
-      "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "/images/journal/digitally-integrated-ot.jpg",
     content: [
       {
         type: "paragraph",
@@ -1012,11 +1012,11 @@ const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "Modern surgeons work within a digital ecosystem. They depend on real-time imaging, live data feeds, electronic records, advanced navigation systems, and seamless communication — not as supplementary conveniences, but as clinical necessities. An OT that cannot support this digital workflow is not just inconvenient. It is a clinical liability.",
+        text: "Modern surgeons work within a digital ecosystem. They depend on real-time imaging, live data feeds, electronic records, advanced navigation systems, and seamless communication, not as supplementary conveniences, but as clinical necessities. An OT that cannot support this digital workflow is not just inconvenient. It is a clinical liability.",
       },
       {
         type: "paragraph",
-        text: "For hospital promoters, administrators, and planners in India, understanding what digital integration in an OT actually means — and designing for it from the first day of planning — is one of the most consequential decisions in a hospital project.",
+        text: "For hospital promoters, administrators, and planners in India, understanding what digital integration in an OT actually means (and designing for it from the first day of planning) is one of the most consequential decisions in a hospital project.",
       },
       { type: "heading2", text: "What Is a Digitally Integrated OT?" },
       {
@@ -1025,33 +1025,33 @@ const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "The distinction from a conventionally equipped OT is not simply the presence of more technology. It is the integration of that technology. In a conventional OT, a surgeon might have access to a C-arm, a laparoscopic stack, a patient monitoring system, and an anaesthesia workstation — but each operates independently, displays on its own screen, and requires separate interaction.",
+        text: "The distinction from a conventionally equipped OT is not simply the presence of more technology. It is the integration of that technology. In a conventional OT, a surgeon might have access to a C-arm, a laparoscopic stack, a patient monitoring system, and an anaesthesia workstation, but each operates independently, displays on its own screen, and requires separate interaction.",
       },
       {
         type: "paragraph",
-        text: "In a digitally integrated OT, these systems communicate with each other and with a central interface. Imaging data, patient records, monitoring parameters, environmental controls, and communication systems are accessible from a single control point — typically the OT pendant, a ceiling-mounted touch panel, or a voice-activated control system. The surgical team manages the environment and accesses clinical information without breaking sterility, without moving away from the operative field, and without the cognitive load of managing multiple disconnected systems.",
+        text: "In a digitally integrated OT, these systems communicate with each other and with a central interface. Imaging data, patient records, monitoring parameters, environmental controls, and communication systems are accessible from a single control point, typically the OT pendant, a ceiling-mounted touch panel, or a voice-activated control system. The surgical team manages the environment and accesses clinical information without breaking sterility, without moving away from the operative field, and without the cognitive load of managing multiple disconnected systems.",
       },
       { type: "callout", text: "This is not a future concept. It is the current standard in leading hospitals across India and globally, and it is what surgeons trained in modern environments expect when they join or consult for a facility." },
       { type: "heading2", text: "What Modern Surgeons Actually Expect: A Clinical Perspective" },
       { type: "heading3", text: "Real-Time Imaging Access at the Operative Field" },
       {
         type: "paragraph",
-        text: "During surgery, the ability to view patient imaging without interrupting the procedure is not a convenience — it is a safety requirement. Surgeons need to reference pre-operative CT scans, MRI studies, and X-rays during the procedure. In complex cases, they need live intraoperative imaging continuously visible without requiring anyone to leave the sterile field.",
+        text: "During surgery, the ability to view patient imaging without interrupting the procedure is not a convenience, it is a safety requirement. Surgeons need to reference pre-operative CT scans, MRI studies, and X-rays during the procedure. In complex cases, they need live intraoperative imaging continuously visible without requiring anyone to leave the sterile field.",
       },
       {
         type: "bullets",
         intro: "What this requires from OT design:",
         items: [
           "Large-format displays (minimum 55-inch, 4K resolution) mounted on articulated ceiling arms or flush-integrated into OT wall panels at surgeon-eye-level",
-          "PACS (Picture Archiving and Communication System) integration — allowing pre-operative imaging to be pulled up on OT displays directly from the hospital's radiology information system",
-          "Video routing system — allowing any video source (laparoscopic camera, C-arm feed, patient monitor, navigation system) to be directed to any display in the OT at the surgeon's command",
-          "Cable-free display connections where possible — reducing clutter and maintaining clean sightlines in the sterile field",
+          "PACS (Picture Archiving and Communication System) integration, allowing pre-operative imaging to be pulled up on OT displays directly from the hospital's radiology information system",
+          "Video routing system, allowing any video source (laparoscopic camera, C-arm feed, patient monitor, navigation system) to be directed to any display in the OT at the surgeon's command",
+          "Cable-free display connections where possible, reducing clutter and maintaining clean sightlines in the sterile field",
         ],
       },
       { type: "heading3", text: "Electronic Health Record (EHR) Access Without Leaving the Sterile Zone" },
       {
         type: "paragraph",
-        text: "Surgeons need access to the patient's clinical record during surgery — current medications, known allergies, pre-operative investigations, anaesthesia notes, and consent documentation. In a non-integrated OT, this requires someone to leave the sterile zone. In an integrated OT, this data is available on a display within the sterile field, accessible through a sterile touch panel or voice command.",
+        text: "Surgeons need access to the patient's clinical record during surgery, current medications, known allergies, pre-operative investigations, anaesthesia notes, and consent documentation. In a non-integrated OT, this requires someone to leave the sterile zone. In an integrated OT, this data is available on a display within the sterile field, accessible through a sterile touch panel or voice command.",
       },
       {
         type: "bullets",
@@ -1071,11 +1071,11 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Controls that should be accessible from within the sterile field:",
         items: [
-          "Surgical light intensity and colour temperature — adjustable in real time during the procedure as tissue conditions change",
-          "Ambient lighting levels — dimming for video-assisted procedures, full illumination for open surgery",
-          "OT room temperature — surgeon comfort during long procedures has a direct impact on performance",
-          "Laminar airflow status and alerts — immediate awareness if HVAC parameters move outside range",
-          "Door control — ability to lock or unlock the OT door remotely to manage traffic during critical procedure phases",
+          "Surgical light intensity and colour temperature, adjustable in real time during the procedure as tissue conditions change",
+          "Ambient lighting levels, dimming for video-assisted procedures, full illumination for open surgery",
+          "OT room temperature, surgeon comfort during long procedures has a direct impact on performance",
+          "Laminar airflow status and alerts, immediate awareness if HVAC parameters move outside range",
+          "Door control, ability to lock or unlock the OT door remotely to manage traffic during critical procedure phases",
         ],
       },
       { type: "heading3", text: "Integrated Communication Systems" },
@@ -1083,9 +1083,9 @@ const articles: Article[] = [
         type: "bullets",
         intro: "What integrated OT communication requires:",
         items: [
-          "Internal intercom: Two-way, hands-free communication between the OT room, scrub area, anaesthesia bay, recovery room, and central nursing station — accessible from a fixed panel within the sterile zone",
-          "Telemedicine link: Encrypted video conferencing capability allowing remote consultation with specialists — useful for complex cases, second opinions, and centres where specialist availability is limited",
-          "Surgical recording and streaming: High-definition cameras recording the operative field for documentation, medico-legal purposes, and teaching — with the ability to stream live to adjacent lecture facilities or remote locations",
+          "Internal intercom: Two-way, hands-free communication between the OT room, scrub area, anaesthesia bay, recovery room, and central nursing station, accessible from a fixed panel within the sterile zone",
+          "Telemedicine link: Encrypted video conferencing capability allowing remote consultation with specialists, useful for complex cases, second opinions, and centres where specialist availability is limited",
+          "Surgical recording and streaming: High-definition cameras recording the operative field for documentation, medico-legal purposes, and teaching, with the ability to stream live to adjacent lecture facilities or remote locations",
           "Integration with pathology and blood bank: Direct communication links to pathology for intraoperative frozen section results and to the blood bank for urgent blood product requests",
         ],
       },
@@ -1094,11 +1094,11 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Touchless features that modern surgeons expect:",
         items: [
-          "Sensor-operated OT doors — hands-free entry and exit, maintaining sterility and reducing air turbulence from door movement",
-          "Sensor-operated scrub sinks — elbow, knee, or sensor-operated taps with pre-programmed scrub cycle timers",
-          "Voice-activated or foot-pedal controls — for functions that cannot be handled by a scrub nurse, allowing the surgeon to issue commands without hand contact",
-          "Automated lighting response — ambient lighting adjusting to procedure type, with preset configurations for open surgery, laparoscopic procedures, and room preparation",
-          "Automated documentation triggers — recording start/stop, case time logging, and equipment usage data captured automatically without manual input",
+          "Sensor-operated OT doors, hands-free entry and exit, maintaining sterility and reducing air turbulence from door movement",
+          "Sensor-operated scrub sinks, elbow, knee, or sensor-operated taps with pre-programmed scrub cycle timers",
+          "Voice-activated or foot-pedal controls, for functions that cannot be handled by a scrub nurse, allowing the surgeon to issue commands without hand contact",
+          "Automated lighting response, ambient lighting adjusting to procedure type, with preset configurations for open surgery, laparoscopic procedures, and room preparation",
+          "Automated documentation triggers, recording start/stop, case time logging, and equipment usage data captured automatically without manual input",
         ],
       },
       { type: "heading2", text: "Architectural Design for Digital Integration: What Changes" },
@@ -1106,17 +1106,17 @@ const articles: Article[] = [
       { type: "heading3", text: "Ceiling and Boom System Design" },
       {
         type: "paragraph",
-        text: "The ceiling of a digitally integrated OT is a highly engineered assembly. It must simultaneously house the LAF canopy and its HVAC supply infrastructure, ceiling-mounted equipment pendants or boom arms, surgical lighting pendant, camera systems for recording and telemedicine, display monitors on articulated arms, flush-fitted sealed downlights, intercom and PA system speakers, and fire suppression systems — all coordinated to avoid conflicts, maintain clearance above the operative field, and allow the ceiling to be cleaned.",
+        text: "The ceiling of a digitally integrated OT is a highly engineered assembly. It must simultaneously house the LAF canopy and its HVAC supply infrastructure, ceiling-mounted equipment pendants or boom arms, surgical lighting pendant, camera systems for recording and telemedicine, display monitors on articulated arms, flush-fitted sealed downlights, intercom and PA system speakers, and fire suppression systems, all coordinated to avoid conflicts, maintain clearance above the operative field, and allow the ceiling to be cleaned.",
       },
       { type: "heading3", text: "Data and Network Infrastructure" },
       {
         type: "bullets",
         intro: "Key requirements:",
         items: [
-          "Dedicated network infrastructure for the OT — not shared with general hospital network traffic. Clinical imaging data, surgical video streams, and patient monitoring data require high bandwidth and low latency.",
-          "Wired backbone with wireless supplement — wired connections for fixed systems (PACS terminals, OT control panel, recording systems), wireless capability for mobile devices and supplementary systems",
-          "All conduit and cable routing through panel systems with sealed penetrations — no surface-mounted cable trays in the sterile zone",
-          "Network security — OT network segmented from general hospital network to protect patient data and prevent interference with clinical systems",
+          "Dedicated network infrastructure for the OT, not shared with general hospital network traffic. Clinical imaging data, surgical video streams, and patient monitoring data require high bandwidth and low latency.",
+          "Wired backbone with wireless supplement, wired connections for fixed systems (PACS terminals, OT control panel, recording systems), wireless capability for mobile devices and supplementary systems",
+          "All conduit and cable routing through panel systems with sealed penetrations, no surface-mounted cable trays in the sterile zone",
+          "Network security, OT network segmented from general hospital network to protect patient data and prevent interference with clinical systems",
         ],
       },
       { type: "heading3", text: "Display Integration and Mounting" },
@@ -1124,10 +1124,10 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Design principles:",
         items: [
-          "Primary surgical displays positioned within the surgeon's natural line of sight — typically at the foot of the operating table or on articulated ceiling arms",
-          "Anaesthesia display integrated into the anaesthesia workstation and pendant — not requiring the anaesthetist to turn away from the patient",
-          "Secondary displays for imaging reference, communication, and recording status — positioned at the periphery of the OT room, visible to the broader surgical team",
-          "All displays flush-mounted or on sealed articulated arms — no surface-mounted display brackets that create cleaning obstacles",
+          "Primary surgical displays positioned within the surgeon's natural line of sight, typically at the foot of the operating table or on articulated ceiling arms",
+          "Anaesthesia display integrated into the anaesthesia workstation and pendant, not requiring the anaesthetist to turn away from the patient",
+          "Secondary displays for imaging reference, communication, and recording status, positioned at the periphery of the OT room, visible to the broader surgical team",
+          "All displays flush-mounted or on sealed articulated arms, no surface-mounted display brackets that create cleaning obstacles",
         ],
       },
       { type: "heading3", text: "Modular Panel System Adaptability" },
@@ -1135,10 +1135,10 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Design requirements for future adaptability:",
         items: [
-          "Oversized conduit runs — install conduit with capacity beyond current requirements, allowing future cable additions without panel modification",
-          "Modular data outlet plates in panels — designed to be replaced without removing panels",
-          "Accessible service void above ceiling panels — allowing new services to be added from above without disturbing the clinical environment below",
-          "Documented as-built drawings for all concealed services — essential for future maintenance and upgrades",
+          "Oversized conduit runs, install conduit with capacity beyond current requirements, allowing future cable additions without panel modification",
+          "Modular data outlet plates in panels, designed to be replaced without removing panels",
+          "Accessible service void above ceiling panels, allowing new services to be added from above without disturbing the clinical environment below",
+          "Documented as-built drawings for all concealed services, essential for future maintenance and upgrades",
         ],
       },
       { type: "heading2", text: "MEP Coordination for Digital OT Integration" },
@@ -1147,10 +1147,10 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Key electrical design requirements:",
         items: [
-          "Increased circuit capacity — imaging systems, recording servers, display arrays, and smart control systems add significant load beyond a conventional OT electrical specification",
-          "Dedicated UPS for digital systems — in addition to the life-support UPS, a separate UPS for IT and imaging infrastructure ensures that digital systems remain available during power transitions",
-          "Clean power supply — voltage regulation and harmonic filtering to protect sensitive digital equipment from power quality issues",
-          "Adequate cooling for AV and IT rack equipment — server racks and AV distribution equipment generate heat that must be managed within the OT environment",
+          "Increased circuit capacity, imaging systems, recording servers, display arrays, and smart control systems add significant load beyond a conventional OT electrical specification",
+          "Dedicated UPS for digital systems, in addition to the life-support UPS, a separate UPS for IT and imaging infrastructure ensures that digital systems remain available during power transitions",
+          "Clean power supply, voltage regulation and harmonic filtering to protect sensitive digital equipment from power quality issues",
+          "Adequate cooling for AV and IT rack equipment, server racks and AV distribution equipment generate heat that must be managed within the OT environment",
         ],
       },
       { type: "heading3", text: "Electromagnetic Compatibility (EMC)" },
@@ -1158,10 +1158,10 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Design requirements:",
         items: [
-          "Shielded cable specification for sensitive signal cables — particularly for imaging and monitoring systems",
-          "Separation of power and signal cable runs — parallel routing of power cables alongside signal cables induces interference",
-          "Earthing and bonding design reviewed by an EMC specialist — particularly for imaging rooms with C-arm or fluoroscopy equipment",
-          "Equipment compatibility testing before installation finalisation — manufacturers of major surgical equipment can advise on known EMC issues",
+          "Shielded cable specification for sensitive signal cables, particularly for imaging and monitoring systems",
+          "Separation of power and signal cable runs, parallel routing of power cables alongside signal cables induces interference",
+          "Earthing and bonding design reviewed by an EMC specialist, particularly for imaging rooms with C-arm or fluoroscopy equipment",
+          "Equipment compatibility testing before installation finalisation, manufacturers of major surgical equipment can advise on known EMC issues",
         ],
       },
       { type: "heading2", text: "The ARCHORA Approach to Digitally Integrated OT Design" },
@@ -1176,9 +1176,9 @@ const articles: Article[] = [
           "Clinical workflow analysis with the surgical team before any design decision is made",
           "Technology brief developed in collaboration with biomedical engineering and IT teams",
           "Architectural design coordinated with MEP and IT infrastructure from the first planning meeting",
-          "Ceiling and pendant system designed as an integrated assembly — not resolved as separate systems post-design",
-          "NABH compliance review of digital integration design — ensuring that technology additions do not compromise infection control or regulatory compliance",
-          "Commissioning support for all integrated systems — including network testing, display calibration, AV system commissioning, and BMS integration verification",
+          "Ceiling and pendant system designed as an integrated assembly, not resolved as separate systems post-design",
+          "NABH compliance review of digital integration design, ensuring that technology additions do not compromise infection control or regulatory compliance",
+          "Commissioning support for all integrated systems, including network testing, display calibration, AV system commissioning, and BMS integration verification",
         ],
       },
       {
@@ -1186,11 +1186,11 @@ const articles: Article[] = [
         items: [
           {
             q: "What is a digitally integrated OT?",
-            a: "A digitally integrated OT is an operation theatre in which clinical imaging, patient data, environmental controls, surgical equipment, and communication systems are unified into a single coordinated digital environment. Rather than operating as separate systems, these components communicate with each other and are accessible through centralised interfaces — allowing the surgical team to manage the OT environment and access clinical information without breaking sterility or interrupting the procedure.",
+            a: "A digitally integrated OT is an operation theatre in which clinical imaging, patient data, environmental controls, surgical equipment, and communication systems are unified into a single coordinated digital environment. Rather than operating as separate systems, these components communicate with each other and are accessible through centralised interfaces, allowing the surgical team to manage the OT environment and access clinical information without breaking sterility or interrupting the procedure.",
           },
           {
             q: "What digital features do modern surgeons expect in an operation theatre?",
-            a: "Modern surgeons expect real-time access to patient imaging (PACS integration) on high-resolution OT displays, electronic health record access within the sterile zone, centralised control of lighting and environmental parameters, touchless door and tap operation, integrated intercom and telemedicine capability, and surgical video recording. These are not luxury features — they are standard expectations in hospitals that attract and retain experienced surgical talent.",
+            a: "Modern surgeons expect real-time access to patient imaging (PACS integration) on high-resolution OT displays, electronic health record access within the sterile zone, centralised control of lighting and environmental parameters, touchless door and tap operation, integrated intercom and telemedicine capability, and surgical video recording. These are not luxury features, they are standard expectations in hospitals that attract and retain experienced surgical talent.",
           },
           {
             q: "Can an existing OT be upgraded to a digitally integrated OT?",
@@ -1198,11 +1198,11 @@ const articles: Article[] = [
           },
           {
             q: "How does digital integration in an OT affect NABH compliance?",
-            a: "Digital integration, when properly designed, supports NABH compliance by enhancing documentation (surgical video logs, environmental monitoring records), improving infection control (touchless systems, automated documentation), and strengthening clinical governance (telemedicine consultation records, EHR integration). However, poorly integrated digital systems — particularly those with surface-mounted cables, inadequate sealing of panel penetrations, or wireless systems that interfere with monitoring equipment — can create compliance problems.",
+            a: "Digital integration, when properly designed, supports NABH compliance by enhancing documentation (surgical video logs, environmental monitoring records), improving infection control (touchless systems, automated documentation), and strengthening clinical governance (telemedicine consultation records, EHR integration). However, poorly integrated digital systems (particularly those with surface-mounted cables, inadequate sealing of panel penetrations, or wireless systems that interfere with monitoring equipment) can create compliance problems.",
           },
           {
             q: "What is PACS integration in an OT and why does it matter?",
-            a: "PACS (Picture Archiving and Communication System) integration in an OT allows the surgical team to access the patient's radiological imaging — X-rays, CT scans, MRI studies — directly on OT displays during surgery, without requiring a separate workstation or physical films. This matters because surgeons routinely need to reference pre-operative imaging during procedures, particularly in orthopaedic, neurosurgical, oncological, and reconstructive cases. Without PACS integration, accessing this data requires someone to leave the sterile zone, introducing delays and infection control risks.",
+            a: "PACS (Picture Archiving and Communication System) integration in an OT allows the surgical team to access the patient's radiological imaging (X-rays, CT scans, MRI studies) directly on OT displays during surgery, without requiring a separate workstation or physical films. This matters because surgeons routinely need to reference pre-operative imaging during procedures, particularly in orthopaedic, neurosurgical, oncological, and reconstructive cases. Without PACS integration, accessing this data requires someone to leave the sterile zone, introducing delays and infection control risks.",
           },
         ],
       },
@@ -1221,13 +1221,13 @@ const articles: Article[] = [
     category: "Hospital Design",
     title: "5 Common Mistakes in Hospital Layout Planning (And How to Avoid Them)",
     excerpt:
-      "Poor hospital layout planning costs money, delays commissioning, and endangers patients. These five mistakes appear consistently across projects of every scale — and every one of them is preventable at the design stage.",
+      "Poor hospital layout planning costs money, delays commissioning, and endangers patients. These five mistakes appear consistently across projects of every scale, and every one of them is preventable at the design stage.",
     date: "July 22, 2025",
     readTime: "9–10 min read",
     author: "Team ARCHORA",
     tags: ["Hospital Planning", "Workflow Design", "NABH", "Emergency Department", "Master Planning"],
     image:
-      "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "/images/journal/hospital-layout-mistakes.jpg",
     content: [
       {
         type: "paragraph",
@@ -1235,23 +1235,23 @@ const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "Given that complexity, it is perhaps unsurprising that hospital layout planning errors are common. What is surprising is how consistently the same mistakes appear — in projects across different states, different scales, different budgets, and different ownership structures.",
+        text: "Given that complexity, it is perhaps unsurprising that hospital layout planning errors are common. What is surprising is how consistently the same mistakes appear, in projects across different states, different scales, different budgets, and different ownership structures.",
       },
       {
         type: "paragraph",
-        text: "These are not obscure or highly technical errors. They are fundamental planning decisions — decisions about workflow, expansion, department positioning, environmental quality, and regulatory compliance — that are made incorrectly because the planning process prioritises the wrong things, or fails to involve the right expertise at the right stage.",
+        text: "These are not obscure or highly technical errors. They are fundamental planning decisions (decisions about workflow, expansion, department positioning, environmental quality, and regulatory compliance) that are made incorrectly because the planning process prioritises the wrong things, or fails to involve the right expertise at the right stage.",
       },
       { type: "callout", text: "Each of these mistakes is avoidable. Each of them is also, once made, expensive and disruptive to correct. Some cannot be corrected at all without major reconstruction." },
       { type: "heading2", text: "Mistake 1: Designing for Appearance Rather Than Workflow" },
       {
         type: "paragraph",
-        text: "The most frequently repeated mistake in hospital layout planning is prioritising visual impressiveness over functional logic. A grand entrance lobby, an aesthetically striking facade, premium finishes throughout — these are not problems in themselves. The problem arises when they consume planning attention and budget at the expense of the spatial logic that makes a hospital actually work.",
+        text: "The most frequently repeated mistake in hospital layout planning is prioritising visual impressiveness over functional logic. A grand entrance lobby, an aesthetically striking facade, premium finishes throughout, these are not problems in themselves. The problem arises when they consume planning attention and budget at the expense of the spatial logic that makes a hospital actually work.",
       },
       {
         type: "bullets",
         intro: "A hospital that looks impressive but has poorly resolved workflow manifests as:",
         items: [
-          "Staff covering unnecessary distances between connected departments — a nurse moving between the ICU and the medication room may walk 3 to 4 kilometres in a single shift in a poorly planned hospital",
+          "Staff covering unnecessary distances between connected departments, a nurse moving between the ICU and the medication room may walk 3 to 4 kilometres in a single shift in a poorly planned hospital",
           "Patients being routed through multiple zones and levels to access services that should be co-located",
           "Clean and contaminated flows crossing in corridors and lifts, creating infection control risks",
           "Service bottlenecks at peak times because the spatial layout cannot support the patient volume the hospital was designed to serve",
@@ -1264,15 +1264,15 @@ const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "This analysis generates a functional adjacency matrix that identifies which departments must be directly adjacent, which must be in controlled proximity, and which must be separated. The architectural layout is then built around this matrix — not the other way around.",
+        text: "This analysis generates a functional adjacency matrix that identifies which departments must be directly adjacent, which must be in controlled proximity, and which must be separated. The architectural layout is then built around this matrix, not the other way around.",
       },
       {
         type: "bullets",
         intro: "The 'hot-to-cold' zoning principle governs this adjacency logic:",
         items: [
           "Emergency, trauma, and ICU (highest risk) are positioned to allow rapid access and controlled circulation",
-          "Surgical zones (sterile) are adjacent to ICU and directly connected to CSSD — with no public circulation crossing between them",
-          "Inpatient wards are in the mid-zone — accessible from clinical areas but separated from public zones",
+          "Surgical zones (sterile) are adjacent to ICU and directly connected to CSSD, with no public circulation crossing between them",
+          "Inpatient wards are in the mid-zone, accessible from clinical areas but separated from public zones",
           "OPD, diagnostics, and administrative areas are in the lowest-risk, highest-public-access zone",
         ],
       },
@@ -1301,7 +1301,7 @@ const articles: Article[] = [
         intro: "Specific provisions that should be standard in every hospital master plan:",
         items: [
           "Structural: Foundation and column design sized for additional floors, even if those floors are not in the current scope",
-          "Vertical circulation: Lift shafts designed for future lift installation — a blank shaft costs almost nothing to include but allows a new lift to be added without major structural work",
+          "Vertical circulation: Lift shafts designed for future lift installation, a blank shaft costs almost nothing to include but allows a new lift to be added without major structural work",
           "MEP plant: Electrical switch rooms, HVAC plant areas, and medical gas manifold rooms sized for 150% of current load",
           "Utility shafts: Oversized vertical shafts throughout the building, allowing future pipe and cable runs without requiring penetration of finished walls",
           "Expansion zones: Identified areas of the site or floors within the building designated for future development, with access and utility connections stubbed in ready for activation",
@@ -1310,14 +1310,14 @@ const articles: Article[] = [
       { type: "heading2", text: "Mistake 3: Misplacing the Emergency Department" },
       {
         type: "paragraph",
-        text: "The emergency department is the most time-critical zone in the hospital. The relationship between the ED and other departments directly determines whether the hospital can deliver effective emergency care — particularly for the conditions where minutes matter: acute myocardial infarction, stroke, polytrauma, and obstetric emergencies.",
+        text: "The emergency department is the most time-critical zone in the hospital. The relationship between the ED and other departments directly determines whether the hospital can deliver effective emergency care, particularly for the conditions where minutes matter: acute myocardial infarction, stroke, polytrauma, and obstetric emergencies.",
       },
       {
         type: "bullets",
         intro: "The consequences of poor ED placement:",
         items: [
-          "A stroke or cardiac patient arrives by ambulance, is stabilised in the ED, but then needs to travel three floors and through two corridor intersections to reach the CT scanner or catheterisation lab — a journey that takes 8 to 12 minutes that should take 90 seconds",
-          "An emergency patient requiring immediate surgery must travel the length of the hospital from the ED to the OT — with lift waits, corridor congestion, and staff handovers at each transition point",
+          "A stroke or cardiac patient arrives by ambulance, is stabilised in the ED, but then needs to travel three floors and through two corridor intersections to reach the CT scanner or catheterisation lab, a journey that takes 8 to 12 minutes that should take 90 seconds",
+          "An emergency patient requiring immediate surgery must travel the length of the hospital from the ED to the OT, with lift waits, corridor congestion, and staff handovers at each transition point",
           "The blood bank, which emergency teams need access to urgently, is located in a separate wing with no direct communication link to the ED",
         ],
       },
@@ -1330,24 +1330,24 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Mandatory direct adjacencies for the Emergency Department:",
         items: [
-          "Radiology (CT and X-ray): Ideally, CT should be immediately adjacent to the ED resuscitation bay — accessible within 60 seconds. This single adjacency decision affects outcomes for stroke, trauma, and PE patients.",
-          "Operating theatre complex: Direct vertical or horizontal connection from the ED to the OT — a dedicated emergency lift serving both floors, or direct corridor access on the same level",
+          "Radiology (CT and X-ray): Ideally, CT should be immediately adjacent to the ED resuscitation bay, accessible within 60 seconds. This single adjacency decision affects outcomes for stroke, trauma, and PE patients.",
+          "Operating theatre complex: Direct vertical or horizontal connection from the ED to the OT, a dedicated emergency lift serving both floors, or direct corridor access on the same level",
           "ICU and HDU: ED patients requiring critical care admission should be able to reach the ICU without navigating public corridors",
-          "Blood bank: Direct communication link and physical proximity — allowing emergency blood products to reach the ED resuscitation bay within minutes",
+          "Blood bank: Direct communication link and physical proximity, allowing emergency blood products to reach the ED resuscitation bay within minutes",
         ],
       },
       { type: "heading2", text: "Mistake 4: Eliminating Natural Light and Ventilation to Maximise Clinical Space" },
       {
         type: "paragraph",
-        text: "This mistake is driven by a logical-seeming but clinically incorrect assumption: that every square metre of a hospital should be productive clinical space, and that windows, courtyards, and light shafts are luxuries that consume space without generating revenue. The evidence is unambiguous — hospital environments designed without natural light produce measurably worse clinical outcomes.",
+        text: "This mistake is driven by a logical-seeming but clinically incorrect assumption: that every square metre of a hospital should be productive clinical space, and that windows, courtyards, and light shafts are luxuries that consume space without generating revenue. The evidence is unambiguous, hospital environments designed without natural light produce measurably worse clinical outcomes.",
       },
       {
         type: "bullets",
         intro: "The consequences of eliminating natural light and ventilation:",
         items: [
-          "Increased patient stress and anxiety: Patients without daylight access lose circadian rhythm regulation, experience increased cortisol levels, and report higher pain perception — all of which extend recovery timelines",
+          "Increased patient stress and anxiety: Patients without daylight access lose circadian rhythm regulation, experience increased cortisol levels, and report higher pain perception, all of which extend recovery timelines",
           "Higher rates of hospital-acquired infection: Natural ventilation, when properly designed, reduces the concentration of airborne pathogens in non-critical zones",
-          "Staff fatigue and reduced alertness: Clinical staff working in artificially lit, windowless environments show measurable reductions in alertness and job satisfaction — with direct implications for clinical error rates",
+          "Staff fatigue and reduced alertness: Clinical staff working in artificially lit, windowless environments show measurable reductions in alertness and job satisfaction, with direct implications for clinical error rates",
           "Higher energy costs: A hospital that depends entirely on artificial lighting and mechanical ventilation operates at significantly higher energy cost",
         ],
       },
@@ -1357,16 +1357,16 @@ const articles: Article[] = [
         intro: "Design strategies that achieve natural light without compromising clinical space:",
         items: [
           "Central courtyards: An internal courtyard surrounded by ward wings and OPD corridors brings natural light deep into the building footprint without reducing clinical floor area",
-          "Ward window orientation: Patient beds positioned to receive natural light — not just the corridor. Window design that provides daylight without direct glare or solar heat gain.",
+          "Ward window orientation: Patient beds positioned to receive natural light, not just the corridor. Window design that provides daylight without direct glare or solar heat gain.",
           "Skylights: Light shafts and skylights bringing natural light to internal corridors and waiting areas that cannot have perimeter windows",
-          "Biophilic design elements: Indoor planting, water features, and natural materials in patient-facing areas — evidence-supported interventions that reduce stress and improve the perceived quality of the care environment",
+          "Biophilic design elements: Indoor planting, water features, and natural materials in patient-facing areas, evidence-supported interventions that reduce stress and improve the perceived quality of the care environment",
           "Cross-ventilation in appropriate zones: Ward buildings oriented and planned to allow natural cross-ventilation during appropriate weather conditions",
         ],
       },
       { type: "heading2", text: "Mistake 5: Treating Regulatory Compliance as a Post-Design Problem" },
       {
         type: "paragraph",
-        text: "Of all the mistakes on this list, this one has the most direct and immediate financial consequences. Regulatory compliance — NABH standards, National Building Code, fire safety regulations, biomedical waste management rules, pollution control requirements, and state health department norms — is not a checklist to be completed after the building is designed. It is a set of constraints and requirements that must shape the design from the first planning meeting.",
+        text: "Of all the mistakes on this list, this one has the most direct and immediate financial consequences. Regulatory compliance (NABH standards, National Building Code, fire safety regulations, biomedical waste management rules, pollution control requirements, and state health department norms) is not a checklist to be completed after the building is designed. It is a set of constraints and requirements that must shape the design from the first planning meeting.",
       },
       {
         type: "bullets",
@@ -1382,10 +1382,10 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Regulatory compliance must be integrated into the design process from day one. This requires:",
         items: [
-          "A compliance framework established before design begins: Identifying every applicable regulation — national, state, and local — that will govern the facility",
-          "NABH pre-assessment criteria embedded in design review: Every design review milestone should include a NABH compliance check — not as a final stage review but as a recurring filter throughout the design process",
+          "A compliance framework established before design begins: Identifying every applicable regulation (national, state, and local) that will govern the facility",
+          "NABH pre-assessment criteria embedded in design review: Every design review milestone should include a NABH compliance check, not as a final stage review but as a recurring filter throughout the design process",
           "Specialist healthcare architect and consultant involvement: General architectural practice does not automatically produce regulatory-compliant hospital design",
-          "Early engagement with authorities: Fire authority, pollution control board, and state health department pre-submissions during the design stage — not after construction",
+          "Early engagement with authorities: Fire authority, pollution control board, and state health department pre-submissions during the design stage, not after construction",
           "Integrated MEP and compliance coordination: MEP design must be reviewed against regulatory requirements at design stage, not at commissioning",
         ],
       },
@@ -1394,11 +1394,11 @@ const articles: Article[] = [
         type: "table",
         headers: ["Mistake", "Cost of Correction After Construction", "Cost of Avoiding in Design Stage"],
         rows: [
-          ["Workflow errors", "Departmental reconfiguration, operational disruption, ongoing efficiency loss", "Functional flow analysis — included in design process"],
-          ["No expansion provision", "Structural retrofit or new block, MEP capacity additions", "Structural allowances, oversized plant rooms — marginal cost addition"],
-          ["Poor ED placement", "Operational workarounds, additional staff, longer response times, potential clinical outcomes impact", "Adjacency planning — no additional cost"],
-          ["No natural light", "Permanent operational disadvantage, higher energy costs, poorer clinical outcomes", "Courtyard and window design — modest additional design effort"],
-          ["Compliance failures", "Reconstruction, commissioning delays, potential licensing denial", "Early regulatory review — included in design process"],
+          ["Workflow errors", "Departmental reconfiguration, operational disruption, ongoing efficiency loss", "Functional flow analysis, included in design process"],
+          ["No expansion provision", "Structural retrofit or new block, MEP capacity additions", "Structural allowances, oversized plant rooms, marginal cost addition"],
+          ["Poor ED placement", "Operational workarounds, additional staff, longer response times, potential clinical outcomes impact", "Adjacency planning, no additional cost"],
+          ["No natural light", "Permanent operational disadvantage, higher energy costs, poorer clinical outcomes", "Courtyard and window design, modest additional design effort"],
+          ["Compliance failures", "Reconstruction, commissioning delays, potential licensing denial", "Early regulatory review, included in design process"],
         ],
       },
       { type: "callout", text: "The consistent pattern is that the cost of prevention is low and the cost of correction is high. In hospital design, this asymmetry is more pronounced than in almost any other building type." },
@@ -1411,7 +1411,7 @@ const articles: Article[] = [
           },
           {
             q: "How does poor hospital layout affect patient outcomes?",
-            a: "Poor hospital layout affects patient outcomes through multiple pathways: longer emergency response times when the ED is not adjacent to radiology, OT, and ICU; higher infection rates when clean and contaminated flows cross; delayed care when departments that need to work together are spatially separated; and slower recovery in environments without natural light. In emergency scenarios — cardiac, stroke, and trauma — spatial layout decisions directly affect whether patients receive time-critical care within the windows where intervention is effective.",
+            a: "Poor hospital layout affects patient outcomes through multiple pathways: longer emergency response times when the ED is not adjacent to radiology, OT, and ICU; higher infection rates when clean and contaminated flows cross; delayed care when departments that need to work together are spatially separated; and slower recovery in environments without natural light. In emergency scenarios (cardiac, stroke, and trauma), spatial layout decisions directly affect whether patients receive time-critical care within the windows where intervention is effective.",
           },
           {
             q: "Why is emergency department placement so critical in hospital design?",
@@ -1419,18 +1419,18 @@ const articles: Article[] = [
           },
           {
             q: "How much does it cost to fix hospital layout mistakes after construction?",
-            a: "The cost of correcting hospital layout mistakes after construction varies enormously depending on the nature of the error, but even relatively minor corrections in a completed hospital — relocating a department, widening a corridor, adding a lift — typically cost 5 to 15 times more than they would have cost to address in the design stage. Errors that require structural modification can cost many multiples of the original construction cost for the affected area.",
+            a: "The cost of correcting hospital layout mistakes after construction varies enormously depending on the nature of the error, but even relatively minor corrections in a completed hospital (relocating a department, widening a corridor, adding a lift) typically cost 5 to 15 times more than they would have cost to address in the design stage. Errors that require structural modification can cost many multiples of the original construction cost for the affected area.",
           },
           {
             q: "What is functional flow analysis in hospital planning?",
-            a: "Functional flow analysis is a planning methodology that maps every movement of patients, staff, materials, and waste through a proposed hospital design — identifying where flows are unnecessarily long, where they create bottlenecks at peak demand, and where clean and contaminated flows cross. The analysis is used to refine department positioning, corridor routing, and lift placement before architectural design is finalised. It is one of the most valuable inputs to hospital layout planning and one of the most frequently omitted.",
+            a: "Functional flow analysis is a planning methodology that maps every movement of patients, staff, materials, and waste through a proposed hospital design, identifying where flows are unnecessarily long, where they create bottlenecks at peak demand, and where clean and contaminated flows cross. The analysis is used to refine department positioning, corridor routing, and lift placement before architectural design is finalised. It is one of the most valuable inputs to hospital layout planning and one of the most frequently omitted.",
           },
         ],
       },
       {
         type: "cta",
         heading: "Planning Your Hospital? Start with the Right Foundation.",
-        body: "ARCHORA designs hospitals that are clinically logical, operationally efficient, compliance-ready, and built for the long term. If you are in the planning stage of a hospital project — whether greenfield, expansion, or renovation — our team can help you build the right foundation before a single rupee is committed to construction.",
+        body: "ARCHORA designs hospitals that are clinically logical, operationally efficient, compliance-ready, and built for the long term. If you are in the planning stage of a hospital project (whether greenfield, expansion, or renovation), our team can help you build the right foundation before a single rupee is committed to construction.",
       },
     ],
   },
@@ -1442,13 +1442,13 @@ const articles: Article[] = [
     category: "Healthcare Compliance",
     title: "Hospital Fire Safety Norms: NBC 2016, NABH Compliance & Evacuation Design Guide",
     excerpt:
-      "Fire safety in hospitals is a life-safety obligation, not a checkbox. The design decisions made during planning — compartmentalisation, evacuation routes, suppression systems, materials — directly determine whether patients and staff survive a fire event.",
+      "Fire safety in hospitals is a life-safety obligation, not a checkbox. The design decisions made during planning (compartmentalisation, evacuation routes, suppression systems, materials) directly determine whether patients and staff survive a fire event.",
     date: "July 26, 2025",
     readTime: "10–11 min read",
     author: "Team ARCHORA",
     tags: ["Fire Safety", "NBC 2016", "NABH", "Evacuation Design", "Fire NOC"],
     image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "/images/journal/fire-safety-norms.jpg",
     content: [
       {
         type: "paragraph",
@@ -1456,14 +1456,14 @@ const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "Patients on ventilators cannot be evacuated in minutes. Patients in ICUs are connected to life-critical equipment that cannot simply be disconnected. Patients under anaesthesia in the OT complex cannot be moved at all without clinical risk. Neonates in NICU incubators require specialist handling. Patients in traction, patients in post-surgical recovery, patients with severe mobility limitations — all of them depend entirely on the hospital's infrastructure and staff to protect them in a fire event.",
+        text: "Patients on ventilators cannot be evacuated in minutes. Patients in ICUs are connected to life-critical equipment that cannot simply be disconnected. Patients under anaesthesia in the OT complex cannot be moved at all without clinical risk. Neonates in NICU incubators require specialist handling. Patients in traction, patients in post-surgical recovery, patients with severe mobility limitations, all of them depend entirely on the hospital's infrastructure and staff to protect them in a fire event.",
       },
       { type: "callout", text: "This is why fire safety in hospital design is not a compliance exercise. It is a clinical responsibility. The design decisions made during planning directly determine whether patients and staff survive a fire event or do not." },
       { type: "heading2", text: "The Regulatory Framework: What Governs Hospital Fire Safety in India" },
       { type: "heading3", text: "National Building Code 2016, Part 4: Fire and Life Safety" },
       {
         type: "paragraph",
-        text: "The National Building Code (NBC) 2016, Part 4 is the primary national standard for fire and life safety in buildings in India. For hospital buildings, NBC 2016 classifies them as Institutional Group I buildings — a classification that carries some of the most stringent fire safety requirements in the code.",
+        text: "The National Building Code (NBC) 2016, Part 4 is the primary national standard for fire and life safety in buildings in India. For hospital buildings, NBC 2016 classifies them as Institutional Group I buildings, a classification that carries some of the most stringent fire safety requirements in the code.",
       },
       {
         type: "bullets",
@@ -1482,7 +1482,7 @@ const articles: Article[] = [
         intro: "NABH accreditation evaluates hospital fire safety under its Facility Management and Safety (FMS) standards. Assessors review:",
         items: [
           "Whether the hospital has a current, valid Fire NOC from the local fire authority",
-          "Whether fire safety systems — detection, suppression, alarms, extinguishers — are installed, functional, and regularly tested",
+          "Whether fire safety systems (detection, suppression, alarms, extinguishers) are installed, functional, and regularly tested",
           "Whether fire safety training has been conducted for all staff categories",
           "Whether the hospital has a documented fire safety and evacuation policy",
           "Whether evacuation drills are conducted at regular intervals and documented",
@@ -1492,12 +1492,12 @@ const articles: Article[] = [
       { type: "heading3", text: "State Fire Department Norms" },
       {
         type: "paragraph",
-        text: "Each Indian state has a fire services department with its own regulations, which may be more stringent than NBC 2016 in certain respects. The state fire authority issues the Fire NOC — a mandatory pre-occupancy approval. ARCHORA's design process includes early engagement with the relevant state fire authority during design development — not after construction — to identify and address any state-specific requirements before they become expensive corrections.",
+        text: "Each Indian state has a fire services department with its own regulations, which may be more stringent than NBC 2016 in certain respects. The state fire authority issues the Fire NOC, a mandatory pre-occupancy approval. ARCHORA's design process includes early engagement with the relevant state fire authority during design development, not after construction, to identify and address any state-specific requirements before they become expensive corrections.",
       },
       { type: "heading3", text: "NFPA Standards: International Reference Framework" },
       {
         type: "paragraph",
-        text: "The National Fire Protection Association (NFPA) standards, particularly NFPA 101 (Life Safety Code) and NFPA 99 (Health Care Facilities Code), are internationally recognised benchmarks for healthcare facility fire safety. While not mandatory in India, they are increasingly referenced by accreditation bodies and hospital groups with international quality aspirations. NFPA standards introduce concepts — particularly around non-ambulatory patient protection and defend-in-place strategies — that go beyond current NBC 2016 requirements and represent the direction in which Indian healthcare regulation is evolving.",
+        text: "The National Fire Protection Association (NFPA) standards, particularly NFPA 101 (Life Safety Code) and NFPA 99 (Health Care Facilities Code), are internationally recognised benchmarks for healthcare facility fire safety. While not mandatory in India, they are increasingly referenced by accreditation bodies and hospital groups with international quality aspirations. NFPA standards introduce concepts (particularly around non-ambulatory patient protection and defend-in-place strategies) that go beyond current NBC 2016 requirements and represent the direction in which Indian healthcare regulation is evolving.",
       },
       { type: "heading2", text: "Fire Compartmentalisation: Containing the Threat" },
       {
@@ -1506,7 +1506,7 @@ const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "In hospital design, compartmentalisation is also a clinical tool. A well-compartmentalised hospital can implement a defend-in-place strategy for non-ambulatory patients — protecting them in their compartment while fire is suppressed in an adjacent compartment, rather than requiring their physical evacuation under dangerous conditions.",
+        text: "In hospital design, compartmentalisation is also a clinical tool. A well-compartmentalised hospital can implement a defend-in-place strategy for non-ambulatory patients, protecting them in their compartment while fire is suppressed in an adjacent compartment, rather than requiring their physical evacuation under dangerous conditions.",
       },
       {
         type: "bullets",
@@ -1514,10 +1514,10 @@ const articles: Article[] = [
         items: [
           "Maximum compartment size: 750 square metres per fire compartment, bounded by fire-rated construction on all sides",
           "Fire-rated walls: Minimum 2-hour fire resistance rating for walls between compartments",
-          "Fire-rated doors: Minimum 2-hour fire resistance rating for doors in fire-rated walls — self-closing, with intumescent seals",
-          "Fire-rated floor and ceiling construction: Compartment boundaries must be complete — a fire-rated wall that does not extend to the structural slab above does not create a compartment",
+          "Fire-rated doors: Minimum 2-hour fire resistance rating for doors in fire-rated walls, self-closing, with intumescent seals",
+          "Fire-rated floor and ceiling construction: Compartment boundaries must be complete, a fire-rated wall that does not extend to the structural slab above does not create a compartment",
           "Protected staircase enclosures: All staircases serving evacuation must be enclosed in fire-rated construction with smoke-proof lobbies at each level",
-          "Protected lift shaft enclosures: Lift shafts must be enclosed in fire-rated construction — lift openings must be protected with fire-rated lobby enclosures",
+          "Protected lift shaft enclosures: Lift shafts must be enclosed in fire-rated construction, lift openings must be protected with fire-rated lobby enclosures",
         ],
       },
       { type: "heading3", text: "Clinical Zoning and Compartmentalisation Alignment" },
@@ -1525,16 +1525,16 @@ const articles: Article[] = [
         type: "bullets",
         intro: "In ARCHORA's hospital designs, fire compartmentalisation is coordinated with clinical zoning so that the two systems reinforce each other:",
         items: [
-          "ICU and critical care zones are designed as dedicated fire compartments — protecting the most vulnerable patients and allowing defend-in-place management",
-          "OT complex is a separate fire compartment — the nature of surgical procedures means that evacuation is not possible in many scenarios, and compartmentalisation buys the time needed to complete or safely abandon procedures",
-          "Electrical rooms, medical gas manifold rooms, and generator rooms are each separate fire compartments with enhanced fire resistance ratings — these are high fire risk areas that must be isolated from clinical zones",
-          "Vertical shafts (HVAC ducts, pipe shafts, cable shafts) are fire-stopped at every floor penetration — unprotected shafts are one of the most dangerous fire spread pathways in multistorey buildings",
+          "ICU and critical care zones are designed as dedicated fire compartments, protecting the most vulnerable patients and allowing defend-in-place management",
+          "OT complex is a separate fire compartment, the nature of surgical procedures means that evacuation is not possible in many scenarios, and compartmentalisation buys the time needed to complete or safely abandon procedures",
+          "Electrical rooms, medical gas manifold rooms, and generator rooms are each separate fire compartments with enhanced fire resistance ratings, these are high fire risk areas that must be isolated from clinical zones",
+          "Vertical shafts (HVAC ducts, pipe shafts, cable shafts) are fire-stopped at every floor penetration, unprotected shafts are one of the most dangerous fire spread pathways in multistorey buildings",
         ],
       },
       { type: "heading3", text: "Fire Dampers in HVAC Systems" },
       {
         type: "paragraph",
-        text: "HVAC ductwork creates a direct penetration through fire-rated walls and floor slabs — a pathway that, without protection, allows fire and smoke to bypass compartment boundaries entirely. Fire dampers are motorised or fusible-link devices installed at every point where a duct penetrates a fire-rated boundary.",
+        text: "HVAC ductwork creates a direct penetration through fire-rated walls and floor slabs, a pathway that, without protection, allows fire and smoke to bypass compartment boundaries entirely. Fire dampers are motorised or fusible-link devices installed at every point where a duct penetrates a fire-rated boundary.",
       },
       {
         type: "bullets",
@@ -1542,40 +1542,40 @@ const articles: Article[] = [
         items: [
           "Fire damper at every duct penetration of a fire-rated wall or floor",
           "Smoke damper (or combination fire and smoke damper) in HVAC systems serving multiple compartments",
-          "BMS integration — allowing central monitoring and remote actuation of dampers",
-          "Access panels for inspection and maintenance at every damper location — non-accessible dampers are a common compliance failure",
+          "BMS integration, allowing central monitoring and remote actuation of dampers",
+          "Access panels for inspection and maintenance at every damper location, non-accessible dampers are a common compliance failure",
         ],
       },
       { type: "heading2", text: "Escape Route Design: Planning for Patients Who Cannot Walk" },
       {
         type: "paragraph",
-        text: "Hospital escape route design is governed by the same fundamental principles as any building — adequate width, maximum travel distance, minimum number of exits — but with one profound additional requirement: the escape route system must accommodate patients who cannot move independently.",
+        text: "Hospital escape route design is governed by the same fundamental principles as any building (adequate width, maximum travel distance, minimum number of exits) but with one profound additional requirement: the escape route system must accommodate patients who cannot move independently.",
       },
       {
         type: "bullets",
         intro: "NBC 2016 Escape Route Requirements for Hospitals:",
         items: [
-          "Minimum corridor width: 2.4 metres clear width throughout — sufficient for two stretchers to pass, or for a stretcher and a wheelchair user to pass simultaneously",
-          "Minimum staircase width: 2.0 metres clear width for staircases serving patient areas — sufficient for stretcher transfer with staff on both sides",
-          "Minimum number of staircases: Two staircases per wing for every floor above the ground floor — ensuring that if one staircase is compromised, an alternative is always available",
+          "Minimum corridor width: 2.4 metres clear width throughout, sufficient for two stretchers to pass, or for a stretcher and a wheelchair user to pass simultaneously",
+          "Minimum staircase width: 2.0 metres clear width for staircases serving patient areas, sufficient for stretcher transfer with staff on both sides",
+          "Minimum number of staircases: Two staircases per wing for every floor above the ground floor, ensuring that if one staircase is compromised, an alternative is always available",
           "Maximum travel distance to a staircase or exit: 30 metres from any point in the building to the nearest protected staircase entrance",
-          "No dead-end corridors: No dead-end corridor longer than 6 metres — a dead-end corridor is a trap in a fire scenario",
+          "No dead-end corridors: No dead-end corridor longer than 6 metres, a dead-end corridor is a trap in a fire scenario",
           "Emergency exit doors: All emergency exit doors must open in the direction of escape travel (outward), must be operable without a key from the inside, and must be clearly marked with illuminated exit signage",
         ],
       },
       { type: "heading3", text: "Horizontal Evacuation: The Strategy That Saves Lives" },
       {
         type: "paragraph",
-        text: "Vertical evacuation — moving patients down stairs to exit the building — is the last resort in a hospital fire scenario, not the first. Moving non-ambulatory patients down stairs is slow, physically demanding, and clinically risky. The internationally accepted strategy is horizontal evacuation first: moving patients laterally through fire-rated doors into an adjacent fire compartment on the same floor, which is separated from the fire by fire-rated construction. Only if the fire cannot be contained and the adjacent compartment is threatened is vertical evacuation initiated.",
+        text: "Vertical evacuation (moving patients down stairs to exit the building) is the last resort in a hospital fire scenario, not the first. Moving non-ambulatory patients down stairs is slow, physically demanding, and clinically risky. The internationally accepted strategy is horizontal evacuation first: moving patients laterally through fire-rated doors into an adjacent fire compartment on the same floor, which is separated from the fire by fire-rated construction. Only if the fire cannot be contained and the adjacent compartment is threatened is vertical evacuation initiated.",
       },
       {
         type: "bullets",
         intro: "Design requirements for horizontal evacuation:",
         items: [
           "Fire compartments of sufficient size to receive patients from an adjacent compartment in addition to their own occupants",
-          "Fire-rated cross-corridor doors at compartment boundaries — normally held open by electromagnetic releases, closing automatically on fire alarm activation",
-          "Bed and trolley access through every compartment boundary door — door width minimum 1400mm clear opening",
-          "Refuge areas at staircase lobbies for patients awaiting assisted vertical evacuation — sized and designed for stretcher accommodation",
+          "Fire-rated cross-corridor doors at compartment boundaries, normally held open by electromagnetic releases, closing automatically on fire alarm activation",
+          "Bed and trolley access through every compartment boundary door, door width minimum 1400mm clear opening",
+          "Refuge areas at staircase lobbies for patients awaiting assisted vertical evacuation, sized and designed for stretcher accommodation",
         ],
       },
       { type: "heading2", text: "Fire Detection, Alarm, and Suppression Systems" },
@@ -1584,20 +1584,20 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Components and design requirements:",
         items: [
-          "Smoke detectors: Installed in all occupied spaces, corridors, ceiling voids, and electrical rooms — detector type selected based on the space",
+          "Smoke detectors: Installed in all occupied spaces, corridors, ceiling voids, and electrical rooms, detector type selected based on the space",
           "Heat detectors: In kitchens, laundries, and areas where smoke detectors would produce false alarms due to steam or dust",
           "Flame detectors: In high-risk areas such as medical gas manifold rooms and generator rooms",
-          "Fire Alarm Control Panel (FACP): Centralised panel at the security or nursing station — indicating the zone and location of any alarm activation",
-          "BMS integration: Fire alarm system integrated with Building Management System — automatic response actions triggered on alarm activation (HVAC shutdown, fire damper closure, lift recall)",
+          "Fire Alarm Control Panel (FACP): Centralised panel at the security or nursing station, indicating the zone and location of any alarm activation",
+          "BMS integration: Fire alarm system integrated with Building Management System, automatic response actions triggered on alarm activation (HVAC shutdown, fire damper closure, lift recall)",
         ],
       },
       {
         type: "bullets",
         intro: "Hospital-specific requirements:",
         items: [
-          "Zone alarm display at every nursing station — allowing nursing staff to identify which zone has activated without leaving their station",
-          "Silent alarm capability for specific zones where audible alarms would disturb critical patients (ICU, NICU) — staff alerted via nurse call panels or pagers",
-          "Integration with nurse call system — fire alarm activation automatically alerts nursing staff on duty",
+          "Zone alarm display at every nursing station, allowing nursing staff to identify which zone has activated without leaving their station",
+          "Silent alarm capability for specific zones where audible alarms would disturb critical patients (ICU, NICU), staff alerted via nurse call panels or pagers",
+          "Integration with nurse call system, fire alarm activation automatically alerts nursing staff on duty",
         ],
       },
       { type: "heading3", text: "Sprinkler System" },
@@ -1608,23 +1608,23 @@ const articles: Article[] = [
           "Mandatory in all hospital buildings above 15 metres in height",
           "Required in basements regardless of building height",
           "Required in electrical rooms, generator rooms, storage areas, and medical record rooms regardless of building height",
-          "Wet pipe system in occupied areas — constantly charged with water, fastest response time",
-          "Pre-action system in IT server rooms and electrical rooms — requiring dual detection before water is released, preventing accidental discharge damage to equipment",
+          "Wet pipe system in occupied areas, constantly charged with water, fastest response time",
+          "Pre-action system in IT server rooms and electrical rooms, requiring dual detection before water is released, preventing accidental discharge damage to equipment",
         ],
       },
       { type: "heading3", text: "Material Specification for Fire Safety" },
       {
         type: "paragraph",
-        text: "In most fire fatalities, smoke inhalation — not burns — is the cause of death. In a hospital, where patients cannot evacuate and will be exposed to any smoke that penetrates compartment boundaries, material specification is a direct life-safety issue.",
+        text: "In most fire fatalities, smoke inhalation (not burns) is the cause of death. In a hospital, where patients cannot evacuate and will be exposed to any smoke that penetrates compartment boundaries, material specification is a direct life-safety issue.",
       },
       {
         type: "bullets",
         intro: "Key material requirements:",
         items: [
-          "Low smoke zero halogen (LSZH) cables throughout — particularly critical in enclosed spaces and vertical cable routes. Standard PVC insulation releases hydrochloric acid gas when burned — LSZH cables release minimal smoke and no halogenic gases.",
-          "Fire-resistant cable for life-safety circuits — fire alarm wiring, emergency lighting wiring, and critical power circuits must maintain circuit integrity during fire",
+          "Low smoke zero halogen (LSZH) cables throughout, particularly critical in enclosed spaces and vertical cable routes. Standard PVC insulation releases hydrochloric acid gas when burned, LSZH cables release minimal smoke and no halogenic gases.",
+          "Fire-resistant cable for life-safety circuits, fire alarm wiring, emergency lighting wiring, and critical power circuits must maintain circuit integrity during fire",
           "Flame-retardant finish specification for all wall and ceiling materials in clinical areas and escape routes",
-          "No wood-based materials in ceiling systems serving clinical areas or escape routes — wood panel false ceilings are a common fire hazard",
+          "No wood-based materials in ceiling systems serving clinical areas or escape routes, wood panel false ceilings are a common fire hazard",
           "Class 1 surface spread of flame rating for walls and ceilings in escape routes and high-occupancy areas",
         ],
       },
@@ -1644,7 +1644,7 @@ const articles: Article[] = [
         items: [
           "Fire compartment layout drawn and areas verified against NBC 2016 maximum compartment size",
           "Escape route widths, travel distances, and staircase counts verified against NBC 2016",
-          "Horizontal evacuation strategy mapped — compartment-to-compartment movement paths identified",
+          "Horizontal evacuation strategy mapped, compartment-to-compartment movement paths identified",
           "Area of Refuge locations identified at all staircase lobbies",
           "Fire-rated door and wall schedule prepared",
         ],
@@ -1665,7 +1665,7 @@ const articles: Article[] = [
         intro: "Pre-occupancy stage:",
         items: [
           "Fire NOC obtained from state fire authority",
-          "All systems commissioned and tested — including sprinklers, detectors, alarms, emergency lighting, and fire dampers",
+          "All systems commissioned and tested, including sprinklers, detectors, alarms, emergency lighting, and fire dampers",
           "Staff fire safety training completed and documented",
           "Evacuation drill conducted and documented",
           "NABH fire safety documentation package prepared",
@@ -1680,15 +1680,15 @@ const articles: Article[] = [
           },
           {
             q: "How are non-ambulatory patients evacuated in a hospital fire?",
-            a: "Non-ambulatory patients are managed using a horizontal evacuation strategy — moving patients laterally through fire-rated doors into an adjacent fire compartment on the same floor that is protected from the fire by fire-rated construction. This strategy buys time for fire suppression without requiring the physically demanding and clinically risky process of vertical evacuation via staircases. Vertical evacuation is initiated only if fire cannot be contained and the adjacent compartment is threatened.",
+            a: "Non-ambulatory patients are managed using a horizontal evacuation strategy, moving patients laterally through fire-rated doors into an adjacent fire compartment on the same floor that is protected from the fire by fire-rated construction. This strategy buys time for fire suppression without requiring the physically demanding and clinically risky process of vertical evacuation via staircases. Vertical evacuation is initiated only if fire cannot be contained and the adjacent compartment is threatened.",
           },
           {
             q: "What is the role of fire compartmentalisation in hospital design?",
-            a: "Fire compartmentalisation divides the hospital into bounded zones using fire-rated walls, floors, and doors. In a fire event, compartmentalisation contains fire and smoke within the compartment of origin, preventing it from spreading to adjacent areas. In a hospital, this is particularly critical because it enables a defend-in-place strategy for non-ambulatory patients — protecting them within a sealed compartment while fire is suppressed, rather than requiring immediate physical evacuation.",
+            a: "Fire compartmentalisation divides the hospital into bounded zones using fire-rated walls, floors, and doors. In a fire event, compartmentalisation contains fire and smoke within the compartment of origin, preventing it from spreading to adjacent areas. In a hospital, this is particularly critical because it enables a defend-in-place strategy for non-ambulatory patients, protecting them within a sealed compartment while fire is suppressed, rather than requiring immediate physical evacuation.",
           },
           {
             q: "What are LSZH cables and why are they required in hospitals?",
-            a: "LSZH (Low Smoke Zero Halogen) cables are electrical cables with insulation that, when exposed to fire, produces minimal smoke and releases no halogenic gases. Standard PVC-insulated cables release hydrochloric acid gas when burned — in an enclosed space, this gas is immediately toxic at low concentrations. In hospitals, where patients cannot evacuate and staff must remain in the building to manage patients, LSZH cables are a critical life-safety specification.",
+            a: "LSZH (Low Smoke Zero Halogen) cables are electrical cables with insulation that, when exposed to fire, produces minimal smoke and releases no halogenic gases. Standard PVC-insulated cables release hydrochloric acid gas when burned, in an enclosed space, this gas is immediately toxic at low concentrations. In hospitals, where patients cannot evacuate and staff must remain in the building to manage patients, LSZH cables are a critical life-safety specification.",
           },
           {
             q: "When must the Fire NOC be obtained for a hospital in India?",
@@ -1699,7 +1699,7 @@ const articles: Article[] = [
       {
         type: "cta",
         heading: "Building a Fire-Safe Hospital?",
-        body: "ARCHORA designs hospitals where fire safety is embedded in the architecture — not added as an afterthought. From NBC 2016 compliance and fire NOC coordination to evacuation strategy and material specification, our team ensures that your facility protects patients and staff under the most demanding conditions.",
+        body: "ARCHORA designs hospitals where fire safety is embedded in the architecture, not added as an afterthought. From NBC 2016 compliance and fire NOC coordination to evacuation strategy and material specification, our team ensures that your facility protects patients and staff under the most demanding conditions.",
       },
     ],
   },
@@ -1711,13 +1711,13 @@ const articles: Article[] = [
     category: "Hospital Planning",
     title: "Why Your Hospital Startup Timeline Will Double (And How ARCHORA Prevents It)",
     excerpt:
-      "Most hospital projects in India take 30+ months and blow their budget. The losses are avoidable — and they happen before a single wall is built, in the planning assumptions and sequencing choices made in the earliest weeks of the project.",
+      "Most hospital projects in India take 30+ months and blow their budget. The losses are avoidable, and they happen before a single wall is built, in the planning assumptions and sequencing choices made in the earliest weeks of the project.",
     date: "February 20, 2026",
     readTime: "10–11 min read",
     author: "Prasad Patil, Founder & CEO, ARCHORA",
     tags: ["Hospital Timeline", "NABH-First Design", "Turnkey Delivery", "Project Planning", "Single-Window"],
     image:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "/images/journal/hospital-startup-timeline.jpg",
     content: [
       {
         type: "paragraph",
@@ -1725,11 +1725,11 @@ const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "The pattern is always the same. The pain points are always the same. And the losses — in time, money, and missed opportunity — are always avoidable.",
+        text: "The pattern is always the same. The pain points are always the same. And the losses (in time, money, and missed opportunity) are always avoidable.",
       },
       {
         type: "paragraph",
-        text: "This article exists because most of those losses happen before a single wall is built. They happen in the planning assumptions, the vendor decisions, and the sequencing choices that are made in the earliest weeks of a hospital project — when everything feels manageable and nothing feels urgent.",
+        text: "This article exists because most of those losses happen before a single wall is built. They happen in the planning assumptions, the vendor decisions, and the sequencing choices that are made in the earliest weeks of a hospital project, when everything feels manageable and nothing feels urgent.",
       },
       { type: "callout", text: "By the time the urgency arrives, the decisions have already been made. And reversing them costs far more than making them correctly the first time." },
       { type: "heading2", text: "The Assumption That Derails Every Hospital Project" },
@@ -1774,12 +1774,12 @@ const articles: Article[] = [
         type: "bullets",
         intro: "NABH-compliant architectural design determines:",
         items: [
-          "ICU bed count, bay dimensions, and zoning configuration — which directly affects the hospital's licensing category and capacity authorisation",
-          "OT suite configuration, sterile zoning, laminar airflow canopy positioning, and scrub area layout — which determines whether the OT can be NABH-accredited",
-          "Patient, staff, clean supply, and waste flow separation — the most fundamental infection control requirement",
-          "MEP system specifications — the HVAC, medical gas, electrical, and plumbing requirements that are determined entirely by the architectural layout and clinical brief",
-          "Fire safety compartmentalisation, escape route widths, and evacuation strategy — which must be resolved architecturally before the structural design is finalised",
-          "Biomedical waste infrastructure routing — collection points, vertical transfer routes, holding rooms, and external collection areas",
+          "ICU bed count, bay dimensions, and zoning configuration, which directly affects the hospital's licensing category and capacity authorisation",
+          "OT suite configuration, sterile zoning, laminar airflow canopy positioning, and scrub area layout, which determines whether the OT can be NABH-accredited",
+          "Patient, staff, clean supply, and waste flow separation, the most fundamental infection control requirement",
+          "MEP system specifications, the HVAC, medical gas, electrical, and plumbing requirements that are determined entirely by the architectural layout and clinical brief",
+          "Fire safety compartmentalisation, escape route widths, and evacuation strategy, which must be resolved architecturally before the structural design is finalised",
+          "Biomedical waste infrastructure routing, collection points, vertical transfer routes, holding rooms, and external collection areas",
         ],
       },
       {
@@ -1793,19 +1793,19 @@ const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "The assumption behind this statement is that NABH is a certification process — a set of documentation, policies, and training programmes that can be overlaid onto a completed facility. This assumption is wrong. NABH is an infrastructure standard. Its requirements are physical. They must be built into walls, ceilings, floors, air systems, electrical systems, plumbing systems, and spatial layouts.",
+        text: "The assumption behind this statement is that NABH is a certification process, a set of documentation, policies, and training programmes that can be overlaid onto a completed facility. This assumption is wrong. NABH is an infrastructure standard. Its requirements are physical. They must be built into walls, ceilings, floors, air systems, electrical systems, plumbing systems, and spatial layouts.",
       },
       {
         type: "bullets",
         intro: "Consider what NABH actually requires at the infrastructure level:",
         items: [
-          "OT laminar airflow systems with HEPA filtration delivering minimum 20 air changes per hour at specified pressure differentials — this is an HVAC engineering specification that must be designed, sized, and installed during construction",
-          "Seamless coving at all wall-to-floor and wall-to-ceiling junctions in clinical areas — this is a construction finish specification that cannot be added to a completed building without stripping and rebuilding the finishes",
-          "Fire-rated compartmentalisation between specified clinical zones — this is a structural and architectural requirement that cannot be retrofitted without demolition",
-          "Medical gas pipeline system installed in concealed pipework — this is an MEP installation that must be built into the wall and ceiling structure during construction",
-          "Separate clean and soiled utility rooms for every clinical ward — a spatial requirement that cannot be created if the rooms were not planned in the original layout",
-          "CSSD with validated sterilisation equipment and compliant spatial design — both a spatial and equipment requirement that shapes the floor plan",
-          "Biomedical waste holding rooms with specified construction standards, ventilation, and access control — physical spaces that must be designed and built",
+          "OT laminar airflow systems with HEPA filtration delivering minimum 20 air changes per hour at specified pressure differentials, this is an HVAC engineering specification that must be designed, sized, and installed during construction",
+          "Seamless coving at all wall-to-floor and wall-to-ceiling junctions in clinical areas, this is a construction finish specification that cannot be added to a completed building without stripping and rebuilding the finishes",
+          "Fire-rated compartmentalisation between specified clinical zones, this is a structural and architectural requirement that cannot be retrofitted without demolition",
+          "Medical gas pipeline system installed in concealed pipework, this is an MEP installation that must be built into the wall and ceiling structure during construction",
+          "Separate clean and soiled utility rooms for every clinical ward, a spatial requirement that cannot be created if the rooms were not planned in the original layout",
+          "CSSD with validated sterilisation equipment and compliant spatial design, both a spatial and equipment requirement that shapes the floor plan",
+          "Biomedical waste holding rooms with specified construction standards, ventilation, and access control, physical spaces that must be designed and built",
         ],
       },
       {
@@ -1813,7 +1813,7 @@ const articles: Article[] = [
         intro: "Attempting to bring a non-compliant facility into NABH compliance after construction is complete typically requires:",
         items: [
           "Partial demolition and reconstruction of affected areas",
-          "Additional MEP installations in locations that were not designed for them — requiring surface-mounted services that further compromise hygiene standards",
+          "Additional MEP installations in locations that were not designed for them, requiring surface-mounted services that further compromise hygiene standards",
           "Extended project timelines while remediation is carried out on a building that may already have partial staff occupancy",
           "Budget overruns that routinely reach Rs. 1.5 crore to Rs. 3 crore or more depending on the scale of the facility and the degree of non-compliance",
         ],
@@ -1822,7 +1822,7 @@ const articles: Article[] = [
       { type: "heading3", text: "Mistake 3: Multi-Vendor Fragmentation" },
       {
         type: "paragraph",
-        text: "The standard approach to hospital project delivery in India looks like this: an architect completes the design, civil and structural work goes to an RCC contractor, MEP work goes to a separate MEP contractor, an interior designer is appointed separately, the OT equipment supplier is a different organisation, the medical gas installer is another separate vendor, and a NABH consultant is eventually appointed — by which time the design and construction decisions that determine accreditation outcomes have already been made.",
+        text: "The standard approach to hospital project delivery in India looks like this: an architect completes the design, civil and structural work goes to an RCC contractor, MEP work goes to a separate MEP contractor, an interior designer is appointed separately, the OT equipment supplier is a different organisation, the medical gas installer is another separate vendor, and a NABH consultant is eventually appointed, by which time the design and construction decisions that determine accreditation outcomes have already been made.",
       },
       {
         type: "paragraph",
@@ -1832,9 +1832,9 @@ const articles: Article[] = [
         type: "bullets",
         intro: "The mechanics of how this causes timeline explosion are straightforward:",
         items: [
-          "The MEP contractor discovers during installation that the duct routing conflicts with the structural beams — because the structural engineer and the MEP contractor never coordinated. Resolution takes 6 to 8 weeks.",
+          "The MEP contractor discovers during installation that the duct routing conflicts with the structural beams, because the structural engineer and the MEP contractor never coordinated. Resolution takes 6 to 8 weeks.",
           "The OT equipment supplier arrives to install the operating lights and discovers that the structural provisions for ceiling mounting were not included in the RCC design. Additional structural work takes 4 weeks.",
-          "The interior designer specifies wall finishes that do not meet NABH infection control standards — because the interior designer has no healthcare compliance expertise and the NABH consultant was not involved in the interior design stage.",
+          "The interior designer specifies wall finishes that do not meet NABH infection control standards, because the interior designer has no healthcare compliance expertise and the NABH consultant was not involved in the interior design stage.",
           "The medical gas installer finds that the pipe shaft dimensions are insufficient for the required pipework. Wall modification takes 3 weeks.",
         ],
       },
@@ -1849,9 +1849,9 @@ const articles: Article[] = [
         intro: "Before any design work begins, we conduct a comprehensive feasibility review covering:",
         items: [
           "Site analysis: Physical dimensions, orientation, access points, ground conditions, setback requirements, and any site-specific constraints that will affect the building design",
-          "Regulatory review: Identifying every applicable regulation — national, state, and local — that will govern the facility, and mapping the approval sequence required before construction can begin",
+          "Regulatory review: Identifying every applicable regulation (national, state, and local) that will govern the facility, and mapping the approval sequence required before construction can begin",
           "Bed capacity and department modelling: Translating the clinical brief into a spatial programme",
-          "Budget reality check: An honest assessment of what the site, the programme, and the budget can realistically deliver — without the optimistic projections that lead to mid-project budget crises",
+          "Budget reality check: An honest assessment of what the site, the programme, and the budget can realistically deliver, without the optimistic projections that lead to mid-project budget crises",
         ],
       },
       { type: "heading3", text: "Phase 2: NABH-First Design (Months 1 to 3)" },
@@ -1859,10 +1859,10 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Every architectural decision in this phase is made with NABH compliance requirements as the primary filter:",
         items: [
-          "Zoning is designed against NABH zone classification requirements — sterile, semi-sterile, clean, dirty, and public zones are spatially separated from the first sketch",
-          "Department adjacencies are determined by clinical workflow logic, NABH requirements, and fire safety compartmentalisation simultaneously — not sequentially",
-          "MEP systems are specified in parallel with architectural design — HVAC, MGPS, and electrical requirements are defined as the layout is developed, not after it is finalised",
-          "Fire safety design is embedded in the architectural layout — escape route widths, compartment boundaries, and staircase positions are compliant from the first iteration",
+          "Zoning is designed against NABH zone classification requirements, sterile, semi-sterile, clean, dirty, and public zones are spatially separated from the first sketch",
+          "Department adjacencies are determined by clinical workflow logic, NABH requirements, and fire safety compartmentalisation simultaneously, not sequentially",
+          "MEP systems are specified in parallel with architectural design, HVAC, MGPS, and electrical requirements are defined as the layout is developed, not after it is finalised",
+          "Fire safety design is embedded in the architectural layout, escape route widths, compartment boundaries, and staircase positions are compliant from the first iteration",
         ],
       },
       { type: "heading3", text: "Phase 3: Integrated Execution (Months 4 to 18)" },
@@ -1870,10 +1870,10 @@ const articles: Article[] = [
         type: "bullets",
         intro: "RCC structure, MEP systems, modular panel systems, and medical infrastructure are executed by a single coordinated ARCHORA team:",
         items: [
-          "Structural engineer, MEP engineer, and architect review every drawing together before it reaches site — conflicts are resolved on paper, not during construction",
-          "Site supervision is by ARCHORA personnel — not delegated to the contractor's own supervisory team",
-          "Weekly progress reviews against the master programme — with variance identification and recovery planning as standard",
-          "NABH compliance review at each construction milestone — identifying and resolving any compliance deviation before it becomes embedded in completed work",
+          "Structural engineer, MEP engineer, and architect review every drawing together before it reaches site, conflicts are resolved on paper, not during construction",
+          "Site supervision is by ARCHORA personnel, not delegated to the contractor's own supervisory team",
+          "Weekly progress reviews against the master programme, with variance identification and recovery planning as standard",
+          "NABH compliance review at each construction milestone, identifying and resolving any compliance deviation before it becomes embedded in completed work",
         ],
       },
       { type: "heading3", text: "Phase 4: Modular OT and ICU Installation (Months 16 to 20)" },
@@ -1881,10 +1881,10 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Modular OT and ICU systems are pre-fabricated to NABH-compliant specifications and installed by our specialist team:",
         items: [
-          "Panel systems manufactured under controlled factory conditions — consistent quality, consistent dimensions, verified material specifications",
-          "Factory-stage quality inspection before delivery to site — defects identified and resolved before installation, not after",
-          "Compressed on-site installation time — a modular OT that would take 12 to 16 weeks in conventional construction is installed and commissioned in 6 to 8 weeks",
-          "MEP integration coordinated before installation — HVAC, MGPS, and electrical connections planned and prepared so that modular installation and MEP connection proceed simultaneously",
+          "Panel systems manufactured under controlled factory conditions, consistent quality, consistent dimensions, verified material specifications",
+          "Factory-stage quality inspection before delivery to site, defects identified and resolved before installation, not after",
+          "Compressed on-site installation time, a modular OT that would take 12 to 16 weeks in conventional construction is installed and commissioned in 6 to 8 weeks",
+          "MEP integration coordinated before installation, HVAC, MGPS, and electrical connections planned and prepared so that modular installation and MEP connection proceed simultaneously",
         ],
       },
       { type: "heading3", text: "Phase 5: Turnkey Handover (Months 20 to 24)" },
@@ -1892,11 +1892,11 @@ const articles: Article[] = [
         type: "bullets",
         intro: "Our handover package includes:",
         items: [
-          "Commissioned and tested MEP systems — HVAC balance and commissioning reports, MGPS test certificates, electrical test certificates, fire system commissioning records",
-          "Complete regulatory documentation — Fire NOC, state health department approvals, pollution control clearances, lift inspection certificates",
-          "NABH pre-assessment documentation package — physical infrastructure documentation, policy templates, and guidance for the clinical and administrative NABH preparation process",
-          "Staff familiarisation — our team briefs the hospital's clinical and administrative leads on every system in the facility",
-          "Post-handover support — ongoing support for NABH assessment preparation, facility maintenance guidance, and future expansion planning",
+          "Commissioned and tested MEP systems, HVAC balance and commissioning reports, MGPS test certificates, electrical test certificates, fire system commissioning records",
+          "Complete regulatory documentation, Fire NOC, state health department approvals, pollution control clearances, lift inspection certificates",
+          "NABH pre-assessment documentation package, physical infrastructure documentation, policy templates, and guidance for the clinical and administrative NABH preparation process",
+          "Staff familiarisation, our team briefs the hospital's clinical and administrative leads on every system in the facility",
+          "Post-handover support, ongoing support for NABH assessment preparation, facility maintenance guidance, and future expansion planning",
         ],
       },
       { type: "heading2", text: "What the Numbers Look Like in Practice" },
@@ -1915,7 +1915,7 @@ const articles: Article[] = [
         type: "bullets",
         items: [
           "Delivered: 22 months from project commencement to turnkey handover",
-          "Budget: Rs. 45 crore — final delivery at Rs. 45.89 crore (within 2% of agreed budget)",
+          "Budget: Rs. 45 crore, final delivery at Rs. 45.89 crore (within 2% of agreed budget)",
           "NABH status: Pre-accreditation achieved at handover",
           "Operational performance: Full occupancy within 6 months of opening",
         ],
@@ -1923,7 +1923,7 @@ const articles: Article[] = [
       { type: "heading2", text: "The Most Important Hiring Decision You Will Make" },
       {
         type: "paragraph",
-        text: "If you are a doctor or investor planning a hospital, the first professional you engage should not be a civil contractor. It should not be a general architect. It should be a healthcare infrastructure specialist — a team that understands hospital development not as a construction challenge but as a regulatory, clinical, and operational challenge that construction is the execution vehicle for.",
+        text: "If you are a doctor or investor planning a hospital, the first professional you engage should not be a civil contractor. It should not be a general architect. It should be a healthcare infrastructure specialist, a team that understands hospital development not as a construction challenge but as a regulatory, clinical, and operational challenge that construction is the execution vehicle for.",
       },
       {
         type: "bullets",
@@ -1933,7 +1933,7 @@ const articles: Article[] = [
           "What the complete regulatory approval sequence looks like for your specific location and project type",
           "How NABH compliance requirements will shape your design, your MEP systems, and your construction specification",
           "How medical equipment integration affects spatial planning and structural requirements",
-          "What your realistic timeline and budget look like — based on your actual site, your actual programme, and current construction economics in your region",
+          "What your realistic timeline and budget look like, based on your actual site, your actual programme, and current construction economics in your region",
           "What the most common risk events in projects like yours are, and how each one is managed",
         ],
       },
@@ -1946,7 +1946,7 @@ const articles: Article[] = [
           },
           {
             q: "What does NABH-first design mean in practice?",
-            a: "NABH-first design means that every architectural decision — zoning, department adjacency, circulation routing, MEP specification, surface finish selection — is made with NABH compliance requirements as the primary design filter, from the very first planning meeting. The result is a facility where compliance is built into the physical fabric of the building, rather than being attempted as a retrofit after construction. ARCHORA has achieved 100% NABH first-attempt accreditation success across all delivered projects using this approach.",
+            a: "NABH-first design means that every architectural decision (zoning, department adjacency, circulation routing, MEP specification, surface finish selection) is made with NABH compliance requirements as the primary design filter, from the very first planning meeting. The result is a facility where compliance is built into the physical fabric of the building, rather than being attempted as a retrofit after construction. ARCHORA has achieved 100% NABH first-attempt accreditation success across all delivered projects using this approach.",
           },
           {
             q: "Why do most hospital projects in India exceed their budget?",
@@ -1954,18 +1954,18 @@ const articles: Article[] = [
           },
           {
             q: "What is single-window hospital infrastructure delivery?",
-            a: "Single-window hospital infrastructure delivery means that one organisation — ARCHORA — is contractually responsible and operationally accountable for the complete hospital project: architecture, structural engineering, MEP design and installation, modular OT and ICU systems, interiors, and regulatory approvals. The hospital founder has one contract, one point of contact, one timeline, and one organisation accountable for the project outcome. There are no vendor coordination gaps, no accountability voids, and no finger-pointing when challenges arise.",
+            a: "Single-window hospital infrastructure delivery means that one organisation (ARCHORA) is contractually responsible and operationally accountable for the complete hospital project: architecture, structural engineering, MEP design and installation, modular OT and ICU systems, interiors, and regulatory approvals. The hospital founder has one contract, one point of contact, one timeline, and one organisation accountable for the project outcome. There are no vendor coordination gaps, no accountability voids, and no finger-pointing when challenges arise.",
           },
           {
             q: "When should a hospital founder first engage ARCHORA?",
-            a: "The earlier the better — ideally before a site has been finalised. Our feasibility audit can evaluate potential sites and identify the one that best supports the clinical programme and regulatory requirements of the project. Engaging ARCHORA after a site has been purchased but before any design or structural work has begun is the next best scenario. Engaging after structural work has begun significantly increases the probability of discovering compliance issues that require expensive correction.",
+            a: "The earlier the better, ideally before a site has been finalised. Our feasibility audit can evaluate potential sites and identify the one that best supports the clinical programme and regulatory requirements of the project. Engaging ARCHORA after a site has been purchased but before any design or structural work has begun is the next best scenario. Engaging after structural work has begun significantly increases the probability of discovering compliance issues that require expensive correction.",
           },
         ],
       },
       {
         type: "cta",
         heading: "Ready to Build Your Hospital the Right Way?",
-        body: "ARCHORA delivers turnkey hospital infrastructure across India — architecture, structure, MEP, modular OT and ICU, interiors, and NABH compliance, under one contract, with one team, to one timeline. We offer a complimentary 30-minute hospital planning audit for serious hospital founders.",
+        body: "ARCHORA delivers turnkey hospital infrastructure across India, architecture, structure, MEP, modular OT and ICU, interiors, and NABH compliance, under one contract, with one team, to one timeline. We offer a complimentary 30-minute hospital planning audit for serious hospital founders.",
       },
     ],
   },
@@ -2044,15 +2044,20 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
 function renderBlock(block: ContentBlock, idx: number) {
   switch (block.type) {
     case "paragraph":
-      return (
-        <p
-          key={idx}
-          className="text-[1.06rem] leading-[1.88] mb-6"
-          style={{ color: "#2d4a5e" }}
-        >
-          {block.text}
-        </p>
-      );
+  return (
+    <p
+      key={idx}
+      style={{
+        color: "#2d4a5e",
+        fontSize: "1.18rem",
+        lineHeight: "1.85",
+        marginBottom: "1.5rem",
+        fontFamily: "system-ui, -apple-system, sans-serif",
+      }}
+    >
+      {block.text}
+    </p>
+  );
 
     case "heading2":
       return (
@@ -2429,7 +2434,7 @@ export function JournalPost() {
       </div>
 
       {/* ── Article Body ─────────────────────────────────────────────────────── */}
-      <div className="max-w-3xl mx-auto px-6 lg:px-8 py-14">
+      <div className="max-w-4xl mx-auto px-6 lg:px-8 py-14">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}

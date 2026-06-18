@@ -127,7 +127,7 @@ export function Navbar() {
           padding: 14px 0;
           border-bottom: 1px solid rgba(255,255,255,0.06);
           transition: color 0.2s;
-          color: rgba(255,255,255,0.5);
+          color: rgba(255,255,255,0.75);
         }
 
         .mobile-link-item.active {
@@ -212,7 +212,7 @@ export function Navbar() {
                   fontSize: "10px",
                   letterSpacing: "0.22em",
                   textTransform: "uppercase",
-                  color: isScrolled ? "rgba(0,0,0,0.28)" : "rgba(255,255,255,0.28)",
+                  color: isScrolled ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.55)",
                   borderLeft: isScrolled
                     ? "1px solid rgba(0,0,0,0.1)"
                     : "1px solid rgba(255,255,255,0.12)",
@@ -238,7 +238,7 @@ export function Navbar() {
                     style={{
                       color: isActive
                         ? isScrolled ? "#0a2233" : "#ffffff"
-                        : isScrolled ? "rgba(10,34,51,0.45)" : "rgba(255,255,255,0.5)",
+                        : isScrolled ? "rgba(10,34,51,0.72)" : "rgba(255,255,255,0.78)",
                       ["--link-underline-color" as string]: isScrolled ? "#0f7a8a" : "#4bccd4",
                     }}
                   >

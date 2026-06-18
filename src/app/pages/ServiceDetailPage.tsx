@@ -1,9 +1,12 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { motion, AnimatePresence, useInView } from "motion/react";
 import {
   ArrowLeft, ArrowRight, ChevronDown, ChevronUp,
   FileText, Building2, Shield, ScrollText, Wrench, Zap, Activity, Check,
 } from "lucide-react";
+
+const WHATSAPP_URL = "https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project.";
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
 interface ServiceSubSection {
@@ -326,7 +329,7 @@ export const servicesData: ServiceData[] = [
       heading: "Why Choose ARCHORA for Your Healthcare Architecture Project?",
       points: [
         "Every architect on the ARCHORA team works exclusively on healthcare projects. We do not design offices, residences, or shopping centres.",
-        "Our design process is informed by direct engagement with clinicians — we understand how OPDs function at peak load, how OT teams move, and how infection control failures happen.",
+        "Our design process is informed by direct engagement with clinicians, we understand how OPDs function at peak load, how OT teams move, and how infection control failures happen.",
         "Regulatory requirements are part of our design brief from the first meeting. NABH standards, fire safety, accessibility are integrated from the beginning, not retrofitted at the end.",
         "Our leadership team brings experience from NHS healthcare infrastructure projects in the United Kingdom alongside extensive Indian healthcare project experience.",
         "Because ARCHORA provides architecture, engineering, construction, and project management under one roof, the design intent is never lost in translation between different consultants.",
@@ -338,7 +341,7 @@ export const servicesData: ServiceData[] = [
         "Any healthcare promoter, doctor, institution, or investor building or renovating a healthcare facility of any scale",
         "From a 200 sq ft clinic to a 1000-bed hospital campus",
         "Greenfield hospital projects on new land",
-        "Brownfield projects — converting or upgrading existing buildings",
+        "Brownfield projects, converting or upgrading existing buildings",
         "Medical colleges and nursing colleges requiring compliant campus design",
         "Diagnostic centres, IVF clinics, day-surgery centres, and speciality facilities",
       ],
@@ -396,7 +399,7 @@ export const servicesData: ServiceData[] = [
       heading: "The Complete Regulatory Framework ARCHORA Covers",
       sections: [
         {
-          heading: "NABH — National Accreditation Board for Hospitals and Healthcare Providers",
+          heading: "NABH, National Accreditation Board for Hospitals and Healthcare Providers",
           items: [
             "Patient safety and access standards including corridor widths, ramp gradients, and door dimensions",
             "Infection control infrastructure including hand hygiene station placement, zone separation, and surface material specifications",
@@ -407,7 +410,7 @@ export const servicesData: ServiceData[] = [
           ],
         },
         {
-          heading: "NABL — National Accreditation Board for Testing and Calibration Laboratories",
+          heading: "NABL, National Accreditation Board for Testing and Calibration Laboratories",
           items: [
             "Laboratory layout and workflow design as per ISO 15189 and NABL guidelines",
             "Temperature and humidity control infrastructure for specimen storage and reagent management",
@@ -418,7 +421,7 @@ export const servicesData: ServiceData[] = [
           ],
         },
         {
-          heading: "INC — Indian Nursing Council",
+          heading: "INC, Indian Nursing Council",
           items: [
             "Required room types and minimum area standards for all nursing college spaces",
             "Skills laboratory and clinical training room design",
@@ -428,7 +431,7 @@ export const servicesData: ServiceData[] = [
           ],
         },
         {
-          heading: "NMC — National Medical Commission",
+          heading: "NMC, National Medical Commission",
           items: [
             "Department-wise space and bed capacity requirements as per NMC regulations",
             "Teaching facility standards including lecture theatres, tutorial rooms, and demonstration labs",
@@ -438,7 +441,7 @@ export const servicesData: ServiceData[] = [
           ],
         },
         {
-          heading: "AERB — Atomic Energy Regulatory Board",
+          heading: "AERB, Atomic Energy Regulatory Board",
           items: [
             "Radiation shielding design for all X-ray, CT, fluoroscopy, and nuclear medicine rooms",
             "Lead lining specifications for walls, floors, ceilings, and doors in radiation areas",
@@ -471,7 +474,7 @@ export const servicesData: ServiceData[] = [
     whyUs: {
       heading: "Why ARCHORA for Compliance-Integrated Design",
       points: [
-        "Compliance is part of our design brief from the first meeting — not a checklist applied at the end",
+        "Compliance is part of our design brief from the first meeting, not a checklist applied at the end",
         "Our team covers NABH, NABL, INC, NMC, AERB, PCPNDT, NBC, Fire NOC, and RPWD Act in a single integrated process",
         "We have delivered compliance-integrated designs across India including facilities that have achieved NABH accreditation on first survey",
         "Our AERB shielding design is backed by formal radiation physics calculations, not generic specifications",
@@ -535,8 +538,8 @@ export const servicesData: ServiceData[] = [
     explainer: {
       heading: "Every Licence and Approval Your Healthcare Facility Needs",
       body: [
-        "ARCHORA covers the full spectrum of healthcare licensing in India — from Clinical Establishment Registration and Building Use Permission to Fire NOC, Pollution Control Board NOC, AERB approvals, PCPNDT registration, Pharmacy Licence, Blood Bank Licence, and Lift and Electrical Approvals.",
-        "Each approval type has its own documentation requirements, inspection procedures, and dependency sequence. ARCHORA prepares a structured approval roadmap for every project that maps every required approval, its dependencies, its timeline, and its documentation requirements — ensuring that every application is made at the right time, with the right documentation, in the correct sequence.",
+        "ARCHORA covers the full spectrum of healthcare licensing in India, from Clinical Establishment Registration and Building Use Permission to Fire NOC, Pollution Control Board NOC, AERB approvals, PCPNDT registration, Pharmacy Licence, Blood Bank Licence, and Lift and Electrical Approvals.",
+        "Each approval type has its own documentation requirements, inspection procedures, and dependency sequence. ARCHORA prepares a structured approval roadmap for every project that maps every required approval, its dependencies, its timeline, and its documentation requirements, ensuring that every application is made at the right time, with the right documentation, in the correct sequence.",
       ],
     },
     coverage: {
@@ -566,7 +569,7 @@ export const servicesData: ServiceData[] = [
           ],
         },
         {
-          heading: "Fire NOC — Fire No Objection Certificate",
+          heading: "Fire NOC, Fire No Objection Certificate",
           items: [
             "Fire safety system design coordination to meet the specific state fire authority inspection standards",
             "Pre-inspection readiness assessment",
@@ -609,7 +612,7 @@ export const servicesData: ServiceData[] = [
             "Lift inspection and approval coordination with the state lift inspectorate",
             "DG set installation approval coordination",
             "Water supply and sewerage connection applications for healthcare occupancy",
-            "Pollution Control Board NOC — biomedical waste management documentation and liaison",
+            "Pollution Control Board NOC, biomedical waste management documentation and liaison",
           ],
         },
       ],
@@ -632,9 +635,9 @@ export const servicesData: ServiceData[] = [
     whyUs: {
       heading: "Why Choose ARCHORA for Hospital Licensing and Approvals?",
       points: [
-        "We have managed the complete approvals process for healthcare projects across India — we know the sequences, the dependencies, and the documentation requirements for every major regulatory body",
+        "We have managed the complete approvals process for healthcare projects across India, we know the sequences, the dependencies, and the documentation requirements for every major regulatory body",
         "Our pre-inspection readiness assessments identify and resolve compliance gaps before inspections, not after",
-        "Every application we prepare meets the specific formatting and content requirements of the relevant authority — reducing rejection rates dramatically",
+        "Every application we prepare meets the specific formatting and content requirements of the relevant authority, reducing rejection rates dramatically",
         "We track every application proactively and follow up systematically to prevent delays caused by administrative inaction",
         "We cover AERB, PCPNDT, Fire NOC, Pollution Control, clinical establishment registration, and all other healthcare approvals under one engagement",
       ],
@@ -695,7 +698,7 @@ export const servicesData: ServiceData[] = [
       heading: "What Makes Structural Design for Healthcare Facilities Different?",
       body: [
         "Healthcare buildings place unique structural demands on every element of the building frame, foundation, and floor system. These demands arise from four primary sources: heavy and concentrated equipment loads from MRI machines, CT scanners, cath lab tables, and surgical robots; vibration sensitivity requirements for diagnostic and surgical environments; greater slab-to-slab heights needed to accommodate extensive MEP services and medical gas pipelines; and life-safety seismic design requirements where hospitals are classified as essential facilities under Indian seismic design standards.",
-        "Under IS 1893, hospitals carry an importance factor of 1.5 — meaning seismic design forces are 50% higher than for a standard commercial building. This distinction is critical for patient safety and is one that many general structural engineers overlook.",
+        "Under IS 1893, hospitals carry an importance factor of 1.5, meaning seismic design forces are 50% higher than for a standard commercial building. This distinction is critical for patient safety and is one that many general structural engineers overlook.",
       ],
     },
     coverage: {
@@ -796,16 +799,16 @@ export const servicesData: ServiceData[] = [
     whyUs: {
       heading: "Why Choose ARCHORA for Structural Design of Your Healthcare Facility?",
       points: [
-        "Every structural decision ARCHORA makes is informed by a complete understanding of the clinical and equipment requirements of the space it supports — the structure is the physical foundation of the clinical environment",
-        "Because ARCHORA provides architecture, structural, and MEP engineering under one roof, our structural design is fully coordinated with the architectural layout and MEP services from the beginning — no coordination clashes, no slab-to-slab surprises",
+        "Every structural decision ARCHORA makes is informed by a complete understanding of the clinical and equipment requirements of the space it supports, the structure is the physical foundation of the clinical environment",
+        "Because ARCHORA provides architecture, structural, and MEP engineering under one roof, our structural design is fully coordinated with the architectural layout and MEP services from the beginning, no coordination clashes, no slab-to-slab surprises",
         "Our structural team has specific experience with MRI vibration isolation, radiation vault design, rooftop helipad structures, and seismic essential facility design",
-        "Every ARCHORA structural design applies the correct seismic importance factor of 1.5 for healthcare essential facilities as defined by IS 1893 — a distinction many general structural engineers overlook",
+        "Every ARCHORA structural design applies the correct seismic importance factor of 1.5 for healthcare essential facilities as defined by IS 1893, a distinction many general structural engineers overlook",
       ],
     },
     whoNeeds: {
       heading: "Who Needs Healthcare Structural Design?",
       bullets: [
-        "All healthcare construction projects — new builds, expansions, and adaptive reuse of existing structures",
+        "All healthcare construction projects, new builds, expansions, and adaptive reuse of existing structures",
         "Promoters installing heavy medical equipment including MRI, CT, or linear accelerators",
         "Hospital projects in seismic zones requiring essential facility classification",
         "Facilities planning rooftop helipads or radiation vaults",
@@ -858,14 +861,14 @@ export const servicesData: ServiceData[] = [
       heading: "MEP Systems ARCHORA Designs for Healthcare Facilities",
       body: [
         "ARCHORA covers the full MEP scope for healthcare: clinical HVAC with infection-control air systems, medical gas pipeline systems for oxygen, nitrous oxide, medical air, surgical air, carbon dioxide, nitrogen, and vacuum, healthcare-grade electrical engineering including isolated power systems and critical circuit design, plumbing and drainage for infection control and clinical waste, fire protection engineering, and Building Management Systems for centralised monitoring.",
-        "Each system is designed by engineers who work exclusively on healthcare projects — not generalists applying commercial principles to a clinical environment.",
+        "Each system is designed by engineers who work exclusively on healthcare projects, not generalists applying commercial principles to a clinical environment.",
       ],
     },
     coverage: {
       heading: "MEP Systems ARCHORA Designs for Healthcare Facilities",
       sections: [
         {
-          heading: "HVAC — Clinical Heating, Ventilation, and Air Conditioning",
+          heading: "HVAC, Clinical Heating, Ventilation, and Air Conditioning",
           items: [
             "Air change rate design for every clinical area as per NABH and international clinical standards",
             "Positive pressure design for OTs, clean rooms, sterile processing areas, and immunocompromised patient rooms",
@@ -967,16 +970,16 @@ export const servicesData: ServiceData[] = [
     whyUs: {
       heading: "Why Choose ARCHORA for MEP Engineering of Your Healthcare Facility?",
       points: [
-        "Every MEP engineer at ARCHORA works exclusively on healthcare projects — no offices, shopping centres, or residential buildings. Our entire knowledge base is built around clinical, regulatory, and life-safety requirements",
+        "Every MEP engineer at ARCHORA works exclusively on healthcare projects, no offices, shopping centres, or residential buildings. Our entire knowledge base is built around clinical, regulatory, and life-safety requirements",
         "Our MEP designs are produced by engineers who understand why an OT needs 25 air changes per hour, why an ICU needs medical grade isolated power, and why a medical gas system needs a zone valve at every corridor junction",
-        "Because ARCHORA provides architecture, structural, and MEP engineering under one roof, our MEP design is fully coordinated with the building architecture and structure from the beginning — no coordination surprises during construction",
+        "Because ARCHORA provides architecture, structural, and MEP engineering under one roof, our MEP design is fully coordinated with the building architecture and structure from the beginning, no coordination surprises during construction",
         "Every MEP system ARCHORA designs is specified and documented to meet NABH requirements, AERB requirements, fire safety requirements, and all other applicable regulatory standards",
       ],
     },
     whoNeeds: {
       heading: "Who Needs Healthcare MEP Engineering?",
       bullets: [
-        "Every hospital and healthcare facility — new construction, renovation, or MEP upgrade of existing facilities",
+        "Every hospital and healthcare facility, new construction, renovation, or MEP upgrade of existing facilities",
         "Facilities building or upgrading OTs and ICUs requiring clinical HVAC and isolated power",
         "Any facility installing medical gas systems",
         "Healthcare projects seeking NABH accreditation where MEP compliance is mandatory",
@@ -1130,15 +1133,15 @@ export const servicesData: ServiceData[] = [
       { step: "04", title: "Panel System and Finishes Specification", desc: "We specify the complete modular panel system, flooring system, door system, and all interior finishes for the OT and ICU. Material specifications are driven by infection control requirements and clinical performance, not aesthetics alone." },
       { step: "05", title: "Equipment and Pendant Specification", desc: "We specify and coordinate all clinical equipment including OT lights, pendant systems, OT tables, and ICU headwall panel systems. Equipment selection is coordinated with the MEP design to ensure all service connections are correctly provided." },
       { step: "06", title: "Construction and Installation", desc: "Our construction team installs the complete modular system including all civil works, MEP systems, panel systems, equipment, and finishes under a single coordinated programme. We do not subcontract critical clinical systems to parties without healthcare installation experience." },
-      { step: "07", title: "Commissioning, Testing, and Validation", desc: "Every OT and ICU we deliver is commissioned, tested, and validated before handover — including HVAC air change rate measurement, particle count testing, medical gas pressure testing, electrical system commissioning, and full clinical readiness verification." },
+      { step: "07", title: "Commissioning, Testing, and Validation", desc: "Every OT and ICU we deliver is commissioned, tested, and validated before handover: including HVAC air change rate measurement, particle count testing, medical gas pressure testing, electrical system commissioning, and full clinical readiness verification." },
     ],
     whyUs: {
       heading: "Why Choose ARCHORA for Your Modular OT and ICU?",
       points: [
-        "Our OT and ICU designs begin with the clinical brief, not the construction brief — we understand what a cardiac surgeon needs at the scrub sink, what an anaesthetist needs at the head of the table, and what an ICU nurse needs at the bedside",
-        "ARCHORA delivers the complete OT and ICU from structural provisions and MEP engineering through to panel installation, equipment supply, commissioning, and clinical validation — one team, one contract, one point of accountability",
-        "Every OT and ICU ARCHORA delivers is designed and built to meet NABH accreditation standards — compliance is part of the design brief from day one",
-        "We do not hand over an OT or ICU until it has been commissioned and validated to its design performance criteria — air change rates measured, particle counts verified, medical gas pressures tested, isolation monitors verified",
+        "Our OT and ICU designs begin with the clinical brief, not the construction brief, we understand what a cardiac surgeon needs at the scrub sink, what an anaesthetist needs at the head of the table, and what an ICU nurse needs at the bedside",
+        "ARCHORA delivers the complete OT and ICU from structural provisions and MEP engineering through to panel installation, equipment supply, commissioning, and clinical validation, one team, one contract, one point of accountability",
+        "Every OT and ICU ARCHORA delivers is designed and built to meet NABH accreditation standards, compliance is part of the design brief from day one",
+        "We do not hand over an OT or ICU until it has been commissioned and validated to its design performance criteria, air change rates measured, particle counts verified, medical gas pressures tested, isolation monitors verified",
       ],
     },
     whoNeeds: {
@@ -1148,7 +1151,7 @@ export const servicesData: ServiceData[] = [
         "Nursing homes and day-surgery centres upgrading to modular OT standards",
         "Facilities failing NABH inspections due to OT or ICU non-compliance",
         "Existing hospitals renovating or expanding their surgical or critical care capacity",
-        "Specialty surgical centres requiring specialist OT configurations — cardiac, neuro, robotic, hybrid",
+        "Specialty surgical centres requiring specialist OT configurations, cardiac, neuro, robotic, hybrid",
         "IVF and fertility centres requiring cleanroom-standard embryology lab environments",
       ],
     },
@@ -1179,7 +1182,7 @@ export const servicesData: ServiceData[] = [
 
 function SectionLabel({ text, color }: { text: string; color: string }) {
   return (
-    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, letterSpacing: "3px", textTransform: "uppercase", color, marginBottom: 16, display: "flex", alignItems: "center", gap: 14 }}>
+    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 18, letterSpacing: "3px", textTransform: "uppercase", color, marginBottom: 16, display: "flex", alignItems: "center", gap: 14 }}>
       <span style={{ display: "block", width: 32, height: "0.5px", background: color }} />
       {text}
       <span style={{ display: "block", width: 32, height: "0.5px", background: color }} />
@@ -1195,7 +1198,7 @@ function LightFAQItem({ faq }: { faq: FAQ }) {
         onClick={() => setOpen(!open)}
         style={{ width: "100%", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 16, padding: "20px 0", background: "none", border: "none", cursor: "pointer" }}
       >
-        <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 300, lineHeight: 1.4, color: open ? "#185FA5" : "#042C53", transition: "color 0.25s" }}>
+        <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 300, lineHeight: 1.4, color: open ? "#185FA5" : "#042C53", transition: "color 0.25s" }}>
           {faq.q}
         </span>
         <span style={{ flexShrink: 0, color: open ? "#185FA5" : "rgba(4,44,83,0.35)", marginTop: 2 }}>
@@ -1205,7 +1208,7 @@ function LightFAQItem({ faq }: { faq: FAQ }) {
       <AnimatePresence>
         {open && (
           <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }} style={{ overflow: "hidden" }}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, lineHeight: 1.9, color: "#185FA5", paddingBottom: 20 }}>{faq.a}</p>
+            <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, lineHeight: 1.9, color: "#185FA5", paddingBottom: 20 , fontWeight: 700 }}>{faq.a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -1215,6 +1218,7 @@ function LightFAQItem({ faq }: { faq: FAQ }) {
 
 // ─── Main ServiceDetailPage Component ─────────────────────────────────────────
 export function ServiceDetailPage({ service, onBack }: { service: ServiceData; onBack: () => void }) {
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [service.slug]);
@@ -1268,8 +1272,8 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
             <div style={{ width: 44, height: 44, display: "flex", alignItems: "center", justifyContent: "center", background: `${service.color}18`, border: `1px solid ${service.color}35`, borderRadius: 2, color: service.color }}>
               {service.icon}
             </div>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 8, letterSpacing: "3.5px", textTransform: "uppercase", color: `${service.color}90`, margin: 0 }}>
-              {service.id} — Service
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 17, letterSpacing: "3.5px", textTransform: "uppercase", color: `${service.color}90`, margin: 0 }}>
+              {service.id}, Service
             </p>
           </motion.div>
 
@@ -1277,7 +1281,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
             initial={{ opacity: 0, y: 30, clipPath: "inset(100% 0 0 0)" }}
             animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.2rem, 4.5vw, 4rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: 24, maxWidth: 760, letterSpacing: "-0.01em" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.82rem, 4.5vw, 5.12rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: 24, maxWidth: 760, letterSpacing: "-0.01em" }}
           >
             {service.heroH1.split(".").map((part, i, arr) =>
               i < arr.length - 1 ? (
@@ -1288,13 +1292,13 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
             )}
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.45 }} style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, lineHeight: 1.95, color: "rgba(255,255,255,0.48)", maxWidth: 600, marginBottom: 40 }}>
+          <motion.p initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.45 }} style={{ fontFamily: "'DM Mono', monospace", fontSize: 17, lineHeight: 1.95, color: "rgba(255,255,255,0.95)", maxWidth: 600, marginBottom: 40 }}>
             {service.heroSub}
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }} style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <button className="cta-btn-primary">Book a Free Consultation</button>
-            <button className="cta-btn-outline">WhatsApp Us</button>
+            <button className="cta-btn-primary" onClick={() => navigate("/contact")}>Book a Free Consultation</button>
+            <button className="cta-btn-outline" onClick={() => window.open(WHATSAPP_URL, "_blank")}>WhatsApp Us</button>
           </motion.div>
         </div>
 
@@ -1306,12 +1310,12 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 3rem" }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <SectionLabel text="The Challenge" color="#185FA5" />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", fontWeight: 300, color: "#042C53", marginBottom: 28, lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3.5vw, 3.58rem)", fontWeight: 300, color: "#042C53", marginBottom: 28, lineHeight: 1.2 }}>
               {service.problem.heading}
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               {service.problem.body.map((para, i) => (
-                <p key={i} style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, lineHeight: 1.95, color: "#0f3352", borderLeft: i === service.problem.body.length - 1 ? "2px solid #185FA5" : "none", paddingLeft: i === service.problem.body.length - 1 ? 16 : 0, fontStyle: i === service.problem.body.length - 1 ? "italic" : "normal" }}>
+                <p key={i} style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, lineHeight: 1.95, color: "#0a1a2a", borderLeft: i === service.problem.body.length - 1 ? "2px solid #185FA5" : "none", paddingLeft: i === service.problem.body.length - 1 ? 16 : 0, fontStyle: i === service.problem.body.length - 1 ? "italic" : "normal" , fontWeight: 700 }}>
                   {para}
                 </p>
               ))}
@@ -1325,11 +1329,11 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 3rem" }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <SectionLabel text="What This Is" color={`${service.color}90`} />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 300, color: "#fff", marginBottom: 28, lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3.5vw, 3.33rem)", fontWeight: 300, color: "#fff", marginBottom: 28, lineHeight: 1.2 }}>
               {service.explainer.heading}
             </h2>
             {service.explainer.body.map((para, i) => (
-              <p key={i} style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, lineHeight: 1.95, color: "rgba(255,255,255,0.55)", marginBottom: 14 }}>{para}</p>
+              <p key={i} style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, lineHeight: 1.95, color: "rgba(255,255,255,0.95)", marginBottom: 14 , fontWeight: 700 }}>{para}</p>
             ))}
           </motion.div>
         </div>
@@ -1341,8 +1345,8 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <div style={{ display: "flex", gap: "4rem", flexWrap: "wrap", alignItems: "flex-start" }}>
               <div style={{ flex: "1 1 300px" }}>
-                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 8, letterSpacing: "3px", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: 14 }}>Who This Serves</p>
-                <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 3vw, 2.4rem)", fontWeight: 300, color: "#fff", lineHeight: 1.2, marginBottom: 0 }}>
+                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 17, letterSpacing: "3px", textTransform: "uppercase", color: "rgba(255,255,255,0.95)", marginBottom: 14 }}>Who This Serves</p>
+                <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3vw, 3.07rem)", fontWeight: 300, color: "#fff", lineHeight: 1.2, marginBottom: 0 }}>
                   {service.whoNeeds.heading}
                 </h2>
               </div>
@@ -1352,7 +1356,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                     <div style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 }}>
                       <Check size={11} color="#fff" />
                     </div>
-                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, lineHeight: 1.8, color: "rgba(255,255,255,0.75)" }}>{bullet}</span>
+                    <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, lineHeight: 1.8, color: "rgba(255,255,255,0.75)" }}>{bullet}</span>
                   </div>
                 ))}
               </div>
@@ -1367,7 +1371,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 3rem", position: "relative", zIndex: 1 }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "4.5rem" }}>
             <SectionLabel text="Scope of Service" color={`${service.color}90`} />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3.2rem)", fontWeight: 300, color: "#fff", lineHeight: 1.15 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.56rem, 4vw, 4.1rem)", fontWeight: 300, color: "#fff", lineHeight: 1.15 }}>
               {service.coverage.heading}
             </h2>
           </motion.div>
@@ -1381,12 +1385,12 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                   style={{ background: "rgba(255,255,255,0.025)", border: `0.5px solid ${service.color}18`, borderRadius: 2, padding: "1.8rem", position: "relative", overflow: "hidden" }}
                 >
                   <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: `linear-gradient(90deg, ${service.color}60, transparent)` }} />
-                  <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 400, color: "#fff", marginBottom: 16, lineHeight: 1.35 }}>{section.heading}</p>
+                  <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 400, color: "#fff", marginBottom: 16, lineHeight: 1.35 }}>{section.heading}</p>
                   <ul style={{ display: "flex", flexDirection: "column", gap: 8, margin: 0, padding: 0, listStyle: "none" }}>
                     {section.items.map((item, j) => (
                       <li key={j} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                         <span style={{ width: 4, height: 4, borderRadius: "50%", background: service.color, flexShrink: 0, marginTop: 6 }} />
-                        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, lineHeight: 1.75, color: "rgba(255,255,255,0.5)" }}>{item}</span>
+                        <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, lineHeight: 1.75, color: "rgba(255,255,255,0.95)" }}>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -1403,7 +1407,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
           <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3rem" }}>
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
               <SectionLabel text="Facility Types" color="#185FA5" />
-              <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 300, color: "#042C53", marginBottom: 32, lineHeight: 1.2 }}>
+              <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3.5vw, 3.33rem)", fontWeight: 300, color: "#042C53", marginBottom: 32, lineHeight: 1.2 }}>
                 {service.extra.heading}
               </h2>
               <div className="table-responsive">
@@ -1411,15 +1415,15 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                   <thead>
                     <tr>
                       {service.extra.tableHead?.map((h, i) => (
-                        <th key={i} style={{ textAlign: "left", padding: "12px 16px", fontSize: 9, letterSpacing: "2px", textTransform: "uppercase", color: "#185FA5", background: "rgba(4,44,83,0.06)", borderBottom: "1px solid rgba(24,95,165,0.2)", fontWeight: 500 }}>{h}</th>
+                        <th key={i} style={{ textAlign: "left", padding: "12px 16px", fontSize: 18, letterSpacing: "2px", textTransform: "uppercase", color: "#185FA5", background: "rgba(4,44,83,0.06)", borderBottom: "1px solid rgba(24,95,165,0.2)", fontWeight: 500 }}>{h}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
                     {service.extra.tableRows?.map((row, i) => (
                       <tr key={i} style={{ background: i % 2 === 0 ? "rgba(4,44,83,0.02)" : "transparent" }}>
-                        <td style={{ padding: "12px 16px", fontSize: 10, color: "#042C53", borderBottom: "0.5px solid rgba(24,95,165,0.1)", fontWeight: 500 }}>{row[0]}</td>
-                        <td style={{ padding: "12px 16px", fontSize: 10, color: "#185FA5", borderBottom: "0.5px solid rgba(24,95,165,0.1)" }}>{row[1]}</td>
+                        <td style={{ padding: "12px 16px", fontSize: 19, color: "#042C53", borderBottom: "0.5px solid rgba(24,95,165,0.1)", fontWeight: 500 }}>{row[0]}</td>
+                        <td style={{ padding: "12px 16px", fontSize: 19, color: "#185FA5", borderBottom: "0.5px solid rgba(24,95,165,0.1)" }}>{row[1]}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -1435,7 +1439,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3.5rem" }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "5rem" }}>
             <SectionLabel text="Our Process" color="#185FA5" />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.15 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.56rem, 4vw, 3.84rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.15 }}>
               How ARCHORA Delivers <em style={{ fontStyle: "italic", color: "#185FA5" }}>This Service</em>
             </h2>
           </motion.div>
@@ -1449,7 +1453,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                   style={{ display: "flex", gap: 18, alignItems: "flex-start", marginBottom: 32 }}
                 >
                   <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
-                    <div style={{ width: 42, height: 42, borderRadius: "50%", background: "linear-gradient(135deg,#185FA5,#4bd1d9)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'DM Mono', monospace", fontSize: 10, fontWeight: 500, color: "#fff", flexShrink: 0 }}>
+                    <div style={{ width: 42, height: 42, borderRadius: "50%", background: "linear-gradient(135deg,#185FA5,#4bd1d9)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'DM Mono', monospace", fontSize: 19, fontWeight: 500, color: "#fff", flexShrink: 0 }}>
                       {step.step}
                     </div>
                     {i < service.process.length - 1 && (
@@ -1457,8 +1461,8 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                     )}
                   </div>
                   <div style={{ paddingTop: 8 }}>
-                    <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 400, color: "#042C53", marginBottom: 6, lineHeight: 1.3 }}>{step.title}</h4>
-                    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, lineHeight: 1.85, color: "#185FA5" }}>{step.desc}</p>
+                    <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 400, color: "#042C53", marginBottom: 6, lineHeight: 1.3 }}>{step.title}</h4>
+                    <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, lineHeight: 1.85, color: "#185FA5" , fontWeight: 700 }}>{step.desc}</p>
                   </div>
                 </motion.div>
               );
@@ -1466,7 +1470,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
           </div>
 
           <div style={{ textAlign: "center", marginTop: "3rem" }}>
-            <button className="cta-btn-primary" style={{ background: "linear-gradient(135deg,#042C53,#185FA5)", color: "#fff" }}>
+            <button className="cta-btn-primary" onClick={() => navigate("/contact")} style={{ background: "linear-gradient(135deg,#042C53,#185FA5)", color: "#fff" }}>
               Book a Free Consultation
             </button>
           </div>
@@ -1478,7 +1482,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3rem" }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ marginBottom: "4rem" }}>
             <SectionLabel text="Why ARCHORA" color={`${service.color}90`} />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 300, color: "#fff", lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3.5vw, 3.33rem)", fontWeight: 300, color: "#fff", lineHeight: 1.2 }}>
               {service.whyUs.heading}
             </h2>
           </motion.div>
@@ -1492,7 +1496,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                   style={{ padding: "1.6rem", background: `${service.color}07`, border: `0.5px solid ${service.color}18`, borderRadius: 2 }}
                 >
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: service.color, marginBottom: 14 }} />
-                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, lineHeight: 1.85, color: "rgba(255,255,255,0.55)" }}>{point}</p>
+                  <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, lineHeight: 1.85, color: "rgba(255,255,255,0.95)" , fontWeight: 700 }}>{point}</p>
                 </motion.div>
               );
             })}
@@ -1505,7 +1509,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 3rem" }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ marginBottom: "3rem" }}>
             <SectionLabel text="Frequently Asked Questions" color="#185FA5" />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3.5vw, 3.33rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.2 }}>
               Everything You Need to Know
             </h2>
           </motion.div>
@@ -1525,7 +1529,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3rem" }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ marginBottom: "3rem" }}>
             <SectionLabel text="Related Services" color={`${service.color}90`} />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 3.5vw, 2.4rem)", fontWeight: 300, color: "#fff", lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3.5vw, 3.07rem)", fontWeight: 300, color: "#fff", lineHeight: 1.2 }}>
               You Might Also Need
             </h2>
           </motion.div>
@@ -1537,7 +1541,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                 onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = `${service.color}08`; (e.currentTarget as HTMLDivElement).style.borderColor = `${service.color}35`; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.03)"; (e.currentTarget as HTMLDivElement).style.borderColor = `${service.color}18`; }}
               >
-                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, lineHeight: 1.7, color: "rgba(255,255,255,0.6)", margin: 0 }}>{rel.title}</p>
+                <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, lineHeight: 1.7, color: "rgba(255,255,255,0.97)", margin: 0 , fontWeight: 700 }}>{rel.title}</p>
                 <ArrowRight size={13} color={service.color} style={{ flexShrink: 0, marginTop: 2 }} />
               </motion.div>
             ))}
@@ -1558,19 +1562,19 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
             <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 60, height: 60, borderRadius: "50%", background: `${service.color}15`, border: `1px solid ${service.color}30`, color: service.color, marginBottom: 28 }}>
               {service.icon}
             </div>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3.2rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.56rem, 4vw, 4.1rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
               {service.bottomCTA.heading.split("?")[0]}?<br />
               <em style={{ fontStyle: "italic", color: service.color }}>Talk to ARCHORA.</em>
             </h2>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "rgba(255,255,255,0.38)", lineHeight: 1.9, marginBottom: 40 }}>
+            <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, color: "rgba(255,255,255,0.90)", lineHeight: 1.9, marginBottom: 40 , fontWeight: 700 }}>
               {service.bottomCTA.body}
             </p>
             <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-              <button className="cta-btn-primary">Book a Free Consultation</button>
-              <button className="cta-btn-outline">💬 WhatsApp Us</button>
-              <button className="cta-btn-outline">Send an Enquiry →</button>
+              <button className="cta-btn-primary" onClick={() => navigate("/contact")}>Book a Free Consultation</button>
+              <button className="cta-btn-outline" onClick={() => window.open(WHATSAPP_URL, "_blank")}>💬 WhatsApp Us</button>
+              <button className="cta-btn-outline" onClick={() => navigate("/contact")}>Send an Enquiry →</button>
             </div>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, color: "rgba(255,255,255,0.18)", marginTop: 24, letterSpacing: "0.1em" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 18, color: "rgba(255,255,255,0.18)", marginTop: 24, letterSpacing: "0.1em" }}>
               No obligation · No sales pressure · Just clarity.
             </p>
           </motion.div>

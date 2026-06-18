@@ -1,5 +1,12 @@
 import { Link } from "react-router";
-import { MapPin, Phone, Mail, Linkedin, Twitter, Instagram, Figma } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
+
+const SOCIAL_LINKS = [
+  { icon: Instagram, href: "https://www.instagram.com/archoraofficial", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/archora/?viewAsMember=true", label: "LinkedIn" },
+  { icon: Facebook, href: "https://www.facebook.com/share/1EpNTof8Wi/?mibextid=wwXIfr", label: "Facebook" },
+  { icon: Youtube, href: "https://www.youtube.com/@Archoraofficial", label: "YouTube" },
+];
 
 export function Footer() {
   const quickLinks = [
@@ -171,7 +178,7 @@ export function Footer() {
         }
 
         .footer-link-list a::before {
-          content: '—';
+          content: ', ';
           font-size: 10px;
           color: #4bccd4;
           opacity: 0;
@@ -341,16 +348,12 @@ export function Footer() {
             {/* Brand col */}
             <div className="footer-col">
               <div className="footer-brand-name">
-                Archora<em>+</em>
+                ARCHORA
               </div>
-              <div className="footer-brand-sub">Healthcare Architecture</div>
+              <div className="footer-brand-sub">Healthcare Infrastructure</div>
               <p className="footer-tagline">
-                Designing future-ready healthcare spaces with precision, safety, and innovation at every scale.
+                India's dedicated healthcare infrastructure partner, architecture, compliance, engineering, and execution under one accountable roof.
               </p>
-              <div className="footer-badge">
-                <span className="footer-badge-dot" />
-                ISO 9001 Certified Practice
-              </div>
             </div>
 
             {/* Quick links */}
@@ -380,31 +383,24 @@ export function Footer() {
               <div className="footer-col-head">Get in Touch</div>
               <div className="footer-contact-row">
                 <MapPin className="footer-contact-icon" size={14} />
-                <span>123 Architecture Lane,<br />New York, NY 10001</span>
+                <span>903 Niramaya Heights, Parsik Nagar, Kalwa,<br />Thane East, Thane, 400605, Maharashtra</span>
               </div>
               <div className="footer-contact-row">
                 <Phone className="footer-contact-icon" size={14} />
-                <span>+1 (555) 123-4567</span>
+                <a href="tel:+917218444700" style={{ color: "inherit", textDecoration: "none" }}>+91 72184 44700</a>
               </div>
               <div className="footer-contact-row">
                 <Mail className="footer-contact-icon" size={14} />
-                <span>hello@archimedplus.com</span>
+                <a href="mailto:contact@archora.in" style={{ color: "inherit", textDecoration: "none" }}>contact@archora.in</a>
               </div>
 
               {/* Social icons */}
               <div className="footer-socials">
-                <a href="#" className="footer-social-btn" aria-label="LinkedIn">
-                  <Linkedin size={15} />
-                </a>
-                <a href="#" className="footer-social-btn" aria-label="Twitter">
-                  <Twitter size={15} />
-                </a>
-                <a href="#" className="footer-social-btn" aria-label="Instagram">
-                  <Instagram size={15} />
-                </a>
-                <a href="#" className="footer-social-btn" aria-label="Behance">
-                  <Figma size={15} />
-                </a>
+                {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label={label}>
+                    <Icon size={15} />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -413,18 +409,14 @@ export function Footer() {
           <div className="footer-bottom">
             <div className="footer-bottom-inner">
               <p className="footer-copy">
-                © 2026 <span>Archora+</span>. All rights reserved.
+                © 2026 <span>ARCHORA</span>. All rights reserved.
               </p>
-              <div className="footer-award">
-                <span className="footer-award-star">✦</span>
-                AIA Healthcare Design Award 2025
-              </div>
               <div className="footer-legal">
-                <a href="#">Privacy Policy</a>
+                <Link to="/why-us?tab=privacy">Privacy Policy</Link>
                 <span className="footer-legal-dot" />
-                <a href="#">Terms of Service</a>
+                <Link to="/why-us?tab=privacy">Terms of Service</Link>
                 <span className="footer-legal-dot" />
-                <a href="#">Cookie Preferences</a>
+                <Link to="/why-us?tab=privacy">Cookie Preferences</Link>
               </div>
             </div>
           </div>

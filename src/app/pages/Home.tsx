@@ -2,6 +2,9 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence, useInView, useScroll, useTransform } from "motion/react";
 import { Helmet } from "react-helmet";
 import { createPortal } from "react-dom";
+import { useNavigate } from "react-router";
+
+const WHATSAPP_URL = "https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project.";
 
 
 // ─────────────────────────────────────────────
@@ -31,7 +34,7 @@ function SEOHead() {
         "name": "ARCHORA",
         "url": "https://archora.in",
         "logo": "https://archora.in/logo.png",
-        "description": "India's dedicated healthcare infrastructure partner — hospital design, construction, modular OT & ICU, NABH-compliant architecture, and turnkey delivery across India.",
+        "description": "India's dedicated healthcare infrastructure partner, hospital design, construction, modular OT & ICU, NABH-compliant architecture, and turnkey delivery across India.",
         "areaServed": "IN",
         "knowsAbout": [
           "Hospital Architecture",
@@ -49,14 +52,14 @@ function SEOHead() {
         "@type": "WebSite",
         "@id": "https://archora.in/#website",
         "url": "https://archora.in",
-        "name": "ARCHORA — Healthcare Infrastructure Partner",
+        "name": "ARCHORA, Healthcare Infrastructure Partner",
         "publisher": { "@id": "https://archora.in/#organization" }
       },
       {
         "@type": "WebPage",
         "@id": "https://archora.in/#webpage",
         "url": "https://archora.in",
-        "name": "ARCHORA — India's Dedicated Healthcare Infrastructure Partner",
+        "name": "ARCHORA, India's Dedicated Healthcare Infrastructure Partner",
         "description": "ARCHORA designs, builds, and delivers hospitals, clinics, modular OTs, ICUs, laboratories, and medical colleges across India under one roof. NABH-compliant from day one.",
         "isPartOf": { "@id": "https://archora.in/#website" },
         "about": { "@id": "https://archora.in/#organization" },
@@ -69,7 +72,7 @@ function SEOHead() {
         "@type": "LocalBusiness",
         "@id": "https://archora.in/#localbusiness",
         "name": "ARCHORA Healthcare Infrastructure",
-        "description": "Full-service healthcare infrastructure firm — hospital architecture, MEP engineering, modular OT & ICU, NABH compliance, turnkey delivery across India.",
+        "description": "Full-service healthcare infrastructure firm, hospital architecture, MEP engineering, modular OT & ICU, NABH compliance, turnkey delivery across India.",
         "url": "https://archora.in",
         "priceRange": "₹₹₹",
         "areaServed": [
@@ -92,15 +95,15 @@ function SEOHead() {
   return (
     <Helmet>
       {/* Primary Meta */}
-      <title>ARCHORA — India's Dedicated Healthcare Infrastructure Partner</title>
-      <meta name="description" content="ARCHORA designs, builds, and delivers hospitals, clinics, modular OTs, ICUs, laboratories, and medical colleges across India — NABH-compliant from day one, under one roof." />
+      <title>ARCHORA, India's Dedicated Healthcare Infrastructure Partner</title>
+      <meta name="description" content="ARCHORA designs, builds, and delivers hospitals, clinics, modular OTs, ICUs, laboratories, and medical colleges across India, NABH-compliant from day one, under one roof." />
       <meta name="keywords" content="hospital design India, healthcare infrastructure, NABH compliant hospital, modular OT design, hospital construction India, ICU infrastructure, medical college design, turnkey hospital, hospital architecture India, MEP engineering healthcare" />
       <link rel="canonical" href="https://archora.in" />
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://archora.in" />
-      <meta property="og:title" content="ARCHORA — India's Dedicated Healthcare Infrastructure Partner" />
+      <meta property="og:title" content="ARCHORA, India's Dedicated Healthcare Infrastructure Partner" />
       <meta property="og:description" content="We design, build, and deliver hospitals, clinics, modular OTs, ICUs, and medical colleges across India. NABH-compliant architecture. Full turnkey. One team." />
       <meta property="og:image" content="https://archora.in/og-image.jpg" />
       <meta property="og:image:width" content="1200" />
@@ -110,8 +113,8 @@ function SEOHead() {
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="ARCHORA — India's Dedicated Healthcare Infrastructure Partner" />
-      <meta name="twitter:description" content="Hospital design, construction, modular OT & ICU, NABH compliance — delivered under one roof across India." />
+      <meta name="twitter:title" content="ARCHORA, India's Dedicated Healthcare Infrastructure Partner" />
+      <meta name="twitter:description" content="Hospital design, construction, modular OT & ICU, NABH compliance, delivered under one roof across India." />
       <meta name="twitter:image" content="https://archora.in/og-image.jpg" />
 
       {/* Geo & Language */}
@@ -208,32 +211,32 @@ function AnimatedCounter({ to, suffix = "" }: { to: number; suffix?: string }) {
 // ─────────────────────────────────────────────
 const heroSlides = [
   {
-    src: "https://images.unsplash.com/photo-1769147555720-71fc71bfc216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1400",
-    label: "01 — Architecture",
+    src: "/images/hero/hero-slide-1.jpg",
+    label: "01, Architecture",
     tag: "India's Dedicated Partner",
     headline: "India's Dedicated Healthcare Infrastructure Partner",
-    sub: "We design, build, and deliver hospitals, clinics, modular OTs, ICUs, laboratories, and medical colleges across India — under one roof.",
+    sub: "We design, build, and deliver hospitals, clinics, modular OTs, ICUs, laboratories, and medical colleges across India, under one roof.",
   },
   {
-    src: "https://images.unsplash.com/photo-1764885415760-d3d8fff41fe3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1400",
-    label: "02 — Compliance",
+    src: "/images/hero/hero-slide-2.jpg",
+    label: "02, Compliance",
     tag: "NABH From Day One",
     headline: "NABH-Compliant Design. From Day One.",
     sub: "No retrofitting. No last-minute corrections. Every standard integrated from the very first drawing.",
   },
   {
-    src: "https://images.unsplash.com/photo-1505410603994-c3ac6269711f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1400",
-    label: "03 — Delivery",
+    src: "/images/hero/hero-slide-3.jpg",
+    label: "03, Delivery",
     tag: "Single Accountability",
     headline: "One Team. One Contract. Full Accountability.",
-    sub: "From concept to commissioning — ARCHORA takes complete responsibility so you don't manage 15 vendors alone.",
+    sub: "From concept to commissioning, ARCHORA takes complete responsibility so you don't manage 15 vendors alone.",
   },
   {
-    src: "https://images.unsplash.com/photo-1725693485717-dbf8eac577c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1400",
-    label: "04 — Innovation",
+    src: "/images/hero/hero-slide-4.jpg",
+    label: "04, Innovation",
     tag: "Global Standards",
     headline: "Global Standards. Pan-India Delivery.",
-    sub: "NHS-level healthcare infrastructure expertise meets India-specific clinical realities — in every project we deliver.",
+    sub: "NHS-level healthcare infrastructure expertise meets India-specific clinical realities, in every project we deliver.",
   },
 ];
 
@@ -247,28 +250,28 @@ const services = [
   { num: "07", title: "Modular OT & ICU Infrastructure", desc: "Design, supply, and installation of modular operating theatres and ICUs with laminar airflow and cleanroom standards.", icon: "🔬" },
   { num: "08", title: "Turnkey Civil & Interior Execution", desc: "Complete healthcare construction and interior fit-out through a single point of accountability.", icon: "🔑" },
   { num: "09", title: "Medical Equipment Planning & Procurement", desc: "Department-wise planning, budget optimisation, vendor evaluation, procurement support, and installation coordination.", icon: "🩺" },
-  { num: "10", title: "Project Management & Commissioning", desc: "End-to-end project management from planning through to commissioning and handover — protecting your timeline.", icon: "🗂️" },
+  { num: "10", title: "Project Management & Commissioning", desc: "End-to-end project management from planning through to commissioning and handover: protecting your timeline.", icon: "🗂️" },
 ];
 
 const pillars = [
   {
     num: "01",
     title: "Healthcare Only. Always.",
-    desc: "We do not design offices, residences, or commercial spaces. Healthcare infrastructure is all we do — our knowledge, processes, and vendor relationships are entirely built around one outcome.",
+    desc: "We do not design offices, residences, or commercial spaces. Healthcare infrastructure is all we do, our knowledge, processes, and vendor relationships are entirely built around one outcome.",
     stat: "100%",
     statLabel: "Healthcare Focus",
   },
   {
     num: "02",
     title: "Compliance Built In. Not Bolted On.",
-    desc: "NABH, NABL, INC, NMC, AERB, fire safety — part of our design process from day one, not an afterthought discovered during inspection.",
+    desc: "NABH, NABL, INC, NMC, AERB, fire safety, part of our design process from day one, not an afterthought discovered during inspection.",
     stat: "Zero",
     statLabel: "Retrofits Needed",
   },
   {
     num: "03",
     title: "Single-Window Accountability.",
-    desc: "One team, one contract, one point of accountability — from architecture and engineering through construction, equipment, and commissioning.",
+    desc: "One team, one contract, one point of accountability, from architecture and engineering through construction, equipment, and commissioning.",
     stat: "1",
     statLabel: "Point of Contact",
   },
@@ -284,7 +287,7 @@ const pillars = [
 const audiences = [
   { icon: "🩺", label: "Doctors & Clinicians", desc: "Planning your first clinic, nursing home, or hospital? Infrastructure that matches your clinical vision, ready to operate from day one." },
   { icon: "🏥", label: "Hospital Owners & Chains", desc: "Expanding an existing facility or building a new branch? Brownfield upgrades and greenfield projects with the same depth of expertise." },
-  { icon: "💼", label: "Healthcare Investors", desc: "Feasibility studies, DPRs, and turnkey delivery that protect your capital and your timeline — before and after you commit." },
+  { icon: "💼", label: "Healthcare Investors", desc: "Feasibility studies, DPRs, and turnkey delivery that protect your capital and your timeline, before and after you commit." },
   { icon: "🎓", label: "Medical & Nursing Colleges", desc: "Building or expanding a campus? ARCHORA designs and delivers INC and NMC-compliant educational and clinical infrastructure." },
   { icon: "🔬", label: "Diagnostic Centres & Labs", desc: "NABL-compliant spaces with the right technical infrastructure for every department and imaging modality." },
   { icon: "🤝", label: "Healthcare Consultants", desc: "The infrastructure partner your clients need. We work collaboratively with consultants and advisors across India." },
@@ -310,11 +313,10 @@ const projects: Project[] = [
     name: "Suresh Matre Multispecialty Hospital",
     location: "Mankoli, Mumbai, Maharashtra",
     type: "300-bed · Full Turnkey",
-    image: "https://images.unsplash.com/photo-1764885415760-d3d8fff41fe3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1400",
-    status: "Design Phase — In Progress",
+    image: "/images/projects/suresh-matre-hospital.jpg",
+    status: "Design Phase, In Progress",
     statusColor: "#f59e0b",
     details: {
-      "Facility Type": "Charitable Multispecialty Hospital",
       "Capacity": "300 Beds",
       "Area": "2,00,000 Sq Ft",
       "Project Value": "₹150 Crore+",
@@ -324,11 +326,11 @@ const projects: Project[] = [
       "Commissioned By": "Shri Suresh Matre, MP, 18th Lok Sabha",
     },
     description:
-      "A landmark charitable multispecialty hospital commissioned by MP Shri Suresh Matre — one of the most significant healthcare infrastructure projects currently underway in Maharashtra. ARCHORA is delivering the complete turnkey scope, from master planning and clinical space design through to oncology department planning and final commissioning.",
+      "A landmark charitable multispecialty hospital commissioned by MP Shri Suresh Matre, one of the most significant healthcare infrastructure projects currently underway in Maharashtra. ARCHORA is delivering the complete turnkey scope, from master planning and clinical space design through to oncology department planning and final commissioning.",
     scopeItems: [
       "Master Planning and Clinical Space Planning",
       "Architecture and Structural Design",
-      "MEP Engineering — Medical Gas, HVAC, Fire Suppression",
+      "MEP Engineering, Medical Gas, HVAC, Fire Suppression",
       "Modular OT and ICU Infrastructure",
       "Oncology Department Planning",
       "NABH-Compliant Design Framework",
@@ -342,8 +344,8 @@ const projects: Project[] = [
     name: "Multispecialty Hospital",
     location: "Binar, Madhya Pradesh",
     type: "110-bed · Architecture & Design",
-    image: "https://images.unsplash.com/photo-1725693485717-dbf8eac577c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=900",
-    status: "Design Phase — In Progress",
+    image: "/images/projects/binar-mp-hospital.jpg",
+    status: "Design Phase, In Progress",
     statusColor: "#f59e0b",
     details: {
       "Facility Type": "Multispecialty Hospital",
@@ -353,7 +355,7 @@ const projects: Project[] = [
       "Scope": "Architecture and Clinical Space Design",
     },
     description:
-      "A growing multispecialty hospital serving central India — designed for clinical efficiency, future scalability, and regulatory compliance from day one. ARCHORA is providing full architectural and clinical space design for this 110-bed facility.",
+      "A growing multispecialty hospital serving central India, designed for clinical efficiency, future scalability, and regulatory compliance from day one. ARCHORA is providing full architectural and clinical space design for this 110-bed facility.",
     scopeItems: [
       "Architecture and Clinical Space Design",
       "NABH-Compliant Design Framework",
@@ -366,17 +368,17 @@ const projects: Project[] = [
     name: "Multispecialty Hospital Redevelopment",
     location: "Jogeshwari, Mumbai, Maharashtra",
     type: "20–25 Beds · Full Redevelopment",
-    image: "https://images.unsplash.com/photo-1779062553594-7c84878a9266?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=900",
-    status: "Design Phase — In Progress",
+    image: "/images/projects/jogeshwari-redevelopment.jpg",
+    status: "Design Phase, In Progress",
     statusColor: "#f59e0b",
     details: {
-      "Facility Type": "Multispecialty Hospital — Full Redevelopment",
+      "Facility Type": "Multispecialty Hospital, Full Redevelopment",
       "Capacity": "20 to 25 Beds",
       "Location": "Jogeshwari, Mumbai, Maharashtra",
-      "Scope": "Full Turnkey — Design and Execution",
+      "Scope": "Full Turnkey, Design and Execution",
     },
     description:
-      "An existing facility acquired by a healthcare investor, completely reimagined and rebuilt as a modern multispecialty hospital. ARCHORA is delivering full turnkey — from ground zero to operational hospital.",
+      "An existing facility acquired by a healthcare investor, completely reimagined and rebuilt as a modern multispecialty hospital. ARCHORA is delivering full turnkey, from ground zero to operational hospital.",
     scopeItems: [
       "Full Architectural Redesign",
       "Clinical Workflow Optimisation",
@@ -391,17 +393,17 @@ const projects: Project[] = [
     name: "Commercial Suite Conversion",
     location: "Chembur, Mumbai, Maharashtra",
     type: "Floor Renovation · NABH Compliant",
-    image: "https://images.unsplash.com/photo-1777269749032-d8d458ae594d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=900",
-    status: "Design and Execution — In Progress",
+    image: "/images/projects/chembur-conversion.jpg",
+    status: "Design and Execution, In Progress",
     statusColor: "#f59e0b",
     details: {
-      "Facility Type": "Charitable Hospital — Floor Renovation",
+      "Facility Type": "Charitable Hospital, Floor Renovation",
       "Location": "Chembur, Mumbai, Maharashtra",
       "Work Type": "5th Floor → Commercial Suites & Private Rooms",
       "Scope": "NABH-Compliant Redesign and Execution",
     },
     description:
-      "A smart infrastructure upgrade — converting an underutilised hospital floor into revenue-generating private suites and single rooms, fully compliant with NABH standards. A model for how existing healthcare facilities can unlock new revenue streams through intelligent space redesign.",
+      "A smart infrastructure upgrade, converting an underutilised hospital floor into revenue-generating private suites and single rooms, fully compliant with NABH standards. A model for how existing healthcare facilities can unlock new revenue streams through intelligent space redesign.",
     scopeItems: [
       "Clinical Space Reprogramming",
       "NABH-Compliant Redesign",
@@ -444,7 +446,7 @@ function SectionLabel({ text, light = false }: { text: string; light?: boolean }
       <span style={{ width: 28, height: 1, background: light ? "rgba(75,204,212,0.6)" : C.blue, display: "block" }} />
       <span style={{
         fontFamily: "monospace",
-        fontSize: 10,
+        fontSize: 13,
         letterSpacing: "0.28em",
         textTransform: "uppercase",
         color: light ? "rgba(75,204,212,0.7)" : C.blue,
@@ -457,6 +459,7 @@ function SectionLabel({ text, light = false }: { text: string; light?: boolean }
 // PROJECT MODAL
 // ─────────────────────────────────────────────
 function ProjectModal({ project, onClose }: { project: Project | null; onClose: () => void }) {
+  const navigate = useNavigate();
   useEffect(() => {
     document.body.style.overflow = project ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -513,7 +516,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
             {/* Hero image */}
             <div style={{ position: "relative", height: 260, flexShrink: 0, overflow: "hidden" }}>
               <img
-                src={project.image} alt={`${project.name} — ${project.location}`}
+                src={project.image} alt={`${project.name}, ${project.location}`}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 loading="lazy"
               />
@@ -530,7 +533,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
                 backdropFilter: "blur(8px)",
               }}>
                 <span style={{ width: 6, height: 6, borderRadius: "50%", background: project.statusColor, flexShrink: 0, display: "inline-block" }} />
-                <span style={{ color: "rgba(255,255,255,0.7)", fontSize: 9, fontFamily: "monospace", letterSpacing: "0.14em" }}>
+                <span style={{ color: "rgba(255,255,255,0.7)", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.14em" }}>
                   {project.status}
                 </span>
               </div>
@@ -544,7 +547,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
                   width: 36, height: 36, border: "1px solid rgba(75,204,212,0.3)",
                   background: "rgba(10,22,40,0.8)", color: "rgba(255,255,255,0.6)",
                   cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: 20, lineHeight: 1, backdropFilter: "blur(4px)", transition: "all 0.2s",
+                  fontSize: 22, lineHeight: 1, backdropFilter: "blur(4px)", transition: "all 0.2s",
                 }}
                 onMouseEnter={e => { const b = e.currentTarget as HTMLButtonElement; b.style.color = "#4bccd4"; b.style.borderColor = "rgba(75,204,212,0.6)"; }}
                 onMouseLeave={e => { const b = e.currentTarget as HTMLButtonElement; b.style.color = "rgba(255,255,255,0.6)"; b.style.borderColor = "rgba(75,204,212,0.3)"; }}
@@ -552,11 +555,11 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
 
               {/* Title */}
               <div style={{ position: "absolute", bottom: 22, left: 28, right: 28 }}>
-                <p style={{ color: "rgba(75,204,212,0.65)", fontSize: 9, letterSpacing: "0.26em", textTransform: "uppercase", fontFamily: "monospace", margin: "0 0 7px" }}>
+                <p style={{ color: "rgba(75,204,212,0.65)", fontSize: 12, letterSpacing: "0.26em", textTransform: "uppercase", fontFamily: "monospace", margin: "0 0 7px" , fontWeight: 600 }}>
                   {project.location}
                 </p>
                 <h2 style={{
-                  color: "#ffffff", fontSize: 24,
+                  color: "#ffffff", fontSize: 27,
                   fontFamily: "'Cormorant Garamond', 'Georgia', serif",
                   fontWeight: 400, margin: 0, lineHeight: 1.15,
                 }}>
@@ -569,7 +572,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
             <div style={{ overflowY: "auto", padding: "28px 32px 36px", flex: 1 }}>
 
               {/* Description */}
-              <p style={{ color: "rgba(255,255,255,0.58)", fontSize: 13.5, lineHeight: 1.85, margin: "0 0 30px" }}>
+              <p style={{ color: "rgba(255,255,255,0.95)", fontSize: 19, lineHeight: 1.85, margin: "0 0 30px" , fontWeight: 600 }}>
                 {project.description}
               </p>
 
@@ -580,7 +583,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
                 <div>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
                     <span style={{ width: 20, height: 1, background: "rgba(75,204,212,0.5)" }} />
-                    <span style={{ color: "rgba(75,204,212,0.6)", fontSize: 9, letterSpacing: "0.24em", textTransform: "uppercase", fontFamily: "monospace" }}>
+                    <span style={{ color: "rgba(75,204,212,0.6)", fontSize: 12, letterSpacing: "0.24em", textTransform: "uppercase", fontFamily: "monospace" }}>
                       Project Details
                     </span>
                   </div>
@@ -594,8 +597,8 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
                           padding: "10px 14px",
                         }}
                       >
-                        <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 10, fontFamily: "monospace", letterSpacing: "0.04em" }}>{key}</span>
-                        <span style={{ color: "rgba(255,255,255,0.78)", fontSize: 11, lineHeight: 1.5 }}>{val}</span>
+                        <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 13, fontFamily: "monospace", letterSpacing: "0.04em" }}>{key}</span>
+                        <span style={{ color: "rgba(255,255,255,0.78)", fontSize: 14, lineHeight: 1.5 }}>{val}</span>
                       </div>
                     ))}
                   </div>
@@ -605,15 +608,15 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
                 <div>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
                     <span style={{ width: 20, height: 1, background: "rgba(75,204,212,0.5)" }} />
-                    <span style={{ color: "rgba(75,204,212,0.6)", fontSize: 9, letterSpacing: "0.24em", textTransform: "uppercase", fontFamily: "monospace" }}>
+                    <span style={{ color: "rgba(75,204,212,0.6)", fontSize: 12, letterSpacing: "0.24em", textTransform: "uppercase", fontFamily: "monospace" }}>
                       Scope of Work
                     </span>
                   </div>
                   <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 9 }}>
                     {project.scopeItems.map((item, i) => (
                       <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                        <span style={{ color: C.red, fontSize: 9, marginTop: 3, flexShrink: 0 }}>✦</span>
-                        <span style={{ color: "rgba(255,255,255,0.62)", fontSize: 12.5, lineHeight: 1.65 }}>{item}</span>
+                        <span style={{ color: C.red, fontSize: 12, marginTop: 3, flexShrink: 0 }}>✦</span>
+                        <span style={{ color: "rgba(255,255,255,0.95)", fontSize: 17, lineHeight: 1.65 }}>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -622,9 +625,9 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
 
               {/* Footer CTAs */}
               <div style={{ marginTop: 30, paddingTop: 22, borderTop: "1px solid rgba(75,204,212,0.1)", display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <button style={{
+                <button onClick={() => { onClose(); navigate("/contact"); }} style={{
                   padding: "12px 28px", background: C.blue, color: C.white,
-                  border: "none", fontSize: 10, letterSpacing: "0.18em",
+                  border: "none", fontSize: 13, letterSpacing: "0.18em",
                   textTransform: "uppercase", fontFamily: "monospace", cursor: "pointer", transition: "background 0.2s",
                 }}
                   onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = C.navy; }}
@@ -632,10 +635,10 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
                 >
                   Discuss a Similar Project
                 </button>
-                <button style={{
+                <button onClick={() => { onClose(); navigate("/services"); }} style={{
                   padding: "12px 28px", background: "transparent",
                   color: "rgba(75,204,212,0.75)", border: "1px solid rgba(75,204,212,0.28)",
-                  fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase",
+                  fontSize: 13, letterSpacing: "0.18em", textTransform: "uppercase",
                   fontFamily: "monospace", cursor: "pointer",
                 }}>
                   Explore Our Services →
@@ -654,6 +657,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
 // MAIN COMPONENT
 // ─────────────────────────────────────────────
 export function Home() {
+  const navigate = useNavigate();
   const [heroIndex, setHeroIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [activeProject, setActiveProject] = useState<Project | null>(null);
@@ -682,7 +686,7 @@ export function Home() {
       <div style={{ fontFamily: "'Georgia', serif", overflowX: "hidden", background: C.cream }}>
 
         {/* ══════════════════════════════════════════
-            HERO — IMMERSIVE CAROUSEL
+            HERO, IMMERSIVE CAROUSEL
         ══════════════════════════════════════════ */}
         <section ref={heroRef} aria-label="Hero" style={{ position: "relative", height: "100vh", minHeight: 700, overflow: "hidden" }}>
 
@@ -704,8 +708,8 @@ export function Home() {
                   fetchPriority="high"
                 />
               </motion.div>
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.92) 0%, rgba(4,28,46,0.65) 50%, rgba(4,28,46,0.3) 100%)" }} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(4,28,46,0.6) 0%, transparent 50%)" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.6) 0%, rgba(4,28,46,0.34) 50%, rgba(4,28,46,0.08) 100%)" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(4,28,46,0.38) 0%, transparent 45%)" }} />
             </motion.div>
           </AnimatePresence>
 
@@ -755,8 +759,8 @@ export function Home() {
                 transition={{ duration: 0.35 }}
                 style={{
                   display: "flex", alignItems: "center", gap: 8,
-                  fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.45)", fontFamily: "monospace",
+                  fontSize: 12, letterSpacing: "0.28em", textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.92)", fontFamily: "monospace",
                   border: "1px solid rgba(255,255,255,0.15)", padding: "6px 14px",
                   backdropFilter: "blur(8px)",
                 }}
@@ -773,7 +777,7 @@ export function Home() {
                 style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
               >
-                <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 11, fontFamily: "monospace" }}>0{heroIndex + 1}</span>
+                <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 14, fontFamily: "monospace" }}>0{heroIndex + 1}</span>
                 <div style={{ position: "relative", height: 1, width: 60, background: "rgba(255,255,255,0.15)", overflow: "hidden" }}>
                   <motion.div
                     key={heroIndex}
@@ -782,7 +786,7 @@ export function Home() {
                     transition={{ duration: 7, ease: "linear" }}
                   />
                 </div>
-                <span style={{ color: "rgba(255,255,255,0.2)", fontSize: 11, fontFamily: "monospace" }}>0{heroSlides.length}</span>
+                <span style={{ color: "rgba(255,255,255,0.2)", fontSize: 14, fontFamily: "monospace" }}>0{heroSlides.length}</span>
               </motion.div>
 
               <motion.div
@@ -790,8 +794,7 @@ export function Home() {
                 initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <MedicalCross size={16} />
-                <span style={{ color: "rgba(255,255,255,0.38)", fontSize: 10, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "monospace" }}>
+                <span style={{ color: "rgba(255,255,255,0.90)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "monospace" }}>
                   Healthcare Infrastructure
                 </span>
               </motion.div>
@@ -816,7 +819,7 @@ export function Home() {
 
               <motion.p
                 key={`sub-${heroIndex}`}
-                style={{ fontSize: 16, color: "rgba(255,255,255,0.68)", marginBottom: 44, lineHeight: 1.75, maxWidth: 520, fontFamily: "'DM Sans', sans-serif" }}
+                style={{ fontSize: 19, color: "#ffffff", marginBottom: 44, lineHeight: 1.75, maxWidth: 520, fontFamily: "'DM Sans', sans-serif" }}
                 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.4 }}
               >
@@ -828,12 +831,12 @@ export function Home() {
                 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.58 }}
               >
-                <HeroBtn primary>Book a Free Consultation</HeroBtn>
-                <HeroBtn>Explore Our Services</HeroBtn>
+                <HeroBtn primary onClick={() => navigate("/contact")}>Book a Free Consultation</HeroBtn>
+                <HeroBtn onClick={() => navigate("/services")}>Explore Our Services</HeroBtn>
               </motion.div>
 
               <motion.p
-                style={{ marginTop: 20, fontSize: 10, color: "rgba(255,255,255,0.25)", letterSpacing: "0.12em", fontFamily: "monospace" }}
+                style={{ marginTop: 20, fontSize: 13, color: "rgba(255,255,255,0.25)", letterSpacing: "0.12em", fontFamily: "monospace" }}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}
               >
                 No obligation · No sales pressure · Honest expert advice
@@ -879,12 +882,12 @@ export function Home() {
           >
             {Array(6).fill(["Hospital Planning", "Modular OT Design", "ICU Infrastructure", "NABH Compliance", "MEP Engineering", "Turnkey Delivery", "Medical Equipment Planning", "Pan India Projects"]).flat().map((item, i) => (
               <span key={i} style={{
-                color: "rgba(75,204,212,0.45)", fontSize: 10, letterSpacing: "0.26em",
+                color: "rgba(75,204,212,0.45)", fontSize: 13, letterSpacing: "0.26em",
                 textTransform: "uppercase", fontFamily: "monospace",
                 paddingRight: 48, display: "inline-flex", alignItems: "center", gap: 48,
               }}>
                 {item}
-                <span style={{ color: "rgba(75,204,212,0.18)", fontSize: 8 }}>◆</span>
+                <span style={{ color: "rgba(75,204,212,0.18)", fontSize: 11 }}>◆</span>
               </span>
             ))}
           </motion.div>
@@ -914,18 +917,18 @@ export function Home() {
                   "Building a hospital is not the same as building a commercial space. Clinical workflows, infection control, regulatory compliance, patient safety, and 24×7 operational demands make healthcare construction one of the most specialised disciplines in the built environment.",
                   "Yet most hospitals in India are designed by general architects, built by general contractors, and coordinated by promoters left managing 15 different vendors on their own.",
                 ].map((text, i) => (
-                  <p key={i} style={{ color: "rgba(255,255,255,0.52)", lineHeight: 1.85, marginBottom: 18, fontSize: 14 }}>{text}</p>
+                  <p key={i} style={{ color: "rgba(255,255,255,0.95)", lineHeight: 1.85, marginBottom: 18, fontSize: 19 }}>{text}</p>
                 ))}
 
                 <div style={{ borderLeft: `3px solid ${C.red}`, paddingLeft: 20, marginBottom: 32, marginTop: 28 }}>
-                  <p style={{ color: "rgba(192,57,43,0.85)", lineHeight: 1.8, fontStyle: "italic", margin: 0, fontSize: 14 }}>
+                  <p style={{ color: "rgba(192,57,43,0.85)", lineHeight: 1.8, fontStyle: "italic", margin: 0, fontSize: 19 , fontWeight: 600 }}>
                     Facilities that fail NABH audits. Departments that don't function as clinicians need. Projects that run over budget and time.
                   </p>
                 </div>
 
                 <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "20px 24px", background: "rgba(75,204,212,0.06)", border: "1px solid rgba(75,204,212,0.15)" }}>
                   <MedicalCross size={22} color={C.teal} opacity={0.7} />
-                  <p style={{ color: C.teal, fontStyle: "italic", fontSize: 15, margin: 0, opacity: 0.85 }}>ARCHORA was founded to change that.</p>
+                  <p style={{ color: C.teal, fontStyle: "italic", fontSize: 20, margin: 0, opacity: 0.85 , fontWeight: 600 }}>ARCHORA was founded to change that.</p>
                 </div>
               </motion.div>
 
@@ -966,8 +969,8 @@ export function Home() {
                     <line x1="398" y1="323" x2="398" y2="340" stroke="#4bccd4" strokeWidth="0.8" opacity="0.25" />
                   </svg>
                   <div style={{ display: "flex", justifyContent: "center", marginTop: 12 }}>
-                    <span style={{ color: "rgba(75,204,212,0.35)", fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", fontFamily: "monospace" }}>
-                      Schematic Floor Plan — Archora Standard
+                    <span style={{ color: "rgba(75,204,212,0.35)", fontSize: 12, letterSpacing: "0.22em", textTransform: "uppercase", fontFamily: "monospace" }}>
+                      Schematic Floor Plan, Archora Standard
                     </span>
                   </div>
                 </div>
@@ -990,16 +993,16 @@ export function Home() {
                 <h2 id="whoweare-heading" style={{ color: C.navy, fontSize: "clamp(1.9rem, 3.2vw, 3rem)", lineHeight: 1.12, marginBottom: 28, fontWeight: 400, fontFamily: "'Cormorant Garamond', 'Georgia', serif" }}>
                   A Team That Works Exclusively in Healthcare Infrastructure
                 </h2>
-                <p style={{ color: "#3a4a5c", lineHeight: 1.85, marginBottom: 18, fontSize: 14 }}>
+                <p style={{ color: "#111111", lineHeight: 1.85, marginBottom: 18, fontSize: 19, fontWeight: 600 }}>
                   ARCHORA is not a general architecture or construction firm that also takes healthcare projects. Every architect, every engineer, and every project manager works exclusively on healthcare facilities.
                 </p>
-                <p style={{ color: "#3a4a5c", lineHeight: 1.85, marginBottom: 36, fontSize: 14 }}>
+                <p style={{ color: "#111111", lineHeight: 1.85, marginBottom: 36, fontSize: 19, fontWeight: 600 }}>
                   This focus means we understand the compliance standards, the clinical workflows, the infection control requirements, and the operational realities that make healthcare infrastructure different from every other building type.
                 </p>
 
                 <div style={{ display: "flex", alignItems: "center", gap: 14, padding: "18px 22px", background: C.navy, marginBottom: 40 }}>
                   <div style={{ width: 2, height: 36, background: C.teal, flexShrink: 0 }} />
-                  <p style={{ color: C.teal, fontSize: 13, fontStyle: "italic", margin: 0, opacity: 0.9, lineHeight: 1.5 }}>
+                  <p style={{ color: C.teal, fontSize: 20, fontStyle: "italic", margin: 0, opacity: 0.9, lineHeight: 1.5 , fontWeight: 600 }}>
                     One team. One point of accountability. From concept to commissioning.
                   </p>
                 </div>
@@ -1007,8 +1010,8 @@ export function Home() {
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }}>
                   {[["20+", "Years Collective Experience"], ["Pan India", "Delivery"], ["NHS-Level", "UK Expertise"]].map(([val, lbl]) => (
                     <div key={lbl} style={{ borderTop: `2px solid ${C.blue}`, paddingTop: 14 }}>
-                      <div style={{ fontSize: 20, color: C.navy, fontFamily: "'Cormorant Garamond', 'Georgia', serif", marginBottom: 6, lineHeight: 1 }}>{val}</div>
-                      <p style={{ fontSize: 10, color: "#6a7a8a", textTransform: "uppercase", letterSpacing: "0.14em", lineHeight: 1.5, margin: 0 }}>{lbl}</p>
+                      <div style={{ fontSize: 22, color: C.navy, fontFamily: "'Cormorant Garamond', 'Georgia', serif", marginBottom: 6, lineHeight: 1 }}>{val}</div>
+                      <p style={{ fontSize: 13, color: "#1a1a1a", textTransform: "uppercase", letterSpacing: "0.14em", lineHeight: 1.5, margin: 0 , fontWeight: 600 }}>{lbl}</p>
                     </div>
                   ))}
                 </div>
@@ -1022,7 +1025,7 @@ export function Home() {
                 <div style={{ position: "absolute", top: -16, left: -16, right: 16, bottom: 16, border: `1px solid rgba(27,108,168,0.2)` }} />
                 <div style={{ position: "relative", overflow: "hidden" }}>
                   <img
-                    src="https://images.unsplash.com/photo-1714976327524-955ff45cfec7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=900"
+                    src="/images/about/team-at-work.jpg"
                     alt="ARCHORA healthcare infrastructure team at work"
                     style={{ width: "100%", height: 500, objectFit: "cover", display: "block" }}
                     loading="lazy"
@@ -1036,8 +1039,8 @@ export function Home() {
                   <div key={i} style={{ position: "absolute", width: 44, height: 44, ...style }} />
                 ))}
                 <div style={{ position: "absolute", bottom: 24, left: 24, background: C.navy, padding: "12px 18px", borderLeft: `3px solid ${C.red}` }}>
-                  <p style={{ color: C.white, fontSize: 12, margin: 0, fontFamily: "monospace" }}>Healthcare Only. Always.</p>
-                  <p style={{ color: "rgba(255,255,255,0.38)", fontSize: 10, margin: "4px 0 0", fontFamily: "monospace", letterSpacing: "0.1em" }}>Nothing outside infrastructure.</p>
+                  <p style={{ color: C.white, fontSize: 17, margin: 0, fontFamily: "monospace" , fontWeight: 600 }}>Healthcare Only. Always.</p>
+                  <p style={{ color: "rgba(255,255,255,0.90)", fontSize: 13, margin: "4px 0 0", fontFamily: "monospace", letterSpacing: "0.1em" , fontWeight: 600 }}>Nothing outside infrastructure.</p>
                 </div>
               </motion.div>
             </div>
@@ -1062,7 +1065,7 @@ export function Home() {
                 <div style={{ fontSize: 48, color: C.white, fontFamily: "'Cormorant Garamond', 'Georgia', serif", lineHeight: 1, marginBottom: 10 }}>
                   <AnimatedCounter to={m.val} suffix={m.suffix} />
                 </div>
-                <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 10, textTransform: "uppercase", letterSpacing: "0.18em", lineHeight: 1.5, margin: 0, fontFamily: "monospace" }}>
+                <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 13, textTransform: "uppercase", letterSpacing: "0.18em", lineHeight: 1.5, margin: 0, fontFamily: "monospace" , fontWeight: 600 }}>
                   {m.label}
                 </p>
               </motion.div>
@@ -1087,7 +1090,7 @@ export function Home() {
               <h2 id="services-heading" style={{ color: C.white, fontSize: "clamp(1.9rem, 3.2vw, 3rem)", fontWeight: 400, fontFamily: "'Cormorant Garamond', 'Georgia', serif", margin: "0 auto 16px" }}>
                 Everything You Need to Design, Build & Deliver
               </h2>
-              <p style={{ color: "rgba(255,255,255,0.38)", maxWidth: 520, margin: "0 auto", lineHeight: 1.75, fontSize: 14 }}>
+              <p style={{ color: "rgba(255,255,255,0.90)", maxWidth: 520, margin: "0 auto", lineHeight: 1.75, fontSize: 19 , fontWeight: 600 }}>
                 ARCHORA provides the complete range of healthcare infrastructure services under one roof.
               </p>
             </motion.div>
@@ -1106,13 +1109,13 @@ export function Home() {
                   <span style={{ position: "absolute", right: 20, top: 12, color: "rgba(75,204,212,0.04)", fontFamily: "monospace", fontSize: 56, lineHeight: 1, pointerEvents: "none" }} aria-hidden="true">{s.num}</span>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: 20 }}>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, minWidth: 32, paddingTop: 2 }}>
-                      <span style={{ color: "rgba(75,204,212,0.35)", fontSize: 10, fontFamily: "monospace", letterSpacing: "0.05em" }}>{s.num}</span>
+                      <span style={{ color: "rgba(75,204,212,0.35)", fontSize: 13, fontFamily: "monospace", letterSpacing: "0.05em" }}>{s.num}</span>
                       <div style={{ width: 1, height: 32, background: "rgba(75,204,212,0.15)" }} />
                     </div>
                     <div>
-                      <h3 style={{ color: C.white, fontSize: 15, marginBottom: 10, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.3 }}>{s.title}</h3>
-                      <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 13, lineHeight: 1.75, margin: 0 }}>{s.desc}</p>
-                      <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: C.teal, fontSize: 10, marginTop: 16, letterSpacing: "0.16em", fontFamily: "monospace", opacity: 0.75 }}>
+                      <h3 style={{ color: C.white, fontSize: 20, marginBottom: 10, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.3 }}>{s.title}</h3>
+                      <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 20, lineHeight: 1.75, margin: 0 , fontWeight: 600 }}>{s.desc}</p>
+                      <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: C.teal, fontSize: 13, marginTop: 16, letterSpacing: "0.16em", fontFamily: "monospace", opacity: 0.75 }}>
                         Learn More <span>→</span>
                       </span>
                     </div>
@@ -1152,11 +1155,11 @@ export function Home() {
                 >
                   <span style={{ position: "absolute", right: 24, top: 16, color: "rgba(27,108,168,0.05)", fontFamily: "monospace", fontSize: 72, lineHeight: 1 }} aria-hidden="true">{p.num}</span>
                   <div style={{ display: "inline-flex", alignItems: "baseline", gap: 6, marginBottom: 28 }}>
-                    <span style={{ fontSize: 28, color: C.blue, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400 }}>{p.stat}</span>
-                    <span style={{ fontSize: 9, color: C.blue, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "monospace", opacity: 0.6 }}>{p.statLabel}</span>
+                    <span style={{ fontSize: 30, color: C.blue, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400 }}>{p.stat}</span>
+                    <span style={{ fontSize: 12, color: C.blue, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "monospace", opacity: 0.6 }}>{p.statLabel}</span>
                   </div>
-                  <h3 style={{ color: C.navy, fontSize: 18, marginBottom: 14, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.25 }}>{p.title}</h3>
-                  <p style={{ color: "#5a6a7a", fontSize: 13, lineHeight: 1.8, margin: 0 }}>{p.desc}</p>
+                  <h3 style={{ color: C.navy, fontSize: 20, marginBottom: 14, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.25 }}>{p.title}</h3>
+                  <p style={{ color: "#111111", fontSize: 20, lineHeight: 1.8, margin: 0 , fontWeight: 600 }}>{p.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -1175,7 +1178,7 @@ export function Home() {
                   Who We Serve
                 </h2>
               </div>
-              <p style={{ color: "#6a7a8a", lineHeight: 1.8, fontSize: 14, margin: 0 }}>
+              <p style={{ color: "#1a1a1a", lineHeight: 1.8, fontSize: 19, margin: 0 , fontWeight: 600 }}>
                 Whether you are starting from scratch or need specialist expertise at a specific stage, ARCHORA brings the same depth of healthcare infrastructure knowledge to every client.
               </p>
             </motion.div>
@@ -1192,10 +1195,10 @@ export function Home() {
                   onMouseLeave={e => { const el = e.currentTarget as HTMLDivElement; el.style.background = C.white; el.style.transform = "translateY(0)"; }}
                 >
                   <div style={{ fontSize: 32, marginBottom: 18, lineHeight: 1 }} aria-hidden="true">{a.icon}</div>
-                  <h3 style={{ color: C.navy, fontSize: 15, marginBottom: 10, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400 }}>{a.label}</h3>
-                  <p style={{ color: "#6a7a8a", fontSize: 13, lineHeight: 1.75, margin: 0 }}>{a.desc}</p>
+                  <h3 style={{ color: C.navy, fontSize: 20, marginBottom: 10, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400 }}>{a.label}</h3>
+                  <p style={{ color: "#1a1a1a", fontSize: 20, lineHeight: 1.75, margin: 0 , fontWeight: 600 }}>{a.desc}</p>
                   <div style={{ marginTop: 20, height: 1, background: "rgba(27,108,168,0.12)" }} />
-                  <span style={{ display: "inline-block", marginTop: 14, color: C.blue, fontSize: 10, letterSpacing: "0.16em", fontFamily: "monospace", opacity: 0.7 }}>Learn More →</span>
+                  <span style={{ display: "inline-block", marginTop: 14, color: C.blue, fontSize: 13, letterSpacing: "0.16em", fontFamily: "monospace", opacity: 0.7 }}>Learn More →</span>
                 </motion.div>
               ))}
             </div>
@@ -1203,7 +1206,7 @@ export function Home() {
         </section>
 
         {/* ══════════════════════════════════════════
-            PROJECTS — ONGOING PORTFOLIO
+            PROJECTS, ONGOING PORTFOLIO
         ══════════════════════════════════════════ */}
         <section aria-labelledby="projects-heading" style={{ background: C.cream, padding: "120px 0", position: "relative" }}>
           <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px" }}>
@@ -1215,10 +1218,10 @@ export function Home() {
                   Healthcare Infrastructure<br />Projects Across India
                 </h2>
               </div>
-              <OutlineBtn dark>View All Projects →</OutlineBtn>
+              <OutlineBtn dark onClick={() => navigate("/facilities")}>View All Projects →</OutlineBtn>
             </motion.div>
 
-            {/* Featured hero project — Suresh Matre */}
+            {/* Featured hero project, Suresh Matre */}
             <motion.article
               initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.7 }}
@@ -1233,7 +1236,7 @@ export function Home() {
             >
               <img
                 src={projects[0].image}
-                alt={`${projects[0].name}, ${projects[0].location} — ${projects[0].type}`}
+                alt={`${projects[0].name}, ${projects[0].location}, ${projects[0].type}`}
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", transition: "transform 0.8s ease", display: "block" }}
                 loading="lazy"
               />
@@ -1241,36 +1244,36 @@ export function Home() {
 
               {/* Hero Project badge */}
               <div style={{ position: "absolute", top: 20, left: 20, background: C.red, padding: "5px 14px" }}>
-                <span style={{ color: C.white, fontSize: 9, fontFamily: "monospace", letterSpacing: "0.2em", textTransform: "uppercase" }}>Hero Project</span>
+                <span style={{ color: C.white, fontSize: 12, fontFamily: "monospace", letterSpacing: "0.2em", textTransform: "uppercase" }}>Hero Project</span>
               </div>
               <div style={{ position: "absolute", top: 52, left: 20, background: "rgba(27,108,168,0.8)", padding: "5px 12px", backdropFilter: "blur(6px)" }}>
-                <span style={{ color: C.white, fontSize: 10, fontFamily: "monospace", letterSpacing: "0.12em" }}>{projects[0].type}</span>
+                <span style={{ color: C.white, fontSize: 13, fontFamily: "monospace", letterSpacing: "0.12em" }}>{projects[0].type}</span>
               </div>
 
               {/* Status */}
               <div style={{ position: "absolute", top: 20, right: 20, background: "rgba(4,28,46,0.7)", border: "1px solid rgba(75,204,212,0.3)", padding: "6px 14px", backdropFilter: "blur(6px)", display: "flex", alignItems: "center", gap: 7 }}>
                 <span style={{ width: 6, height: 6, borderRadius: "50%", background: projects[0].statusColor, display: "inline-block" }} />
-                <span style={{ color: "rgba(255,255,255,0.7)", fontSize: 9, fontFamily: "monospace", letterSpacing: "0.14em" }}>{projects[0].status}</span>
+                <span style={{ color: "rgba(255,255,255,0.7)", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.14em" }}>{projects[0].status}</span>
               </div>
 
               {/* Click hint */}
               <div style={{ position: "absolute", bottom: 28, right: 28, border: "1px solid rgba(75,204,212,0.35)", padding: "7px 16px", backdropFilter: "blur(6px)", background: "rgba(4,28,46,0.5)" }}>
-                <span style={{ color: "rgba(75,204,212,0.8)", fontSize: 9, fontFamily: "monospace", letterSpacing: "0.18em" }}>View Full Details ↗</span>
+                <span style={{ color: "rgba(75,204,212,0.8)", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.18em" }}>View Full Details ↗</span>
               </div>
 
               {/* Content */}
               <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "36px 40px" }}>
-                <p style={{ color: "rgba(255,255,255,0.45)", fontSize: 10, letterSpacing: "0.22em", textTransform: "uppercase", fontFamily: "monospace", marginBottom: 10 }}>
+                <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 13, letterSpacing: "0.22em", textTransform: "uppercase", fontFamily: "monospace", marginBottom: 10 , fontWeight: 600 }}>
                   {projects[0].location}
                 </p>
-                <h3 style={{ color: C.white, fontSize: 28, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, margin: "0 0 20px", maxWidth: 600 }}>
+                <h3 style={{ color: C.white, fontSize: 30, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, margin: "0 0 20px", maxWidth: 600 }}>
                   {projects[0].name}
                 </h3>
                 <div style={{ display: "flex", gap: 36 }}>
                   {[["300 Beds", "Capacity"], ["₹150 Cr+", "Project Value"], ["2,00,000 Sq Ft", "Built Area"], ["Full Turnkey", "Scope"]].map(([val, lbl]) => (
                     <div key={lbl}>
-                      <div style={{ color: C.teal, fontSize: 15, fontFamily: "'Cormorant Garamond', 'Georgia', serif", marginBottom: 3 }}>{val}</div>
-                      <div style={{ color: "rgba(255,255,255,0.3)", fontSize: 9, fontFamily: "monospace", letterSpacing: "0.14em", textTransform: "uppercase" }}>{lbl}</div>
+                      <div style={{ color: C.teal, fontSize: 20, fontFamily: "'Cormorant Garamond', 'Georgia', serif", marginBottom: 3 }}>{val}</div>
+                      <div style={{ color: "rgba(255,255,255,0.3)", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.14em", textTransform: "uppercase" }}>{lbl}</div>
                     </div>
                   ))}
                 </div>
@@ -1304,7 +1307,7 @@ export function Home() {
                   }}
                 >
                   <img
-                    src={p.image} alt={`${p.name}, ${p.location} — ${p.type}`}
+                    src={p.image} alt={`${p.name}, ${p.location}, ${p.type}`}
                     style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.8s ease", display: "block" }}
                     loading="lazy"
                   />
@@ -1312,27 +1315,27 @@ export function Home() {
 
                   {/* Type badge */}
                   <div style={{ position: "absolute", top: 14, left: 14, background: "rgba(27,108,168,0.8)", padding: "5px 10px", backdropFilter: "blur(6px)" }}>
-                    <span style={{ color: C.white, fontSize: 9, fontFamily: "monospace", letterSpacing: "0.1em" }}>{p.type}</span>
+                    <span style={{ color: C.white, fontSize: 12, fontFamily: "monospace", letterSpacing: "0.1em" }}>{p.type}</span>
                   </div>
 
                   {/* Status dot */}
                   <div style={{ position: "absolute", top: 14, right: 14, background: "rgba(4,28,46,0.7)", border: "1px solid rgba(75,204,212,0.2)", padding: "4px 10px", display: "flex", alignItems: "center", gap: 5 }}>
                     <span style={{ width: 5, height: 5, borderRadius: "50%", background: p.statusColor, display: "inline-block" }} />
-                    <span style={{ color: "rgba(255,255,255,0.55)", fontSize: 8, fontFamily: "monospace", letterSpacing: "0.1em" }}>Ongoing</span>
+                    <span style={{ color: "rgba(255,255,255,0.55)", fontSize: 11, fontFamily: "monospace", letterSpacing: "0.1em" }}>Ongoing</span>
                   </div>
 
                   {/* Hover hint */}
                   <div className="hint" style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", opacity: 0, transition: "opacity 0.3s" }}>
                     <div style={{ border: "1px solid rgba(75,204,212,0.5)", padding: "8px 18px", background: "rgba(4,28,46,0.7)", backdropFilter: "blur(6px)" }}>
-                      <span style={{ color: "rgba(75,204,212,0.9)", fontSize: 9, fontFamily: "monospace", letterSpacing: "0.2em" }}>View Details ↗</span>
+                      <span style={{ color: "rgba(75,204,212,0.9)", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.2em" }}>View Details ↗</span>
                     </div>
                   </div>
 
                   {/* Card info */}
                   <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "18px 20px" }}>
-                    <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "monospace", marginBottom: 6 }}>{p.location}</p>
-                    <h3 style={{ color: C.white, fontSize: 15, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, margin: "0 0 10px", lineHeight: 1.25 }}>{p.name}</h3>
-                    <span style={{ color: "rgba(75,204,212,0.6)", fontSize: 9, fontFamily: "monospace", letterSpacing: "0.16em" }}>View Details ↗</span>
+                    <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 12, letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "monospace", marginBottom: 6 , fontWeight: 600 }}>{p.location}</p>
+                    <h3 style={{ color: C.white, fontSize: 20, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, margin: "0 0 10px", lineHeight: 1.25 }}>{p.name}</h3>
+                    <span style={{ color: "rgba(75,204,212,0.6)", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.16em" }}>View Details ↗</span>
                   </div>
                 </motion.article>
               ))}
@@ -1347,15 +1350,15 @@ export function Home() {
               <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
                 <MedicalCross size={24} color={C.teal} opacity={0.6} />
                 <div>
-                  <p style={{ color: C.white, fontSize: 15, fontFamily: "'Cormorant Garamond', 'Georgia', serif", margin: 0, lineHeight: 1.3 }}>
+                  <p style={{ color: C.white, fontSize: 20, fontFamily: "'Cormorant Garamond', 'Georgia', serif", margin: 0, lineHeight: 1.3 , fontWeight: 600 }}>
                     The Experience Behind Every Project
                   </p>
-                  <p style={{ color: "rgba(255,255,255,0.38)", fontSize: 12, margin: "4px 0 0", lineHeight: 1.5 }}>
+                  <p style={{ color: "rgba(255,255,255,0.90)", fontSize: 17, margin: "4px 0 0", lineHeight: 1.5 , fontWeight: 600 }}>
                     50+ healthcare infrastructure projects delivered across India, the UK, and Europe.
                   </p>
                 </div>
               </div>
-              <OutlineBtn light>View All Projects →</OutlineBtn>
+              <OutlineBtn light onClick={() => navigate("/facilities")}>View All Projects →</OutlineBtn>
             </motion.div>
 
           </div>
@@ -1380,7 +1383,7 @@ export function Home() {
                   Built by People Who Know Healthcare Infrastructure
                 </h2>
               </div>
-              <p style={{ color: "rgba(255,255,255,0.38)", lineHeight: 1.85, fontSize: 14, margin: 0 }}>
+              <p style={{ color: "rgba(255,255,255,0.90)", lineHeight: 1.85, fontSize: 19, margin: 0 , fontWeight: 600 }}>
                 Our leadership combines deep architectural expertise, hands-on construction experience, and senior-level NHS healthcare infrastructure knowledge from the United Kingdom.
               </p>
             </motion.div>
@@ -1391,25 +1394,30 @@ export function Home() {
                   key={i}
                   initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.15 }}
-                  style={{ padding: "44px 36px", border: "1px solid rgba(75,204,212,0.1)", transition: "all 0.4s", cursor: "default", position: "relative", overflow: "hidden" }}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`View ${t.name}'s profile`}
+                  onClick={() => navigate("/about")}
+                  onKeyDown={e => { if (e.key === "Enter" || e.key === " ") navigate("/about"); }}
+                  style={{ padding: "44px 36px", border: "1px solid rgba(75,204,212,0.1)", transition: "all 0.4s", cursor: "pointer", position: "relative", overflow: "hidden" }}
                   onMouseEnter={e => { const el = e.currentTarget as HTMLDivElement; el.style.borderColor = "rgba(75,204,212,0.35)"; el.style.background = "rgba(75,204,212,0.04)"; el.style.transform = "translateY(-6px)"; }}
                   onMouseLeave={e => { const el = e.currentTarget as HTMLDivElement; el.style.borderColor = "rgba(75,204,212,0.1)"; el.style.background = "transparent"; el.style.transform = "translateY(0)"; }}
                 >
                   <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: `linear-gradient(90deg, ${t.color}, transparent)` }} />
-                  <div style={{ width: 76, height: 76, background: t.color, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 0 24px", fontSize: 24, color: C.white, fontFamily: "'Cormorant Garamond', 'Georgia', serif", letterSpacing: "0.05em" }}>
+                  <div style={{ width: 76, height: 76, background: t.color, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 0 24px", fontSize: 27, color: C.white, fontFamily: "'Cormorant Garamond', 'Georgia', serif", letterSpacing: "0.05em" }}>
                     {t.initial}
                   </div>
-                  <h3 style={{ color: C.white, fontSize: 18, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, marginBottom: 6 }}>{t.name}</h3>
-                  <p style={{ color: "rgba(75,204,212,0.65)", fontSize: 12, lineHeight: 1.5, margin: "0 0 20px" }}>{t.role}</p>
+                  <h3 style={{ color: C.white, fontSize: 20, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, marginBottom: 6 }}>{t.name}</h3>
+                  <p style={{ color: "rgba(75,204,212,0.65)", fontSize: 17, lineHeight: 1.5, margin: "0 0 20px" , fontWeight: 600 }}>{t.role}</p>
                   <div style={{ borderTop: "1px solid rgba(75,204,212,0.15)", paddingTop: 16 }}>
-                    <span style={{ color: "rgba(75,204,212,0.4)", fontSize: 10, letterSpacing: "0.16em", fontFamily: "monospace" }}>View Profile ↗</span>
+                    <span style={{ color: "rgba(75,204,212,0.4)", fontSize: 13, letterSpacing: "0.16em", fontFamily: "monospace" }}>View Profile ↗</span>
                   </div>
                 </motion.div>
               ))}
             </div>
 
             <div style={{ textAlign: "center", marginTop: 48 }}>
-              <OutlineBtn light>Meet the Full Leadership Team →</OutlineBtn>
+              <OutlineBtn light onClick={() => navigate("/about")}>Meet the Full Leadership Team →</OutlineBtn>
             </div>
           </div>
         </section>
@@ -1438,10 +1446,6 @@ export function Home() {
 
           <div style={{ maxWidth: 800, margin: "0 auto", padding: "0 80px", textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.div {...fadeUp}>
-              <div style={{ display: "flex", justifyContent: "center", marginBottom: 32 }} aria-hidden="true">
-                <MedicalCross size={40} color={C.red} opacity={0.7} />
-              </div>
-
               <SectionLabel text="Get In Touch" light />
 
               <h2 id="cta-heading" style={{ color: C.white, fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)", marginBottom: 24, fontWeight: 400, lineHeight: 1.1, fontFamily: "'Cormorant Garamond', 'Georgia', serif" }}>
@@ -1449,17 +1453,17 @@ export function Home() {
                 <em style={{ color: C.teal, fontStyle: "italic" }}>Let's Talk.</em>
               </h2>
 
-              <p style={{ color: "rgba(255,255,255,0.42)", marginBottom: 52, lineHeight: 1.85, maxWidth: 520, margin: "0 auto 52px", fontSize: 15 }}>
-                Whether you are starting from zero or need expert support at any stage — ARCHORA is ready to help you design, build, and deliver infrastructure that works.
+              <p style={{ color: "rgba(255,255,255,0.42)", marginBottom: 52, lineHeight: 1.85, maxWidth: 520, margin: "0 auto 52px", fontSize: 20 , fontWeight: 600 }}>
+                Whether you are starting from zero or need expert support at any stage, ARCHORA is ready to help you design, build, and deliver infrastructure that works.
               </p>
 
               <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-                <HeroBtn primary>Book a Free Consultation</HeroBtn>
-                <HeroBtn>💬 WhatsApp Us</HeroBtn>
-                <HeroBtn>Send an Enquiry →</HeroBtn>
+                <HeroBtn primary onClick={() => navigate("/contact")}>Book a Free Consultation</HeroBtn>
+                <HeroBtn onClick={() => window.open(WHATSAPP_URL, "_blank")}>💬 WhatsApp Us</HeroBtn>
+                <HeroBtn onClick={() => navigate("/contact")}>Send an Enquiry →</HeroBtn>
               </div>
 
-              <p style={{ color: "rgba(255,255,255,0.2)", marginTop: 28, fontSize: 11, fontFamily: "monospace", letterSpacing: "0.1em" }}>
+              <p style={{ color: "rgba(255,255,255,0.2)", marginTop: 28, fontSize: 14, fontFamily: "monospace", letterSpacing: "0.1em" , fontWeight: 600 }}>
                 No obligation · No sales pressure · Honest advice from healthcare infrastructure specialists
               </p>
             </motion.div>
@@ -1468,7 +1472,7 @@ export function Home() {
 
       </div>
 
-      {/* Project modal — rendered outside main div so it overlays everything */}
+      {/* Project modal, rendered outside main div so it overlays everything */}
       <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
     </>
   );
@@ -1477,14 +1481,15 @@ export function Home() {
 // ─────────────────────────────────────────────
 // SUB-COMPONENTS
 // ─────────────────────────────────────────────
-function HeroBtn({ children, primary, style: extraStyle }: { children: React.ReactNode; primary?: boolean; style?: React.CSSProperties }) {
+function HeroBtn({ children, primary, style: extraStyle, onClick }: { children: React.ReactNode; primary?: boolean; style?: React.CSSProperties; onClick?: () => void }) {
   const [hover, setHover] = useState(false);
   return (
     <button
+      onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        padding: "14px 32px", fontSize: 11, letterSpacing: "0.18em",
+        padding: "14px 32px", fontSize: 14, letterSpacing: "0.18em",
         textTransform: "uppercase", cursor: "pointer", fontFamily: "monospace",
         border: "none", transition: "all 0.25s ease",
         ...(primary ? {
@@ -1512,7 +1517,7 @@ function NavBtn({ onClick, children, "aria-label": ariaLabel }: { onClick: () =>
         width: 40, height: 40, border: "1px solid rgba(255,255,255,0.2)",
         background: "transparent", color: "rgba(255,255,255,0.55)",
         cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
-        backdropFilter: "blur(4px)", fontSize: 20, transition: "all 0.2s",
+        backdropFilter: "blur(4px)", fontSize: 22, transition: "all 0.2s",
       }}
       onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }}
       onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.2)"; (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.55)"; }}
@@ -1522,17 +1527,18 @@ function NavBtn({ onClick, children, "aria-label": ariaLabel }: { onClick: () =>
   );
 }
 
-function OutlineBtn({ children, dark, light }: { children: React.ReactNode; dark?: boolean; light?: boolean }) {
+function OutlineBtn({ children, dark, light, onClick }: { children: React.ReactNode; dark?: boolean; light?: boolean; onClick?: () => void }) {
   const [hover, setHover] = useState(false);
   return (
     <button
+      onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
         background: hover ? (dark ? C.navy : "rgba(75,204,212,0.12)") : "transparent",
         color: dark ? (hover ? C.white : C.navy) : "rgba(75,204,212,0.75)",
         border: `1px solid ${dark ? "rgba(4,28,46,0.5)" : "rgba(75,204,212,0.3)"}`,
-        padding: "11px 26px", fontSize: 11, letterSpacing: "0.15em",
+        padding: "11px 26px", fontSize: 14, letterSpacing: "0.15em",
         textTransform: "uppercase", fontFamily: "monospace", cursor: "pointer",
         transition: "all 0.25s ease", whiteSpace: "nowrap",
       }}
@@ -1545,7 +1551,7 @@ function OutlineBtn({ children, dark, light }: { children: React.ReactNode; dark
 function ProjectBadge({ type }: { type: string }) {
   return (
     <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(27,108,168,0.75)", padding: "5px 12px", backdropFilter: "blur(6px)" }}>
-      <span style={{ color: C.white, fontSize: 10, fontFamily: "monospace", letterSpacing: "0.12em" }}>{type}</span>
+      <span style={{ color: C.white, fontSize: 13, fontFamily: "monospace", letterSpacing: "0.12em" }}>{type}</span>
     </div>
   );
 }

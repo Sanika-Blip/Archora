@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Link } from "react-router";
 import { motion, AnimatePresence, useInView } from "motion/react";
 import { Helmet } from "react-helmet";
 
@@ -88,7 +89,7 @@ function SEOHead() {
           {
             "@type": "Question",
             "name": "What is the first step to start a project with ARCHORA?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Simply fill in the enquiry form or WhatsApp us. Our team will schedule an initial consultation call to understand your project requirements — completely free of charge." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Simply fill in the enquiry form or WhatsApp us. Our team will schedule an initial consultation call to understand your project requirements, completely free of charge." }
           },
           {
             "@type": "Question",
@@ -109,7 +110,7 @@ function SEOHead() {
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://archora.in/contact" />
       <meta property="og:title" content="Contact ARCHORA | Hospital Design & Healthcare Infrastructure Enquiries" />
-      <meta property="og:description" content="Planning a hospital, clinic, modular OT, or healthcare facility? Contact ARCHORA — India's dedicated healthcare infrastructure partner. Based in Thane, pan-India delivery." />
+      <meta property="og:description" content="Planning a hospital, clinic, modular OT, or healthcare facility? Contact ARCHORA, India's dedicated healthcare infrastructure partner. Based in Thane, pan-India delivery." />
       <meta property="og:image" content="https://archora.in/og-image.jpg" />
       <meta property="og:locale" content="en_IN" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -302,7 +303,7 @@ const faqs = [
   },
   {
     q: "What is the first step to start a project with ARCHORA?",
-    a: "Simply fill in the enquiry form or WhatsApp us. Our team will schedule an initial consultation call to understand your project requirements — completely free of charge."
+    a: "Simply fill in the enquiry form or WhatsApp us. Our team will schedule an initial consultation call to understand your project requirements, completely free of charge."
   },
   {
     q: "Does ARCHORA provide NABH-compliant designs?",
@@ -340,12 +341,12 @@ export function Contact() {
         ══════════════════════════════════════════ */}
         <section style={{ position: "relative", height: "52vh", minHeight: 400, overflow: "hidden" }}>
           <img
-            src="https://images.unsplash.com/photo-1716698288651-b0b8698ea2f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1400"
-            alt="ARCHORA healthcare infrastructure office — contact us"
+            src="/images/hero/contact-hero.jpg"
+            alt="ARCHORA healthcare infrastructure office, contact us"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }}
             fetchPriority="high"
           />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.96) 0%, rgba(4,28,46,0.7) 55%, rgba(4,28,46,0.45) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.62) 0%, rgba(4,28,46,0.36) 55%, rgba(4,28,46,0.14) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, color: C.teal }}>
             <BlueprintGrid opacity={0.07} />
           </div>
@@ -374,7 +375,6 @@ export function Contact() {
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
-                <MedicalCross size={16} />
                 <span style={{ color: "rgba(255,255,255,0.38)", fontSize: 10, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "monospace" }}>
                   Healthcare Infrastructure
                 </span>
@@ -387,7 +387,8 @@ export function Contact() {
                 Let's Build Your<br />
                 <em style={{ color: C.teal, fontStyle: "italic" }}>Healthcare Facility</em> Together
               </h1>
-              <p style={{ color: "rgba(255,255,255,0.52)", fontSize: 15, lineHeight: 1.75, maxWidth: 520, fontFamily: "sans-serif" }}>
+              {/* ↑ UPDATED: fontSize 15 → 17 */}
+              <p style={{ color: "rgba(255,255,255,0.52)", fontSize: 17, lineHeight: 1.75, maxWidth: 520, fontFamily: "sans-serif" }}>
                 Tell us about your project and our team will get back to you within 24 working hours.
               </p>
             </motion.div>
@@ -412,9 +413,10 @@ export function Contact() {
                   <h2 id="enquiry-heading" style={{ color: C.white, fontSize: "clamp(1.7rem, 2.8vw, 2.4rem)", fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, marginBottom: 12, lineHeight: 1.15 }}>
                     Start a Conversation
                   </h2>
-                  <p style={{ color: "rgba(255,255,255,0.38)", fontSize: 14, lineHeight: 1.75, marginBottom: 44 }}>
+                  {/* ↑ UPDATED: fontSize 14 → 16 */}
+                  <p style={{ color: "rgba(255,255,255,0.38)", fontSize: 16, lineHeight: 1.75, marginBottom: 44 }}>
                     We work with doctors, hospital owners, healthcare investors, and chains across India.
-                    Fill in the details below — no sales pressure, just honest expert advice.
+                    Fill in the details below, no sales pressure, just honest expert advice.
                   </p>
                 </motion.div>
 
@@ -440,7 +442,8 @@ export function Contact() {
                       <h3 style={{ color: C.white, fontSize: 22, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, marginBottom: 12 }}>
                         Enquiry Received
                       </h3>
-                      <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 14, lineHeight: 1.75, maxWidth: 360, margin: "0 auto 28px" }}>
+                      {/* ↑ UPDATED: fontSize 14 → 16 */}
+                      <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 16, lineHeight: 1.75, maxWidth: 360, margin: "0 auto 28px" }}>
                         Our team will get back to you within 24 working hours. For urgent queries, WhatsApp us directly.
                       </p>
                       <a
@@ -499,7 +502,7 @@ export function Contact() {
                       <FieldGroup delay={0.35}>
                         <FormTextarea
                           id="message" label="Message / Project Brief"
-                          placeholder="Tell us about your project — bed count, services planned, timeline, site details, or anything you'd like us to know..."
+                          placeholder="Tell us about your project, bed count, services planned, timeline, site details, or anything you'd like us to know..."
                           rows={5}
                         />
                       </FieldGroup>
@@ -509,7 +512,7 @@ export function Contact() {
                         <SubmitButton />
                         <p style={{ marginTop: 16, fontSize: 11, color: "rgba(255,255,255,0.22)", fontFamily: "monospace", lineHeight: 1.7 }}>
                           🔒 Your information is safe with us. We never share your details with third parties.{" "}
-                          <a href="/privacy-policy" style={{ color: "rgba(75,204,212,0.5)", textDecoration: "underline" }}>Privacy Policy</a>
+                          <Link to="/why-us?tab=privacy" style={{ color: "rgba(75,204,212,0.5)", textDecoration: "underline" }}>Privacy Policy</Link>
                         </p>
                       </FieldGroup>
                     </motion.form>
@@ -526,8 +529,9 @@ export function Contact() {
                 <div style={{ marginBottom: 36, padding: "28px 28px", border: "1px solid rgba(75,204,212,0.15)", background: "rgba(75,204,212,0.03)", position: "relative" }}>
                   <div style={{ position: "absolute", top: -1, left: -1, width: 28, height: 28, borderLeft: `2px solid ${C.teal}`, borderTop: `2px solid ${C.teal}`, opacity: 0.5 }} />
                   <SectionLabel text="Prefer to Talk Directly?" light />
-                  <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 13, lineHeight: 1.8, marginBottom: 24 }}>
-                    Healthcare infrastructure projects involve serious decisions. If you prefer a direct conversation — we are just a call or message away.
+                  {/* ↑ UPDATED: fontSize 13 → 15 */}
+                  <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 15, lineHeight: 1.8, marginBottom: 24 }}>
+                    Healthcare infrastructure projects involve serious decisions. If you prefer a direct conversation, we are just a call or message away.
                   </p>
 
                   {/* WhatsApp CTA */}
@@ -546,7 +550,7 @@ export function Contact() {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     <div>
                       <div style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", fontFamily: "monospace" }}>Chat on WhatsApp</div>
-                      <div style={{ fontSize: 10, opacity: 0.8, marginTop: 2 }}>+91 72184 44700 — Click to open directly</div>
+                      <div style={{ fontSize: 10, opacity: 0.8, marginTop: 2 }}>+91 72184 44700, Click to open directly</div>
                     </div>
                   </a>
 
@@ -605,15 +609,17 @@ export function Contact() {
                 <div style={{ padding: "24px 28px", border: "1px solid rgba(75,204,212,0.1)", background: "rgba(75,204,212,0.02)", position: "relative" }}>
                   <div style={{ position: "absolute", bottom: -1, right: -1, width: 28, height: 28, borderRight: `2px solid ${C.teal}`, borderBottom: `2px solid ${C.teal}`, opacity: 0.4 }} />
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-                    <div style={{ width: 32, height: 32, background: "rgba(192,57,43,0.15)", border: "1px solid rgba(192,57,43,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <MedicalCross size={14} color={C.red} opacity={0.8} />
+                    <div style={{ width: 32, height: 32, background: "rgba(27,108,168,0.2)", border: "1px solid rgba(27,108,168,0.3)", display: "flex", alignItems: "center", justifyContent: "center", color: C.teal, flexShrink: 0 }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" />
+                      </svg>
                     </div>
                     <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 9, fontFamily: "monospace", letterSpacing: "0.2em", textTransform: "uppercase" }}>Visit Our Office</span>
                   </div>
                   <address style={{ fontStyle: "normal", color: "rgba(255,255,255,0.65)", fontSize: 13, lineHeight: 1.85 }}>
                     <strong style={{ color: C.white, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, fontSize: 15 }}>ARCHORA Healthcare Infrastructure</strong><br />
                     903 Niramaya Heights, Parsik Nagar, Kalwa,<br />
-                    Thane East, Thane — 400605,<br />
+                    Thane East, Thane, 400605,<br />
                     Maharashtra, India
                   </address>
                   <div style={{ marginTop: 14, display: "flex", alignItems: "center", gap: 8, color: "rgba(75,204,212,0.6)", fontSize: 10, fontFamily: "monospace", letterSpacing: "0.14em" }}>
@@ -636,7 +642,7 @@ export function Contact() {
           style={{ height: 420, position: "relative", overflow: "hidden" }}
         >
           <iframe
-            title="ARCHORA Healthcare Infrastructure office location — Thane, Maharashtra"
+            title="ARCHORA Healthcare Infrastructure office location, Thane, Maharashtra"
             src="https://maps.google.com/maps?q=903+Niramaya+Heights+Parsik+Nagar+Kalwa+Thane&output=embed"
             style={{ width: "100%", height: "100%", border: "none", filter: "invert(90%) hue-rotate(180deg) saturate(0.6) brightness(0.85)" }}
             loading="lazy"
@@ -644,7 +650,7 @@ export function Contact() {
           />
           {/* Address overlay */}
           <div style={{ position: "absolute", bottom: 24, left: 24, background: C.navy, padding: "14px 20px", borderLeft: `3px solid ${C.red}`, backdropFilter: "blur(8px)" }}>
-            <p style={{ color: C.white, fontSize: 12, margin: 0, fontFamily: "monospace" }}>ARCHORA — Thane East, Maharashtra</p>
+            <p style={{ color: C.white, fontSize: 12, margin: 0, fontFamily: "monospace" }}>ARCHORA, Thane East, Maharashtra</p>
             <p style={{ color: "rgba(255,255,255,0.38)", fontSize: 10, margin: "4px 0 0", fontFamily: "monospace", letterSpacing: "0.1em" }}>903 Niramaya Heights · Mon–Sat 10AM–7PM</p>
           </div>
         </motion.section>
@@ -664,8 +670,9 @@ export function Contact() {
                   We Work With Doctors, Investors & Healthcare Chains Across India
                 </h2>
               </div>
-              <p style={{ color: "rgba(255,255,255,0.38)", fontSize: 14, lineHeight: 1.8, margin: 0 }}>
-                Whatever stage you are at — from first idea to final commissioning — ARCHORA brings the same depth of healthcare infrastructure expertise to every project.
+              {/* ↑ UPDATED: fontSize 14 → 16 */}
+              <p style={{ color: "rgba(255,255,255,0.38)", fontSize: 16, lineHeight: 1.8, margin: 0, fontFamily: "sans-serif" }}>
+                Whatever stage you are at (from first idea to final commissioning), ARCHORA brings the same depth of healthcare infrastructure expertise to every project.
               </p>
             </motion.div>
 
@@ -682,7 +689,8 @@ export function Contact() {
                 >
                   <div style={{ width: 4, height: 4, background: C.red, marginBottom: 16, opacity: 0.7 }} />
                   <h3 style={{ color: C.white, fontSize: 13, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.3, marginBottom: 8 }}>{s.title}</h3>
-                  <p style={{ color: "rgba(255,255,255,0.35)", fontSize: 11.5, lineHeight: 1.7, margin: 0 }}>{s.desc}</p>
+                  {/* ↑ UPDATED: fontSize 11.5 → 13 */}
+                  <p style={{ color: "rgba(255,255,255,0.35)", fontSize: 13, lineHeight: 1.7, margin: 0, fontFamily: "sans-serif" }}>{s.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -722,7 +730,8 @@ export function Contact() {
                       transition: "background 0.25s",
                     }}
                   >
-                    <span style={{ color: C.white, fontSize: 14, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.4 }}>
+                    {/* ↑ UPDATED: fontSize 14 → 16 */}
+                    <span style={{ color: C.white, fontSize: 16, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.4 }}>
                       {faq.q}
                     </span>
                     <motion.span
@@ -742,7 +751,8 @@ export function Contact() {
                         style={{ overflow: "hidden" }}
                       >
                         <div style={{ padding: "16px 24px 22px", background: "rgba(75,204,212,0.03)", borderBottom: "1px solid rgba(75,204,212,0.1)" }}>
-                          <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 13.5, lineHeight: 1.85, margin: 0 }}>{faq.a}</p>
+                          {/* ↑ UPDATED: fontSize 13.5 → 15.5 */}
+                          <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 15.5, lineHeight: 1.85, margin: 0 }}>{faq.a}</p>
                         </div>
                       </motion.div>
                     )}
@@ -771,16 +781,14 @@ export function Contact() {
 
           <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 80px", textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.div {...fadeUp}>
-              <div style={{ display: "flex", justifyContent: "center", marginBottom: 28 }}>
-                <MedicalCross size={36} color={C.red} opacity={0.7} />
-              </div>
               <SectionLabel text="Ready to Start?" light />
               <h2 id="final-cta" style={{ color: C.white, fontSize: "clamp(2rem, 4vw, 3.4rem)", fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.1, marginBottom: 20 }}>
                 Planning a Healthcare Facility?<br />
                 <em style={{ color: C.teal, fontStyle: "italic" }}>Let's Talk.</em>
               </h2>
-              <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 14, lineHeight: 1.85, maxWidth: 480, margin: "0 auto 44px" }}>
-                Whether you are starting from zero or need expert support at any stage — ARCHORA is ready to help you design, build, and deliver.
+              {/* ↑ UPDATED: fontSize 14 → 16 */}
+              <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 16, lineHeight: 1.85, maxWidth: 480, margin: "0 auto 44px" }}>
+                Whether you are starting from zero or need expert support at any stage, ARCHORA is ready to help you design, build, and deliver.
               </p>
               <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
                 <a
@@ -834,7 +842,7 @@ function SubmitButton() {
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
       </svg>
-      Submit Enquiry — We respond within 24 working hours
+      Submit Enquiry, We respond within 24 working hours
     </button>
   );
 }

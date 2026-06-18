@@ -12,7 +12,7 @@ function SEOHead() {
     "@context": "https://schema.org",
     "@type": "Blog",
     "@id": "https://archora.in/journal#blog",
-    "name": "ARCHORA Journal — Healthcare Infrastructure Insights",
+    "name": "ARCHORA Journal, Healthcare Infrastructure Insights",
     "description": "Expert insights on hospital design, NABH compliance, modular OT design, hospital licensing, and healthcare infrastructure in India.",
     "url": "https://archora.in/journal",
     "publisher": {
@@ -90,13 +90,13 @@ function SEOHead() {
 
   return (
     <Helmet>
-      <title>Journal — Healthcare Infrastructure Insights | ARCHORA</title>
+      <title>Journal, Healthcare Infrastructure Insights | ARCHORA</title>
       <meta name="description" content="Expert insights on hospital design, NABH compliance, modular OT design, hospital licensing, and healthcare infrastructure across India. Written by Team ARCHORA." />
       <meta name="keywords" content="hospital design India, NABH compliance, modular OT design, healthcare infrastructure, hospital licensing India, hospital zoning, biophilic design healthcare" />
       <link rel="canonical" href="https://archora.in/journal" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://archora.in/journal" />
-      <meta property="og:title" content="ARCHORA Journal — Healthcare Infrastructure Insights" />
+      <meta property="og:title" content="ARCHORA Journal, Healthcare Infrastructure Insights" />
       <meta property="og:description" content="Expert insights on hospital design, NABH compliance, modular OT, and healthcare infrastructure in India." />
       <meta property="og:image" content="https://archora.in/og-image.jpg" />
       <meta property="og:locale" content="en_IN" />
@@ -107,7 +107,7 @@ function SEOHead() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// DESIGN TOKENS (matching site system)
+// DESIGN TOKENS
 // ─────────────────────────────────────────────────────────────────────────────
 const C = {
   navy:    "#041c2e",
@@ -123,7 +123,7 @@ const C = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// ARTICLE DATA — synced with JournalPost.tsx (all 8 articles)
+// ARTICLE DATA
 // ─────────────────────────────────────────────────────────────────────────────
 export interface ArticleMeta {
   id: number;
@@ -149,91 +149,91 @@ export const articlesMeta: ArticleMeta[] = [
     readTime: "7–8 min read",
     author: "Team ARCHORA",
     tags: ["Biophilic Design", "NABH", "Patient Recovery", "Acoustics", "HVAC"],
-    image: "https://images.unsplash.com/photo-1769147555720-71fc71bfc216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
+    image: "/images/journal/healing-by-design.jpg",
   },
   {
     id: 2,
     slug: "hospital-licenses-approvals-india-complete-guide",
     category: "Healthcare Compliance",
     title: "Hospital Licenses & Approvals in India: A Complete Design-to-Commissioning Guide (2025)",
-    excerpt: "From Land Use Clearance to NABH accreditation — a practitioner's guide to every regulatory approval required, and how your design decisions directly determine how smoothly you move through each stage.",
+    excerpt: "From Land Use Clearance to NABH accreditation, a practitioner's guide to every regulatory approval required, and how your design decisions directly determine how smoothly you move through each stage.",
     date: "July 1, 2025",
     readTime: "9–10 min read",
     author: "Team ARCHORA",
     tags: ["NABH", "Licensing", "Compliance", "Building Approval", "Biomedical Waste"],
-    image: "https://images.unsplash.com/photo-1764885415760-d3d8fff41fe3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
+    image: "/images/journal/hospital-licenses-approvals.jpg",
   },
   {
     id: 3,
     slug: "hospital-zoning-circulation-planning-guide",
     category: "Hospital Design",
     title: "Hospital Zoning & Circulation Planning: Designing for Safety, Hygiene, and Efficiency",
-    excerpt: "Patients moving through the wrong corridors. Waste crossing clean zones. Sterile areas compromised by inadequate air pressure differentials. These are not hypothetical problems — they are the daily reality of hospitals designed without rigorous zoning strategy.",
+    excerpt: "Patients moving through the wrong corridors. Waste crossing clean zones. Sterile areas compromised by inadequate air pressure differentials. These are not hypothetical problems, they are the daily reality of hospitals designed without rigorous zoning strategy.",
     date: "July 4, 2025",
     readTime: "8–9 min read",
     author: "Team ARCHORA",
     tags: ["Zoning", "Infection Control", "NABH", "Circulation", "Spatial Planning"],
-    image: "https://images.unsplash.com/photo-1779062553594-7c84878a9266?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
+    image: "/images/journal/hospital-zoning-circulation.jpg",
   },
   {
     id: 4,
     slug: "modular-ot-design-nabh-standards-guide",
     category: "Modular OT",
     title: "How to Design a Modular OT That Meets NABH Standards: Complete Guide (2025)",
-    excerpt: "The operating theatre is the most demanding space in any hospital. A well-designed modular OT makes doing the right thing easy — the right air pressure differentials, zoning, surface finishes, and MEP integration, all working invisibly.",
+    excerpt: "The operating theatre is the most demanding space in any hospital. A well-designed modular OT makes doing the right thing easy, the right air pressure differentials, zoning, surface finishes, and MEP integration, all working invisibly.",
     date: "July 11, 2025",
     readTime: "9–10 min read",
     author: "Team ARCHORA",
     tags: ["Modular OT", "Laminar Airflow", "HVAC", "NABH", "MEP"],
-    image: "https://images.unsplash.com/photo-1778151270757-f3793f65e2de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080",
+    image: "/images/journal/modular-ot-design.jpg",
   },
   {
     id: 5,
     slug: "digitally-integrated-ot-design-smart-operation-theatre",
     category: "Modular OT",
     title: "Digitally Integrated OTs: What Modern Surgeons Expect & How to Design for It",
-    excerpt: "Modern surgeons work within a digital ecosystem. An OT that cannot support real-time imaging, electronic records, smart environmental controls, and seamless communication is not just inconvenient — it is a clinical liability.",
+    excerpt: "Modern surgeons work within a digital ecosystem. An OT that cannot support real-time imaging, electronic records, smart environmental controls, and seamless communication is not just inconvenient, it is a clinical liability.",
     date: "July 18, 2025",
     readTime: "9–10 min read",
     author: "Team ARCHORA",
     tags: ["Smart OT", "PACS Integration", "Digital OT", "NABH", "MEP"],
-    image: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "/images/journal/digitally-integrated-ot.jpg",
   },
   {
     id: 6,
     slug: "common-mistakes-hospital-layout-planning",
     category: "Hospital Design",
     title: "5 Common Mistakes in Hospital Layout Planning (And How to Avoid Them)",
-    excerpt: "Poor hospital layout planning costs money, delays commissioning, and endangers patients. These five mistakes appear consistently across projects of every scale — and every one of them is preventable at the design stage.",
+    excerpt: "Poor hospital layout planning costs money, delays commissioning, and endangers patients. These five mistakes appear consistently across projects of every scale, and every one of them is preventable at the design stage.",
     date: "July 22, 2025",
     readTime: "9–10 min read",
     author: "Team ARCHORA",
     tags: ["Hospital Planning", "Workflow Design", "NABH", "Emergency Department", "Master Planning"],
-    image: "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "/images/journal/hospital-layout-mistakes.jpg",
   },
   {
     id: 7,
     slug: "hospital-fire-safety-norms-nbc-nabh-design-guide",
     category: "Healthcare Compliance",
     title: "Hospital Fire Safety Norms: NBC 2016, NABH Compliance & Evacuation Design Guide",
-    excerpt: "Fire safety in hospitals is a life-safety obligation, not a checkbox. The design decisions made during planning — compartmentalisation, evacuation routes, suppression systems, materials — directly determine whether patients and staff survive a fire event.",
+    excerpt: "Fire safety in hospitals is a life-safety obligation, not a checkbox. The design decisions made during planning (compartmentalisation, evacuation routes, suppression systems, materials) directly determine whether patients and staff survive a fire event.",
     date: "July 26, 2025",
     readTime: "10–11 min read",
     author: "Team ARCHORA",
     tags: ["Fire Safety", "NBC 2016", "NABH", "Evacuation Design", "Fire NOC"],
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "/images/journal/fire-safety-norms.jpg",
   },
   {
     id: 8,
     slug: "why-hospital-startup-timeline-doubles-how-archora-prevents-it",
     category: "Hospital Planning",
     title: "Why Your Hospital Startup Timeline Will Double (And How ARCHORA Prevents It)",
-    excerpt: "Most hospital projects in India take 30+ months and blow their budget. The losses are avoidable — and they happen before a single wall is built, in the planning assumptions and sequencing choices made in the earliest weeks of the project.",
+    excerpt: "Most hospital projects in India take 30+ months and blow their budget. The losses are avoidable, and they happen before a single wall is built, in the planning assumptions and sequencing choices made in the earliest weeks of the project.",
     date: "February 20, 2026",
     readTime: "10–11 min read",
     author: "Prasad Patil, Founder & CEO, ARCHORA",
     tags: ["Hospital Timeline", "NABH-First Design", "Turnkey Delivery", "Project Planning", "Single-Window"],
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    image: "/images/journal/hospital-startup-timeline.jpg",
   },
 ];
 
@@ -280,7 +280,7 @@ function SectionLabel({ text, light = false }: { text: string; light?: boolean }
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
       <span style={{ width: 28, height: 1, background: light ? "rgba(75,204,212,0.6)" : C.blue, display: "block" }} />
-      <span style={{ fontFamily: "monospace", fontSize: 10, letterSpacing: "0.28em", textTransform: "uppercase" as const, color: light ? "rgba(75,204,212,0.7)" : C.blue }}>
+      <span style={{ fontFamily: "monospace", fontSize: 13, letterSpacing: "0.28em", textTransform: "uppercase" as const, color: light ? "rgba(75,204,212,0.7)" : C.blue }}>
         {text}
       </span>
     </div>
@@ -330,10 +330,10 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
             {/* Content */}
             <div style={{ padding: "52px 48px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20, flexWrap: "wrap" }}>
-                <span style={{ background: "rgba(192,57,43,0.1)", color: C.red, border: "1px solid rgba(192,57,43,0.2)", padding: "4px 12px", fontSize: 9, fontFamily: "monospace", letterSpacing: "0.2em", textTransform: "uppercase" }}>
+                <span style={{ background: "rgba(192,57,43,0.1)", color: C.red, border: "1px solid rgba(192,57,43,0.2)", padding: "4px 12px", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.2em", textTransform: "uppercase" }}>
                   Featured
                 </span>
-                <span style={{ background: cat.bg, color: cat.text, border: `1px solid ${cat.border}`, padding: "4px 12px", fontSize: 9, fontFamily: "monospace", letterSpacing: "0.16em", textTransform: "uppercase" }}>
+                <span style={{ background: cat.bg, color: cat.text, border: `1px solid ${cat.border}`, padding: "4px 12px", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.16em", textTransform: "uppercase" }}>
                   {article.category}
                 </span>
               </div>
@@ -342,22 +342,22 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
                 {article.title}
               </h2>
 
-              <p style={{ color: C.mid, fontSize: 14, lineHeight: 1.8, marginBottom: 28 }}>
+              <p style={{ color: C.mid, fontSize: 16, lineHeight: 1.8, marginBottom: 28 }}>
                 {article.excerpt}
               </p>
 
               <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 28 }}>
-                <span style={{ color: C.muted, fontSize: 11, fontFamily: "monospace", display: "flex", alignItems: "center", gap: 5 }}>
-                  <Calendar size={11} /> {article.date}
+                <span style={{ color: C.muted, fontSize: 13, fontFamily: "monospace", display: "flex", alignItems: "center", gap: 5 }}>
+                  <Calendar size={13} /> {article.date}
                 </span>
-                <span style={{ color: C.muted, fontSize: 11, fontFamily: "monospace", display: "flex", alignItems: "center", gap: 5 }}>
-                  <Clock size={11} /> {article.readTime}
+                <span style={{ color: C.muted, fontSize: 13, fontFamily: "monospace", display: "flex", alignItems: "center", gap: 5 }}>
+                  <Clock size={13} /> {article.readTime}
                 </span>
               </div>
 
-              <div style={{ display: "flex", alignItems: "center", gap: 8, color: C.blue, fontSize: 10, fontFamily: "monospace", letterSpacing: "0.16em", textTransform: "uppercase" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, color: C.blue, fontSize: 13, fontFamily: "monospace", letterSpacing: "0.16em", textTransform: "uppercase" }}>
                 <span>Read Article</span>
-                <ArrowRight size={12} />
+                <ArrowRight size={14} />
               </div>
             </div>
           </div>
@@ -399,7 +399,7 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
             />
             {/* Category on image */}
             <div style={{ position: "absolute", top: 14, left: 14 }}>
-              <span style={{ background: "rgba(4,28,46,0.8)", color: C.teal, fontSize: 8, fontFamily: "monospace", letterSpacing: "0.2em", textTransform: "uppercase", padding: "5px 10px", backdropFilter: "blur(6px)" }}>
+              <span style={{ background: "rgba(4,28,46,0.8)", color: C.teal, fontSize: 12, fontFamily: "monospace", letterSpacing: "0.2em", textTransform: "uppercase", padding: "5px 10px", backdropFilter: "blur(6px)" }}>
                 {article.category}
               </span>
             </div>
@@ -408,34 +408,34 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
           {/* Content */}
           <div style={{ padding: "28px 28px 24px", display: "flex", flexDirection: "column", flex: 1 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 14 }}>
-              <span style={{ color: C.muted, fontSize: 10, fontFamily: "monospace", display: "flex", alignItems: "center", gap: 5 }}>
-                <Calendar size={10} /> {article.date}
+              <span style={{ color: C.muted, fontSize: 13, fontFamily: "monospace", display: "flex", alignItems: "center", gap: 5 }}>
+                <Calendar size={12} /> {article.date}
               </span>
-              <span style={{ color: C.muted, fontSize: 10, fontFamily: "monospace", display: "flex", alignItems: "center", gap: 5 }}>
-                <Clock size={10} /> {article.readTime}
+              <span style={{ color: C.muted, fontSize: 13, fontFamily: "monospace", display: "flex", alignItems: "center", gap: 5 }}>
+                <Clock size={12} /> {article.readTime}
               </span>
             </div>
 
-            <h3 style={{ color: C.ink, fontSize: "clamp(1.05rem, 1.4vw, 1.2rem)", fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 600, lineHeight: 1.25, marginBottom: 12, flex: 1 }}>
+            <h3 style={{ color: C.ink, fontSize: "clamp(1.05rem, 1.4vw, 1.25rem)", fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 600, lineHeight: 1.25, marginBottom: 12, flex: 1 }}>
               {article.title}
             </h3>
 
-            <p style={{ color: C.mid, fontSize: 13, lineHeight: 1.75, marginBottom: 20, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+            <p style={{ color: C.mid, fontSize: 15, lineHeight: 1.75, marginBottom: 20, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
               {article.excerpt}
             </p>
 
             {/* Tags */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20 }}>
               {article.tags.slice(0, 3).map(tag => (
-                <span key={tag} style={{ background: "rgba(15,76,117,0.06)", color: C.muted, border: "1px solid rgba(15,76,117,0.12)", padding: "3px 8px", fontSize: 9, fontFamily: "monospace", letterSpacing: "0.08em" }}>
+                <span key={tag} style={{ background: "rgba(15,76,117,0.06)", color: C.muted, border: "1px solid rgba(15,76,117,0.12)", padding: "3px 8px", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.08em" }}>
                   {tag}
                 </span>
               ))}
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 6, color: C.blue, fontSize: 10, fontFamily: "monospace", letterSpacing: "0.16em", textTransform: "uppercase", borderTop: "1px solid rgba(27,108,168,0.1)", paddingTop: 16, marginTop: "auto" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, color: C.blue, fontSize: 13, fontFamily: "monospace", letterSpacing: "0.16em", textTransform: "uppercase", borderTop: "1px solid rgba(27,108,168,0.1)", paddingTop: 16, marginTop: "auto" }}>
               <span>Read Article</span>
-              <ArrowRight size={11} />
+              <ArrowRight size={13} />
             </div>
           </div>
         </div>
@@ -450,6 +450,13 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
 export function Journal() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  function handleSubscribe() {
+    if (!email || !email.includes("@")) return;
+    setSubscribed(true);
+    setEmail("");
+  }
 
   const filtered = activeCategory === "All"
     ? articlesMeta
@@ -474,12 +481,12 @@ export function Journal() {
         {/* ── HERO ── */}
         <section style={{ position: "relative", height: "52vh", minHeight: 380, overflow: "hidden" }}>
           <img
-            src="https://images.unsplash.com/photo-1716698288651-b0b8698ea2f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1400"
+            src="/images/hero/journal-hero.jpg"
             alt="ARCHORA Healthcare Infrastructure Journal"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }}
             fetchPriority="high"
           />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.96) 0%, rgba(4,28,46,0.7) 60%, rgba(4,28,46,0.45) 100%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.6) 0%, rgba(4,28,46,0.36) 60%, rgba(4,28,46,0.14) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, color: C.teal }}>
             <BlueprintGrid opacity={0.07} />
           </div>
@@ -487,15 +494,14 @@ export function Journal() {
           <div style={{ position: "relative", height: "100%", maxWidth: 1280, margin: "0 auto", padding: "0 80px", display: "flex", alignItems: "center", zIndex: 10 }}>
             <motion.div initial={{ opacity: 0, y: 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
-                <MedicalCross size={15} />
-                <span style={{ color: "rgba(255,255,255,0.38)", fontSize: 10, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "monospace" }}>
+                <span style={{ color: "rgba(255,255,255,0.55)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "monospace" }}>
                   Healthcare Infrastructure
                 </span>
               </div>
               <h1 style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.4rem)", color: C.white, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.06, marginBottom: 16, letterSpacing: "-0.01em" }}>
                 The ARCHORA Journal
               </h1>
-              <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 15, lineHeight: 1.75, maxWidth: 500, fontFamily: "sans-serif" }}>
+              <p style={{ color: "rgba(255,255,255,0.65)", fontSize: 17, lineHeight: 1.75, maxWidth: 500, fontFamily: "sans-serif" }}>
                 Insights on hospital design, NABH compliance, modular OT infrastructure, and healthcare architecture in India.
               </p>
             </motion.div>
@@ -511,7 +517,7 @@ export function Journal() {
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
                   style={{
-                    padding: "16px 20px", fontSize: 10, fontFamily: "monospace", letterSpacing: "0.18em",
+                    padding: "16px 20px", fontSize: 13, fontFamily: "monospace", letterSpacing: "0.18em",
                     textTransform: "uppercase", border: "none", cursor: "pointer",
                     background: "transparent", whiteSpace: "nowrap",
                     color: activeCategory === cat ? C.blue : C.muted,
@@ -542,7 +548,7 @@ export function Journal() {
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 48 }}>
                   <div>
                     <SectionLabel text="Latest Articles" />
-                    <p style={{ color: C.muted, fontSize: 12, fontFamily: "monospace", margin: 0 }}>
+                    <p style={{ color: C.muted, fontSize: 14, fontFamily: "monospace", margin: 0 }}>
                       {filtered.length} article{filtered.length !== 1 ? "s" : ""}{activeCategory !== "All" ? ` in ${activeCategory}` : ""}
                     </p>
                   </div>
@@ -550,7 +556,7 @@ export function Journal() {
 
                 {filtered.length === 0 ? (
                   <div style={{ textAlign: "center", padding: "80px 0", color: C.muted }}>
-                    <p style={{ fontSize: 16, fontFamily: "'Cormorant Garamond', 'Georgia', serif" }}>No articles in this category yet.</p>
+                    <p style={{ fontSize: 18, fontFamily: "'Cormorant Garamond', 'Georgia', serif" }}>No articles in this category yet.</p>
                   </div>
                 ) : (
                   <>
@@ -561,7 +567,7 @@ export function Journal() {
                       </div>
                     )}
 
-                    {/* Remaining articles — 3-column grid */}
+                    {/* Remaining articles, 3-column grid */}
                     {rest.length > 0 && (
                       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
                         {rest.map((article, i) => (
@@ -593,35 +599,34 @@ export function Journal() {
 
           <div style={{ maxWidth: 640, margin: "0 auto", padding: "0 80px", textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.div {...fadeUp}>
-              <div style={{ display: "flex", justifyContent: "center", marginBottom: 24 }}>
-                <MedicalCross size={32} color={C.red} opacity={0.7} />
-              </div>
               <SectionLabel text="Stay Informed" light />
               <h2 style={{ color: C.white, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.1, marginBottom: 16 }}>
                 Healthcare Infrastructure<br />
                 <em style={{ color: C.teal, fontStyle: "italic" }}>Insights in Your Inbox</em>
               </h2>
-              <p style={{ color: "rgba(255,255,255,0.42)", fontSize: 14, lineHeight: 1.85, marginBottom: 40 }}>
-                Subscribe for expert articles on hospital design, NABH compliance, modular OT infrastructure, and more — written by practicing healthcare infrastructure specialists.
+              <p style={{ color: "rgba(255,255,255,0.58)", fontSize: 16, lineHeight: 1.85, marginBottom: 40 }}>
+                Subscribe for expert articles on hospital design, NABH compliance, modular OT infrastructure, and more, written by practicing healthcare infrastructure specialists.
               </p>
               <div style={{ display: "flex", gap: 0, maxWidth: 460, margin: "0 auto" }}>
                 <input
                   type="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
+                  onKeyDown={e => { if (e.key === "Enter") handleSubscribe(); }}
                   placeholder="your@email.com"
                   aria-label="Email address for newsletter"
                   style={{
                     flex: 1, padding: "13px 18px", background: "rgba(255,255,255,0.06)",
                     border: "1px solid rgba(75,204,212,0.2)", borderRight: "none",
-                    color: C.white, fontFamily: "monospace", fontSize: 13,
+                    color: C.white, fontFamily: "monospace", fontSize: 15,
                     outline: "none",
                   }}
                 />
                 <button
+                  onClick={handleSubscribe}
                   style={{
                     padding: "13px 24px", background: C.blue, color: C.white,
-                    border: "none", fontSize: 10, letterSpacing: "0.16em",
+                    border: "none", fontSize: 13, letterSpacing: "0.16em",
                     textTransform: "uppercase", fontFamily: "monospace", cursor: "pointer",
                     whiteSpace: "nowrap", transition: "background 0.2s",
                   }}
@@ -631,8 +636,8 @@ export function Journal() {
                   Subscribe
                 </button>
               </div>
-              <p style={{ color: "rgba(255,255,255,0.18)", marginTop: 16, fontSize: 10, fontFamily: "monospace" }}>
-                No spam. Unsubscribe anytime.
+              <p style={{ color: subscribed ? C.teal : "rgba(255,255,255,0.28)", marginTop: 16, fontSize: 13, fontFamily: "monospace" }}>
+                {subscribed ? "Thanks! You're subscribed." : "No spam. Unsubscribe anytime."}
               </p>
             </motion.div>
           </div>
@@ -644,6 +649,6 @@ export function Journal() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Re-export for convenience (router imports BlogPost from here too)
+// Re-export
 // ─────────────────────────────────────────────────────────────────────────────
 export { JournalPost as BlogPost } from "./JournalPost";

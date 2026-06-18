@@ -136,20 +136,20 @@ function FacilityCard({ facility, index, color }: {
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: `linear-gradient(90deg, ${color}, transparent)`, transform: hovered ? "scaleX(1)" : "scaleX(0)", transformOrigin: "left", transition: "transform 0.35s ease" }} />
 
       {/* watermark id */}
-      <div style={{ position: "absolute", bottom: 8, right: 14, fontFamily: "'Cormorant Garamond', serif", fontSize: "3.2rem", fontWeight: 300, color: `${color}07`, lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>{facility.id}</div>
+      <div style={{ position: "absolute", bottom: 8, right: 14, fontFamily: "'Cormorant Garamond', serif", fontSize: "3.8rem", fontWeight: 300, color: `${color}07`, lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>{facility.id}</div>
 
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 14, gap: 8 }}>
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 8, letterSpacing: "2.5px", textTransform: "uppercase", color: `${color}90`, flexShrink: 0 }}>{facility.id}</span>
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 17, letterSpacing: "2.5px", textTransform: "uppercase", color: `${color}90`, flexShrink: 0 }}>{facility.id}</span>
         <motion.div animate={{ x: hovered ? 3 : 0, opacity: hovered ? 1 : 0.4 }} transition={{ duration: 0.22 }} style={{ color }}>
           <ArrowRight size={13} />
         </motion.div>
       </div>
 
-      <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 300, color: "#fff", lineHeight: 1.35, marginBottom: 14, letterSpacing: "0.01em" }}>{facility.title}</h3>
+      <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.9rem", fontWeight: 300, color: "#fff", lineHeight: 1.35, marginBottom: 14, letterSpacing: "0.01em" }}>{facility.title}</h3>
 
       <div style={{ display: "flex", alignItems: "flex-start", gap: 7, marginBottom: 8 }}>
         <span style={{ width: 4, height: 4, borderRadius: "50%", background: color, flexShrink: 0, marginTop: 4 }} />
-        <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, lineHeight: 1.75, color: "rgba(255,255,255,0.38)" }}>{facility.primary}</p>
+        <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 18, lineHeight: 1.75, color: "rgba(255,255,255,0.90)" , fontWeight: 700 }}>{facility.primary}</p>
       </div>
 
       {/* "View Details" hint on hover */}
@@ -158,7 +158,7 @@ function FacilityCard({ facility, index, color }: {
         transition={{ duration: 0.2 }}
         style={{ marginTop: 14, display: "flex", alignItems: "center", gap: 6 }}
       >
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 8, letterSpacing: "2px", textTransform: "uppercase", color: `${color}80` }}>View Details</span>
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 17, letterSpacing: "2px", textTransform: "uppercase", color: `${color}80` }}>View Details</span>
         <ArrowRight size={10} style={{ color }} />
       </motion.div>
     </motion.div>
@@ -178,9 +178,9 @@ function CategorySection({ category }: { category: typeof categories[0] }) {
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: "2.2rem", paddingBottom: "1.4rem", borderBottom: `0.5px solid ${category.color}20` }}
       >
-        <span style={{ fontSize: 20 }}>{category.emoji}</span>
-        <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.5rem, 2.5vw, 2rem)", fontWeight: 300, color: "#fff", letterSpacing: "-0.01em" }}>{category.label}</h2>
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, letterSpacing: "2px", color: `${category.color}70`, background: `${category.color}12`, border: `0.5px solid ${category.color}30`, padding: "3px 10px", borderRadius: 20 }}>
+        <span style={{ fontSize: 24 }}>{category.emoji}</span>
+        <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.95rem, 2.5vw, 2.6rem)", fontWeight: 300, color: "#fff", letterSpacing: "-0.01em" }}>{category.label}</h2>
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 18, letterSpacing: "2px", color: `${category.color}70`, background: `${category.color}12`, border: `0.5px solid ${category.color}30`, padding: "3px 10px", borderRadius: 20 }}>
           {category.facilities.length} types
         </span>
         <div style={{ flex: 1, height: "0.5px", background: `linear-gradient(90deg, ${category.color}20, transparent)` }} />
@@ -231,7 +231,7 @@ export function Facilities() {
 
         .filter-pill {
           font-family: 'DM Mono', monospace;
-          font-size: 9px;
+          font-size: 14px;
           letter-spacing: 2px;
           text-transform: uppercase;
           padding: 7px 16px;
@@ -257,7 +257,7 @@ export function Facilities() {
           border-radius: 2px;
           padding: 10px 14px 10px 38px;
           font-family: 'DM Mono', monospace;
-          font-size: 10px;
+          font-size: 15px;
           color: rgba(255,255,255,0.75);
           outline: none;
           transition: all 0.2s ease;
@@ -308,18 +308,14 @@ export function Facilities() {
             transition={{ duration: 0.65, delay: 0.15 }}
             style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 22 }}
           >
-            <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
-              <rect x="6.5" y="1" width="7" height="18" rx="1.5" fill="#c0392b" opacity=".8" />
-              <rect x="1" y="6.5" width="18" height="7" rx="1.5" fill="#c0392b" opacity=".8" />
-            </svg>
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>Healthcare Facility Types</span>
+            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 18, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.85)" }}>Healthcare Facility Types</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 36, clipPath: "inset(100% 0 0 0)" }}
             animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
             transition={{ duration: 0.95, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.8rem, 5.5vw, 4.6rem)", fontWeight: 300, color: "#fff", lineHeight: 1.05, marginBottom: 24, maxWidth: 680, letterSpacing: "-0.01em" }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(3.64rem, 5.5vw, 5.98rem)", fontWeight: 300, color: "#fff", lineHeight: 1.05, marginBottom: 24, maxWidth: 680, letterSpacing: "-0.01em" }}
           >
             Every Healthcare Facility<br />
             <em style={{ fontStyle: "italic", color: "#4bccd4" }}>We Design & Build.</em>
@@ -329,9 +325,9 @@ export function Facilities() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55 }}
-            style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, lineHeight: 1.95, color: "rgba(255,255,255,0.45)", maxWidth: 520, marginBottom: 44 }}
+            style={{ fontFamily: "'DM Mono', monospace", fontSize: 19, lineHeight: 1.95, color: "rgba(255,255,255,0.92)", maxWidth: 520, marginBottom: 44 }}
           >
-            35 facility types across 7 categories — from a 200 sq ft clinic to a 1000-bed hospital campus. ARCHORA brings the same compliance rigour and clinical planning precision to every one.
+            35 facility types across 7 categories, from a 200 sq ft clinic to a 1000-bed hospital campus. ARCHORA brings the same compliance rigour and clinical planning precision to every one.
           </motion.p>
 
           <motion.div
@@ -346,8 +342,8 @@ export function Facilities() {
               { num: "15+", label: "Compliance Bodies" },
             ].map((stat, i) => (
               <div key={i} className="stat-chip">
-                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2.2rem", fontWeight: 300, color: "#4bccd4", lineHeight: 1 }}>{stat.num}</span>
-                <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 8, letterSpacing: "2.5px", textTransform: "uppercase", color: "rgba(255,255,255,0.28)" }}>{stat.label}</span>
+                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2.6rem", fontWeight: 300, color: "#4bccd4", lineHeight: 1 }}>{stat.num}</span>
+                <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 17, letterSpacing: "2.5px", textTransform: "uppercase", color: "rgba(255,255,255,0.80)" }}>{stat.label}</span>
               </div>
             ))}
           </motion.div>
@@ -360,7 +356,7 @@ export function Facilities() {
           >
             <Link to="/contact">
               <button
-                style={{ padding: "13px 28px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }}
+                style={{ padding: "13px 28px", fontSize: 19, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
               >
@@ -369,7 +365,7 @@ export function Facilities() {
             </Link>
             <Link to="/services">
               <button
-                style={{ padding: "13px 28px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.2)", cursor: "pointer", transition: "all .25s" }}
+                style={{ padding: "13px 28px", fontSize: 19, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.2)", cursor: "pointer", transition: "all .25s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.45)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.2)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
               >
@@ -432,8 +428,8 @@ export function Facilities() {
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 3rem" }}>
           {filteredCategories.length === 0 ? (
             <div style={{ textAlign: "center", padding: "6rem 0" }}>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.6rem", fontWeight: 300, color: "rgba(255,255,255,0.25)", marginBottom: 12 }}>No facilities found</p>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "rgba(255,255,255,0.2)" }}>Try a different search term</p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2.4rem", fontWeight: 300, color: "rgba(255,255,255,0.80)", marginBottom: 12 }}>No facilities found</p>
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 19, color: "rgba(255,255,255,0.2)" }}>Try a different search term</p>
             </div>
           ) : (
             filteredCategories.map(category => (
@@ -453,10 +449,10 @@ export function Facilities() {
             transition={{ duration: 0.7 }}
             style={{ textAlign: "center", marginBottom: "4rem" }}
           >
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 19, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
               <span style={{ display: "block", width: 36, height: "0.5px", background: "#185FA5" }} />Compliance Bodies<span style={{ display: "block", width: 36, height: "0.5px", background: "#185FA5" }} />
             </p>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.15 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.6rem,4vw,3.9rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.15 }}>
               Every Regulatory Authority. <em style={{ fontStyle: "italic", color: "#185FA5" }}>Mapped.</em>
             </h2>
           </motion.div>
@@ -489,9 +485,9 @@ export function Facilities() {
                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = "rgba(4,44,83,0.09)"; (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(24,95,165,0.3)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(-3px)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = "rgba(4,44,83,0.04)"; (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(24,95,165,0.14)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)"; }}
                 >
-                  <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.3rem", fontWeight: 500, color: "#042C53", marginBottom: 6 }}>{item.abbr}</p>
-                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 8.5, lineHeight: 1.7, color: "#185FA5", marginBottom: 10 }}>{item.name}</p>
-                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 8.5, lineHeight: 1.75, color: "rgba(4,44,83,0.55)" }}>{item.covers}</p>
+                  <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.7rem", fontWeight: 500, color: "#042C53", marginBottom: 6 }}>{item.abbr}</p>
+                  <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, lineHeight: 1.7, color: "#185FA5", marginBottom: 10 , fontWeight: 700 }}>{item.name}</p>
+                  <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, lineHeight: 1.75, color: "rgba(4,44,83,0.90)" , fontWeight: 700 }}>{item.covers}</p>
                 </motion.div>
               );
             })}
@@ -512,19 +508,19 @@ export function Facilities() {
             viewport={{ once: true }}
             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, letterSpacing: "4px", textTransform: "uppercase", color: "rgba(75,204,212,0.4)", marginBottom: 18, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 18, letterSpacing: "4px", textTransform: "uppercase", color: "rgba(75,204,212,0.4)", marginBottom: 18, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
               <span style={{ display: "block", width: 24, height: "0.5px", background: "rgba(75,204,212,0.35)" }} />Don't See Your Facility Type?<span style={{ display: "block", width: 24, height: "0.5px", background: "rgba(75,204,212,0.35)" }} />
             </p>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem,4.5vw,3.4rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.6rem,4.5vw,4.42rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
               Tell Us About Your<br /><em style={{ fontStyle: "italic", color: "#4bccd4" }}>Facility Vision</em>
             </h2>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "rgba(255,255,255,0.35)", lineHeight: 1.9, marginBottom: 40, maxWidth: 480, margin: "0 auto 40px" }}>
+            <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, color: "rgba(255,255,255,0.88)", lineHeight: 1.9, marginBottom: 40, maxWidth: 480, margin: "0 auto 40px" , fontWeight: 700 }}>
               Healthcare infrastructure is not one-size-fits-all. Speak to our team and we will map out exactly what your project needs.
             </p>
             <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
               <Link to="/contact">
                 <button
-                  style={{ padding: "13px 30px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }}
+                  style={{ padding: "13px 30px", fontSize: 19, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
                 >
@@ -532,14 +528,15 @@ export function Facilities() {
                 </button>
               </Link>
               <button
-                style={{ padding: "13px 30px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.2)", cursor: "pointer", transition: "all .25s" }}
+                onClick={() => window.open("https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project.", "_blank")}
+                style={{ padding: "13px 30px", fontSize: 19, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.2)", cursor: "pointer", transition: "all .25s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.45)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.2)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
               >
                 💬 WhatsApp Us
               </button>
             </div>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 8, color: "rgba(255,255,255,0.15)", marginTop: 24, letterSpacing: "0.1em" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 17, color: "rgba(255,255,255,0.15)", marginTop: 24, letterSpacing: "0.1em" }}>
               No obligation · No sales pressure · Just clarity.
             </p>
           </motion.div>

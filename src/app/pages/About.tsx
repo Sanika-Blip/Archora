@@ -1,4 +1,7 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router";
+
+const WHATSAPP_URL = "https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project.";
 import { motion, AnimatePresence, useInView, useScroll, useTransform } from "motion/react";
 import {
   Target,
@@ -21,59 +24,78 @@ const leaders = [
   {
     id: 0,
     name: "Prasad Patil",
-    role: "Founder & Chief Executive Officer",
-    education: "Based in Thane, Maharashtra",
-    tagline: "Building the infrastructure partner India's healthcare sector needs",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+    role: "Founder & CEO",
+    education: "Based in Mumbai, Maharashtra",
+    tagline: "One partner, one outcome, one standard of accountability",
+    image: "/images/team/prasad-patil.jpg",
     accentColor: "#4bd1d9",
     stats: [{ label: "Focus", value: "100%" }, { label: "Healthcare", value: "Only" }, { label: "Accountability", value: "Full" }],
-    shortBio: "Prasad founded ARCHORA to give every healthcare promoter in India access to world-class infrastructure expertise.",
+    shortBio: "Prasad founded ARCHORA to replace India's fragmented, multi-vendor hospital infrastructure model with one accountable, single-window delivery system.",
     fullBio: [
-      "Prasad Patil founded ARCHORA with one goal — to build a healthcare infrastructure company that gives Indian healthcare promoters access to the same depth of expertise available in the world's most advanced healthcare systems.",
-      "As CEO, Prasad leads ARCHORA's business strategy, client relationships, and growth across India. He works closely with every client from initial enquiry through to project delivery — ensuring that ARCHORA's promise of single-window accountability is not just a marketing claim but a lived experience.",
-      "Prasad's vision for ARCHORA is clear: to be India's most trusted healthcare infrastructure partner — not the biggest, but the most reliable, the most knowledgeable, and the most committed to client outcomes.",
+      "Prasad Patil founded ARCHORA Healthcare Infrastructure to fix what he saw as a structurally broken industry, hospital projects in India are typically split across disconnected vendors for design, compliance, and construction, with no single party accountable for the outcome. ARCHORA was built as the alternative: one team, one contract, one point of accountability from the first brief to final handover.",
+      "His academic foundation in supply chain management and global operations (an MSc from Rennes School of Business in France, complemented by an Advanced Strategy programme at Kozminski University in Poland) shaped a systems-level understanding of how complex, multi-party delivery processes fail and how they can be redesigned for accountability. His operational experience managing global vehicle logistics at Stellantis reinforced that thinking at scale, across complex, multicultural operating environments.",
+      "As CEO, Prasad leads ARCHORA's strategy, business development, and client relationships, working directly with every client from first enquiry through to delivery. ARCHORA is currently delivering projects across India and expanding toward the MENA region.",
     ],
-    credentials: ["Founder — ARCHORA Healthcare Infrastructure", "Single-Window Accountability Model", "Pan-India Delivery Network", "Based in Thane, Maharashtra"],
-    expertise: ["Business Strategy", "Client Relations", "Healthcare Infrastructure", "Pan-India Growth"],
-    linkedin: "linkedin.com/in/prasadpatilll",
+    credentials: ["Founder & CEO, ARCHORA Healthcare Infrastructure", "MSc Supply Chain Management, Rennes School of Business, France", "Advanced Strategy, Kozminski University, Poland", "Based in Mumbai, Maharashtra"],
+    expertise: ["Business Strategy", "Client Relations", "Global Operations", "Single-Window Delivery Model"],
+    linkedin: "linkedin.com/in/prasad-patil",
   },
   {
     id: 1,
     name: "Ar. Vivek Patil",
     role: "Director & Principal Architect",
-    education: "Based in Thane, Maharashtra",
+    education: "Based in Kalwa, Thane",
     tagline: "Every design clinically functional, compliant, and buildable",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/images/team/vivek-patil.png",
     accentColor: "#7eb8f7",
     stats: [{ label: "Focus", value: "100%" }, { label: "Healthcare", value: "Only" }, { label: "Compliance", value: "First" }],
-    shortBio: "Ar. Vivek Patil is ARCHORA's Principal Architect — technical lead for every project, bringing clinical design knowledge and compliance expertise.",
+    shortBio: "Ar. Vivek Patil is ARCHORA's Principal Architect, a Registered Architect leading clinical design, NABH-compliant planning, and project delivery across every facility ARCHORA builds.",
     fullBio: [
-      "Ar. Vivek Patil is ARCHORA's Principal Architect and the technical lead for every project the company undertakes. With hands-on experience in healthcare architecture and infrastructure delivery, Vivek brings clinical design knowledge, compliance expertise, and construction-stage rigour to every ARCHORA project.",
-      "Vivek's work spans hospital architectural design, modular OT and ICU infrastructure, diagnostic centre planning, clinical space programming, and construction coordination — from single-room clinic renovations to multi-floor hospital developments.",
-      "At ARCHORA, Vivek leads the architectural and technical team — ensuring that every design is not only aesthetically strong but clinically functional, regulation-compliant, and buildable within the project's budget and timeline.",
+      "Ar. Vivek Patil is ARCHORA's Director and Principal Architect, leading architecture, clinical design, and project delivery across every facility type the company builds. A Registered Architect with the Council of Architecture India, his early career at Megarch Plus in Thane (working with clients including Reliance Industries, Godrej, and L&T, and contributing to the Navi Mumbai International Airport project) built the large-scale coordination discipline he now applies to healthcare projects.",
+      "He later focused his practice entirely on healthcare, developing specialist expertise in NABH and JCI standards, infection control planning, and hospital workflow design. Working freelance with healthcare consultancies across India, he designed everything from small clinics and diagnostic centres to large multi- and super-speciality hospitals.",
+      "At ARCHORA, Vivek leads the full design and delivery function (hospital architecture, clinical zone planning, modular OT and ICU design, healthcare MEP engineering, turnkey execution, and equipment planning) guided by one principle: a healthcare facility must first be a clinical instrument.",
     ],
-    credentials: ["Principal Architect — ARCHORA", "Healthcare Architecture & NABH Design", "Modular OT & ICU Infrastructure", "Based in Thane, Maharashtra"],
-    expertise: ["Hospital Architecture", "Modular OT Design", "NABH Compliance", "Clinical Space Planning"],
-    linkedin: "linkedin.com/in/ar-vivek-patil-844b1b384",
+    credentials: ["Director & Principal Architect, ARCHORA", "Registered Architect, Council of Architecture India", "Bachelor of Architecture, Mumbai University", "Based in Kalwa, Thane"],
+    expertise: ["Hospital Architecture", "Modular OT & ICU Design", "NABH & JCI Compliance", "Clinical Workflow Planning"],
+    linkedin: "linkedin.com/in/ar-vivek-patil",
   },
   {
     id: 2,
-    name: "Aditya Kashikar",
-    role: "Senior Advisor — Healthcare Infrastructure",
-    education: "India & United Kingdom",
-    tagline: "NHS-level knowledge, rare in the Indian healthcare sector",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080",
+    name: "Ar. Aditya Kashikar",
+    role: "SME & Head Healthcare Consultant",
+    education: "Based in London, United Kingdom",
+    tagline: "NHS-level capital planning rigour, rare in the Indian healthcare sector",
+    image: "/images/team/aditya-kashikar.jpg",
     accentColor: "#a78bfa",
     stats: [{ label: "Experience", value: "17+" }, { label: "NHS", value: "Projects" }, { label: "Countries", value: "2" }],
-    shortBio: "Aditya brings 17+ years of healthcare infrastructure experience across India and the UK, including senior NHS project roles with WSP as Associate Director.",
+    shortBio: "Aditya brings 17 years of NHS healthcare capital programme leadership to ARCHORA, currently serving as Associate Director at WSP UK.",
     fullBio: [
-      "Aditya Kashikar brings over 17 years of healthcare infrastructure experience across India and the United Kingdom to the ARCHORA advisory team. His career includes senior roles in NHS healthcare infrastructure projects in the UK — where he worked with WSP, one of the world's leading engineering and professional services firms, as an Associate Director.",
-      "During his time in the UK, Aditya was involved in the planning, design coordination, and delivery of major NHS healthcare facilities — gaining exposure to the highest standards of clinical infrastructure design, regulatory compliance, and project management in one of the world's most demanding healthcare environments.",
-      "Aditya advises ARCHORA on complex healthcare infrastructure projects, technical standards, international best practices, and strategic project planning — bringing a depth of NHS-level knowledge that is rare in the Indian healthcare infrastructure sector.",
+      "Ar. Aditya Kashikar is ARCHORA's SME and Head Healthcare Consultant, bringing 17 years of healthcare capital planning and infrastructure programme leadership from the UK's National Health Service to the Indian market. An architect by training with an MSc in Construction Management, Development Economics and International Development from the University of Greenwich, he is also a NEC3/4 Accredited Project Manager and a Member of both the Association for Project Management and the Association of Construction Quality Professionals.",
+      "As Associate Director at WSP, one of the world's leading engineering and professional services firms, his portfolio has spanned new-build inpatient facilities, a COVID-19 Lighthouse Testing Laboratory, pathology service centralisation, and ward remodelling and bed capacity programmes across NHS trusts including Imperial College Healthcare, Barts Health, and St George's University Hospitals, plus a secondment to the Palace of Westminster Restoration and Renewal Programme.",
+      "At ARCHORA, Aditya provides the advisory layer behind every project's capital planning, clinical briefing, governance, and risk management, bringing the same standard of programme discipline applied to NHS hospital projects for nearly two decades to ARCHORA's clients in India.",
     ],
-    credentials: ["Associate Director — WSP (UK)", "NHS Healthcare Infrastructure Delivery", "17+ Years Cross-Border Experience", "India & United Kingdom"],
-    expertise: ["NHS Standards", "International Best Practices", "Strategic Project Planning", "Technical Standards"],
-    linkedin: "linkedin.com/in/aditya-kashikar-a7434731",
+    credentials: ["Associate Director, WSP (UK)", "NEC3/4 Accredited Project Manager", "MAPM & MACQP", "Based in London, United Kingdom"],
+    expertise: ["Healthcare Capital Planning", "NHS Programme Governance", "Contract & Procurement Strategy", "Risk & Change Management"],
+    linkedin: "linkedin.com/in/aditya-kashikar",
+  },
+  {
+    id: 3,
+    name: "Dr. Kalpesh Tarmale",
+    role: "Healthcare Advisor",
+    education: "Based in Vasind, Thane District",
+    tagline: "The practitioner's voice behind every clinical design decision",
+    image: "/images/team/kalpesh.png",
+    accentColor: "#34d399",
+    stats: [{ label: "Experience", value: "20+" }, { label: "Hospital", value: "Founder" }, { label: "Villages", value: "45+" }],
+    shortBio: "Dr. Tarmale founded and runs a 36-bed multispeciality hospital in rural Thane, bringing two decades of frontline clinical and hospital operations experience to ARCHORA.",
+    fullBio: [
+      "Dr. Kalpesh Kashinath Tarmale brings over two decades of frontline clinical and healthcare operations experience to his role as Healthcare Advisor at ARCHORA. As Founder and Medical Director of Niramaya Life Hospital in Vasind, Shahapur Taluka (a 36-bed multispeciality hospital with a 4-bed ICU, 3-bed NICU, dedicated operation theatre, and dialysis unit, serving a catchment of more than 45 villages across Thane District), he has built, operated, and grown a healthcare facility from the ground up.",
+      "After completing his BAMS from Maharashtra University of Health Sciences in 2004 and beginning practice in Vasind the following year, Dr. Tarmale established Niramaya Life Hospital in 2019 to meet the region's acute need for quality multispeciality care. The hospital is empanelled under Ayushman Bharat and the Mahatma Jyotiba Phule Jan Arogya Yojana, and runs weekly medical camps across surrounding villages. During the pandemic, it served as the only private COVID-19 treatment facility in Shahapur Taluka, work recognised with the Government of Maharashtra's COVID Yodha award in 2021.",
+      "At ARCHORA, Dr. Tarmale contributes the practitioner's perspective, validating clinical workflows, advising on rural and tier-2/tier-3 hospital infrastructure, and ensuring every design reflects the lived reality of running a hospital, not just the standards written on paper.",
+    ],
+    credentials: ["Founder & Medical Director, Niramaya Life Hospital", "BAMS, Maharashtra University of Health Sciences", "COVID Yodha Award, Govt. of Maharashtra (2021)", "Based in Vasind, Thane District"],
+    expertise: ["Clinical Workflow Validation", "Rural & Tier-2/3 Hospital Advisory", "Government Scheme Compliance", "Community Health Infrastructure"],
+    linkedin: "",
   },
 ];
 
@@ -90,9 +112,9 @@ const visionPillars = [
 ];
 
 const milestones = [
-  { year: "Founded", chapter: "Chapter I", title: "ARCHORA is Born", description: "Founded with a simple but powerful conviction — India's healthcare infrastructure crisis is not a funding problem alone. It is an expertise problem. Too many hospitals are built by teams that do not understand the clinical, regulatory, and operational demands of healthcare environments.", num: "01" },
+  { year: "Founded", chapter: "Chapter I", title: "ARCHORA is Born", description: "Founded with a simple but powerful conviction: India's healthcare infrastructure crisis is not a funding problem alone. It is an expertise problem. Too many hospitals are built by teams that do not understand the clinical, regulatory, and operational demands of healthcare environments.", num: "01" },
   { year: "Year 1", chapter: "Chapter II", title: "First Projects Delivered", description: "Completed projects across hospital design, modular OT delivery, clinic renovations, nursing college infrastructure, and diagnostic centre fit-outs. Pipeline spans greenfield hospital projects, brownfield expansions, and infrastructure upgrades for existing healthcare facilities across India.", num: "02" },
-  { year: "Today", chapter: "Chapter III", title: "Growing Across India", description: "ARCHORA is growing — learning from every project and building into the infrastructure partner that doctors, investors, and healthcare promoters across India can trust completely. One team, one point of contact, full accountability from the first meeting to the day you open your doors.", num: "03", isCurrent: true },
+  { year: "Today", chapter: "Chapter III", title: "Growing Across India", description: "ARCHORA is growing: learning from every project and building into the infrastructure partner that doctors, investors, and healthcare promoters across India can trust completely. One team, one point of contact, full accountability from the first meeting to the day you open your doors.", num: "03", isCurrent: true },
 ];
 
 const philosophy = [
@@ -101,21 +123,21 @@ const philosophy = [
     number: "01",
     title: "Healthcare Only. Always.",
     description: "We do not design offices, residences, or commercial spaces. Every member of our team works exclusively on healthcare projects.",
-    detail: "Our knowledge, our processes, and our vendor relationships are entirely focused on one outcome — delivering better healthcare facilities across India.",
+    detail: "Our knowledge, our processes, and our vendor relationships are entirely focused on one outcome, delivering better healthcare facilities across India.",
   },
   {
     icon: <Heart size={22} />,
     number: "02",
     title: "Compliance Built In.",
     description: "Every design integrates NABH, NABL, INC, NMC, AERB, fire safety standards from the very first drawing. Never an afterthought.",
-    detail: "No retrofitting. No last-minute corrections. Every standard integrated from the very first drawing — protecting your timeline, your budget, and your patients.",
+    detail: "No retrofitting. No last-minute corrections. Every standard integrated from the very first drawing, protecting your timeline, your budget, and your patients.",
   },
   {
     icon: <TrendingUp size={22} />,
     number: "03",
     title: "Single-Window Accountability.",
-    description: "One team, one contract, one point of accountability — from concept to commissioning. You manage one relationship, not fifteen vendors.",
-    detail: "From feasibility study and architecture through structural engineering, MEP, construction, equipment planning, and commissioning — ARCHORA owns it all.",
+    description: "One team, one contract, one point of accountability, from concept to commissioning. You manage one relationship, not fifteen vendors.",
+    detail: "From feasibility study and architecture through structural engineering, MEP, construction, equipment planning, and commissioning, ARCHORA owns it all.",
   },
 ];
 
@@ -167,44 +189,57 @@ function LeaderModal({ leader, onClose }: { leader: (typeof leaders)[0]; onClose
             <div className="absolute inset-0" style={{ background: `linear-gradient(to right, rgba(7,30,46,0.95) 0%, rgba(7,30,46,0.5) 60%, transparent 100%)` }} />
             <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: `linear-gradient(to right, ${leader.accentColor}, transparent)` }} />
             <div className="absolute bottom-6 left-8">
-              <div className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: leader.accentColor }}>{leader.role}</div>
+              <div className="text-base font-semibold tracking-widest uppercase mb-2" style={{ color: leader.accentColor }}>{leader.role}</div>
               <h2 className="text-3xl font-light text-white" style={{ fontFamily: "serif" }}>{leader.name}</h2>
-              <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.55)" }}>{leader.education}</p>
+              <p className="text-lg mt-1" style={{ color: "rgba(255,255,255,0.95)" }}>{leader.education}</p>
             </div>
           </div>
           <div className="p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="space-y-6">
               <div className="grid grid-cols-3 gap-3">
-                {leader.stats.map((s) => (
-                  <div key={s.label} className="text-center rounded-lg py-3 px-2" style={{ background: "rgba(75,209,217,0.07)", border: "1px solid rgba(75,209,217,0.12)" }}>
-                    <div className="text-xl font-semibold" style={{ color: leader.accentColor }}>{s.value}</div>
-                    <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>{s.label}</div>
-                  </div>
-                ))}
-              </div>
+  {leader.stats.map((s) => {
+    const len = s.value.length;
+    const fontSize = len <= 4 ? "1.5rem" : len <= 6 ? "1.2rem" : len <= 8 ? "1rem" : "0.85rem";
+    return (
+      <div
+        key={s.label}
+        className="text-center rounded-lg py-3 px-1 overflow-hidden"
+        style={{ background: "rgba(75,209,217,0.07)", border: "1px solid rgba(75,209,217,0.12)", minWidth: 0 }}
+      >
+        <div
+          className="font-semibold leading-tight whitespace-nowrap overflow-hidden"
+          style={{ color: leader.accentColor, fontSize, textOverflow: "ellipsis" }}
+        >
+          {s.value}
+        </div>
+        <div className="text-base mt-0.5" style={{ color: "rgba(255,255,255,0.92)" }}>{s.label}</div>
+      </div>
+    );
+  })}
+</div>
               <div>
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: leader.accentColor }}><Award size={13} />Credentials</div>
+                <div className="flex items-center gap-2 text-base font-semibold uppercase tracking-widest mb-3" style={{ color: leader.accentColor }}><Award size={13} />Credentials</div>
                 <ul className="space-y-2">
                   {leader.credentials.map((c) => (
-                    <li key={c} className="flex items-start gap-2 text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>
+                    <li key={c} className="flex items-start gap-2 text-xl" style={{ color: "#ffffff", fontWeight: 700 }}>
                       <Star size={11} className="mt-1 flex-shrink-0" style={{ color: leader.accentColor }} />{c}
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: leader.accentColor }}><Briefcase size={13} />Expertise</div>
+                <div className="flex items-center gap-2 text-base font-semibold uppercase tracking-widest mb-3" style={{ color: leader.accentColor }}><Briefcase size={13} />Expertise</div>
                 <div className="flex flex-wrap gap-2">
                   {leader.expertise.map((e) => (
-                    <span key={e} className="text-xs px-2.5 py-1 rounded-full" style={{ background: `${leader.accentColor}15`, border: `1px solid ${leader.accentColor}30`, color: leader.accentColor }}>{e}</span>
+                    <span key={e} className="text-base px-2.5 py-1 rounded-full" style={{ background: `${leader.accentColor}15`, border: `1px solid ${leader.accentColor}30`, color: leader.accentColor }}>{e}</span>
                   ))}
                 </div>
               </div>
             </div>
             <div className="lg:col-span-2 space-y-4">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: leader.accentColor }}><BookOpen size={13} />Full Profile</div>
+              <div className="flex items-center gap-2 text-base font-semibold uppercase tracking-widest mb-4" style={{ color: leader.accentColor }}><BookOpen size={13} />Full Profile</div>
               {leader.fullBio.map((para, i) => (
-                <p key={i} className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.72)" }}>{para}</p>
+                <p key={i} className="text-xl leading-relaxed" style={{ color: "#ffffff", fontWeight: 700 }}>{para}</p>
               ))}
             </div>
           </div>
@@ -229,12 +264,12 @@ function LeaderCard({ leader, isActive, onHover, onClick }: { leader: (typeof le
         <motion.div className="absolute inset-0" animate={{ opacity: isActive ? 1 : 0 }} transition={{ duration: 0.4 }} style={{ background: `linear-gradient(135deg, ${leader.accentColor}18 0%, transparent 60%)` }} />
         <motion.div className="absolute top-0 left-0 right-0 h-0.5" animate={{ scaleX: isActive ? 1 : 0 }} transition={{ duration: 0.4, ease: "easeOut" }} style={{ background: `linear-gradient(to right, ${leader.accentColor}, transparent)`, transformOrigin: "left" }} />
         <div className="absolute bottom-0 left-0 right-0 p-5">
-          <div className="text-xs font-semibold tracking-widest uppercase mb-1" style={{ color: leader.accentColor }}>{leader.role}</div>
-          <h3 className="text-xl text-white font-light mb-1" style={{ fontFamily: "serif" }}>{leader.name}</h3>
-          <p className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>{leader.education}</p>
+          <div className="text-base font-semibold tracking-widest uppercase mb-1" style={{ color: leader.accentColor }}>{leader.role}</div>
+          <h3 className="text-3xl text-white font-light mb-1" style={{ fontFamily: "serif" }}>{leader.name}</h3>
+          <p className="text-base" style={{ color: "rgba(255,255,255,0.92)" }}>{leader.education}</p>
           <motion.div animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }} transition={{ duration: 0.35, delay: isActive ? 0.1 : 0 }} className="overflow-hidden" style={{ height: isActive ? "auto" : 0 }}>
-            <p className="text-sm mt-3 leading-relaxed" style={{ color: "rgba(255,255,255,0.65)" }}>{leader.shortBio}</p>
-            <button className="flex items-center gap-2 mt-4 text-sm font-medium group" style={{ color: leader.accentColor }} onClick={(e) => { e.stopPropagation(); onClick(leader); }}>
+            <p className="text-xl mt-3 leading-relaxed" style={{ color: "#ffffff", fontWeight: 700 }}>{leader.shortBio}</p>
+            <button className="flex items-center gap-2 mt-4 text-lg font-medium group" style={{ color: leader.accentColor }} onClick={(e) => { e.stopPropagation(); onClick(leader); }}>
               Read Full Profile <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
             </button>
           </motion.div>
@@ -250,14 +285,14 @@ function MilestoneItem({ milestone, index }: { milestone: (typeof milestones)[0]
   return (
     <motion.div ref={ref} className="relative flex gap-7" initial={{ opacity: 0, x: -24 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }} style={{ paddingBottom: index < milestones.length - 1 ? "44px" : 0 }}>
       <div className="flex-shrink-0 flex flex-col items-center" style={{ width: "52px", position: "relative", zIndex: 2 }}>
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "1.5px", color: milestone.isCurrent ? "#7eb8f7" : "#4bd1d9", marginBottom: "8px", whiteSpace: "nowrap" }}>{milestone.year}</span>
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "16px", letterSpacing: "1.5px", color: milestone.isCurrent ? "#7eb8f7" : "#4bd1d9", marginBottom: "8px", whiteSpace: "nowrap" }}>{milestone.year}</span>
         <div style={{ width: "11px", height: "11px", borderRadius: "50%", border: `1.5px solid ${milestone.isCurrent ? "#7eb8f7" : "#4bd1d9"}`, background: milestone.isCurrent ? "rgba(75,209,217,0.15)" : "#040e1a" }} />
       </div>
       <motion.div className="flex-1 relative overflow-hidden cursor-pointer" style={{ padding: "18px 20px", borderRadius: "2px", border: `0.5px solid ${milestone.isCurrent ? "rgba(126,184,247,0.25)" : "rgba(75,209,217,0.12)"}`, background: "rgba(255,255,255,0.025)" }} whileHover={{ x: 5, borderColor: milestone.isCurrent ? "rgba(126,184,247,0.4)" : "rgba(75,209,217,0.3)", background: "rgba(75,209,217,0.04)", transition: { duration: 0.25 } }}>
         <motion.div initial={{ scaleX: 0 }} whileHover={{ scaleX: 1 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }} style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1.5px", background: `linear-gradient(90deg, ${milestone.isCurrent ? "#7eb8f7" : "#4bd1d9"}, transparent)`, transformOrigin: "left" }} />
-        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "8px", letterSpacing: "3px", textTransform: "uppercase", color: milestone.isCurrent ? "#7eb8f7" : "#378ADD", marginBottom: "5px" }}>{milestone.chapter}</div>
+        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "15px", letterSpacing: "3px", textTransform: "uppercase", color: milestone.isCurrent ? "#7eb8f7" : "#378ADD", marginBottom: "5px" }}>{milestone.chapter}</div>
         <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.3rem", fontWeight: 300, color: "#fff", marginBottom: "5px", lineHeight: 1.2 }}>{milestone.title}</div>
-        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", lineHeight: 1.8, color: "rgba(255,255,255,0.5)" }}>{milestone.description}</div>
+        <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "17px", lineHeight: 1.8, color: "rgba(255,255,255,0.95)" }}>{milestone.description}</div>
         <div style={{ position: "absolute", top: "12px", right: "16px", fontFamily: "'Cormorant Garamond', serif", fontSize: "2.6rem", fontWeight: 300, color: milestone.isCurrent ? "rgba(126,184,247,0.07)" : "rgba(75,209,217,0.06)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>{milestone.num}</div>
       </motion.div>
     </motion.div>
@@ -295,17 +330,17 @@ function PhilCard({ item, index, expanded, onToggle }: { item: (typeof philosoph
       >
         {item.icon}
       </motion.div>
-      <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "8px", letterSpacing: "3px", textTransform: "uppercase", color: "#85B7EB", marginBottom: "10px" }}>{item.number} — Principle</div>
+      <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "15px", letterSpacing: "3px", textTransform: "uppercase", color: "#85B7EB", marginBottom: "10px" }}>{item.number}, Principle</div>
       <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 300, color: "#042C53", marginBottom: "14px", lineHeight: 1.25 }}>{item.title}</div>
-      <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", lineHeight: 1.9, color: "#185FA5" }}>{item.description}</div>
+      <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "18px", lineHeight: 1.9, color: "#185FA5" }}>{item.description}</div>
       <AnimatePresence>
         {expanded && (
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }} style={{ overflow: "hidden" }}>
-            <div style={{ marginTop: "16px", paddingTop: "16px", borderTop: "0.5px solid rgba(181,212,244,0.6)", fontFamily: "'DM Mono', monospace", fontSize: "11px", lineHeight: 1.9, color: "#378ADD" }}>{item.detail}</div>
+            <div style={{ marginTop: "16px", paddingTop: "16px", borderTop: "0.5px solid rgba(181,212,244,0.6)", fontFamily: "'DM Mono', monospace", fontSize: "18px", lineHeight: 1.9, color: "#378ADD" }}>{item.detail}</div>
           </motion.div>
         )}
       </AnimatePresence>
-      <motion.div animate={{ opacity: expanded ? 0 : 1, x: expanded ? -6 : 0 }} whileHover={{ opacity: 1, x: 0 }} style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "20px", fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "2px", textTransform: "uppercase", color: "#378ADD" }}>
+      <motion.div animate={{ opacity: expanded ? 0 : 1, x: expanded ? -6 : 0 }} whileHover={{ opacity: 1, x: 0 }} style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "20px", fontFamily: "'DM Mono', monospace", fontSize: "16px", letterSpacing: "2px", textTransform: "uppercase", color: "#378ADD" }}>
         {expanded ? "Close" : "Explore"}
         <motion.div animate={{ width: expanded ? "8px" : "16px" }} whileHover={{ width: "24px" }} transition={{ duration: 0.3 }} style={{ height: "1px", background: "#378ADD" }} />
       </motion.div>
@@ -318,9 +353,9 @@ function ServiceItem({ service, index }: { service: string; index: number }) {
   const inView = useInView(ref, { once: true, margin: "-40px" });
   return (
     <motion.div ref={ref} initial={{ opacity: 0, x: -16 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }} className="group flex items-start gap-4 py-4 border-b" style={{ borderColor: "rgba(75,209,217,0.1)", cursor: "default" }} whileHover={{ x: 6, transition: { duration: 0.2 } }}>
-      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", color: "rgba(75,209,217,0.45)", letterSpacing: "1px", flexShrink: 0, marginTop: "2px", minWidth: "28px" }}>{String(index + 1).padStart(2, "0")}</span>
+      <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "16px", color: "rgba(75,209,217,0.45)", letterSpacing: "1px", flexShrink: 0, marginTop: "2px", minWidth: "28px" }}>{String(index + 1).padStart(2, "0")}</span>
       <motion.div className="flex-1 flex items-center justify-between" whileHover={{ color: "#4bd1d9" }}>
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, transition: "color 0.2s" }} className="group-hover:text-teal-300">{service}</span>
+        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "18px", color: "#ffffff", lineHeight: 1.6, transition: "color 0.2s" }} className="group-hover:text-teal-300">{service}</span>
         <motion.div initial={{ opacity: 0, x: -4 }} whileHover={{ opacity: 1, x: 0 }} style={{ color: "#4bd1d9", flexShrink: 0, marginLeft: "12px" }}><ArrowRight size={13} /></motion.div>
       </motion.div>
     </motion.div>
@@ -328,6 +363,7 @@ function ServiceItem({ service, index }: { service: string; index: number }) {
 }
 
 export function About() {
+  const navigate = useNavigate();
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [selectedLeader, setSelectedLeader] = useState<(typeof leaders)[0] | null>(null);
   const [expandedPhil, setExpandedPhil] = useState<number | null>(null);
@@ -392,9 +428,9 @@ export function About() {
       {/* ── Hero ── */}
       <section ref={heroRef} className="hero-section relative overflow-hidden" style={{ height: "85vh", minHeight: "600px" }}>
         <motion.div className="absolute inset-0" style={{ y: heroY }}>
-          <ImageWithFallback src="https://images.unsplash.com/photo-1714976327524-955ff45cfec7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBmaXJtJTIwdGVhbSUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NzkyOTE5Njh8MA&ixlib=rb-4.1.0&q=80&w=1400" alt="ARCHORA — Healthcare Infrastructure" className="w-full h-full object-cover" style={{ scale: 1.1 }} />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(120deg, rgba(4,28,46,0.94) 0%, rgba(4,28,46,0.6) 55%, rgba(4,28,46,0.35) 100%)" }} />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(4,28,46,0.7) 0%, transparent 50%)" }} />
+          <ImageWithFallback src="/images/about/team-professionals.jpg" alt="ARCHORA, Healthcare Infrastructure" className="w-full h-full object-cover" style={{ scale: 1.04 }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(120deg, rgba(4,28,46,0.6) 0%, rgba(4,28,46,0.3) 55%, rgba(4,28,46,0.08) 100%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(4,28,46,0.4) 0%, transparent 45%)" }} />
           <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.07) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
         </motion.div>
         <motion.div className="absolute" style={{ top: "18%", right: "12%", opacity: 0.12, color: "#4bd1d9" }} animate={{ rotate: 360 }} transition={{ duration: 80, repeat: Infinity, ease: "linear" }}>
@@ -408,24 +444,23 @@ export function About() {
         <motion.div className="relative h-full max-w-7xl mx-auto px-16 flex items-center z-10" style={{ opacity: heroOpacity }}>
           <div style={{ maxWidth: "680px" }}>
             <motion.div className="flex items-center gap-3 mb-6" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
-              <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><rect x="6.5" y="1" width="7" height="18" rx="1.5" fill="#c0392b" opacity=".85" /><rect x="1" y="6.5" width="18" height="7" rx="1.5" fill="#c0392b" opacity=".85" /></svg>
-              <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(255,255,255,0.38)" }}>Healthcare Infrastructure</span>
+              <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "16px", letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(255,255,255,0.90)" }}>Healthcare Infrastructure</span>
             </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 36, clipPath: "inset(100% 0 0 0)" }} animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }} transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }} style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.8rem,5.5vw,4.4rem)", fontWeight: 300, color: "#fff", lineHeight: 1.06, marginBottom: "24px", letterSpacing: "-0.01em" }}>
               We Build the Infrastructure<br /><em style={{ fontStyle: "italic", color: "#4bccd4" }}>That Heals India.</em>
             </motion.h1>
-            <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.6 }} style={{ fontSize: "14px", color: "rgba(255,255,255,0.58)", marginBottom: "40px", lineHeight: 1.85, maxWidth: "520px", fontFamily: "'DM Mono', monospace" }}>
+            <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.6 }} style={{ fontSize: "16px", color: "rgba(255,255,255,0.97)", marginBottom: "40px", lineHeight: 1.85, maxWidth: "520px", fontFamily: "'DM Mono', monospace" }}>
               ARCHORA is India's dedicated healthcare infrastructure partner. We do not do residential. We do not do commercial. We do not do retail.{" "}
               <strong style={{ color: "rgba(75,204,212,0.85)" }}>We do one thing. We do it completely. We do it right.</strong>
             </motion.p>
             <motion.div className="flex gap-4 flex-wrap" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.8 }}>
-              <button style={{ padding: "13px 30px", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Book a Free Consultation</button>
-              <button style={{ padding: "13px 30px", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.3)", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.3)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Explore Our Services →</button>
+              <button onClick={() => navigate("/contact")} style={{ padding: "13px 30px", fontSize: "17px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Book a Free Consultation</button>
+              <button onClick={() => navigate("/services")} style={{ padding: "13px 30px", fontSize: "17px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.3)", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.3)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Explore Our Services →</button>
             </motion.div>
           </div>
         </motion.div>
         <motion.div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}>
-          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "8px", letterSpacing: "0.28em", color: "rgba(75,204,212,0.4)", textTransform: "uppercase" }}>Scroll</span>
+          <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "15px", letterSpacing: "0.28em", color: "rgba(75,204,212,0.4)", textTransform: "uppercase" }}>Scroll</span>
           <div className="scroll-bounce" style={{ color: "rgba(75,204,212,0.4)" }}><ChevronDown size={16} /></div>
         </motion.div>
       </section>
@@ -434,17 +469,17 @@ export function About() {
       <section className="py-24" style={{ background: "linear-gradient(160deg,#ffffff 0%,#e8f4fd 100%)" }}>
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <motion.div className="text-center" {...fadeInUp}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: "14px", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "16px", letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: "14px", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" , fontWeight: 700 }}>
               <span style={{ display: "block", width: "28px", height: "0.5px", background: "#185FA5" }} />Who We Are<span style={{ display: "block", width: "28px", height: "0.5px", background: "#185FA5" }} />
             </p>
-            <h2 className="text-4xl md:text-5xl mb-8" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}>India's Dedicated Healthcare Infrastructure Partner</h2>
-            <p className="text-lg leading-relaxed mb-6" style={{ color: "#0f3352", fontFamily: "'DM Mono', monospace", fontSize: "11px", lineHeight: 1.9 }}>Healthcare infrastructure in India is broken in one critical way — most hospitals are designed by general architects who understand buildings but not clinical workflows, infection control, regulatory compliance, or the lived reality of running a hospital 24 hours a day.</p>
-            <p className="text-lg leading-relaxed mb-6" style={{ color: "#0f3352", fontFamily: "'DM Mono', monospace", fontSize: "11px", lineHeight: 1.9 }}>ARCHORA was founded to fix that. We are a team of healthcare infrastructure specialists — architects, engineers, and project managers who work exclusively in healthcare. From a doctor planning a 10-bed clinic in a tier-2 city to a healthcare investor building a 500-bed multispeciality hospital campus — ARCHORA is the single-window partner that takes full responsibility for designing, building, and delivering the infrastructure.</p>
+            <h2 className="text-5xl md:text-7xl mb-8" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}>India's Dedicated Healthcare Infrastructure Partner</h2>
+            <p className="text-2xl leading-relaxed mb-6" style={{ color: "#0a1a2a", fontFamily: "Calibri, Arial, sans-serif", fontSize: "18px", lineHeight: 1.9 }}>Healthcare infrastructure in India is broken in one critical way, most hospitals are designed by general architects who understand buildings but not clinical workflows, infection control, regulatory compliance, or the lived reality of running a hospital 24 hours a day.</p>
+            <p className="text-2xl leading-relaxed mb-6" style={{ color: "#0a1a2a", fontFamily: "Calibri, Arial, sans-serif", fontSize: "18px", lineHeight: 1.9 }}>ARCHORA was founded to fix that. We are a team of healthcare infrastructure specialists, architects, engineers, and project managers who work exclusively in healthcare. From a doctor planning a 10-bed clinic in a tier-2 city to a healthcare investor building a 500-bed multispeciality hospital campus, ARCHORA is the single-window partner that takes full responsibility for designing, building, and delivering the infrastructure.</p>
             <motion.div className="flex flex-wrap justify-center gap-4 mt-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
               {[["20+", "Years Collective Experience"], ["100%", "Healthcare Focus"], ["NHS-Level", "UK Expertise"], ["Pan India", "Delivery"]].map(([val, lbl]) => (
                 <motion.div key={lbl} whileHover={{ y: -3, scale: 1.02 }} transition={{ duration: 0.2 }} style={{ padding: "14px 24px", background: "rgba(4,44,83,0.06)", border: "0.5px solid rgba(24,95,165,0.2)", textAlign: "center", minWidth: "130px" }}>
                   <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.6rem", fontWeight: 300, color: "#042C53", lineHeight: 1 }}>{val}</div>
-                  <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "8px", letterSpacing: "1.5px", textTransform: "uppercase", color: "#185FA5", marginTop: "5px" }}>{lbl}</div>
+                  <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "15px", letterSpacing: "1.5px", textTransform: "uppercase", color: "#185FA5", marginTop: "5px" }}>{lbl}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -458,11 +493,11 @@ export function About() {
         <div style={{ position: "absolute", right: "-20px", top: "50%", transform: "translateY(-50%)", fontFamily: "'Cormorant Garamond',serif", fontSize: "18vw", fontWeight: 300, color: "rgba(75,209,217,0.025)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>04</div>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <motion.div className="mb-14 text-center" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "3px", textTransform: "uppercase", color: "rgba(75,209,217,0.6)", marginBottom: "12px", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "16px", letterSpacing: "3px", textTransform: "uppercase", color: "rgba(75,209,217,0.6)", marginBottom: "12px", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" , fontWeight: 700 }}>
               <span style={{ display: "block", width: "28px", height: "0.5px", background: "rgba(75,209,217,0.4)" }} />Leadership<span style={{ display: "block", width: "28px", height: "0.5px", background: "rgba(75,209,217,0.4)" }} />
             </p>
-            <h2 className="text-4xl md:text-5xl text-white font-light" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Built by People Who Know Healthcare Infrastructure</h2>
-            <p className="mt-3 text-base max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.38)", fontFamily: "'DM Mono', monospace", fontSize: "10px", lineHeight: 1.8 }}>A founding team that has designed and delivered healthcare facilities at every scale — from primary care clinics to large NHS hospitals in the United Kingdom.</p>
+            <h2 className="text-5xl md:text-7xl text-white font-light" style={{ fontFamily: "'Cormorant Garamond', serif" }}>Built by People Who Know Healthcare Infrastructure</h2>
+            <p className="mt-3 text-xl max-w-xl mx-auto" style={{ color: "#ffffff", fontWeight: 700, fontFamily: "Calibri, Arial, sans-serif", fontSize: "17px", lineHeight: 1.8 }}>A founding team that has designed and delivered healthcare facilities at every scale, from primary care clinics to large NHS hospitals in the United Kingdom.</p>
           </motion.div>
           <div ref={scrollRef} className="flex gap-5 overflow-x-auto pb-4 justify-center" style={{ scrollbarWidth: "none", msOverflowStyle: "none", paddingLeft: 8, paddingRight: 8, paddingTop: 8 }}>
             {leaders.map((leader) => (<LeaderCard key={leader.id} leader={leader} isActive={hoveredId === leader.id} onHover={setHoveredId} onClick={setSelectedLeader} />))}
@@ -475,13 +510,13 @@ export function About() {
       <section style={{ background: "linear-gradient(160deg,#ffffff 0%,#daeef9 50%,#e8f4fd 100%)", padding: "7rem 0 8rem", fontFamily: "'DM Mono', monospace" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 3.5rem" }}>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "5rem" }}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 13, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 , fontWeight: 700 }}>
               <span style={{ display: "block", width: 40, height: "0.5px", background: "#185FA5" }} />Our Foundation<span style={{ display: "block", width: 40, height: "0.5px", background: "#185FA5" }} />
             </p>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.8rem, 5vw, 4.2rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.08, marginBottom: 18 }}>
               Purpose Built.{" "}<em style={{ fontStyle: "italic", color: "#185FA5" }}>Precision Driven.</em>
             </h2>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 12, color: "#378ADD", maxWidth: 520, margin: "0 auto", lineHeight: 1.9 }}>The guiding principles behind every hospital, clinic, and care facility we design.</p>
+            <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 15, color: "#378ADD", maxWidth: 520, margin: "0 auto", lineHeight: 1.9 , fontWeight: 700 }}>The guiding principles behind every hospital, clinic, and care facility we design.</p>
           </motion.div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(480px, 1fr))", gap: "2.5rem", marginBottom: "2.5rem" }}>
@@ -492,17 +527,17 @@ export function About() {
               <div className="corner-mark corner-tl" style={{ borderColor: "rgba(133,183,235,0.5)" }} />
               <div className="corner-mark corner-br" style={{ borderColor: "rgba(133,183,235,0.5)" }} />
               <div className="mv-icon-box" style={{ width: "64px", height: "64px", background: "rgba(55,138,221,0.18)", border: "0.5px solid rgba(133,183,235,0.3)", borderRadius: 2, marginBottom: "2rem", color: "#B5D4F4" }}><Target size={26} /></div>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "3px", textTransform: "uppercase", color: "#85B7EB", marginBottom: 12 }}>Our Mission</p>
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 13, letterSpacing: "3px", textTransform: "uppercase", color: "#85B7EB", marginBottom: 12 , fontWeight: 700 }}>Our Mission</p>
               <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.9rem, 3vw, 2.5rem)", fontWeight: 300, color: "#E6F1FB", lineHeight: 1.2, marginBottom: 6 }}>
                 To design spaces that{" "}<em style={{ fontStyle: "italic", color: "#85B7EB" }}>actively heal</em>
               </h3>
               <div className="mv-divider" style={{ background: "linear-gradient(90deg,#85B7EB,#378ADD,transparent)" }} />
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, lineHeight: 1.95, color: "rgba(181,212,244,0.78)", marginBottom: "2rem" }}>To give every healthcare promoter in India access to world-class infrastructure expertise — so that the facilities they build are safe, compliant, efficient, and built to last.</p>
+              <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 18, lineHeight: 1.95, color: "#daeef9", marginBottom: "2rem" , fontWeight: 700 }}>To give every healthcare promoter in India access to world-class infrastructure expertise, so that the facilities they build are safe, compliant, efficient, and built to last.</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {missionPillars.map((p, i) => (
                   <div key={i} className="mv-pillar-row" style={{ border: "0.5px solid rgba(55,138,221,0.25)", borderRadius: 2 }}>
                     <span style={{ color: "#378ADD", marginTop: 2, flexShrink: 0 }}>{p.icon}</span>
-                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "rgba(181,212,244,0.85)", lineHeight: 1.65, letterSpacing: "0.3px" }}>{p.text}</span>
+                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 14, color: "#e8f4fd", lineHeight: 1.65, letterSpacing: "0.3px" }}>{p.text}</span>
                   </div>
                 ))}
               </div>
@@ -515,17 +550,17 @@ export function About() {
               <div className="corner-mark corner-tl" style={{ borderColor: "#85B7EB" }} />
               <div className="corner-mark corner-br" style={{ borderColor: "#85B7EB" }} />
               <div className="mv-icon-box" style={{ width: "64px", height: "64px", background: "linear-gradient(135deg,#E6F1FB,#B5D4F4)", border: "0.5px solid #85B7EB", borderRadius: 2, marginBottom: "2rem", color: "#185FA5" }}><Eye size={26} /></div>
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 12 }}>Our Vision</p>
+              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 13, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 12 , fontWeight: 700 }}>Our Vision</p>
               <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.9rem, 3vw, 2.5rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.2, marginBottom: 6 }}>
                 India's most{" "}<em style={{ fontStyle: "italic", color: "#185FA5" }}>trusted</em> design partner
               </h3>
               <div className="mv-divider" style={{ background: "linear-gradient(90deg,#185FA5,#378ADD,transparent)" }} />
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, lineHeight: 1.95, color: "#185FA5", marginBottom: "2rem" }}>To become India's most trusted healthcare infrastructure partner — known for delivering facilities that protect patients, empower clinicians, and generate sustainable returns for promoters.</p>
+              <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 18, lineHeight: 1.95, color: "#185FA5", marginBottom: "2rem" , fontWeight: 700 }}>To become India's most trusted healthcare infrastructure partner, known for delivering facilities that protect patients, empower clinicians, and generate sustainable returns for promoters.</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {visionPillars.map((p, i) => (
                   <div key={i} className="mv-pillar-row" style={{ border: "0.5px solid #B5D4F4", background: "rgba(230,241,251,0.6)", borderRadius: 2 }}>
                     <span style={{ color: "#185FA5", marginTop: 2, flexShrink: 0 }}>{p.icon}</span>
-                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#0C447C", lineHeight: 1.65, letterSpacing: "0.3px" }}>{p.text}</span>
+                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 14, color: "#0C447C", lineHeight: 1.65, letterSpacing: "0.3px" }}>{p.text}</span>
                   </div>
                 ))}
               </div>
@@ -537,7 +572,7 @@ export function About() {
             {statsData.map((s, i) => (
               <div key={i} className="mv-stat-item" style={{ borderRight: i < statsData.length - 1 ? "0.5px solid rgba(133,183,235,0.15)" : "none" }}>
                 <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2.6rem", fontWeight: 300, color: "#E6F1FB", lineHeight: 1, marginBottom: 8 }}>{s.value}</div>
-                <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, letterSpacing: "2px", textTransform: "uppercase", color: "#85B7EB" }}>{s.label}</div>
+                <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 12, letterSpacing: "2px", textTransform: "uppercase", color: "#85B7EB" }}>{s.label}</div>
               </div>
             ))}
           </motion.div>
@@ -550,11 +585,11 @@ export function About() {
         <div style={{ position: "absolute", left: "-20px", top: "50%", transform: "translateY(-50%)", fontFamily: "'Cormorant Garamond',serif", fontSize: "18vw", fontWeight: 300, color: "rgba(75,209,217,0.025)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>03</div>
         <div style={{ maxWidth: 640, margin: "0 auto", padding: "0 32px", position: "relative", zIndex: 1 }}>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "64px" }}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "4px", textTransform: "uppercase", color: "#4bd1d9", marginBottom: "12px", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "16px", letterSpacing: "4px", textTransform: "uppercase", color: "#4bd1d9", marginBottom: "12px", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" , fontWeight: 700 }}>
               <span style={{ display: "block", width: "28px", height: "0.5px", background: "#4bd1d9" }} />Our Story<span style={{ display: "block", width: "28px", height: "0.5px", background: "#4bd1d9" }} />
             </p>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.2rem, 5vw, 3.2rem)", fontWeight: 300, color: "#fff", marginBottom: "10px" }}>Our Journey</h2>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(255,255,255,0.4)", lineHeight: 1.8 }}>Milestones in healthcare architecture excellence</p>
+            <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "18px", color: "rgba(255,255,255,0.92)", lineHeight: 1.8 , fontWeight: 700 }}>Milestones in healthcare architecture excellence</p>
           </motion.div>
           <div ref={timelineRef} style={{ position: "relative" }}>
             <div className="timeline-spine"><div className="timeline-spine-fill" ref={spineRef} /></div>
@@ -567,11 +602,11 @@ export function About() {
       <section style={{ background: "linear-gradient(160deg, #fff 0%, #daeef9 50%, #e8f4fd 100%)", padding: "7rem 0 8rem", overflow: "hidden" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 3.5rem" }}>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "4.5rem" }}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "4px", textTransform: "uppercase", color: "#185FA5", marginBottom: "14px", display: "flex", alignItems: "center", justifyContent: "center", gap: "14px" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "16px", letterSpacing: "4px", textTransform: "uppercase", color: "#185FA5", marginBottom: "14px", display: "flex", alignItems: "center", justifyContent: "center", gap: "14px" , fontWeight: 700 }}>
               <span style={{ display: "block", width: "40px", height: "0.5px", background: "#185FA5" }} />Guiding Principles<span style={{ display: "block", width: "40px", height: "0.5px", background: "#185FA5" }} />
             </p>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.4rem, 5vw, 3.6rem)", fontWeight: 300, color: "#042C53", marginBottom: "14px", lineHeight: 1.1 }}>What Makes ARCHORA Different</h2>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "12px", color: "#185FA5", maxWidth: "440px", margin: "0 auto", lineHeight: 1.9 }}>The convictions that inform every line we draw, every space we shape.</p>
+            <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "19px", color: "#185FA5", maxWidth: "440px", margin: "0 auto", lineHeight: 1.9 , fontWeight: 700 }}>The convictions that inform every line we draw, every space we shape.</p>
           </motion.div>
 
           <div className="phil-grid" style={{ gap: 0 }}>
@@ -584,7 +619,7 @@ export function About() {
             {statsData.map((s, i) => (
               <div key={i} className="mv-stat-item" style={{ borderRight: i < statsData.length - 1 ? "0.5px solid rgba(133,183,235,0.15)" : "none" }}>
                 <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2.4rem", fontWeight: 300, color: "#E6F1FB", lineHeight: 1, marginBottom: 6 }}>{s.value}</div>
-                <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "2px", textTransform: "uppercase", color: "#85B7EB" }}>{s.label}</div>
+                <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "16px", letterSpacing: "2px", textTransform: "uppercase", color: "#85B7EB" }}>{s.label}</div>
               </div>
             ))}
           </motion.div>
@@ -596,17 +631,17 @@ export function About() {
         <div style={{ position: "absolute", right: "-20px", top: "50%", transform: "translateY(-50%)", fontFamily: "'Cormorant Garamond',serif", fontSize: "18vw", fontWeight: 300, color: "rgba(75,209,217,0.025)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>02</div>
         <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 48px", position: "relative", zIndex: 1 }}>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ marginBottom: "56px" }}>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "4px", textTransform: "uppercase", color: "#4bd1d9", marginBottom: "12px", display: "flex", alignItems: "center", gap: "12px" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "16px", letterSpacing: "4px", textTransform: "uppercase", color: "#4bd1d9", marginBottom: "12px", display: "flex", alignItems: "center", gap: "12px" , fontWeight: 700 }}>
               <span style={{ display: "block", width: "28px", height: "0.5px", background: "#4bd1d9" }} />What We Do
             </p>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 300, color: "#fff", maxWidth: "560px" }}>Everything You Need to Design, Build & Deliver</h2>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(255,255,255,.38)", marginTop: "12px", maxWidth: "480px", lineHeight: 1.8 }}>ARCHORA provides the complete range of healthcare infrastructure services — from the first feasibility study to the day you open your doors.</p>
+            <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "18px", color: "rgba(255,255,255,0.92)", marginTop: "12px", maxWidth: "480px", lineHeight: 1.8 , fontWeight: 700 }}>ARCHORA provides the complete range of healthcare infrastructure services, from the first feasibility study to the day you open your doors.</p>
           </motion.div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 48px" }}>
             {services.map((s, i) => (<ServiceItem key={s} service={s} index={i} />))}
           </div>
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }} style={{ marginTop: "48px", display: "flex", gap: "14px" }}>
-            <button style={{ padding: "13px 28px", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Explore All Services →</button>
+            <button onClick={() => navigate("/services")} style={{ padding: "13px 28px", fontSize: "17px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Explore All Services →</button>
           </motion.div>
         </div>
       </section>
@@ -618,22 +653,19 @@ export function About() {
         ))}
         <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 48px", textAlign: "center", position: "relative", zIndex: 10 }}>
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
-            <div style={{ display: "flex", justifyContent: "center", marginBottom: "28px" }}>
-              <svg width="40" height="40" viewBox="0 0 20 20" fill="none"><rect x="6.5" y="1" width="7" height="18" rx="1.5" fill="#c0392b" opacity=".7" /><rect x="1" y="6.5" width="18" height="7" rx="1.5" fill="#c0392b" opacity=".7" /></svg>
-            </div>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", letterSpacing: "4px", textTransform: "uppercase", color: "rgba(75,204,212,0.55)", marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" }}>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "16px", letterSpacing: "4px", textTransform: "uppercase", color: "rgba(75,204,212,0.55)", marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" , fontWeight: 700 }}>
               <span style={{ display: "block", width: "28px", height: "0.5px", background: "rgba(75,204,212,0.4)" }} />Get In Touch<span style={{ display: "block", width: "28px", height: "0.5px", background: "rgba(75,204,212,0.4)" }} />
             </p>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.2rem,4.5vw,3.6rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: "22px" }}>
               Planning a Healthcare Facility?<br /><em style={{ fontStyle: "italic", color: "#4bccd4" }}>Let's Talk.</em>
             </h2>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: "rgba(255,255,255,0.38)", marginBottom: "44px", lineHeight: 1.85, maxWidth: "500px", margin: "0 auto 44px" }}>Whether you are starting from zero or need expert support at any stage — ARCHORA is ready to help you design, build, and deliver infrastructure that works.</p>
+            <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "18px", color: "rgba(255,255,255,0.90)", marginBottom: "44px", lineHeight: 1.85, maxWidth: "500px", margin: "0 auto 44px" , fontWeight: 700 }}>Whether you are starting from zero or need expert support at any stage, ARCHORA is ready to help you design, build, and deliver infrastructure that works.</p>
             <div style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap" }}>
-              <button style={{ padding: "14px 32px", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Book a Free Consultation</button>
-              <button style={{ padding: "14px 32px", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>💬 WhatsApp Us</button>
-              <button style={{ padding: "14px 32px", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Send an Enquiry →</button>
+              <button onClick={() => navigate("/contact")} style={{ padding: "14px 32px", fontSize: "17px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Book a Free Consultation</button>
+              <button onClick={() => window.open(WHATSAPP_URL, "_blank")} style={{ padding: "14px 32px", fontSize: "17px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>💬 WhatsApp Us</button>
+              <button onClick={() => navigate("/contact")} style={{ padding: "14px 32px", fontSize: "17px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Send an Enquiry →</button>
             </div>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "9px", color: "rgba(255,255,255,0.18)", marginTop: "28px", letterSpacing: "0.1em" }}>No obligation · No sales pressure · Honest advice from healthcare infrastructure specialists</p>
+            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "16px", color: "rgba(255,255,255,0.75)", marginTop: "28px", letterSpacing: "0.1em" , fontWeight: 700 }}>No obligation · No sales pressure · Honest advice from healthcare infrastructure specialists</p>
           </motion.div>
         </div>
       </section>

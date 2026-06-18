@@ -46,30 +46,30 @@ const facilityData: Record<string, FacilityData> = {
   "F-01": {
     id: "F-01",
     title: "Multi-Speciality Hospital",
-    subtitle: "Design and Construction — Turnkey Infrastructure by ARCHORA",
+    subtitle: "Design and Construction: Turnkey Infrastructure by ARCHORA",
     accentColor: "#4bd1d9",
     catLabel: "Hospitals",
     urlSlug: "/healthcare-facilities/multi-speciality-hospital",
     intro: [
-      "Building a multi-speciality hospital is one of the most complex infrastructure undertakings in healthcare. It demands precision at every level — from clinical space planning and patient flow design to NABH compliance, MEP engineering, modular OT installation, and regulatory approvals.",
-      "Most hospital projects in India fail not because of a lack of vision, but because of fragmented execution. Multiple vendors, misaligned timelines, budget overruns, and compliance gaps discovered too late are the real reasons projects collapse. ARCHORA eliminates that fragmentation — designing, engineering, and delivering complete multi-speciality hospital facilities under one contract, one team, and one accountable partner, from concept to commissioning.",
+      "Building a multi-speciality hospital is one of the most complex infrastructure undertakings in healthcare. It demands precision at every level, from clinical space planning and patient flow design to NABH compliance, MEP engineering, modular OT installation, and regulatory approvals.",
+      "Most hospital projects in India fail not because of a lack of vision, but because of fragmented execution. Multiple vendors, misaligned timelines, budget overruns, and compliance gaps discovered too late are the real reasons projects collapse. ARCHORA eliminates that fragmentation, designing, engineering, and delivering complete multi-speciality hospital facilities under one contract, one team, and one accountable partner, from concept to commissioning.",
     ],
     services: [
       { title: "Hospital Architecture & Clinical Space Planning", description: "We design multi-speciality hospitals with clinical precision, optimising patient flow, department zoning, infection control corridors, staff and visitor segregation, and future expansion flexibility. Every spatial decision is made with NABH standards and clinical outcomes at the centre." },
       { title: "Structural & Civil Construction", description: "Our construction teams execute hospital-grade civil work, from foundation and structural framing to facade, roofing, and internal partition systems. We build to hospital-specific load requirements, vibration control standards, and long-term structural durability." },
-      { title: "MEP Engineering — Medical Grade", description: "Mechanical, Electrical, and Plumbing systems in a multi-speciality hospital are not standard building systems. ARCHORA designs and installs medical gas pipelines, HVAC with HEPA filtration, uninterrupted power supply systems, earthing, clean electrical distribution, and hospital-grade plumbing — all compliant with NABH and NBC standards." },
+      { title: "MEP Engineering: Medical Grade", description: "Mechanical, Electrical, and Plumbing systems in a multi-speciality hospital are not standard building systems. ARCHORA designs and installs medical gas pipelines, HVAC with HEPA filtration, uninterrupted power supply systems, earthing, clean electrical distribution, and hospital-grade plumbing, all compliant with NABH and NBC standards." },
       { title: "Modular Operation Theatre Setup", description: "We design and install modular OT complexes with laminar airflow systems, stainless steel panelling, integrated surgical lighting, anaesthesia workstations, OT control panels, and full infection control compliance. Each OT is validated before handover." },
       { title: "ICU & Critical Care Unit Design", description: "ARCHORA builds ICUs that meet NABH critical care standards, including individual bed bay planning, nurse station visibility, medical gas outlets, monitoring system integration, and HVAC pressurisation protocols for infection control." },
-      { title: "Interior Design & Clinical Finishes", description: "We specify and install hospital-grade wall cladding, epoxy flooring, antimicrobial surfaces, signage, patient room furniture, and public area finishes — all compliant with NABH environmental standards." },
+      { title: "Interior Design & Clinical Finishes", description: "We specify and install hospital-grade wall cladding, epoxy flooring, antimicrobial surfaces, signage, patient room furniture, and public area finishes: all compliant with NABH environmental standards." },
       { title: "Medical Equipment Planning & Coordination", description: "We coordinate medical equipment procurement, installation, and integration into the built environment, ensuring that imaging rooms, OTs, labs, and ICUs are infrastructure-ready for equipment on Day 1." },
       { title: "NABH Compliance & Documentation Support", description: "ARCHORA integrates NABH compliance from the first design drawing. We prepare facility compliance documentation, support NABH pre-assessment processes, and ensure your hospital is assessment-ready at the time of commissioning." },
-      { title: "Project Management & Turnkey Delivery", description: "A single ARCHORA project manager coordinates every vendor, every timeline, and every compliance milestone — delivering your multi-speciality hospital on time, within budget, and fully commissioned." },
+      { title: "Project Management & Turnkey Delivery", description: "A single ARCHORA project manager coordinates every vendor, every timeline, and every compliance milestone: delivering your multi-speciality hospital on time, within budget, and fully commissioned." },
     ],
     compliance: [
       { name: "NABH HCO Accreditation", authority: "National Accreditation Board for Hospitals", scope: "Mandatory hospital quality and safety accreditation" },
       { name: "CEA Registration", authority: "Clinical Establishments Act", scope: "Mandatory registration for all clinical establishments" },
       { name: "Fire NOC", authority: "State Fire Department", scope: "Mandatory fire safety clearance for healthcare buildings" },
-      { name: "BCP — Occupancy Certificate", authority: "Local Municipal Authority", scope: "Building completion and occupancy certification" },
+      { name: "BCP, Occupancy Certificate", authority: "Local Municipal Authority", scope: "Building completion and occupancy certification" },
       { name: "AERB Clearance", authority: "Atomic Energy Regulatory Board", scope: "Required if hospital includes X-ray, CT, MRI, or Cath Lab" },
       { name: "Medical Gas Pipeline Compliance", authority: "HTM 02-01 and IS Standards", scope: "Medical gas system design, installation, and validation" },
       { name: "NBC Compliance", authority: "National Building Code of India", scope: "Structural, fire, and safety compliance for buildings" },
@@ -82,7 +82,7 @@ const facilityData: Record<string, FacilityData> = {
       { title: "Detailed Architectural & MEP Design", description: "Full architectural drawings, structural engineering, and complete MEP system design are prepared to construction-ready specifications, coordinated across all disciplines to eliminate site conflicts." },
       { title: "Regulatory Approvals & Compliance Documentation", description: "ARCHORA coordinates building plan approvals, fire NOC applications, CEA registration support, and NABH pre-assessment documentation preparation." },
       { title: "Civil Construction & MEP Installation", description: "Our construction teams execute civil works, MEP installations, modular OT setup, ICU construction, and all interior works under strict quality control and project management supervision." },
-      { title: "Medical Equipment Coordination & Integration", description: "We coordinate with equipment suppliers to ensure all clinical spaces are infrastructure-ready — electrical loads, structural supports, medical gas connections, data points, and ventilation requirements are all verified before equipment installation." },
+      { title: "Medical Equipment Coordination & Integration", description: "We coordinate with equipment suppliers to ensure all clinical spaces are infrastructure-ready: electrical loads, structural supports, medical gas connections, data points, and ventilation requirements are all verified before equipment installation." },
       { title: "Quality Checks, Testing & Validation", description: "All systems including HVAC, medical gas, electrical, and fire safety are tested, commissioned, and validated before handover. OTs and ICUs undergo specific validation protocols." },
       { title: "NABH Readiness Assessment & Handover", description: "ARCHORA conducts a full NABH readiness walkthrough, identifying and closing any compliance gaps. The facility is handed over commissioned, compliant, and operational." },
       { title: "Post-Handover Support", description: "ARCHORA remains available for post-handover infrastructure support, NABH assessment accompaniment, and future expansion planning." },
@@ -92,35 +92,35 @@ const facilityData: Record<string, FacilityData> = {
       { q: "How long does it take to build a multi-speciality hospital in India?", a: "A multi-speciality hospital typically takes 24 to 36 months from design to commissioning, depending on bed capacity, site conditions, and regulatory approval timelines. ARCHORA's integrated single-team delivery model reduces this timeline by 6 to 12 months compared to the industry average." },
       { q: "Is NABH accreditation mandatory for a multi-speciality hospital in India?", a: "NABH accreditation is not legally mandatory but is increasingly required for insurance empanelment, CGHS and ECHS tie-ups, international patient referrals, and government scheme participation. Most serious hospital projects pursue NABH accreditation as a quality and business imperative. ARCHORA builds every facility to full NABH HCO standards." },
       { q: "What is the minimum land requirement for a multi-speciality hospital?", a: "Land requirements vary based on bed capacity, local authority norms, and FAR. As a general guide, a 100-bed multi-speciality hospital requires approximately 1.5 to 3 acres of land depending on the city and building height permissions. ARCHORA conducts a site feasibility assessment to determine the optimal configuration for your specific plot." },
-      { q: "Can ARCHORA manage the entire hospital project from design to handover?", a: "Yes. ARCHORA delivers complete turnkey multi-speciality hospital projects covering architecture, structural engineering, MEP, modular OT, ICU, interiors, medical equipment coordination, NABH compliance support, and commissioning — under a single contract and single point of accountability." },
+      { q: "Can ARCHORA manage the entire hospital project from design to handover?", a: "Yes. ARCHORA delivers complete turnkey multi-speciality hospital projects covering architecture, structural engineering, MEP, modular OT, ICU, interiors, medical equipment coordination, NABH compliance support, and commissioning, under a single contract and single point of accountability." },
       { q: "What compliances are needed to open a multi-speciality hospital in India?", a: "To open a multi-speciality hospital in India, you need CEA registration, Fire NOC, Building Occupancy Certificate, AERB clearance for radiation equipment, and NABH accreditation for insurance empanelment. ARCHORA integrates all compliance requirements into the design and construction process." },
       { q: "Does ARCHORA work on hospital projects outside Mumbai?", a: "Yes. ARCHORA delivers healthcare infrastructure projects across India and is expanding into international markets including the MENA region. We have delivered and are currently executing projects in multiple states across India." },
     ],
     ctaHeading: "Ready to Build Your Multi-Speciality Hospital?",
-    ctaBody: "Every great hospital starts with the right infrastructure partner. ARCHORA brings together clinical planning, architecture, engineering, compliance, and construction under one roof — so your hospital is built right the first time.",
+    ctaBody: "Every great hospital starts with the right infrastructure partner. ARCHORA brings together clinical planning, architecture, engineering, compliance, and construction under one roof, so your hospital is built right the first time.",
   },
 
   "F-02": {
     id: "F-02",
     title: "Super-Speciality Hospital",
-    subtitle: "Design and Construction — Advanced Healthcare Infrastructure by ARCHORA",
+    subtitle: "Design and Construction: Advanced Healthcare Infrastructure by ARCHORA",
     accentColor: "#4bd1d9",
     catLabel: "Hospitals",
     urlSlug: "/healthcare-facilities/super-speciality-hospital",
     intro: [
-      "A super-speciality hospital operates at the highest level of clinical complexity. It houses advanced surgical suites, cardiac catheterisation labs, neuroscience centres, oncology blocks, bone marrow transplant units, and critical care facilities that demand infrastructure far beyond what a standard hospital requires. The margin for error in design and construction is zero — a wrong ventilation specification in a transplant unit, an incorrect electrical load calculation in a cath lab, or a compliance gap in a radiation facility can cost lives, delay commissioning, and derail years of investment.",
-      "ARCHORA is built specifically for this level of complexity. We bring together clinical planners, healthcare architects, MEP engineers, modular OT specialists, and compliance experts into one integrated team — delivering super-speciality hospital infrastructure that is technically precise, regulatory compliant, and operationally ready from Day 1.",
+      "A super-speciality hospital operates at the highest level of clinical complexity. It houses advanced surgical suites, cardiac catheterisation labs, neuroscience centres, oncology blocks, bone marrow transplant units, and critical care facilities that demand infrastructure far beyond what a standard hospital requires. The margin for error in design and construction is zero, a wrong ventilation specification in a transplant unit, an incorrect electrical load calculation in a cath lab, or a compliance gap in a radiation facility can cost lives, delay commissioning, and derail years of investment.",
+      "ARCHORA is built specifically for this level of complexity. We bring together clinical planners, healthcare architects, MEP engineers, modular OT specialists, and compliance experts into one integrated team, delivering super-speciality hospital infrastructure that is technically precise, regulatory compliant, and operationally ready from Day 1.",
     ],
     services: [
       { title: "Advanced Clinical Space Planning & Architecture", description: "Super-speciality hospitals require highly specialised department planning. We design cardiac centres, neuro-surgical blocks, oncology wings, transplant units, and advanced diagnostic clusters with precise clinical workflow mapping, infection control zoning, and NABH-compliant spatial standards. Every adjacency decision is clinically justified." },
       { title: "Structural & Civil Construction for Advanced Facilities", description: "Super-speciality hospitals require structural engineering that accommodates heavy medical equipment, radiation shielding, vibration isolation for imaging suites, and long-span structural systems for large OT complexes and critical care floors." },
-      { title: "Advanced MEP Engineering", description: "At super-speciality level, MEP systems are life-critical infrastructure. ARCHORA designs and installs redundant power systems with multiple levels of backup, medical gas manifolds with zone valve boxes, HVAC systems with HEPA and ULPA filtration for transplant and oncology areas, BMS, and nurse call systems — all engineered to HTM, NABH, and NBC standards." },
+      { title: "Advanced MEP Engineering", description: "At super-speciality level, MEP systems are life-critical infrastructure. ARCHORA designs and installs redundant power systems with multiple levels of backup, medical gas manifolds with zone valve boxes, HVAC systems with HEPA and ULPA filtration for transplant and oncology areas, BMS, and nurse call systems: all engineered to HTM, NABH, and NBC standards." },
       { title: "Radiation Shielding & AERB Compliance", description: "Super-speciality hospitals typically include CT scanners, MRI units, PET-CT, linear accelerators, catheterisation labs, and nuclear medicine facilities. ARCHORA designs and constructs full radiation shielding for all radiation areas, prepares AERB eLORA documentation, and coordinates the entire regulatory approval process." },
       { title: "Modular Operation Theatre Complexes", description: "We design and build multi-OT complexes with laminar airflow systems, positive and negative pressure capabilities, integrated imaging systems such as intraoperative MRI and C-arm bays, robotic surgery infrastructure, OT pendant systems, and full sterile supply integration. Every OT is validated to international standards before handover." },
       { title: "Critical Care & Specialised ICU Design", description: "ARCHORA builds specialised ICUs including cardiac ICUs, neurological ICUs, neonatal ICUs, bone marrow transplant units, and trauma ICUs. Each unit is designed to its specific clinical protocol with NABH-compliant bed bay sizing, pressurisation, medical gas, monitoring infrastructure, and infection control provisions." },
       { title: "Cath Lab & Interventional Suite Infrastructure", description: "Cardiac catheterisation labs and interventional radiology suites require specialised civil, MEP, and radiation shielding infrastructure. ARCHORA designs and builds complete cath lab environments including radiation shielding, dedicated electrical systems, medical gas, HVAC with specific air change requirements, and control room integration." },
       { title: "Healthcare Interior Design & Patient Experience", description: "We create super-speciality hospital interiors that reflect the clinical standard of the institution, using hospital-grade materials, wayfinding systems, patient-centred room design, and public area finishes that build confidence and trust from the moment a patient arrives." },
-      { title: "Medical Equipment Planning & Infrastructure Coordination", description: "Our team coordinates with equipment suppliers for all high-value and space-critical equipment including MRI, CT, PET-CT, linear accelerators, robotic surgery systems, and cath lab equipment — ensuring every room is infrastructure-ready with correct power, cooling, shielding, and structural provisions." },
+      { title: "Medical Equipment Planning & Infrastructure Coordination", description: "Our team coordinates with equipment suppliers for all high-value and space-critical equipment including MRI, CT, PET-CT, linear accelerators, robotic surgery systems, and cath lab equipment: ensuring every room is infrastructure-ready with correct power, cooling, shielding, and structural provisions." },
       { title: "NABH Compliance & Accreditation Support", description: "ARCHORA embeds NABH HCO compliance into every stage of design and construction. We prepare compliance documentation, conduct pre-assessment walkthroughs, and support your team through the NABH accreditation process." },
       { title: "Turnkey Project Management", description: "A single ARCHORA project director manages every aspect of your super-speciality hospital project, from design coordination and vendor management to construction supervision, regulatory approvals, and final commissioning." },
     ],
@@ -129,7 +129,7 @@ const facilityData: Record<string, FacilityData> = {
       { name: "AERB Clearance & eLORA", authority: "Atomic Energy Regulatory Board", scope: "Mandatory for all radiation facilities including CT, MRI, PET-CT, Cath Lab, Radiotherapy" },
       { name: "CEA Registration", authority: "Clinical Establishments Act", scope: "Mandatory registration for all clinical establishments" },
       { name: "Fire NOC", authority: "State Fire Department", scope: "Mandatory fire safety clearance for all healthcare buildings" },
-      { name: "BCP — Occupancy Certificate", authority: "Local Municipal Authority", scope: "Building completion and occupancy certification" },
+      { name: "BCP, Occupancy Certificate", authority: "Local Municipal Authority", scope: "Building completion and occupancy certification" },
       { name: "Medical Gas Pipeline Compliance", authority: "HTM 02-01 and IS Standards", scope: "Medical gas system design, installation, and validation" },
       { name: "Radiation Shielding Design", authority: "AERB and BARC Guidelines", scope: "Shielding design for all radiation areas" },
       { name: "NBC Compliance", authority: "National Building Code of India", scope: "Structural, fire, and safety compliance" },
@@ -139,7 +139,7 @@ const facilityData: Record<string, FacilityData> = {
       { title: "Strategic Consultation & Project Feasibility", description: "We begin with a comprehensive consultation covering your clinical vision, speciality focus areas, bed capacity, site conditions, budget, and phasing requirements. A detailed feasibility report is prepared before design begins." },
       { title: "Clinical Brief Development & Speciality Planning", description: "Our clinical planners work with your medical leadership to develop a detailed brief for every speciality department, defining rooms, equipment, workflows, staff patterns, and patient journeys specific to each clinical area." },
       { title: "Master Planning & Concept Design", description: "We prepare a master plan and concept design that organises all departments, clinical zones, support areas, and future expansion provisions into a coherent, NABH-compliant layout." },
-      { title: "Detailed Design — Architecture, Structure & MEP", description: "Full architectural, structural, and MEP design is developed to construction-ready specification, with radiation shielding calculations, equipment room layouts, and all speciality technical requirements fully incorporated." },
+      { title: "Detailed Design: Architecture, Structure & MEP", description: "Full architectural, structural, and MEP design is developed to construction-ready specification, with radiation shielding calculations, equipment room layouts, and all speciality technical requirements fully incorporated." },
       { title: "Regulatory Approvals & AERB Documentation", description: "ARCHORA manages building plan approvals, fire NOC, CEA registration support, and full AERB eLORA application and approval coordination for all radiation facilities." },
       { title: "Civil Construction & Specialist Installations", description: "Our teams execute all civil works, radiation shielding construction, MEP installations, modular OT complexes, specialised ICU builds, and cath lab construction under integrated project management supervision." },
       { title: "Medical Equipment Infrastructure Coordination", description: "We work alongside all major equipment suppliers to ensure infrastructure readiness for every piece of high-value clinical equipment before installation begins." },
@@ -163,16 +163,16 @@ const facilityData: Record<string, FacilityData> = {
   "F-03": {
     id: "F-03",
     title: "Oncology & Cancer Hospital",
-    subtitle: "Design and Construction — Specialised Healthcare Infrastructure by ARCHORA",
+    subtitle: "Design and Construction: Specialised Healthcare Infrastructure by ARCHORA",
     accentColor: "#4bd1d9",
     catLabel: "Hospitals",
     urlSlug: "/healthcare-facilities/oncology-cancer-hospital",
     intro: [
       "Oncology and cancer hospitals represent one of the most technically demanding categories of healthcare infrastructure in the world. Radiation oncology departments housing linear accelerators, brachytherapy suites, and nuclear medicine units require precision radiation shielding, AERB-compliant facility design, and highly specialised MEP systems. Chemotherapy units, bone marrow transplant centres, and surgical oncology blocks each carry their own specific infrastructure requirements around infection control, air pressurisation, hazardous drug handling, and clinical workflow.",
-      "In India, the demand for quality cancer care infrastructure is growing rapidly, yet the number of infrastructure partners who truly understand oncology facility design remains very small. ARCHORA is one of them. We bring together clinical planners, radiation physicists, MEP engineers, and AERB compliance specialists into one integrated team — delivering oncology and cancer hospital infrastructure that is safe, compliant, and clinically optimised from the ground up.",
+      "In India, the demand for quality cancer care infrastructure is growing rapidly, yet the number of infrastructure partners who truly understand oncology facility design remains very small. ARCHORA is one of them. We bring together clinical planners, radiation physicists, MEP engineers, and AERB compliance specialists into one integrated team, delivering oncology and cancer hospital infrastructure that is safe, compliant, and clinically optimised from the ground up.",
     ],
     services: [
-      { title: "Oncology Master Planning & Clinical Space Design", description: "We design cancer hospitals around clinical pathways — from early detection and diagnosis through active treatment to palliative and supportive care. Our planners map patient journeys across surgical oncology, radiation oncology, medical oncology, nuclear medicine, and supportive care departments, ensuring smooth workflows, minimal cross-contamination risks, and NABH-compliant spatial standards throughout." },
+      { title: "Oncology Master Planning & Clinical Space Design", description: "We design cancer hospitals around clinical pathways: from early detection and diagnosis through active treatment to palliative and supportive care. Our planners map patient journeys across surgical oncology, radiation oncology, medical oncology, nuclear medicine, and supportive care departments, ensuring smooth workflows, minimal cross-contamination risks, and NABH-compliant spatial standards throughout." },
       { title: "Radiation Oncology Department Infrastructure", description: "ARCHORA designs and constructs complete radiation oncology departments including bunkers for linear accelerators (LINAC), cobalt units, brachytherapy vaults, simulation rooms, treatment planning areas, and control rooms. Every bunker is designed with precise radiation shielding calculations validated by a qualified radiation physicist and submitted for AERB approval through the eLORA platform." },
       { title: "Linear Accelerator Bunker Design & Construction", description: "A LINAC bunker is a highly engineered structure requiring maze design, primary and secondary barrier calculations, high-density concrete or lead-lined walls, interlocking safety systems, specialised HVAC with negative pressure and high air change rates, and earthquake-resistant structural design. ARCHORA has specific expertise in LINAC bunker design and construction to full AERB and IAEA standards." },
       { title: "Nuclear Medicine Department Infrastructure", description: "Nuclear medicine departments require radioactive material handling areas, hot labs, injection rooms, uptake rooms, scanner rooms for SPECT and PET-CT, and dedicated radioactive waste storage and decay areas. ARCHORA designs these facilities to full AERB radiation facility licence requirements, including shielding, ventilation, plumbing for radioactive liquid waste, and personnel safety provisions." },
@@ -180,7 +180,7 @@ const facilityData: Record<string, FacilityData> = {
       { title: "Bone Marrow Transplant Unit Infrastructure", description: "BMT units are among the most infection-sensitive environments in any hospital. ARCHORA designs and builds BMT units with HEPA-filtered positive pressure rooms, anteroom vestibule systems, strict cleanroom principles, dedicated MEP systems, and all NABH critical care compliance requirements for transplant environments." },
       { title: "Surgical Oncology OT Complex", description: "Cancer surgery requires specialised OT infrastructure including large-volume OTs for complex resections, intraoperative radiation therapy (IORT) capable rooms, clean and contaminated workflow separation, and sterile supply integration. ARCHORA designs and builds surgical oncology OT complexes to the full scope of modular OT standards." },
       { title: "Pathology & Molecular Diagnostics Laboratory", description: "Oncology hospitals require on-site pathology, histopathology, cytopathology, immunohistochemistry, and molecular diagnostics laboratories. ARCHORA designs and builds NABL-compliant laboratory environments with biosafety provisions, fume extraction, chemical storage, and cold chain infrastructure integrated into the facility design." },
-      { title: "Palliative Care & Patient Support Spaces", description: "We design palliative care units, counselling rooms, support group spaces, and patient family areas with sensitivity to the emotional and physical needs of cancer patients and their families — creating environments that are calm, dignified, and supportive of healing." },
+      { title: "Palliative Care & Patient Support Spaces", description: "We design palliative care units, counselling rooms, support group spaces, and patient family areas with sensitivity to the emotional and physical needs of cancer patients and their families: creating environments that are calm, dignified, and supportive of healing." },
       { title: "Advanced MEP Engineering for Oncology", description: "Oncology facilities require MEP systems far beyond standard hospital requirements. ARCHORA designs and installs dedicated HVAC systems with specific air change rates and pressure relationships for each clinical area, medical gas systems with chemotherapy-specific provisions, redundant power systems, hazardous waste drainage systems, and full building management systems for oncology environments." },
       { title: "NABH & AERB Compliance Integration", description: "ARCHORA integrates NABH HCO accreditation standards and AERB radiation facility licence requirements from the first line of design. We prepare all compliance documentation, coordinate AERB eLORA submissions, and support your team through both NABH and AERB approval processes." },
       { title: "Turnkey Project Management", description: "A dedicated ARCHORA project director manages the complete delivery of your oncology hospital, coordinating clinical planners, architects, structural engineers, MEP teams, radiation physicists, equipment suppliers, and regulatory agencies under one integrated programme." },
@@ -191,7 +191,7 @@ const facilityData: Record<string, FacilityData> = {
       { name: "AERB eLORA Approval", authority: "Atomic Energy Regulatory Board", scope: "Online regulatory approval for radiation equipment installation and operation" },
       { name: "CEA Registration", authority: "Clinical Establishments Act", scope: "Mandatory registration for all clinical establishments" },
       { name: "Fire NOC", authority: "State Fire Department", scope: "Mandatory fire safety clearance for all healthcare buildings" },
-      { name: "BCP — Occupancy Certificate", authority: "Local Municipal Authority", scope: "Building completion and occupancy certification" },
+      { name: "BCP, Occupancy Certificate", authority: "Local Municipal Authority", scope: "Building completion and occupancy certification" },
       { name: "Radiation Shielding Design Approval", authority: "AERB and BARC Guidelines", scope: "Primary and secondary barrier design validated by qualified radiation physicist" },
       { name: "Radioactive Waste Management Compliance", authority: "AERB and PCB Guidelines", scope: "Safe storage, handling, and disposal of radioactive waste" },
       { name: "Biosafety Compliance", authority: "Department of Biotechnology", scope: "For molecular and genetics laboratory operations" },
@@ -200,11 +200,11 @@ const facilityData: Record<string, FacilityData> = {
     ],
     process: [
       { title: "Oncology Project Consultation & Feasibility Assessment", description: "We begin with a detailed consultation covering your cancer care vision, proposed treatment modalities, radiation therapy equipment plans, bed capacity, site conditions, budget, and regulatory context. A project feasibility report is prepared covering technical, financial, and compliance dimensions." },
-      { title: "Clinical Brief & Oncology Department Planning", description: "Our clinical planners work with your oncology leadership to develop detailed department briefs for radiation oncology, medical oncology, surgical oncology, nuclear medicine, pathology, and all support services — mapping every room, workflow, and equipment requirement." },
+      { title: "Clinical Brief & Oncology Department Planning", description: "Our clinical planners work with your oncology leadership to develop detailed department briefs for radiation oncology, medical oncology, surgical oncology, nuclear medicine, pathology, and all support services: mapping every room, workflow, and equipment requirement." },
       { title: "Radiation Physics Consultation & Shielding Design", description: "For all radiation areas, we engage qualified radiation physicists to calculate primary and secondary barrier requirements, prepare shielding design reports, and coordinate AERB submission documentation. This work runs in parallel with architectural design to prevent costly design iterations." },
       { title: "Master Planning & Concept Design", description: "We prepare a master plan and concept design that organises all oncology departments into a coherent, safe, and NABH-compliant facility layout, with clear separation of radiation zones, clinical treatment areas, and patient support spaces." },
       { title: "Detailed Architectural, Structural & MEP Design", description: "Full construction-ready design is developed across all disciplines, incorporating LINAC bunker structural design, nuclear medicine shielding, BMT unit cleanroom specifications, chemotherapy unit safety provisions, and all oncology-specific MEP requirements." },
-      { title: "Regulatory Approvals — AERB, Fire NOC, CEA & Building Permissions", description: "ARCHORA coordinates all regulatory submissions in parallel with design, including AERB eLORA applications, building plan approvals, fire NOC, and CEA registration support, to avoid delays between design completion and construction start." },
+      { title: "Regulatory Approvals: AERB, Fire NOC, CEA & Building Permissions", description: "ARCHORA coordinates all regulatory submissions in parallel with design, including AERB eLORA applications, building plan approvals, fire NOC, and CEA registration support, to avoid delays between design completion and construction start." },
       { title: "Civil Construction & Specialist Builds", description: "Our teams execute all civil works including LINAC bunker construction, nuclear medicine department build, BMT unit, modular OT complex, chemotherapy unit, and all general hospital areas under integrated project management." },
       { title: "MEP Installation & Specialist Systems", description: "All MEP systems including oncology-specific HVAC, medical gas, redundant power, hazardous waste drainage, BMS, and nurse call systems are installed and tested to oncology facility standards." },
       { title: "Equipment Coordination & Infrastructure Validation", description: "We coordinate with LINAC manufacturers, PET-CT and nuclear medicine equipment suppliers, and all other major equipment vendors to ensure complete infrastructure readiness before equipment installation." },
@@ -229,11 +229,11 @@ const facilityData: Record<string, FacilityData> = {
   "F-04": {
     id: "F-04", title: "Nursing Home & Small Hospital", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#4bd1d9", catLabel: "Hospitals", urlSlug: "/healthcare-facilities/nursing-home",
-    intro: ["Nursing homes and small hospitals form the backbone of community healthcare delivery across India. Designing these facilities requires balancing compact footprints with full clinical functionality, NABH SHCO compliance, and the operational realities of smaller healthcare organisations.", "ARCHORA brings the same rigour it applies to large hospitals to every nursing home and small hospital project — delivering facilities that are safe, compliant, and built to last."],
+    intro: ["Nursing homes and small hospitals form the backbone of community healthcare delivery across India. Designing these facilities requires balancing compact footprints with full clinical functionality, NABH SHCO compliance, and the operational realities of smaller healthcare organisations.", "ARCHORA brings the same rigour it applies to large hospitals to every nursing home and small hospital project, delivering facilities that are safe, compliant, and built to last."],
     services: [
       { title: "Clinical Space Planning", description: "Compact, workflow-efficient layouts designed around NABH SHCO standards, with optimised patient flow and staff movement." },
       { title: "Modular OT Setup", description: "Laminar airflow OTs designed for the specific surgical scope of your facility, validated before handover." },
-      { title: "MEP Engineering", description: "Medical gas pipelines, HVAC, UPS, and earthing systems designed to hospital grade — not residential or commercial grade." },
+      { title: "MEP Engineering", description: "Medical gas pipelines, HVAC, UPS, and earthing systems designed to hospital grade: not residential or commercial grade." },
       { title: "NABH SHCO Compliance Support", description: "Full documentation preparation and readiness assessment for NABH Small Healthcare Organisation certification." },
       { title: "Turnkey Delivery", description: "Single point of accountability for architecture, structure, MEP, interiors, and commissioning." },
     ],
@@ -241,7 +241,7 @@ const facilityData: Record<string, FacilityData> = {
       { name: "NABH SHCO or Entry Level Certification", authority: "National Accreditation Board for Hospitals", scope: "Quality and safety certification for small healthcare organisations" },
       { name: "CEA Registration", authority: "Clinical Establishments Act", scope: "Mandatory registration for all clinical establishments" },
       { name: "Fire NOC", authority: "State Fire Department", scope: "Mandatory fire safety clearance" },
-      { name: "BCP — Occupancy Certificate", authority: "Local Municipal Authority", scope: "Building completion and occupancy certification" },
+      { name: "BCP, Occupancy Certificate", authority: "Local Municipal Authority", scope: "Building completion and occupancy certification" },
       { name: "NBC Compliance", authority: "National Building Code of India", scope: "Structural, fire, and building safety compliance" },
     ],
     process: [
@@ -263,7 +263,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-05": {
     id: "F-05", title: "Eye Care Hospital & Clinic", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#4bd1d9", catLabel: "Hospitals", urlSlug: "/healthcare-facilities/eye-care-hospital",
-    intro: ["Eye care hospitals and clinics have specific infrastructure requirements — from dedicated ophthalmic OTs with precise laminar airflow and lighting control, to dark room facilities, optical refraction lanes, and laser vision correction suites.", "ARCHORA designs and builds eye care facilities that meet NABH Eye Care Organisation standards, optimising clinical workflow for high-volume outpatient models and surgical throughput."],
+    intro: ["Eye care hospitals and clinics have specific infrastructure requirements, from dedicated ophthalmic OTs with precise laminar airflow and lighting control, to dark room facilities, optical refraction lanes, and laser vision correction suites.", "ARCHORA designs and builds eye care facilities that meet NABH Eye Care Organisation standards, optimising clinical workflow for high-volume outpatient models and surgical throughput."],
     services: [
       { title: "Ophthalmic OT Complex", description: "Laminar airflow OTs designed for cataract, retina, and cornea surgeries with precise lighting control, vibration isolation, and sterile field management." },
       { title: "Outpatient & Diagnostic Suite Planning", description: "Refraction lanes, slit lamp bays, visual field rooms, and imaging suite layouts optimised for high-volume outpatient efficiency." },
@@ -295,7 +295,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-06": {
     id: "F-06", title: "Dental Hospital & Clinic", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#4bd1d9", catLabel: "Hospitals", urlSlug: "/healthcare-facilities/dental-hospital",
-    intro: ["Dental hospitals and clinics require precise clinical space design — from ergonomic operatory layout and central suction and compressed air systems, to sterilisation rooms, imaging facilities, and X-ray compliance.", "ARCHORA designs and builds dental facilities to NABH Dental Healthcare Accreditation standards, ensuring every operatory, imaging room, and support area meets current regulatory requirements."],
+    intro: ["Dental hospitals and clinics require precise clinical space design, from ergonomic operatory layout and central suction and compressed air systems, to sterilisation rooms, imaging facilities, and X-ray compliance.", "ARCHORA designs and builds dental facilities to NABH Dental Healthcare Accreditation standards, ensuring every operatory, imaging room, and support area meets current regulatory requirements."],
     services: [
       { title: "Dental Operatory Planning & Design", description: "Ergonomic operatory layouts with correct chair spacing, ambidextrous access, natural light integration, and efficient clinical workflow." },
       { title: "Central Suction & Compressed Air Systems", description: "Medical-grade central dental suction and compressed air systems designed and installed for reliable, low-noise clinical operation." },
@@ -326,7 +326,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-07": {
     id: "F-07", title: "AYUSH Hospital", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#4bd1d9", catLabel: "Hospitals", urlSlug: "/healthcare-facilities/ayush-hospital",
-    intro: ["AYUSH hospitals — encompassing Ayurveda, Yoga, Unani, Siddha, and Homeopathy — represent a growing and formally regulated segment of India's healthcare infrastructure. These facilities require purpose-designed treatment rooms, herbal pharmacy areas, Panchakarma suites, and clinical environments compliant with NABH AYUSH standards.", "ARCHORA designs and builds AYUSH hospitals that respect the therapeutic principles of traditional medicine while meeting modern infrastructure and safety standards."],
+    intro: ["AYUSH hospitals (encompassing Ayurveda, Yoga, Unani, Siddha, and Homeopathy) represent a growing and formally regulated segment of India's healthcare infrastructure. These facilities require purpose-designed treatment rooms, herbal pharmacy areas, Panchakarma suites, and clinical environments compliant with NABH AYUSH standards.", "ARCHORA designs and builds AYUSH hospitals that respect the therapeutic principles of traditional medicine while meeting modern infrastructure and safety standards."],
     services: [
       { title: "Panchakarma Suite Design", description: "Dedicated Panchakarma treatment rooms with correct drainage, temperature control, and materials that support traditional therapy protocols." },
       { title: "Herbal Pharmacy & Dispensary", description: "Compliant herbal pharmacy layouts with correct storage, dispensing, and preparation provisions." },
@@ -358,7 +358,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-08": {
     id: "F-08", title: "Rehabilitation & Care Home", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#4bd1d9", catLabel: "Hospitals", urlSlug: "/healthcare-facilities/rehabilitation-care-home",
-    intro: ["Rehabilitation hospitals and care homes serve some of the most vulnerable patient populations — requiring environments that are safe, accessible, therapeutically supportive, and operationally efficient for long-stay clinical care.", "ARCHORA designs and builds rehabilitation and care home facilities to NABH Care Homes Accreditation standards, creating spaces that support recovery and dignified living."],
+    intro: ["Rehabilitation hospitals and care homes serve some of the most vulnerable patient populations, requiring environments that are safe, accessible, therapeutically supportive, and operationally efficient for long-stay clinical care.", "ARCHORA designs and builds rehabilitation and care home facilities to NABH Care Homes Accreditation standards, creating spaces that support recovery and dignified living."],
     services: [
       { title: "Rehabilitation Ward & Therapy Suite Design", description: "Ward layouts and physiotherapy, occupational therapy, and speech therapy suites designed around rehabilitation clinical pathways." },
       { title: "Accessibility & Barrier-Free Design", description: "Full compliance with NBC accessibility standards including ramp gradients, corridor widths, grab rail provisions, and assisted bathroom design." },
@@ -389,7 +389,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-09": {
     id: "F-09", title: "Cardiac Hospital & Cath Lab", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#4bd1d9", catLabel: "Hospitals", urlSlug: "/healthcare-facilities/cardiac-hospital",
-    intro: ["Cardiac hospitals and catheterisation labs demand some of the most technically demanding infrastructure in healthcare — combining radiation-compliant interventional suites, specialised cardiac ICUs, hybrid OTs, and advanced MEP systems into a cohesive clinical environment.", "ARCHORA has specific expertise in cardiac hospital infrastructure, delivering NABH HCO and AERB-compliant facilities built around cardiac clinical pathways."],
+    intro: ["Cardiac hospitals and catheterisation labs demand some of the most technically demanding infrastructure in healthcare, combining radiation-compliant interventional suites, specialised cardiac ICUs, hybrid OTs, and advanced MEP systems into a cohesive clinical environment.", "ARCHORA has specific expertise in cardiac hospital infrastructure, delivering NABH HCO and AERB-compliant facilities built around cardiac clinical pathways."],
     services: [
       { title: "Cardiac Catheterisation Lab Design & Construction", description: "Complete cath lab infrastructure including radiation shielding, dedicated electrical systems, AERB-compliant design, control room integration, medical gas, and HVAC with specific air change requirements." },
       { title: "Cardiac ICU Design", description: "High-acuity cardiac ICU environments with NABH-compliant bed bay sizing, haemodynamic monitoring infrastructure, medical gas, and HVAC pressurisation." },
@@ -453,7 +453,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-11": {
     id: "F-11", title: "Radiology & Imaging Centre", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#7eb8f7", catLabel: "Diagnostic & Imaging", urlSlug: "/healthcare-facilities/radiology-imaging",
-    intro: ["Radiology and imaging centres house some of the most infrastructure-intensive clinical equipment in healthcare — from multi-tonne MRI magnets requiring specialist foundations and RF shielding, to CT scanners needing precise radiation shielding and high-capacity power systems.", "ARCHORA's radiology infrastructure team designs and builds imaging centres with the technical precision that high-value equipment demands."],
+    intro: ["Radiology and imaging centres house some of the most infrastructure-intensive clinical equipment in healthcare, from multi-tonne MRI magnets requiring specialist foundations and RF shielding, to CT scanners needing precise radiation shielding and high-capacity power systems.", "ARCHORA's radiology infrastructure team designs and builds imaging centres with the technical precision that high-value equipment demands."],
     services: [
       { title: "MRI Suite Design", description: "RF-shielded MRI rooms with correct magnet foundations, quench pipe routing, cryogen venting, and dedicated electrical systems." },
       { title: "CT Scanner Room Design", description: "Radiation-shielded CT rooms with correct gantry pit design, power provisions, and HVAC for heat load management." },
@@ -513,7 +513,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-13": {
     id: "F-13", title: "PET-CT & Advanced Imaging Centre", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#7eb8f7", catLabel: "Diagnostic & Imaging", urlSlug: "/healthcare-facilities/pet-ct-imaging",
-    intro: ["PET-CT centres combine nuclear medicine's radioactive tracer administration with high-resolution CT imaging — creating facilities that require both radiation shielding to AERB nuclear medicine standards and CT room technical design in a single integrated environment.", "ARCHORA designs and builds PET-CT and advanced imaging centres to the full scope of AERB radiation facility licence requirements."],
+    intro: ["PET-CT centres combine nuclear medicine's radioactive tracer administration with high-resolution CT imaging, creating facilities that require both radiation shielding to AERB nuclear medicine standards and CT room technical design in a single integrated environment.", "ARCHORA designs and builds PET-CT and advanced imaging centres to the full scope of AERB radiation facility licence requirements."],
     services: [
       { title: "PET-CT Scanner Room Design", description: "Heavily shielded PET-CT rooms with correct primary and secondary barrier calculations, patient injection and uptake room sequence, and dedicated MEP systems." },
       { title: "Radiopharmaceutical Dispensing Infrastructure", description: "Hot cell or dispensing unit provisions for FDG and other tracers, with shielding, ventilation, and waste management design." },
@@ -533,7 +533,7 @@ const facilityData: Record<string, FacilityData> = {
       { title: "Construction & Commissioning", description: "Specialist shielding, MEP, and scanner installation coordination. AERB inspection support and commissioning." },
     ],
     faqs: [
-      { q: "Why does a PET-CT centre need more shielding than a standard CT scanner room?", a: "PET imaging uses radioactive tracers that emit positron radiation — which in turn produces annihilation photons at 511 keV, significantly higher energy than standard X-ray CT radiation. This requires substantially thicker shielding for scanner rooms, uptake rooms, and injection areas, calculated specifically for PET-CT workload." },
+      { q: "Why does a PET-CT centre need more shielding than a standard CT scanner room?", a: "PET imaging uses radioactive tracers that emit positron radiation, which in turn produces annihilation photons at 511 keV, significantly higher energy than standard X-ray CT radiation. This requires substantially thicker shielding for scanner rooms, uptake rooms, and injection areas, calculated specifically for PET-CT workload." },
     ],
     ctaHeading: "Planning a PET-CT or Advanced Imaging Centre?",
     ctaBody: "PET-CT infrastructure sits at the intersection of nuclear medicine and advanced diagnostic imaging. ARCHORA has the combined AERB compliance and imaging facility expertise your project needs.",
@@ -598,7 +598,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-16": {
     id: "F-16", title: "Blood Bank", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#a78bfa", catLabel: "Laboratories", urlSlug: "/healthcare-facilities/blood-bank",
-    intro: ["Blood banks are among the most strictly regulated clinical facilities in India — requiring compliance with the Drugs and Cosmetics Act, NABH Blood Bank Accreditation, and specific facility standards for blood collection, processing, testing, storage, and issue.", "ARCHORA designs and builds blood bank facilities to the full scope of regulatory and accreditation requirements."],
+    intro: ["Blood banks are among the most strictly regulated clinical facilities in India, requiring compliance with the Drugs and Cosmetics Act, NABH Blood Bank Accreditation, and specific facility standards for blood collection, processing, testing, storage, and issue.", "ARCHORA designs and builds blood bank facilities to the full scope of regulatory and accreditation requirements."],
     services: [
       { title: "Blood Bank Workflow Design", description: "Donor area, collection, component separation, serology testing, storage, and issue area layouts designed for correct unidirectional workflow and contamination prevention." },
       { title: "Cold Storage Infrastructure", description: "Blood refrigerator bays, platelet agitator provisions, plasma freezer infrastructure, and cold chain monitoring systems." },
@@ -627,7 +627,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-17": {
     id: "F-17", title: "Molecular & Genetics Laboratory", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#a78bfa", catLabel: "Laboratories", urlSlug: "/healthcare-facilities/molecular-genetics-lab",
-    intro: ["Molecular and genetics laboratories require highly specialised infrastructure — including contamination-controlled PCR room sequences, biosafety provisions, and dedicated ventilation systems that prevent cross-contamination between pre- and post-amplification areas.", "ARCHORA designs and builds molecular diagnostics and genetics laboratories to NABL and biosafety compliance standards."],
+    intro: ["Molecular and genetics laboratories require highly specialised infrastructure, including contamination-controlled PCR room sequences, biosafety provisions, and dedicated ventilation systems that prevent cross-contamination between pre- and post-amplification areas.", "ARCHORA designs and builds molecular diagnostics and genetics laboratories to NABL and biosafety compliance standards."],
     services: [
       { title: "PCR Room Sequence Design", description: "Pre-amplification, amplification, and post-amplification room sequence with correct pressure relationships, unidirectional workflow, and contamination prevention provisions." },
       { title: "Next-Generation Sequencing Infrastructure", description: "Dedicated NGS room layouts with correct temperature control, vibration isolation for sequencing instruments, and power provisions." },
@@ -645,7 +645,7 @@ const facilityData: Record<string, FacilityData> = {
       { title: "Construction & Commissioning", description: "Civil works, MEP, specialist fittings, and NABL readiness walkthrough." },
     ],
     faqs: [
-      { q: "Why do PCR laboratories require a specific room sequence?", a: "PCR amplification produces enormous quantities of DNA that can contaminate pre-amplification areas if not correctly segregated. A correct PCR laboratory has physically separate rooms for pre-amplification (sample prep and reaction setup) and post-amplification (amplification and detection), with a unidirectional workflow — material and personnel only move in one direction through the sequence, and the rooms are at different pressure relationships to prevent cross-contamination." },
+      { q: "Why do PCR laboratories require a specific room sequence?", a: "PCR amplification produces enormous quantities of DNA that can contaminate pre-amplification areas if not correctly segregated. A correct PCR laboratory has physically separate rooms for pre-amplification (sample prep and reaction setup) and post-amplification (amplification and detection), with a unidirectional workflow, material and personnel only move in one direction through the sequence, and the rooms are at different pressure relationships to prevent cross-contamination." },
     ],
     ctaHeading: "Building a Molecular or Genetics Laboratory?",
     ctaBody: "Molecular laboratory infrastructure requires an understanding of contamination control, biosafety, and NABL compliance that general contractors cannot provide. ARCHORA can.",
@@ -682,7 +682,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-19": {
     id: "F-19", title: "IVF Lab & Fertility Centre", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#34d399", catLabel: "Fertility & Reproductive Health", urlSlug: "/healthcare-facilities/ivf-lab-fertility-centre",
-    intro: ["IVF laboratories and fertility centres are among the most environmentally sensitive clinical facilities — embryo culture environments require ultra-low levels of volatile organic compounds, precise temperature stability, and meticulous contamination control that most construction teams do not understand.", "ARCHORA designs and builds IVF and fertility facilities to ART Act 2021, ICMR, and NABH SHCO standards."],
+    intro: ["IVF laboratories and fertility centres are among the most environmentally sensitive clinical facilities, embryo culture environments require ultra-low levels of volatile organic compounds, precise temperature stability, and meticulous contamination control that most construction teams do not understand.", "ARCHORA designs and builds IVF and fertility facilities to ART Act 2021, ICMR, and NABH SHCO standards."],
     services: [
       { title: "IVF Laboratory Environmental Design", description: "Ultra-low VOC materials specification, HEPA-filtered positive pressure air systems, temperature stability provisions, and contamination control design for embryo culture environments." },
       { title: "Embryology Lab Layout Planning", description: "Workstation, incubator, microscope, and cryostorage area layouts optimised for clinical workflow and environmental stability." },
@@ -737,7 +737,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-21": {
     id: "F-21", title: "Medical College & Teaching Hospital", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#f59e0b", catLabel: "Medical & Nursing Education", urlSlug: "/healthcare-facilities/medical-college",
-    intro: ["Medical colleges and teaching hospitals represent the most complex category of healthcare infrastructure — combining a full-service hospital with lecture halls, demonstration rooms, dissection halls, skills labs, libraries, and student facilities, all under NMC inspection standards.", "ARCHORA designs and builds medical college campuses and teaching hospital facilities to NMC approval requirements and full NABH hospital standards."],
+    intro: ["Medical colleges and teaching hospitals represent the most complex category of healthcare infrastructure, combining a full-service hospital with lecture halls, demonstration rooms, dissection halls, skills labs, libraries, and student facilities, all under NMC inspection standards.", "ARCHORA designs and builds medical college campuses and teaching hospital facilities to NMC approval requirements and full NABH hospital standards."],
     services: [
       { title: "Teaching Hospital Infrastructure", description: "Full-service teaching hospital design meeting NMC bed requirements, department specifications, and clinical training provisions." },
       { title: "Medical Education Facilities", description: "Lecture theatres, tutorial rooms, clinical skills laboratories, simulation centres, and anatomy dissection halls designed to NMC standards." },
@@ -768,7 +768,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-22": {
     id: "F-22", title: "Nursing College & School of Nursing", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#f59e0b", catLabel: "Medical & Nursing Education", urlSlug: "/healthcare-facilities/nursing-college",
-    intro: ["Nursing colleges and schools of nursing require clinical skills laboratories, demonstration rooms, lecture facilities, library infrastructure, and hostel facilities — all meeting Indian Nursing Council standards for approval and affiliation.", "ARCHORA designs and builds nursing education facilities to INC standards."],
+    intro: ["Nursing colleges and schools of nursing require clinical skills laboratories, demonstration rooms, lecture facilities, library infrastructure, and hostel facilities, all meeting Indian Nursing Council standards for approval and affiliation.", "ARCHORA designs and builds nursing education facilities to INC standards."],
     services: [
       { title: "Clinical Skills Laboratory", description: "INC-compliant clinical skills labs with procedure beds, mannequins, task trainers, and AV infrastructure." },
       { title: "Nursing Arts & Demonstration Rooms", description: "Dedicated demonstration rooms for nursing procedures with correct fixture, fitting, and equipment provisions." },
@@ -788,7 +788,7 @@ const facilityData: Record<string, FacilityData> = {
       { title: "Construction & Commissioning", description: "Civil works, MEP, specialist lab fittings, and INC inspection readiness." },
     ],
     faqs: [
-      { q: "What facilities does a nursing college require for INC approval?", a: "INC requires clinical skills laboratories with specified equipment, nursing arts and demonstration rooms, lecture theatres with adequate seating, a library with prescribed texts and journals, computer laboratory, and hostel facilities meeting INC space standards — all subject to INC inspection before approval." },
+      { q: "What facilities does a nursing college require for INC approval?", a: "INC requires clinical skills laboratories with specified equipment, nursing arts and demonstration rooms, lecture theatres with adequate seating, a library with prescribed texts and journals, computer laboratory, and hostel facilities meeting INC space standards, all subject to INC inspection before approval." },
     ],
     ctaHeading: "Building a Nursing College?",
     ctaBody: "INC approval requires precise facility compliance. ARCHORA brings the regulatory expertise and construction capability to deliver it.",
@@ -797,7 +797,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-23": {
     id: "F-23", title: "Pharmacy College", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#f59e0b", catLabel: "Medical & Nursing Education", urlSlug: "/healthcare-facilities/pharmacy-college",
-    intro: ["Pharmacy colleges require highly specialised laboratory infrastructure — pharmaceutical chemistry labs, pharmacology labs, pharmacognosy museums, machine rooms, and hospital pharmacy practice facilities — all meeting Pharmacy Council of India approval standards.", "ARCHORA designs and builds pharmacy college infrastructure to PCI approval standards."],
+    intro: ["Pharmacy colleges require highly specialised laboratory infrastructure (pharmaceutical chemistry labs, pharmacology labs, pharmacognosy museums, machine rooms, and hospital pharmacy practice facilities) all meeting Pharmacy Council of India approval standards.", "ARCHORA designs and builds pharmacy college infrastructure to PCI approval standards."],
     services: [
       { title: "Pharmaceutical Chemistry Laboratory", description: "Fume hood-equipped chemistry laboratories with correct services, chemical storage, and waste management provisions." },
       { title: "Pharmacology & Physiology Laboratory", description: "Animal experimental facilities, instrument rooms, and pharmacological testing laboratory design." },
@@ -816,7 +816,7 @@ const facilityData: Record<string, FacilityData> = {
       { title: "Construction & Commissioning", description: "Civil works, laboratory fittings, MEP, and PCI inspection readiness." },
     ],
     faqs: [
-      { q: "What laboratories does a pharmacy college require?", a: "PCI requires pharmaceutical chemistry, pharmacognosy, pharmacology, pharmaceutical analysis, pharmaceutics, and hospital/community pharmacy practice laboratories — each with specified equipment lists and space standards that are subject to PCI inspection." },
+      { q: "What laboratories does a pharmacy college require?", a: "PCI requires pharmaceutical chemistry, pharmacognosy, pharmacology, pharmaceutical analysis, pharmaceutics, and hospital/community pharmacy practice laboratories, each with specified equipment lists and space standards that are subject to PCI inspection." },
     ],
     ctaHeading: "Building a Pharmacy College?",
     ctaBody: "PCI laboratory standards require specialist knowledge. ARCHORA brings the regulatory and laboratory design expertise to every pharmacy college project.",
@@ -825,7 +825,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-24": {
     id: "F-24", title: "Allied Health Sciences College", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#f59e0b", catLabel: "Medical & Nursing Education", urlSlug: "/healthcare-facilities/allied-health-college",
-    intro: ["Allied health sciences colleges offer programmes in physiotherapy, occupational therapy, medical laboratory technology, radiography, and other clinical disciplines — each with specific laboratory, clinical skills, and equipment infrastructure requirements.", "ARCHORA designs and builds allied health education facilities to state health university affiliation standards."],
+    intro: ["Allied health sciences colleges offer programmes in physiotherapy, occupational therapy, medical laboratory technology, radiography, and other clinical disciplines, each with specific laboratory, clinical skills, and equipment infrastructure requirements.", "ARCHORA designs and builds allied health education facilities to state health university affiliation standards."],
     services: [
       { title: "Physiotherapy Laboratory", description: "Electrotherapy, exercise therapy, and manual therapy laboratory design with correct equipment provisions." },
       { title: "Medical Laboratory Technology Laboratory", description: "NABL-aligned laboratory design for MLT practical training." },
@@ -852,7 +852,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-25": {
     id: "F-25", title: "Dental College", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#f59e0b", catLabel: "Medical & Nursing Education", urlSlug: "/healthcare-facilities/dental-college",
-    intro: ["Dental colleges require a unique combination of clinical dental hospital infrastructure and dedicated preclinical and clinical teaching laboratories — all meeting Dental Council of India approval standards.", "ARCHORA designs and builds dental college and teaching dental hospital facilities to DCI inspection standards."],
+    intro: ["Dental colleges require a unique combination of clinical dental hospital infrastructure and dedicated preclinical and clinical teaching laboratories, all meeting Dental Council of India approval standards.", "ARCHORA designs and builds dental college and teaching dental hospital facilities to DCI inspection standards."],
     services: [
       { title: "Teaching Dental Hospital", description: "DCI-compliant dental hospital with correct chair count, department composition, and clinical training provisions." },
       { title: "Preclinical Dental Laboratory", description: "Phantom head laboratory with correct cubicle design, central suction, compressed air, and lighting provisions." },
@@ -871,7 +871,7 @@ const facilityData: Record<string, FacilityData> = {
       { title: "Construction & Commissioning", description: "Civil works, dental systems, MEP, and DCI inspection readiness." },
     ],
     faqs: [
-      { q: "What does DCI require for a dental college?", a: "DCI specifies minimum requirements for clinical chair count, department composition, preclinical phantom head laboratory, dental technology laboratory, dental materials laboratory, oral pathology laboratory, and teaching hospital clinical training provisions — all subject to DCI inspection." },
+      { q: "What does DCI require for a dental college?", a: "DCI specifies minimum requirements for clinical chair count, department composition, preclinical phantom head laboratory, dental technology laboratory, dental materials laboratory, oral pathology laboratory, and teaching hospital clinical training provisions, all subject to DCI inspection." },
     ],
     ctaHeading: "Building a Dental College?",
     ctaBody: "DCI compliance requires dental college-specific infrastructure expertise. ARCHORA brings it.",
@@ -907,7 +907,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-27": {
     id: "F-27", title: "Day Care Surgery Centre", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#fb923c", catLabel: "Primary & Ambulatory Care", urlSlug: "/healthcare-facilities/day-care-surgery",
-    intro: ["Day care surgery centres deliver high-volume surgical procedures without overnight admission — requiring OT infrastructure, recovery areas, anaesthesia provisions, and clinical support systems in a compact, efficient footprint.", "ARCHORA designs and builds day care surgery facilities to NABH SHCO accreditation standards."],
+    intro: ["Day care surgery centres deliver high-volume surgical procedures without overnight admission, requiring OT infrastructure, recovery areas, anaesthesia provisions, and clinical support systems in a compact, efficient footprint.", "ARCHORA designs and builds day care surgery facilities to NABH SHCO accreditation standards."],
     services: [
       { title: "Modular Day Care OT", description: "Laminar airflow OTs designed for day surgery case volumes with efficient turnover, anaesthesia integration, and infection control compliance." },
       { title: "Recovery Bay Design", description: "PACU-style recovery bays with nurse station visibility, medical gas, and monitoring provisions." },
@@ -925,7 +925,7 @@ const facilityData: Record<string, FacilityData> = {
       { title: "Construction & Commissioning", description: "Civil works, modular OT, MEP, and NABH readiness walkthrough." },
     ],
     faqs: [
-      { q: "What OT infrastructure does a day care surgery centre require?", a: "A day care surgery OT requires laminar airflow, medical gas (oxygen, nitrous oxide, air, vacuum), anaesthesia machine infrastructure, integrated surgical lighting, OT control panel, and stainless steel wall systems — the same core requirements as a hospital OT, but often in a more compact footprint optimised for high turnover." },
+      { q: "What OT infrastructure does a day care surgery centre require?", a: "A day care surgery OT requires laminar airflow, medical gas (oxygen, nitrous oxide, air, vacuum), anaesthesia machine infrastructure, integrated surgical lighting, OT control panel, and stainless steel wall systems, the same core requirements as a hospital OT, but often in a more compact footprint optimised for high turnover." },
     ],
     ctaHeading: "Building a Day Care Surgery Centre?",
     ctaBody: "Day care surgery requires the same OT quality as a full hospital. ARCHORA delivers it.",
@@ -952,7 +952,7 @@ const facilityData: Record<string, FacilityData> = {
       { title: "Construction & Commissioning", description: "Civil works, RO system, MEP, dialysis station fit-out, and NABH readiness walkthrough." },
     ],
     faqs: [
-      { q: "What water quality standards apply to a dialysis centre?", a: "Haemodialysis water must meet AAMI (Association for the Advancement of Medical Instrumentation) or ISO 23500 standards for chemical contaminants, bacterial contamination, and endotoxin levels. This requires a multi-stage water treatment system typically including pre-treatment, softening, activated carbon filtration, reverse osmosis, and distribution loop — all designed and validated to dialysis-specific standards." },
+      { q: "What water quality standards apply to a dialysis centre?", a: "Haemodialysis water must meet AAMI (Association for the Advancement of Medical Instrumentation) or ISO 23500 standards for chemical contaminants, bacterial contamination, and endotoxin levels. This requires a multi-stage water treatment system typically including pre-treatment, softening, activated carbon filtration, reverse osmosis, and distribution loop, all designed and validated to dialysis-specific standards." },
     ],
     ctaHeading: "Building a Dialysis Centre?",
     ctaBody: "Dialysis infrastructure requires specialist water treatment and clinical design expertise. ARCHORA delivers both.",
@@ -988,7 +988,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-30": {
     id: "F-30", title: "Stroke Care Centre", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#fb923c", catLabel: "Primary & Ambulatory Care", urlSlug: "/healthcare-facilities/stroke-care-centre",
-    intro: ["Stroke care centres require time-critical clinical infrastructure — stroke units with rapid imaging access, dedicated ICU beds, thrombolysis capability, and rehabilitation facilities — all designed around the 'time is brain' principle of acute stroke management.", "ARCHORA designs and builds primary and advanced stroke care infrastructure to NABH Stroke Centre Certification standards."],
+    intro: ["Stroke care centres require time-critical clinical infrastructure (stroke units with rapid imaging access, dedicated ICU beds, thrombolysis capability, and rehabilitation facilities) all designed around the 'time is brain' principle of acute stroke management.", "ARCHORA designs and builds primary and advanced stroke care infrastructure to NABH Stroke Centre Certification standards."],
     services: [
       { title: "Acute Stroke Unit Design", description: "Dedicated stroke unit bed bays with monitoring, medical gas, and imaging adjacency designed for rapid assessment and treatment." },
       { title: "CT & MRI Suite Adjacency Planning", description: "Stroke pathway-optimised imaging suite locations with rapid access from emergency and stroke unit." },
@@ -1016,7 +1016,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-31": {
     id: "F-31", title: "Psychiatry & Mental Health Hospital", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#f43f5e", catLabel: "Specialised & Emerging", urlSlug: "/healthcare-facilities/psychiatry-mental-health",
-    intro: ["Psychiatry and mental health hospitals require infrastructure designed specifically around patient safety, therapeutic environment quality, and de-escalation principles — with safety provisions that protect patients and staff without creating institutional or punitive environments.", "ARCHORA designs and builds mental health facilities to Mental Healthcare Act 2017 and NABH standards."],
+    intro: ["Psychiatry and mental health hospitals require infrastructure designed specifically around patient safety, therapeutic environment quality, and de-escalation principles, with safety provisions that protect patients and staff without creating institutional or punitive environments.", "ARCHORA designs and builds mental health facilities to Mental Healthcare Act 2017 and NABH standards."],
     services: [
       { title: "Safe Environment Design", description: "Ligature-resistant fixtures, anti-barricade doors, observation provisions, and safety engineering integrated seamlessly into therapeutic interior design." },
       { title: "Inpatient Ward Design", description: "Open, dignified ward environments with correct patient observation, safety provisions, and natural light that support recovery." },
@@ -1035,7 +1035,7 @@ const facilityData: Record<string, FacilityData> = {
       { title: "Construction & Commissioning", description: "Civil works, specialist safety fittings, MEP, and NABH readiness walkthrough." },
     ],
     faqs: [
-      { q: "What safety features are required in a mental health hospital?", a: "Mental health hospital safety infrastructure includes ligature-resistant fixtures and fittings throughout inpatient areas, anti-barricade door systems, correct observation sightlines from nursing stations, secured outdoor spaces, and safety-glazed windows — all integrated into a therapeutic environment rather than an institutional one, in compliance with Mental Healthcare Act 2017 and NABH standards." },
+      { q: "What safety features are required in a mental health hospital?", a: "Mental health hospital safety infrastructure includes ligature-resistant fixtures and fittings throughout inpatient areas, anti-barricade door systems, correct observation sightlines from nursing stations, secured outdoor spaces, and safety-glazed windows, all integrated into a therapeutic environment rather than an institutional one, in compliance with Mental Healthcare Act 2017 and NABH standards." },
     ],
     ctaHeading: "Building a Psychiatry or Mental Health Facility?",
     ctaBody: "Mental health infrastructure requires a combination of safety engineering and therapeutic environment expertise. ARCHORA brings both.",
@@ -1044,7 +1044,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-32": {
     id: "F-32", title: "Addiction & Rehabilitation Centre", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#f43f5e", catLabel: "Specialised & Emerging", urlSlug: "/healthcare-facilities/addiction-rehabilitation",
-    intro: ["Addiction and rehabilitation centres require residential treatment infrastructure combining clinical detoxification facilities, group therapy spaces, individual counselling rooms, and supportive living environments — all under IRCA accreditation and Ministry of Social Justice registration requirements.", "ARCHORA designs and builds addiction treatment infrastructure to NABH IRCA accreditation standards."],
+    intro: ["Addiction and rehabilitation centres require residential treatment infrastructure combining clinical detoxification facilities, group therapy spaces, individual counselling rooms, and supportive living environments, all under IRCA accreditation and Ministry of Social Justice registration requirements.", "ARCHORA designs and builds addiction treatment infrastructure to NABH IRCA accreditation standards."],
     services: [
       { title: "Residential Treatment Ward Design", description: "Safe, supportive inpatient ward design with correct clinical monitoring and therapeutic environment provisions." },
       { title: "Group Therapy & Counselling Room Design", description: "Therapeutic group rooms, individual counselling rooms, and family therapy spaces designed around recovery programme models." },
@@ -1071,7 +1071,7 @@ const facilityData: Record<string, FacilityData> = {
   "F-33": {
     id: "F-33", title: "Palliative Care Centre", subtitle: "Infrastructure Design & Construction by ARCHORA",
     accentColor: "#f43f5e", catLabel: "Specialised & Emerging", urlSlug: "/healthcare-facilities/palliative-care",
-    intro: ["Palliative care centres support patients with life-limiting illness and their families — requiring environments that prioritise dignity, comfort, family presence, and holistic wellbeing alongside clinical care.", "ARCHORA designs and builds palliative care facilities to NABH Care Homes Accreditation standards, creating spaces that serve patients and families with the sensitivity and quality they deserve."],
+    intro: ["Palliative care centres support patients with life-limiting illness and their families, requiring environments that prioritise dignity, comfort, family presence, and holistic wellbeing alongside clinical care.", "ARCHORA designs and builds palliative care facilities to NABH Care Homes Accreditation standards, creating spaces that serve patients and families with the sensitivity and quality they deserve."],
     services: [
       { title: "Patient Room Design", description: "Single-occupancy palliative care rooms with space for family, natural light, personalisation provisions, and clinical infrastructure that does not dominate the environment." },
       { title: "Family Support & Bereavement Space", description: "Family sitting rooms, overnight accommodation provisions, counselling rooms, and bereavement support spaces." },
@@ -1089,7 +1089,7 @@ const facilityData: Record<string, FacilityData> = {
       { title: "Construction & Commissioning", description: "Civil works, MEP, specialist interiors, and NABH readiness walkthrough." },
     ],
     faqs: [
-      { q: "How is palliative care facility design different from a standard ward?", a: "Palliative care design prioritises single-occupancy rooms with family space, natural light, homelike interiors, and gardens — rather than the clinical efficiency focus of acute ward design. Clinical infrastructure (medical gas, IV access, monitoring) is present but integrated discreetly so as not to dominate the environment." },
+      { q: "How is palliative care facility design different from a standard ward?", a: "Palliative care design prioritises single-occupancy rooms with family space, natural light, homelike interiors, and gardens, rather than the clinical efficiency focus of acute ward design. Clinical infrastructure (medical gas, IV access, monitoring) is present but integrated discreetly so as not to dominate the environment." },
     ],
     ctaHeading: "Building a Palliative Care Centre?",
     ctaBody: "Palliative care environments require a combination of clinical function and therapeutic design sensitivity. ARCHORA delivers both.",
@@ -1289,10 +1289,6 @@ export function FacilityDetailPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}
           >
-            <svg width="12" height="12" viewBox="0 0 20 20" fill="none">
-              <rect x="6.5" y="1" width="7" height="18" rx="1.5" fill="#c0392b" opacity=".8" />
-              <rect x="1" y="6.5" width="18" height="7" rx="1.5" fill="#c0392b" opacity=".8" />
-            </svg>
             <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 8.5, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>
               {data.catLabel} · {data.id}
             </span>
