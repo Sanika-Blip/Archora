@@ -18,7 +18,7 @@ export function Navbar() {
     { path: "/about", label: "About" },
     { path: "/services", label: "Services" },
     { path: "/facilities", label: "Facilities" },
-    { path: "/our-flow", label: "Our Process" },
+    { path: "/projects", label: "Projects" },
     { path: "/why-us", label: "Why Us" },
     { path: "/journal", label: "Journal" },
     { path: "/contact", label: "Contact" },
@@ -27,7 +27,7 @@ export function Navbar() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
         .nav-teal-line::after {
           content: '';
@@ -48,7 +48,7 @@ export function Navbar() {
           font-size: 11px;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          font-weight: 400;
+          font-weight: 700;
           text-decoration: none;
           padding-bottom: 3px;
           transition: color 0.2s ease;
@@ -78,7 +78,7 @@ export function Navbar() {
           font-size: 11px;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          font-weight: 500;
+          font-weight: 700;
           border: 1px solid;
           background: transparent;
           cursor: pointer;
@@ -95,8 +95,9 @@ export function Navbar() {
         }
 
         .nav-cta-btn.dark {
-          border-color: rgba(75, 204, 212, 0.5);
-          color: #4bccd4;
+          border-color: #0a2233;
+          background: #0a2233;
+          color: #ffffff;
         }
 
         .nav-cta-btn.dark:hover {
@@ -106,7 +107,7 @@ export function Navbar() {
         }
 
         .nav-cta-btn.light {
-          border-color: rgba(15, 74, 117, 0.55);
+          border-color: #0f4a75;
           color: #0f4a75;
         }
 
@@ -122,12 +123,12 @@ export function Navbar() {
           font-size: 13px;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          font-weight: 400;
+          font-weight: 600;
           text-decoration: none;
           padding: 14px 0;
           border-bottom: 1px solid rgba(255,255,255,0.06);
           transition: color 0.2s;
-          color: rgba(255,255,255,0.75);
+          color: rgba(255,255,255,0.92);
         }
 
         .mobile-link-item.active {
@@ -135,7 +136,7 @@ export function Navbar() {
         }
 
         .mobile-link-item:hover {
-          color: rgba(255,255,255,0.9);
+          color: #ffffff;
         }
 
         .mobile-cta-btn {
@@ -150,16 +151,16 @@ export function Navbar() {
           font-size: 11px;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          font-weight: 500;
-          border: 1px solid rgba(75, 204, 212, 0.45);
-          background: transparent;
-          color: #4bccd4;
+          font-weight: 700;
+          border: 1px solid #4bccd4;
+          background: #4bccd4;
+          color: #041c2e;
           cursor: pointer;
           transition: all 0.25s ease;
         }
 
         .mobile-cta-btn:hover {
-          background: #4bccd4;
+          background: #3bb8c0;
           color: #041c2e;
         }
 
@@ -189,11 +190,9 @@ export function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-teal-line ${isScrolled ? "scrolled" : ""}`}
         style={{
-          background: isScrolled ? "rgba(255,255,255,0.97)" : "transparent",
-          backdropFilter: isScrolled ? "blur(12px)" : "none",
-          borderBottom: isScrolled
-            ? "1px solid rgba(0,0,0,0.07)"
-            : "1px solid rgba(75,204,212,0.1)",
+          background: "rgba(255,255,255,0.97)",
+          backdropFilter: "blur(12px)",
+          borderBottom: "1px solid rgba(0,0,0,0.07)",
         }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -210,15 +209,13 @@ export function Navbar() {
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: "10px",
+                  fontWeight: 600,
                   letterSpacing: "0.22em",
                   textTransform: "uppercase",
-                  color: isScrolled ? "rgba(0,0,0,0.55)" : "rgba(255,255,255,0.55)",
-                  borderLeft: isScrolled
-                    ? "1px solid rgba(0,0,0,0.1)"
-                    : "1px solid rgba(255,255,255,0.12)",
+                  color: "rgba(0,0,0,0.78)",
+                  borderLeft: "1px solid rgba(0,0,0,0.15)",
                   paddingLeft: "12px",
                   lineHeight: 1,
-                  transition: "color 0.3s ease, border-color 0.3s ease",
                 }}
               >
                 Healthcare Architecture
@@ -236,10 +233,8 @@ export function Navbar() {
                     to={link.path}
                     className={`nav-link-item ${isActive ? "active" : ""}`}
                     style={{
-                      color: isActive
-                        ? isScrolled ? "#0a2233" : "#ffffff"
-                        : isScrolled ? "rgba(10,34,51,0.72)" : "rgba(255,255,255,0.78)",
-                      ["--link-underline-color" as string]: isScrolled ? "#0f7a8a" : "#4bccd4",
+                      color: "#0a2233",
+                      ["--link-underline-color" as string]: "#0f7a8a",
                     }}
                   >
                     <style>{`
@@ -264,12 +259,11 @@ export function Navbar() {
                 style={{
                   width: "1px",
                   height: "20px",
-                  background: isScrolled ? "rgba(0,0,0,0.1)" : "rgba(255,255,255,0.14)",
-                  transition: "background 0.3s ease",
+                  background: "rgba(0,0,0,0.1)",
                 }}
               />
               <Link to="/contact">
-                <button className={`nav-cta-btn ${isScrolled ? "light" : "dark"}`}>
+                <button className="nav-cta-btn light">
                   Get Started
                   <span className="cta-arrow">→</span>
                 </button>
@@ -280,7 +274,7 @@ export function Navbar() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden transition-colors"
-              style={{ color: isScrolled ? "#0a2233" : "#ffffff" }}
+              style={{ color: "#0a2233" }}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -307,7 +301,7 @@ export function Navbar() {
                 >
                   {link.label}
                   {link.path === "/facilities" && (
-                    <span style={{ marginLeft: 8, fontSize: 9, letterSpacing: "1.5px", color: "#4bccd4", opacity: 0.7 }}>35 Types</span>
+                    <span style={{ marginLeft: 8, fontSize: 9, letterSpacing: "1.5px", color: "#4bccd4", opacity: 0.9 }}>35 Types</span>
                   )}
                 </Link>
               ))}

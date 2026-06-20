@@ -157,7 +157,7 @@ function SectionLabel({ text, light = false }: { text: string; light?: boolean }
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
       <span style={{ width: 28, height: 1, background: light ? "rgba(75,204,212,0.6)" : C.blue, display: "block" }} />
-      <span style={{ fontFamily: "monospace", fontSize: 10, letterSpacing: "0.28em", textTransform: "uppercase", color: light ? "rgba(75,204,212,0.7)" : C.blue }}>
+      <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 10, letterSpacing: "0.28em", textTransform: "uppercase", color: light ? "rgba(75,204,212,0.7)" : C.blue }}>
         {text}
       </span>
     </div>
@@ -191,7 +191,7 @@ const inputStyle: React.CSSProperties = {
   background: "rgba(255,255,255,0.04)",
   border: "1px solid rgba(75,204,212,0.18)",
   color: C.white,
-  fontFamily: "'Georgia', serif",
+  fontFamily: "Calibri, Arial, sans-serif",
   fontSize: 14,
   outline: "none",
   transition: "border-color 0.2s, background 0.2s",
@@ -202,7 +202,7 @@ const labelStyle: React.CSSProperties = {
   display: "block",
   color: "rgba(255,255,255,0.45)",
   fontSize: 9,
-  fontFamily: "monospace",
+  fontFamily: "Calibri, Arial, sans-serif",
   letterSpacing: "0.22em",
   textTransform: "uppercase",
   marginBottom: 8,
@@ -218,23 +218,6 @@ function FormInput({ id, label, type = "text", placeholder, required }: { id: st
         onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
         style={{ ...inputStyle, borderColor: focused ? "rgba(75,204,212,0.6)" : "rgba(75,204,212,0.18)", background: focused ? "rgba(75,204,212,0.05)" : "rgba(255,255,255,0.04)" }}
       />
-    </div>
-  );
-}
-
-function FormSelect({ id, label, options, required }: { id: string; label: string; options: string[]; required?: boolean }) {
-  const [focused, setFocused] = useState(false);
-  return (
-    <div>
-      <label htmlFor={id} style={labelStyle}>{label}{required && <span style={{ color: C.red, marginLeft: 4 }}>*</span>}</label>
-      <select
-        id={id} name={id} required={required}
-        onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
-        style={{ ...inputStyle, appearance: "none", cursor: "pointer", borderColor: focused ? "rgba(75,204,212,0.6)" : "rgba(75,204,212,0.18)", background: focused ? "#0a2540" : "#091525" }}
-      >
-        <option value="" style={{ background: "#091525" }}>Select…</option>
-        {options.map(o => <option key={o} value={o} style={{ background: "#091525" }}>{o}</option>)}
-      </select>
     </div>
   );
 }
@@ -256,38 +239,6 @@ function FormTextarea({ id, label, placeholder, rows = 5, required }: { id: stri
 // ─────────────────────────────────────────────
 // DATA
 // ─────────────────────────────────────────────
-const projectTypes = [
-  "Hospital / Multispeciality Hospital",
-  "Clinic / Polyclinic",
-  "Modular Operation Theatre (OT)",
-  "ICU Setup",
-  "IVF Lab",
-  "Diagnostic Centre / Pathology Lab",
-  "Medical College / Healthcare Institution",
-  "Healthcare Interior / Renovation",
-  "Other",
-];
-
-const projectStages = [
-  "Just Planning / Exploring",
-  "Land / Space Identified",
-  "Design & Approvals Stage",
-  "Construction Ready",
-  "Under Construction",
-  "Renovation / Expansion",
-];
-
-const services = [
-  { title: "Hospital Design & Architecture", desc: "Functional, patient-centric, NABH-ready layouts" },
-  { title: "Turnkey Hospital Construction", desc: "End-to-end execution from concept to commissioning" },
-  { title: "Modular OT & ICU Setup", desc: "Plug-and-play surgical and critical care infrastructure" },
-  { title: "Healthcare Interiors", desc: "Clinical-grade interiors for hospitals, clinics, and diagnostic centres" },
-  { title: "MEP Services", desc: "Medical-grade mechanical, electrical, and plumbing systems" },
-  { title: "IVF Labs & Diagnostic Centres", desc: "Specialised infrastructure for fertility and diagnostics" },
-  { title: "NABH Compliance Consulting", desc: "Facility planning aligned to NABH standards" },
-  { title: "Project Management", desc: "Professional oversight for healthcare construction projects" },
-];
-
 const faqs = [
   {
     q: "What types of healthcare projects does ARCHORA handle?",
@@ -334,7 +285,7 @@ export function Contact() {
     <>
       <SEOHead />
 
-      <div style={{ fontFamily: "'Georgia', serif", overflowX: "hidden", background: C.navy }}>
+      <div style={{ fontFamily: "Calibri, Arial, sans-serif", overflowX: "hidden", background: C.navy }}>
 
         {/* ══════════════════════════════════════════
             HERO
@@ -375,20 +326,20 @@ export function Contact() {
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
-                <span style={{ color: "rgba(255,255,255,0.38)", fontSize: 10, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "monospace" }}>
+                <span style={{ color: "rgba(255,255,255,0.38)", fontSize: 10, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif" }}>
                   Healthcare Infrastructure
                 </span>
               </div>
               <h1 style={{
                 fontSize: "clamp(2.4rem, 5vw, 4.2rem)", color: C.white,
-                fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400,
+                fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400,
                 lineHeight: 1.06, marginBottom: 16, letterSpacing: "-0.01em",
               }}>
                 Let's Build Your<br />
                 <em style={{ color: C.teal, fontStyle: "italic" }}>Healthcare Facility</em> Together
               </h1>
               {/* ↑ UPDATED: fontSize 15 → 17 */}
-              <p style={{ color: "rgba(255,255,255,0.52)", fontSize: 17, lineHeight: 1.75, maxWidth: 520, fontFamily: "sans-serif" }}>
+              <p style={{ color: "rgba(255,255,255,0.52)", fontSize: 17, lineHeight: 1.75, maxWidth: 520, fontFamily: "Calibri, Arial, sans-serif" }}>
                 Tell us about your project and our team will get back to you within 24 working hours.
               </p>
             </motion.div>
@@ -404,13 +355,13 @@ export function Contact() {
           </div>
 
           <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", position: "relative" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1.3fr 1fr", gap: 80, alignItems: "start" }}>
+            <div style={{ maxWidth: 640, margin: "0 auto" }}>
 
               {/* ── ENQUIRY FORM ── */}
               <div>
                 <motion.div {...fadeUp}>
                   <SectionLabel text="Send Us an Enquiry" light />
-                  <h2 id="enquiry-heading" style={{ color: C.white, fontSize: "clamp(1.7rem, 2.8vw, 2.4rem)", fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, marginBottom: 12, lineHeight: 1.15 }}>
+                  <h2 id="enquiry-heading" style={{ color: C.white, fontSize: "clamp(1.7rem, 2.8vw, 2.4rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, marginBottom: 12, lineHeight: 1.15 }}>
                     Start a Conversation
                   </h2>
                   {/* ↑ UPDATED: fontSize 14 → 16 */}
@@ -439,7 +390,7 @@ export function Contact() {
                           </svg>
                         </div>
                       </div>
-                      <h3 style={{ color: C.white, fontSize: 22, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, marginBottom: 12 }}>
+                      <h3 style={{ color: C.white, fontSize: 22, fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, marginBottom: 12 }}>
                         Enquiry Received
                       </h3>
                       {/* ↑ UPDATED: fontSize 14 → 16 */}
@@ -453,7 +404,7 @@ export function Contact() {
                           display: "inline-flex", alignItems: "center", gap: 8,
                           padding: "11px 26px", background: "#25d366", color: C.white,
                           border: "none", fontSize: 10, letterSpacing: "0.16em",
-                          textTransform: "uppercase", fontFamily: "monospace",
+                          textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif",
                           cursor: "pointer", textDecoration: "none",
                         }}
                       >
@@ -481,25 +432,15 @@ export function Contact() {
                       {/* Row 2: Email + City */}
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                         <FieldGroup delay={0.15}>
-                          <FormInput id="email" label="Email Address" type="email" placeholder="dr.sharma@hospital.com" required />
+                          <FormInput id="email" label="Email Address" type="email" placeholder="dr.sharma@hospital.com" />
                         </FieldGroup>
                         <FieldGroup delay={0.2}>
-                          <FormInput id="city" label="City / Project Location" placeholder="Mumbai, Maharashtra" required />
-                        </FieldGroup>
-                      </div>
-
-                      {/* Row 3: Type + Stage */}
-                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
-                        <FieldGroup delay={0.25}>
-                          <FormSelect id="projectType" label="Type of Project" options={projectTypes} required />
-                        </FieldGroup>
-                        <FieldGroup delay={0.3}>
-                          <FormSelect id="projectStage" label="Project Stage" options={projectStages} required />
+                          <FormInput id="city" label="City / Project Location" placeholder="Mumbai, Maharashtra" />
                         </FieldGroup>
                       </div>
 
                       {/* Message */}
-                      <FieldGroup delay={0.35}>
+                      <FieldGroup delay={0.3}>
                         <FormTextarea
                           id="message" label="Message / Project Brief"
                           placeholder="Tell us about your project, bed count, services planned, timeline, site details, or anything you'd like us to know..."
@@ -510,7 +451,7 @@ export function Contact() {
                       {/* Submit */}
                       <FieldGroup delay={0.4}>
                         <SubmitButton />
-                        <p style={{ marginTop: 16, fontSize: 11, color: "rgba(255,255,255,0.22)", fontFamily: "monospace", lineHeight: 1.7 }}>
+                        <p style={{ marginTop: 16, fontSize: 11, color: "rgba(255,255,255,0.22)", fontFamily: "Calibri, Arial, sans-serif", lineHeight: 1.7 }}>
                           🔒 Your information is safe with us. We never share your details with third parties.{" "}
                           <Link to="/why-us?tab=privacy" style={{ color: "rgba(75,204,212,0.5)", textDecoration: "underline" }}>Privacy Policy</Link>
                         </p>
@@ -519,115 +460,6 @@ export function Contact() {
                   )}
                 </AnimatePresence>
               </div>
-
-              {/* ── CONTACT INFO SIDEBAR ── */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {/* Prefer to Talk Directly */}
-                <div style={{ marginBottom: 36, padding: "28px 28px", border: "1px solid rgba(75,204,212,0.15)", background: "rgba(75,204,212,0.03)", position: "relative" }}>
-                  <div style={{ position: "absolute", top: -1, left: -1, width: 28, height: 28, borderLeft: `2px solid ${C.teal}`, borderTop: `2px solid ${C.teal}`, opacity: 0.5 }} />
-                  <SectionLabel text="Prefer to Talk Directly?" light />
-                  {/* ↑ UPDATED: fontSize 13 → 15 */}
-                  <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 15, lineHeight: 1.8, marginBottom: 24 }}>
-                    Healthcare infrastructure projects involve serious decisions. If you prefer a direct conversation, we are just a call or message away.
-                  </p>
-
-                  {/* WhatsApp CTA */}
-                  <a
-                    href="https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project."
-                    target="_blank" rel="noopener noreferrer"
-                    style={{
-                      display: "flex", alignItems: "center", gap: 12,
-                      padding: "14px 20px", background: "#25d366", color: C.white,
-                      textDecoration: "none", marginBottom: 20, transition: "opacity 0.2s",
-                    }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = "0.88"; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = "1"; }}
-                    aria-label="Chat on WhatsApp with ARCHORA"
-                  >
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    <div>
-                      <div style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", fontFamily: "monospace" }}>Chat on WhatsApp</div>
-                      <div style={{ fontSize: 10, opacity: 0.8, marginTop: 2 }}>+91 72184 44700, Click to open directly</div>
-                    </div>
-                  </a>
-
-                  {/* Contact rows */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-                    {[
-                      {
-                        icon: (
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.27 9.09a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.36 6.36l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-                          </svg>
-                        ),
-                        label: "Call Us",
-                        value: "+91 72184 44700",
-                        href: "tel:+917218444700",
-                      },
-                      {
-                        icon: (
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
-                          </svg>
-                        ),
-                        label: "Email",
-                        value: "contact@archora.in",
-                        href: "mailto:contact@archora.in",
-                      },
-                      {
-                        icon: (
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                          </svg>
-                        ),
-                        label: "Working Hours",
-                        value: "Mon – Sat, 10:00 AM – 7:00 PM",
-                        href: undefined,
-                      },
-                    ].map((item, i) => (
-                      <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 14, padding: "14px 0", borderBottom: "1px solid rgba(75,204,212,0.08)" }}>
-                        <div style={{ width: 32, height: 32, background: "rgba(27,108,168,0.2)", border: "1px solid rgba(27,108,168,0.3)", display: "flex", alignItems: "center", justifyContent: "center", color: C.teal, flexShrink: 0 }}>
-                          {item.icon}
-                        </div>
-                        <div>
-                          <div style={{ color: "rgba(255,255,255,0.28)", fontSize: 9, fontFamily: "monospace", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 3 }}>{item.label}</div>
-                          {item.href ? (
-                            <a href={item.href} style={{ color: "rgba(255,255,255,0.78)", fontSize: 13, textDecoration: "none", fontFamily: "monospace" }}>{item.value}</a>
-                          ) : (
-                            <span style={{ color: "rgba(255,255,255,0.78)", fontSize: 13, fontFamily: "monospace" }}>{item.value}</span>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Visit Our Office */}
-                <div style={{ padding: "24px 28px", border: "1px solid rgba(75,204,212,0.1)", background: "rgba(75,204,212,0.02)", position: "relative" }}>
-                  <div style={{ position: "absolute", bottom: -1, right: -1, width: 28, height: 28, borderRight: `2px solid ${C.teal}`, borderBottom: `2px solid ${C.teal}`, opacity: 0.4 }} />
-                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-                    <div style={{ width: 32, height: 32, background: "rgba(27,108,168,0.2)", border: "1px solid rgba(27,108,168,0.3)", display: "flex", alignItems: "center", justifyContent: "center", color: C.teal, flexShrink: 0 }}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" />
-                      </svg>
-                    </div>
-                    <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 9, fontFamily: "monospace", letterSpacing: "0.2em", textTransform: "uppercase" }}>Visit Our Office</span>
-                  </div>
-                  <address style={{ fontStyle: "normal", color: "rgba(255,255,255,0.65)", fontSize: 13, lineHeight: 1.85 }}>
-                    <strong style={{ color: C.white, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, fontSize: 15 }}>ARCHORA Healthcare Infrastructure</strong><br />
-                    903 Niramaya Heights, Parsik Nagar, Kalwa,<br />
-                    Thane East, Thane, 400605,<br />
-                    Maharashtra, India
-                  </address>
-                  <div style={{ marginTop: 14, display: "flex", alignItems: "center", gap: 8, color: "rgba(75,204,212,0.6)", fontSize: 10, fontFamily: "monospace", letterSpacing: "0.14em" }}>
-                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#25d366", display: "inline-block" }} />
-                    In-person consultations by appointment · Remote consultations available pan-India
-                  </div>
-                </div>
-              </motion.div>
             </div>
           </div>
         </section>
@@ -650,52 +482,10 @@ export function Contact() {
           />
           {/* Address overlay */}
           <div style={{ position: "absolute", bottom: 24, left: 24, background: C.navy, padding: "14px 20px", borderLeft: `3px solid ${C.red}`, backdropFilter: "blur(8px)" }}>
-            <p style={{ color: C.white, fontSize: 12, margin: 0, fontFamily: "monospace" }}>ARCHORA, Thane East, Maharashtra</p>
-            <p style={{ color: "rgba(255,255,255,0.38)", fontSize: 10, margin: "4px 0 0", fontFamily: "monospace", letterSpacing: "0.1em" }}>903 Niramaya Heights · Mon–Sat 10AM–7PM</p>
+            <p style={{ color: C.white, fontSize: 12, margin: 0, fontFamily: "Calibri, Arial, sans-serif" }}>ARCHORA, Thane East, Maharashtra</p>
+            <p style={{ color: "rgba(255,255,255,0.38)", fontSize: 10, margin: "4px 0 0", fontFamily: "Calibri, Arial, sans-serif", letterSpacing: "0.1em" }}>903 Niramaya Heights · Mon–Sat 10AM–7PM</p>
           </div>
         </motion.section>
-
-        {/* ══════════════════════════════════════════
-            WHAT WE HELP WITH
-        ══════════════════════════════════════════ */}
-        <section aria-labelledby="services-heading" style={{ background: C.navy, padding: "100px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, color: C.teal }}>
-            <BlueprintGrid opacity={0.05} />
-          </div>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", position: "relative" }}>
-            <motion.div style={{ marginBottom: 64, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "end" }} {...fadeUp}>
-              <div>
-                <SectionLabel text="What We Help With" light />
-                <h2 id="services-heading" style={{ color: C.white, fontSize: "clamp(1.7rem, 2.8vw, 2.6rem)", fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, margin: 0 }}>
-                  We Work With Doctors, Investors & Healthcare Chains Across India
-                </h2>
-              </div>
-              {/* ↑ UPDATED: fontSize 14 → 16 */}
-              <p style={{ color: "rgba(255,255,255,0.38)", fontSize: 16, lineHeight: 1.8, margin: 0, fontFamily: "sans-serif" }}>
-                Whatever stage you are at (from first idea to final commissioning), ARCHORA brings the same depth of healthcare infrastructure expertise to every project.
-              </p>
-            </motion.div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 1, background: "rgba(75,204,212,0.06)" }}>
-              {services.map((s, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-30px" }}
-                  transition={{ duration: 0.5, delay: (i % 4) * 0.07 }}
-                  style={{ background: C.navy, padding: "28px 24px", transition: "background 0.3s", cursor: "default", position: "relative" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = "#0a2035"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = C.navy; }}
-                >
-                  <div style={{ width: 4, height: 4, background: C.red, marginBottom: 16, opacity: 0.7 }} />
-                  <h3 style={{ color: C.white, fontSize: 13, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.3, marginBottom: 8 }}>{s.title}</h3>
-                  {/* ↑ UPDATED: fontSize 11.5 → 13 */}
-                  <p style={{ color: "rgba(255,255,255,0.35)", fontSize: 13, lineHeight: 1.7, margin: 0, fontFamily: "sans-serif" }}>{s.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ══════════════════════════════════════════
             FAQ
@@ -707,7 +497,7 @@ export function Contact() {
           <div style={{ maxWidth: 860, margin: "0 auto", padding: "0 80px", position: "relative" }}>
             <motion.div style={{ textAlign: "center", marginBottom: 64 }} {...fadeUp}>
               <SectionLabel text="Frequently Asked Questions" light />
-              <h2 id="faq-heading" style={{ color: C.white, fontSize: "clamp(1.7rem, 2.8vw, 2.6rem)", fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, margin: 0 }}>
+              <h2 id="faq-heading" style={{ color: C.white, fontSize: "clamp(1.7rem, 2.8vw, 2.6rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, margin: 0 }}>
                 Common Questions About Working With ARCHORA
               </h2>
             </motion.div>
@@ -731,7 +521,7 @@ export function Contact() {
                     }}
                   >
                     {/* ↑ UPDATED: fontSize 14 → 16 */}
-                    <span style={{ color: C.white, fontSize: 16, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.4 }}>
+                    <span style={{ color: C.white, fontSize: 16, fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, lineHeight: 1.4 }}>
                       {faq.q}
                     </span>
                     <motion.span
@@ -782,7 +572,7 @@ export function Contact() {
           <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 80px", textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.div {...fadeUp}>
               <SectionLabel text="Ready to Start?" light />
-              <h2 id="final-cta" style={{ color: C.white, fontSize: "clamp(2rem, 4vw, 3.4rem)", fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.1, marginBottom: 20 }}>
+              <h2 id="final-cta" style={{ color: C.white, fontSize: "clamp(2rem, 4vw, 3.4rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, lineHeight: 1.1, marginBottom: 20 }}>
                 Planning a Healthcare Facility?<br />
                 <em style={{ color: C.teal, fontStyle: "italic" }}>Let's Talk.</em>
               </h2>
@@ -793,7 +583,7 @@ export function Contact() {
               <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
                 <a
                   href="#enquiry-heading"
-                  style={{ padding: "14px 32px", background: C.blue, color: C.white, textDecoration: "none", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "monospace", transition: "background 0.2s" }}
+                  style={{ padding: "14px 32px", background: C.blue, color: C.white, textDecoration: "none", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif", transition: "background 0.2s" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = C.teal; (e.currentTarget as HTMLAnchorElement).style.color = C.navy; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = C.blue; (e.currentTarget as HTMLAnchorElement).style.color = C.white; }}
                 >
@@ -802,13 +592,13 @@ export function Contact() {
                 <a
                   href="https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project."
                   target="_blank" rel="noopener noreferrer"
-                  style={{ padding: "14px 32px", background: "transparent", color: "rgba(255,255,255,0.8)", border: "1px solid rgba(255,255,255,0.3)", textDecoration: "none", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "monospace", display: "flex", alignItems: "center", gap: 8 }}
+                  style={{ padding: "14px 32px", background: "transparent", color: "rgba(255,255,255,0.8)", border: "1px solid rgba(255,255,255,0.3)", textDecoration: "none", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif", display: "flex", alignItems: "center", gap: 8 }}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                   WhatsApp Us
                 </a>
               </div>
-              <p style={{ color: "rgba(255,255,255,0.18)", marginTop: 28, fontSize: 10, fontFamily: "monospace", letterSpacing: "0.12em" }}>
+              <p style={{ color: "rgba(255,255,255,0.18)", marginTop: 28, fontSize: 10, fontFamily: "Calibri, Arial, sans-serif", letterSpacing: "0.12em" }}>
                 No obligation · No sales pressure · Free initial consultation
               </p>
             </motion.div>
@@ -834,7 +624,7 @@ function SubmitButton() {
         padding: "15px 40px", background: hover ? C.teal : C.blue,
         color: hover ? C.navy : C.white,
         border: "none", fontSize: 10, letterSpacing: "0.2em",
-        textTransform: "uppercase", fontFamily: "monospace",
+        textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif",
         cursor: "pointer", transition: "all 0.25s ease",
         display: "flex", alignItems: "center", gap: 10,
       }}

@@ -280,7 +280,7 @@ function SectionLabel({ text, light = false }: { text: string; light?: boolean }
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
       <span style={{ width: 28, height: 1, background: light ? "rgba(75,204,212,0.6)" : C.blue, display: "block" }} />
-      <span style={{ fontFamily: "monospace", fontSize: 13, letterSpacing: "0.28em", textTransform: "uppercase" as const, color: light ? "rgba(75,204,212,0.7)" : C.blue }}>
+      <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 13, letterSpacing: "0.28em", textTransform: "uppercase" as const, color: light ? "rgba(75,204,212,0.7)" : C.blue }}>
         {text}
       </span>
     </div>
@@ -330,15 +330,15 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
             {/* Content */}
             <div style={{ padding: "52px 48px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20, flexWrap: "wrap" }}>
-                <span style={{ background: "rgba(192,57,43,0.1)", color: C.red, border: "1px solid rgba(192,57,43,0.2)", padding: "4px 12px", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.2em", textTransform: "uppercase" }}>
+                <span style={{ background: "rgba(192,57,43,0.1)", color: C.red, border: "1px solid rgba(192,57,43,0.2)", padding: "4px 12px", fontSize: 12, fontFamily: "Calibri, Arial, sans-serif", letterSpacing: "0.2em", textTransform: "uppercase" }}>
                   Featured
                 </span>
-                <span style={{ background: cat.bg, color: cat.text, border: `1px solid ${cat.border}`, padding: "4px 12px", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.16em", textTransform: "uppercase" }}>
+                <span style={{ background: cat.bg, color: cat.text, border: `1px solid ${cat.border}`, padding: "4px 12px", fontSize: 12, fontFamily: "Calibri, Arial, sans-serif", letterSpacing: "0.16em", textTransform: "uppercase" }}>
                   {article.category}
                 </span>
               </div>
 
-              <h2 style={{ color: C.ink, fontSize: "clamp(1.4rem, 2vw, 1.9rem)", fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 600, lineHeight: 1.2, marginBottom: 16 }}>
+              <h2 style={{ color: C.ink, fontSize: "clamp(1.4rem, 2vw, 1.9rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 600, lineHeight: 1.2, marginBottom: 16 }}>
                 {article.title}
               </h2>
 
@@ -347,15 +347,15 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
               </p>
 
               <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 28 }}>
-                <span style={{ color: C.muted, fontSize: 13, fontFamily: "monospace", display: "flex", alignItems: "center", gap: 5 }}>
+                <span style={{ color: C.muted, fontSize: 13, fontFamily: "Calibri, Arial, sans-serif", display: "flex", alignItems: "center", gap: 5 }}>
                   <Calendar size={13} /> {article.date}
                 </span>
-                <span style={{ color: C.muted, fontSize: 13, fontFamily: "monospace", display: "flex", alignItems: "center", gap: 5 }}>
+                <span style={{ color: C.muted, fontSize: 13, fontFamily: "Calibri, Arial, sans-serif", display: "flex", alignItems: "center", gap: 5 }}>
                   <Clock size={13} /> {article.readTime}
                 </span>
               </div>
 
-              <div style={{ display: "flex", alignItems: "center", gap: 8, color: C.blue, fontSize: 13, fontFamily: "monospace", letterSpacing: "0.16em", textTransform: "uppercase" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, color: C.blue, fontSize: 13, fontFamily: "Calibri, Arial, sans-serif", letterSpacing: "0.16em", textTransform: "uppercase" }}>
                 <span>Read Article</span>
                 <ArrowRight size={14} />
               </div>
@@ -399,7 +399,7 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
             />
             {/* Category on image */}
             <div style={{ position: "absolute", top: 14, left: 14 }}>
-              <span style={{ background: "rgba(4,28,46,0.8)", color: C.teal, fontSize: 12, fontFamily: "monospace", letterSpacing: "0.2em", textTransform: "uppercase", padding: "5px 10px", backdropFilter: "blur(6px)" }}>
+              <span style={{ background: "rgba(4,28,46,0.8)", color: C.teal, fontSize: 12, fontFamily: "Calibri, Arial, sans-serif", letterSpacing: "0.2em", textTransform: "uppercase", padding: "5px 10px", backdropFilter: "blur(6px)" }}>
                 {article.category}
               </span>
             </div>
@@ -408,15 +408,15 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
           {/* Content */}
           <div style={{ padding: "28px 28px 24px", display: "flex", flexDirection: "column", flex: 1 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 14 }}>
-              <span style={{ color: C.muted, fontSize: 13, fontFamily: "monospace", display: "flex", alignItems: "center", gap: 5 }}>
+              <span style={{ color: C.muted, fontSize: 13, fontFamily: "Calibri, Arial, sans-serif", display: "flex", alignItems: "center", gap: 5 }}>
                 <Calendar size={12} /> {article.date}
               </span>
-              <span style={{ color: C.muted, fontSize: 13, fontFamily: "monospace", display: "flex", alignItems: "center", gap: 5 }}>
+              <span style={{ color: C.muted, fontSize: 13, fontFamily: "Calibri, Arial, sans-serif", display: "flex", alignItems: "center", gap: 5 }}>
                 <Clock size={12} /> {article.readTime}
               </span>
             </div>
 
-            <h3 style={{ color: C.ink, fontSize: "clamp(1.05rem, 1.4vw, 1.25rem)", fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 600, lineHeight: 1.25, marginBottom: 12, flex: 1 }}>
+            <h3 style={{ color: C.ink, fontSize: "clamp(1.05rem, 1.4vw, 1.25rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 600, lineHeight: 1.25, marginBottom: 12, flex: 1 }}>
               {article.title}
             </h3>
 
@@ -427,13 +427,13 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
             {/* Tags */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20 }}>
               {article.tags.slice(0, 3).map(tag => (
-                <span key={tag} style={{ background: "rgba(15,76,117,0.06)", color: C.muted, border: "1px solid rgba(15,76,117,0.12)", padding: "3px 8px", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.08em" }}>
+                <span key={tag} style={{ background: "rgba(15,76,117,0.06)", color: C.muted, border: "1px solid rgba(15,76,117,0.12)", padding: "3px 8px", fontSize: 12, fontFamily: "Calibri, Arial, sans-serif", letterSpacing: "0.08em" }}>
                   {tag}
                 </span>
               ))}
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 6, color: C.blue, fontSize: 13, fontFamily: "monospace", letterSpacing: "0.16em", textTransform: "uppercase", borderTop: "1px solid rgba(27,108,168,0.1)", paddingTop: 16, marginTop: "auto" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, color: C.blue, fontSize: 13, fontFamily: "Calibri, Arial, sans-serif", letterSpacing: "0.16em", textTransform: "uppercase", borderTop: "1px solid rgba(27,108,168,0.1)", paddingTop: 16, marginTop: "auto" }}>
               <span>Read Article</span>
               <ArrowRight size={13} />
             </div>
@@ -476,7 +476,7 @@ export function Journal() {
     <>
       <SEOHead />
 
-      <div style={{ fontFamily: "'Georgia', serif", overflowX: "hidden", background: "#f8fbfe" }}>
+      <div style={{ fontFamily: "Calibri, Arial, sans-serif", overflowX: "hidden", background: "#f8fbfe" }}>
 
         {/* ── HERO ── */}
         <section style={{ position: "relative", height: "52vh", minHeight: 380, overflow: "hidden" }}>
@@ -494,14 +494,14 @@ export function Journal() {
           <div style={{ position: "relative", height: "100%", maxWidth: 1280, margin: "0 auto", padding: "0 80px", display: "flex", alignItems: "center", zIndex: 10 }}>
             <motion.div initial={{ opacity: 0, y: 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
-                <span style={{ color: "rgba(255,255,255,0.55)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "monospace" }}>
+                <span style={{ color: "rgba(255,255,255,0.55)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif" }}>
                   Healthcare Infrastructure
                 </span>
               </div>
-              <h1 style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.4rem)", color: C.white, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.06, marginBottom: 16, letterSpacing: "-0.01em" }}>
+              <h1 style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.4rem)", color: C.white, fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, lineHeight: 1.06, marginBottom: 16, letterSpacing: "-0.01em" }}>
                 The ARCHORA Journal
               </h1>
-              <p style={{ color: "rgba(255,255,255,0.65)", fontSize: 17, lineHeight: 1.75, maxWidth: 500, fontFamily: "sans-serif" }}>
+              <p style={{ color: "rgba(255,255,255,0.65)", fontSize: 17, lineHeight: 1.75, maxWidth: 500, fontFamily: "Calibri, Arial, sans-serif" }}>
                 Insights on hospital design, NABH compliance, modular OT infrastructure, and healthcare architecture in India.
               </p>
             </motion.div>
@@ -517,7 +517,7 @@ export function Journal() {
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
                   style={{
-                    padding: "16px 20px", fontSize: 13, fontFamily: "monospace", letterSpacing: "0.18em",
+                    padding: "16px 20px", fontSize: 13, fontFamily: "Calibri, Arial, sans-serif", letterSpacing: "0.18em",
                     textTransform: "uppercase", border: "none", cursor: "pointer",
                     background: "transparent", whiteSpace: "nowrap",
                     color: activeCategory === cat ? C.blue : C.muted,
@@ -548,7 +548,7 @@ export function Journal() {
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 48 }}>
                   <div>
                     <SectionLabel text="Latest Articles" />
-                    <p style={{ color: C.muted, fontSize: 14, fontFamily: "monospace", margin: 0 }}>
+                    <p style={{ color: C.muted, fontSize: 14, fontFamily: "Calibri, Arial, sans-serif", margin: 0 }}>
                       {filtered.length} article{filtered.length !== 1 ? "s" : ""}{activeCategory !== "All" ? ` in ${activeCategory}` : ""}
                     </p>
                   </div>
@@ -556,7 +556,7 @@ export function Journal() {
 
                 {filtered.length === 0 ? (
                   <div style={{ textAlign: "center", padding: "80px 0", color: C.muted }}>
-                    <p style={{ fontSize: 18, fontFamily: "'Cormorant Garamond', 'Georgia', serif" }}>No articles in this category yet.</p>
+                    <p style={{ fontSize: 18, fontFamily: "Calibri, Arial, sans-serif" }}>No articles in this category yet.</p>
                   </div>
                 ) : (
                   <>
@@ -600,7 +600,7 @@ export function Journal() {
           <div style={{ maxWidth: 640, margin: "0 auto", padding: "0 80px", textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.div {...fadeUp}>
               <SectionLabel text="Stay Informed" light />
-              <h2 style={{ color: C.white, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.1, marginBottom: 16 }}>
+              <h2 style={{ color: C.white, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, lineHeight: 1.1, marginBottom: 16 }}>
                 Healthcare Infrastructure<br />
                 <em style={{ color: C.teal, fontStyle: "italic" }}>Insights in Your Inbox</em>
               </h2>
@@ -618,7 +618,7 @@ export function Journal() {
                   style={{
                     flex: 1, padding: "13px 18px", background: "rgba(255,255,255,0.06)",
                     border: "1px solid rgba(75,204,212,0.2)", borderRight: "none",
-                    color: C.white, fontFamily: "monospace", fontSize: 15,
+                    color: C.white, fontFamily: "Calibri, Arial, sans-serif", fontSize: 15,
                     outline: "none",
                   }}
                 />
@@ -627,7 +627,7 @@ export function Journal() {
                   style={{
                     padding: "13px 24px", background: C.blue, color: C.white,
                     border: "none", fontSize: 13, letterSpacing: "0.16em",
-                    textTransform: "uppercase", fontFamily: "monospace", cursor: "pointer",
+                    textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif", cursor: "pointer",
                     whiteSpace: "nowrap", transition: "background 0.2s",
                   }}
                   onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = C.teal; (e.currentTarget as HTMLButtonElement).style.color = C.navy; }}
@@ -636,7 +636,7 @@ export function Journal() {
                   Subscribe
                 </button>
               </div>
-              <p style={{ color: subscribed ? C.teal : "rgba(255,255,255,0.28)", marginTop: 16, fontSize: 13, fontFamily: "monospace" }}>
+              <p style={{ color: subscribed ? C.teal : "rgba(255,255,255,0.28)", marginTop: 16, fontSize: 13, fontFamily: "Calibri, Arial, sans-serif" }}>
                 {subscribed ? "Thanks! You're subscribed." : "No spam. Unsubscribe anytime."}
               </p>
             </motion.div>

@@ -342,14 +342,14 @@ export function OurFlow() {
                 </span>
               </div>
               <h1 style={{
-                fontSize: "clamp(2.4rem, 3.8vw, 3.9rem)", color: C.white,
+                fontSize: "clamp(2.8rem, 4.5vw, 4.4rem)", color: C.white,
                 lineHeight: 1.06, marginBottom: 20,
                 fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400,
               }}>
                 From First Conversation<br />
                 <em style={{ color: C.teal, fontStyle: "italic" }}>to Final Commissioning.</em>
               </h1>
-              <p style={{ fontSize: 19, color: "rgba(255,255,255,0.97)", lineHeight: 1.8, maxWidth: 500, marginBottom: 40 , fontFamily: "Calibri, Arial, sans-serif", fontWeight: 700 }}>
+              <p style={{ fontSize: 18, color: "rgba(255,255,255,0.97)", lineHeight: 1.8, maxWidth: 500, marginBottom: 40 , fontFamily: "Calibri, Arial, sans-serif", fontWeight: 700 }}>
                 A proven 8-step process built exclusively for healthcare infrastructure, transparent, compliance-first, and single-window accountable.
               </p>
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>

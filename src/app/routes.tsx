@@ -3,7 +3,7 @@ import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Services } from "./pages/Services";
 import { Facilities } from "./pages/Facilities";
-import { OurFlow } from "./pages/OurFlow";
+import { Projects } from "./pages/Projects";
 import { WhyUs } from "./pages/WhyUs";
 import { Journal } from "./pages/Journal";
 import { JournalPost } from "./pages/JournalPost";
@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
       { path: "services/:slug", Component: ServiceDetailWrapper },
       { path: "facilities", Component: Facilities },
       { path: "facilities/:facilityId", Component: FacilityDetailPage },
-      { path: "our-flow", Component: OurFlow },
+      { path: "projects", Component: Projects },
       { path: "why-us", Component: WhyUs },
       { path: "journal", Component: Journal },
       { path: "journal/:id", Component: JournalPost },

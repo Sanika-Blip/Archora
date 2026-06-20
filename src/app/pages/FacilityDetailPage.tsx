@@ -313,7 +313,7 @@ const facilityData: Record<string, FacilityData> = {
       { title: "Clinical Brief & Space Programming", description: "Defining chair count, scope of services, imaging requirements, and patient flow." },
       { title: "Design & Documentation", description: "Full architectural and MEP design including dental-specific systems." },
       { title: "Regulatory Approvals", description: "Building plan, Fire NOC, AERB, and CEA registration coordination." },
-      { title: "Construction & Commissioning", description: "Civil works, MEP, dental systems installation, and interiors. Full systems testing and NABH readiness walkthrough before handover." },
+      { title: "Construction & Commissioning", description: "Civil works, dental systems installation, and interiors. Full systems testing and NABH readiness walkthrough before handover." },
     ],
     faqs: [
       { q: "What compliance is needed for a dental hospital in India?", a: "A dental hospital requires CEA registration, Fire NOC, AERB compliance for imaging equipment, and NABH Dental Healthcare Accreditation for quality assurance and insurance empanelment." },
@@ -1172,7 +1172,7 @@ function FAQItem({ item, color, index }: { item: FAQItem; color: string; index: 
           gap: 16, background: "none", border: "none", cursor: "pointer",
         }}
       >
-        <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.05rem", fontWeight: 400, color: open ? color : "rgba(255,255,255,0.8)", lineHeight: 1.4, transition: "color 0.2s" }}>
+        <span style={{ fontFamily: "Calibri, sans-serif", fontSize: "1.3rem", fontWeight: 600, color: open ? color : "rgba(255,255,255,0.8)", lineHeight: 1.4, transition: "color 0.2s" }}>
           {item.q}
         </span>
         <motion.div animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.22 }} style={{ color, flexShrink: 0, marginTop: 3 }}>
@@ -1184,7 +1184,7 @@ function FAQItem({ item, color, index }: { item: FAQItem; color: string; index: 
       </button>
       <AnimatePresenceWrapper open={open}>
         <div style={{ paddingBottom: "1.4rem" }}>
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10.5, lineHeight: 1.9, color: "rgba(255,255,255,0.45)" }}>{item.a}</p>
+          <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 18, lineHeight: 1.9, color: "rgba(255,255,255,0.6)" }}>{item.a}</p>
         </div>
       </AnimatePresenceWrapper>
     </motion.div>
@@ -1213,9 +1213,9 @@ export function FacilityDetailPage() {
   if (!data) {
     return (
       <div style={{ minHeight: "100vh", background: "#040e1a", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 24 }}>
-        <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", color: "rgba(255,255,255,0.4)" }}>Facility not found.</p>
+        <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: "2.2rem", color: "rgba(255,255,255,0.4)" }}>Facility not found.</p>
         <Link to="/facilities">
-          <button style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", padding: "12px 24px", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer" }}>
+          <button style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 14, letterSpacing: "0.16em", textTransform: "uppercase", padding: "12px 24px", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer" }}>
             ← Back to Facilities
           </button>
         </Link>
@@ -1226,12 +1226,12 @@ export function FacilityDetailPage() {
   const { accentColor: color } = data;
 
   return (
-    <div style={{ minHeight: "100vh", background: "#040e1a", overflowX: "hidden" }}>
+    <div className="archora-page-scope" style={{ minHeight: "100vh", background: "#040e1a", overflowX: "hidden" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@400;500&display=swap');
         @keyframes pulseRing { 0%,100%{transform:scale(1);opacity:0.12} 50%{transform:scale(1.06);opacity:0.22} }
         @keyframes rotateSlow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
         .rotate-slow { animation: rotateSlow 90s linear infinite; }
+        .archora-page-scope * { font-family: Calibri, sans-serif !important; }
       `}</style>
 
       {/* ── Back Nav ── */}
@@ -1239,15 +1239,15 @@ export function FacilityDetailPage() {
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <button
             onClick={() => navigate(-1)}
-            style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: "'DM Mono', monospace", fontSize: 9, letterSpacing: "2.5px", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", background: "none", border: "none", cursor: "pointer", transition: "color 0.2s" }}
+            style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "2.5px", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", background: "none", border: "none", cursor: "pointer", transition: "color 0.2s" }}
             onMouseEnter={e => (e.currentTarget.style.color = color)}
             onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}
           >
             <ArrowLeft size={12} /> All Facilities
           </button>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 8, letterSpacing: "2px", color: `${color}70`, background: `${color}12`, border: `0.5px solid ${color}30`, padding: "3px 10px", borderRadius: 20 }}>{data.catLabel}</span>
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 8, letterSpacing: "2px", color: "rgba(255,255,255,0.25)", background: "rgba(255,255,255,0.05)", padding: "3px 10px", borderRadius: 20 }}>{data.id}</span>
+            <span style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: "2px", color: `${color}70`, background: `${color}12`, border: `0.5px solid ${color}30`, padding: "3px 10px", borderRadius: 20 }}>{data.catLabel}</span>
+            <span style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: "2px", color: "rgba(255,255,255,0.25)", background: "rgba(255,255,255,0.05)", padding: "3px 10px", borderRadius: 20 }}>{data.id}</span>
           </div>
         </div>
       </div>
@@ -1289,7 +1289,7 @@ export function FacilityDetailPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}
           >
-            <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 8.5, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>
+            <span style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>
               {data.catLabel} · {data.id}
             </span>
           </motion.div>
@@ -1298,7 +1298,7 @@ export function FacilityDetailPage() {
             initial={{ opacity: 0, y: 32, clipPath: "inset(100% 0 0 0)" }}
             animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.4rem, 5vw, 4rem)", fontWeight: 300, color: "#fff", lineHeight: 1.08, marginBottom: 16, letterSpacing: "-0.01em", maxWidth: 700 }}
+            style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 700, color: "#fff", lineHeight: 1.08, marginBottom: 16, letterSpacing: "-0.01em", maxWidth: 760 }}
           >
             {data.title}
           </motion.h1>
@@ -1307,7 +1307,7 @@ export function FacilityDetailPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45 }}
-            style={{ fontFamily: "'DM Mono', monospace", fontSize: 9.5, letterSpacing: "0.12em", color: `${color}90`, textTransform: "uppercase", marginBottom: 32 }}
+            style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 15, letterSpacing: "0.12em", color: `${color}90`, textTransform: "uppercase", marginBottom: 32 }}
           >
             {data.subtitle}
           </motion.p>
@@ -1320,7 +1320,7 @@ export function FacilityDetailPage() {
           >
             <Link to="/contact">
               <button
-                style={{ padding: "12px 26px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .22s" }}
+                style={{ padding: "12px 26px", fontSize: 14, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "Calibri, sans-serif", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .22s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = color; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
               >
@@ -1329,7 +1329,7 @@ export function FacilityDetailPage() {
             </Link>
             <button
               onClick={() => navigate(-1)}
-              style={{ padding: "12px 26px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.18)", cursor: "pointer", transition: "all .22s" }}
+              style={{ padding: "12px 26px", fontSize: 14, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "Calibri, sans-serif", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.18)", cursor: "pointer", transition: "all .22s" }}
               onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = `${color}50`; (e.currentTarget as HTMLButtonElement).style.color = color; }}
               onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.18)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
             >
@@ -1350,8 +1350,8 @@ export function FacilityDetailPage() {
               transition={{ duration: 0.6 }}
             >
               <div style={{ width: "2px", height: 60, background: `linear-gradient(to bottom, ${color}, transparent)`, marginBottom: 20 }} />
-              <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 8.5, letterSpacing: "3px", textTransform: "uppercase", color: color, marginBottom: 12 }}>Overview</p>
-              <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)", fontWeight: 300, color: "#fff", lineHeight: 1.25 }}>
+              <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "3px", textTransform: "uppercase", color: color, marginBottom: 12 }}>Overview</p>
+              <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(1.8rem, 3.2vw, 2.4rem)", fontWeight: 700, color: "#fff", lineHeight: 1.25 }}>
                 What ARCHORA Delivers for {data.title}
               </h2>
             </motion.div>
@@ -1363,7 +1363,7 @@ export function FacilityDetailPage() {
               style={{ display: "flex", flexDirection: "column", gap: 18 }}
             >
               {data.intro.map((para, i) => (
-                <p key={i} style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, lineHeight: 1.95, color: "rgba(255,255,255,0.5)" }}>{para}</p>
+                <p key={i} style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 19, lineHeight: 1.85, color: "rgba(255,255,255,0.65)" }}>{para}</p>
               ))}
             </motion.div>
           </div>
@@ -1380,8 +1380,8 @@ export function FacilityDetailPage() {
             transition={{ duration: 0.6 }}
             style={{ marginBottom: "3.5rem", paddingBottom: "2rem", borderBottom: `0.5px solid ${color}20` }}
           >
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 8.5, letterSpacing: "3px", textTransform: "uppercase", color: color, marginBottom: 10 }}>What We Build</p>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 300, color: "#fff" }}>
+            <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "3px", textTransform: "uppercase", color: color, marginBottom: 10 }}>What We Build</p>
+            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(2rem, 3.6vw, 2.8rem)", fontWeight: 700, color: "#fff" }}>
               Infrastructure Services
             </h2>
           </motion.div>
@@ -1403,9 +1403,9 @@ export function FacilityDetailPage() {
                 >
                   <div style={{ display: "flex", gap: 8, alignItems: "flex-start", marginBottom: 10 }}>
                     <div style={{ width: 4, height: 4, borderRadius: "50%", background: color, flexShrink: 0, marginTop: 5 }} />
-                    <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.05rem", fontWeight: 400, color: "#fff", lineHeight: 1.3 }}>{service.title}</h3>
+                    <h3 style={{ fontFamily: "Calibri, sans-serif", fontSize: "1.35rem", fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>{service.title}</h3>
                   </div>
-                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 9.5, lineHeight: 1.85, color: "rgba(255,255,255,0.38)", paddingLeft: 12 }}>{service.description}</p>
+                  <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 18, lineHeight: 1.7, color: "rgba(255,255,255,0.55)", paddingLeft: 12 }}>{service.description}</p>
                 </motion.div>
               );
             })}
@@ -1423,8 +1423,8 @@ export function FacilityDetailPage() {
             transition={{ duration: 0.6 }}
             style={{ marginBottom: "3rem" }}
           >
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 8.5, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 10 }}>Regulatory Framework</p>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 300, color: "#042C53" }}>
+            <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 10 }}>Regulatory Framework</p>
+            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(2rem, 3.6vw, 2.8rem)", fontWeight: 700, color: "#042C53" }}>
               Compliance Requirements
             </h2>
           </motion.div>
@@ -1444,9 +1444,9 @@ export function FacilityDetailPage() {
                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = "rgba(4,44,83,0.09)"; (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(24,95,165,0.3)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = "rgba(4,44,83,0.04)"; (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(24,95,165,0.14)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)"; }}
                 >
-                  <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.15rem", fontWeight: 500, color: "#042C53", marginBottom: 4 }}>{item.name}</p>
-                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 8.5, color: "#185FA5", marginBottom: 8, lineHeight: 1.6 }}>{item.authority}</p>
-                  <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 8.5, lineHeight: 1.75, color: "rgba(4,44,83,0.55)" }}>{item.scope}</p>
+                  <p style={{ fontFamily: "Calibri, sans-serif", fontSize: "1.4rem", fontWeight: 700, color: "#042C53", marginBottom: 4 }}>{item.name}</p>
+                  <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 16, color: "#185FA5", marginBottom: 8, lineHeight: 1.6 }}>{item.authority}</p>
+                  <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 16, lineHeight: 1.75, color: "rgba(4,44,83,0.65)" }}>{item.scope}</p>
                 </motion.div>
               );
             })}
@@ -1464,8 +1464,8 @@ export function FacilityDetailPage() {
             transition={{ duration: 0.6 }}
             style={{ marginBottom: "3.5rem" }}
           >
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 8.5, letterSpacing: "3px", textTransform: "uppercase", color: color, marginBottom: 10 }}>How We Work</p>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 300, color: "#fff" }}>
+            <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "3px", textTransform: "uppercase", color: color, marginBottom: 10 }}>How We Work</p>
+            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(2rem, 3.6vw, 2.8rem)", fontWeight: 700, color: "#fff" }}>
               Our Process
             </h2>
           </motion.div>
@@ -1494,10 +1494,10 @@ export function FacilityDetailPage() {
 
                     <div style={{ flex: 1 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
-                        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 8, letterSpacing: "2px", color: `${color}60` }}>0{i + 1}</span>
-                        <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", fontWeight: 400, color: "#fff", lineHeight: 1.3 }}>{step.title}</h3>
+                        <span style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: "2px", color: `${color}60` }}>0{i + 1}</span>
+                        <h3 style={{ fontFamily: "Calibri, sans-serif", fontSize: "1.3rem", fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>{step.title}</h3>
                       </div>
-                      <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 9.5, lineHeight: 1.9, color: "rgba(255,255,255,0.38)" }}>{step.description}</p>
+                      <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 18, lineHeight: 1.75, color: "rgba(255,255,255,0.55)" }}>{step.description}</p>
                     </div>
                   </motion.div>
                 );
@@ -1517,8 +1517,8 @@ export function FacilityDetailPage() {
             transition={{ duration: 0.6 }}
             style={{ marginBottom: "3rem" }}
           >
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 8.5, letterSpacing: "3px", textTransform: "uppercase", color: color, marginBottom: 10 }}>Common Questions</p>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 300, color: "#fff" }}>
+            <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "3px", textTransform: "uppercase", color: color, marginBottom: 10 }}>Common Questions</p>
+            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(2rem, 3.6vw, 2.8rem)", fontWeight: 700, color: "#fff" }}>
               Frequently Asked
             </h2>
           </motion.div>
@@ -1544,20 +1544,20 @@ export function FacilityDetailPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 8.5, letterSpacing: "3.5px", textTransform: "uppercase", color: `${color}50`, marginBottom: 16, display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
+            <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "3.5px", textTransform: "uppercase", color: `${color}50`, marginBottom: 16, display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
               <span style={{ display: "block", width: 24, height: "0.5px", background: `${color}40` }} />
               Start Your Project<span style={{ display: "block", width: 24, height: "0.5px", background: `${color}40` }} />
             </p>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: 18 }}>
+            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", fontWeight: 700, color: "#fff", lineHeight: 1.1, marginBottom: 18 }}>
               {data.ctaHeading}
             </h2>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "rgba(255,255,255,0.35)", lineHeight: 1.9, marginBottom: 36 }}>
+            <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 18, color: "rgba(255,255,255,0.5)", lineHeight: 1.8, marginBottom: 36 }}>
               {data.ctaBody}
             </p>
             <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
               <Link to="/contact">
                 <button
-                  style={{ padding: "13px 28px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .22s" }}
+                  style={{ padding: "13px 28px", fontSize: 14, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "Calibri, sans-serif", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .22s" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = color; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
                 >
@@ -1566,7 +1566,7 @@ export function FacilityDetailPage() {
               </Link>
               <button
                 onClick={() => navigate(-1)}
-                style={{ padding: "13px 28px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "'DM Mono', monospace", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.18)", cursor: "pointer", transition: "all .22s" }}
+                style={{ padding: "13px 28px", fontSize: 14, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "Calibri, sans-serif", background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.18)", cursor: "pointer", transition: "all .22s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = `${color}50`; (e.currentTarget as HTMLButtonElement).style.color = color; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.18)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
               >

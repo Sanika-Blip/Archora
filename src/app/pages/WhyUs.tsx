@@ -55,7 +55,7 @@ function SectionLabel({ text, light=false }: { text:string; light?:boolean }) {
   return (
     <div style={{ display:"flex",alignItems:"center",gap:14,marginBottom:20 }}>
       <span style={{ width:28,height:1,background:light?"rgba(75,204,212,0.6)":C.blue,display:"block" }}/>
-      <span style={{ fontFamily:"monospace",fontSize:13,letterSpacing:"0.28em",textTransform:"uppercase",
+      <span style={{ fontFamily:"Calibri, Arial, sans-serif",fontSize:13,letterSpacing:"0.28em",textTransform:"uppercase",
         color:light?"rgba(75,204,212,0.7)":C.blue }}>
         {text}
       </span>
@@ -189,11 +189,11 @@ function FAQItem({ q, a, index }: { q:string; a:string; index:number }) {
         style={{ width:"100%", display:"flex", alignItems:"flex-start", justifyContent:"space-between",
           gap:16, padding:"20px 0", background:"transparent", border:"none", cursor:"pointer", textAlign:"left" }}>
         <span style={{ color:open ? C.teal : "rgba(255,255,255,0.82)", fontSize:17,
-          fontFamily:"'Cormorant Garamond', Georgia, serif", fontWeight:400, lineHeight:1.4,
+          fontFamily:"Calibri, Arial, sans-serif", fontWeight:400, lineHeight:1.4,
           transition:"color 0.3s", flex:1 }}>{q}</span>
         <motion.span animate={{ rotate: open ? 45 : 0 }} transition={{ duration:0.3 }}
           style={{ color:"rgba(75,204,212,0.6)", fontSize:24, lineHeight:1, flexShrink:0,
-            marginTop:1, fontFamily:"monospace" }}>+</motion.span>
+            marginTop:1, fontFamily:"Calibri, Arial, sans-serif" }}>+</motion.span>
       </button>
       <AnimatePresence>
         {open && (
@@ -201,7 +201,7 @@ function FAQItem({ q, a, index }: { q:string; a:string; index:number }) {
             exit={{ opacity:0, height:0 }} transition={{ duration:0.4, ease:[0.22,1,0.36,1] }}
             style={{ overflow:"hidden" }}>
             <p style={{ color:"rgba(255,255,255,0.65)", fontSize:16,lineHeight:1.85,
-              paddingBottom:20, fontFamily:"'Georgia', serif" }}>{a}</p>
+              paddingBottom:20, fontFamily:"Calibri, Arial, sans-serif" }}>{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -249,12 +249,12 @@ export function WhyUs() {
         })}</script>
       </Helmet>
 
-      <div style={{ fontFamily:"'Georgia', serif", overflowX:"hidden", background:C.cream }}>
+      <div style={{ fontFamily:"Calibri, Arial, sans-serif", overflowX:"hidden", background:C.cream }}>
 
         {/* ══════════════════════════════════════
             1. HERO, dark navy
         ══════════════════════════════════════ */}
-        <section ref={heroRef} style={{ position:"relative", height:"72vh", minHeight:580, overflow:"hidden" }}>
+        <section ref={heroRef} style={{ position:"relative", minHeight:"72vh", overflow:"hidden" }}>
           <motion.div style={{ position:"absolute", inset:0, y:heroY }}>
             <img
               src="/images/hero/why-us-hero.jpg"
@@ -272,18 +272,18 @@ export function WhyUs() {
               animate={{ rotate:i%2===0?360:-360 }}
               transition={{ duration:70-i*15, repeat:Infinity, ease:"linear" }}/>
           ))}
-          <div style={{ position:"relative", height:"100%", maxWidth:1280, margin:"0 auto",
-            padding:"80px 80px 0", display:"flex", alignItems:"center", zIndex:10 }}>
+          <div style={{ position:"relative", maxWidth:1280, margin:"0 auto",
+            padding:"110px 80px 90px", zIndex:10 }}>
             <motion.div initial={{ opacity:0, y:48 }} animate={{ opacity:1, y:0 }}
               transition={{ duration:1, ease:[0.22,1,0.36,1] }} style={{ maxWidth:720 }}>
               <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:28 }}>
                 <span style={{ color:"rgba(255,255,255,0.55)", fontSize:13, letterSpacing:"0.32em",
-                  textTransform:"uppercase", fontFamily:"monospace" }}>
+                  textTransform:"uppercase", fontFamily:"Calibri, Arial, sans-serif" }}>
                   Healthcare Infrastructure · India
                 </span>
               </div>
-              <h1 style={{ fontSize:"clamp(1.8rem,3.5vw,3rem)", color:C.white, lineHeight:1.1,
-                marginBottom:24, fontFamily:"'Cormorant Garamond', Georgia, serif", fontWeight:400 }}>
+              <h1 style={{ fontSize:"clamp(2.8rem, 4.5vw, 4.4rem)", color:C.white, lineHeight:1.1,
+                marginBottom:24, fontFamily:"Calibri, Arial, sans-serif", fontWeight:400 }}>
                 Most Hospital Projects<br />Go Wrong Before<br />
                 <em style={{ color:C.teal }}>a Single Brick Is Laid.</em>
               </h1>
@@ -293,17 +293,17 @@ export function WhyUs() {
                 building, and the client pays for it twice: once for the build, and again for the retrofit.
               </p>
               <p style={{ fontSize:17, color:"rgba(75,204,212,0.75)", lineHeight:1.7, maxWidth:520, marginBottom:40,
-                fontFamily:"'Cormorant Garamond', Georgia, serif", fontStyle:"italic" }}>
+                fontFamily:"Calibri, Arial, sans-serif", fontStyle:"italic" }}>
                 ARCHORA exists so that never happens to you.
               </p>
               <div style={{ display:"flex", gap:12, flexWrap:"wrap" }}>
                 <button onClick={() => navigate("/contact")} style={{ padding:"13px 30px", background:C.blue, color:C.white, border:"none",
-                  fontSize:13, letterSpacing:"0.18em", textTransform:"uppercase", fontFamily:"monospace", cursor:"pointer" }}>
+                  fontSize:13, letterSpacing:"0.18em", textTransform:"uppercase", fontFamily:"Calibri, Arial, sans-serif", cursor:"pointer" }}>
                   Book a Free Consultation →
                 </button>
                 <button onClick={() => navigate("/our-flow")} style={{ padding:"13px 30px", background:"transparent", color:"rgba(255,255,255,0.7)",
                   border:"1px solid rgba(255,255,255,0.25)", fontSize:13, letterSpacing:"0.18em",
-                  textTransform:"uppercase", fontFamily:"monospace", cursor:"pointer" }}>
+                  textTransform:"uppercase", fontFamily:"Calibri, Arial, sans-serif", cursor:"pointer" }}>
                   See How We Work
                 </button>
               </div>
@@ -317,7 +317,7 @@ export function WhyUs() {
         <section style={{ background:C.dark, padding:"120px 0", position:"relative", overflow:"hidden" }}>
           <div style={{ position:"absolute", inset:0, color:C.teal }}><BlueprintGrid opacity={0.04}/></div>
           <div style={{ position:"absolute", right:-20, top:"50%", transform:"translateY(-50%)",
-            fontFamily:"monospace", fontSize:"22vw", color:"rgba(75,204,212,0.025)",
+            fontFamily:"Calibri, Arial, sans-serif", fontSize:"22vw", color:"rgba(75,204,212,0.025)",
             lineHeight:1, pointerEvents:"none", userSelect:"none", letterSpacing:"-0.04em" }}
             aria-hidden="true">ARCH</div>
 
@@ -329,7 +329,7 @@ export function WhyUs() {
               <div>
                 <SectionLabel text="Why ARCHORA" light/>
                 <h2 style={{ color:C.white, fontSize:"clamp(2rem,3.2vw,2.8rem)", fontWeight:400, margin:0,
-                  fontFamily:"'Cormorant Garamond', Georgia, serif", lineHeight:1.1 }}>
+                  fontFamily:"Calibri, Arial, sans-serif", lineHeight:1.1 }}>
                   The Four Reasons<br /><em style={{ color:C.teal }}>Specialists Beat Generalists.</em>
                 </h2>
               </div>
@@ -351,20 +351,20 @@ export function WhyUs() {
                     position:"relative", cursor:"default", transition:"background 0.4s ease" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = "rgba(75,204,212,0.04)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = "transparent"; }}>
-                  <span style={{ position:"absolute", top:24, right:28, fontFamily:"monospace",
+                  <span style={{ position:"absolute", top:24, right:28, fontFamily:"Calibri, Arial, sans-serif",
                     fontSize:13, color:"rgba(75,204,212,0.2)", letterSpacing:"0.12em" }}
                     aria-hidden="true">{p.num}</span>
                   <div style={{ marginBottom:32 }}>
                     <div style={{ fontSize:"clamp(2.8rem,3.5vw,3.8rem)",
                       color: i % 2 === 0 ? C.teal : "rgba(255,255,255,0.9)",
-                      fontFamily:"'Cormorant Garamond', Georgia, serif",
+                      fontFamily:"Calibri, Arial, sans-serif",
                       fontWeight:400, lineHeight:1, marginBottom:6 }}>{p.stat}</div>
-                    <div style={{ fontSize:13, color:"rgba(75,204,212,0.5)", fontFamily:"monospace",
+                    <div style={{ fontSize:13, color:"rgba(75,204,212,0.5)", fontFamily:"Calibri, Arial, sans-serif",
                       letterSpacing:"0.22em", textTransform:"uppercase" }}>{p.statLabel}</div>
                   </div>
                   <div style={{ width:32, height:2, background: i % 2 === 0 ? C.teal : C.blue, marginBottom:24 }}/>
                   <h3 style={{ color:C.white, fontSize:19, marginBottom:14,
-                    fontFamily:"'Cormorant Garamond', Georgia, serif", fontWeight:400, lineHeight:1.3 }}>{p.title}</h3>
+                    fontFamily:"Calibri, Arial, sans-serif", fontWeight:400, lineHeight:1.3 }}>{p.title}</h3>
                   <p style={{ color:"rgba(255,255,255,0.55)", fontSize:16, lineHeight:1.85, margin:0 }}>{p.desc}</p>
                 </motion.div>
               ))}
@@ -374,14 +374,14 @@ export function WhyUs() {
               viewport={{ once:true }} transition={{ duration:0.8, delay:0.4 }}
               style={{ borderTop:"1px solid rgba(75,204,212,0.08)", padding:"28px 0 0",
                 display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:16 }}>
-              <p style={{ color:"rgba(255,255,255,0.35)", fontSize:14, fontFamily:"monospace",
+              <p style={{ color:"rgba(255,255,255,0.35)", fontSize:14, fontFamily:"Calibri, Arial, sans-serif",
                 letterSpacing:"0.12em", margin:0 }}>
                 Headquartered in Thane · Pan-India delivery · Healthcare only since founding
               </p>
               <button onClick={() => navigate("/facilities")} style={{ padding:"10px 24px", background:"transparent",
                 color:"rgba(75,204,212,0.65)", border:"1px solid rgba(75,204,212,0.2)",
                 fontSize:13, letterSpacing:"0.18em", textTransform:"uppercase",
-                fontFamily:"monospace", cursor:"pointer" }}>
+                fontFamily:"Calibri, Arial, sans-serif", cursor:"pointer" }}>
                 See Our Projects →
               </button>
             </motion.div>
@@ -393,7 +393,7 @@ export function WhyUs() {
         ══════════════════════════════════════ */}
         <section style={{ background:C.creamAlt, padding:"110px 0", position:"relative", overflow:"hidden" }}>
           <div style={{ position:"absolute", right:-40, top:"50%", transform:"translateY(-50%)",
-            fontFamily:"monospace", fontSize:"18vw", color:"rgba(27,108,168,0.04)",
+            fontFamily:"Calibri, Arial, sans-serif", fontSize:"18vw", color:"rgba(27,108,168,0.04)",
             lineHeight:1, pointerEvents:"none", userSelect:"none" }} aria-hidden="true">VS</div>
 
           <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 80px", position:"relative" }}>
@@ -403,7 +403,7 @@ export function WhyUs() {
               <SectionLabel text="The ARCHORA Difference"/>
               <div style={{ display:"flex", alignItems:"flex-end", justifyContent:"space-between", gap:40 }}>
                 <h2 style={{ color:C.navy, fontSize:"clamp(2rem,3.5vw,3rem)", fontWeight:400,
-                  fontFamily:"'Cormorant Garamond', Georgia, serif", margin:0, lineHeight:1.1 }}>
+                  fontFamily:"Calibri, Arial, sans-serif", margin:0, lineHeight:1.1 }}>
                   ARCHORA vs.<br /><em>a General Architect.</em>
                 </h2>
                 <p style={{ color:"#4a5a6a", fontSize:16, lineHeight:1.8, maxWidth:360, margin:0 }}>
@@ -420,11 +420,11 @@ export function WhyUs() {
               <div style={{ display:"grid", gridTemplateColumns:"2fr 1fr 1fr", marginBottom:2 }}>
                 <div style={{ padding:"14px 0" }}/>
                 <div style={{ padding:"18px 28px", background:C.red, textAlign:"center" }}>
-                  <span style={{ color:"rgba(255,255,255,0.9)", fontSize:13, fontFamily:"monospace",
+                  <span style={{ color:"rgba(255,255,255,0.9)", fontSize:13, fontFamily:"Calibri, Arial, sans-serif",
                     letterSpacing:"0.18em", textTransform:"uppercase" }}>General Architect</span>
                 </div>
                 <div style={{ padding:"18px 28px", background:C.blue, textAlign:"center" }}>
-                  <span style={{ color:C.white, fontSize:13, fontFamily:"monospace",
+                  <span style={{ color:C.white, fontSize:13, fontFamily:"Calibri, Arial, sans-serif",
                     letterSpacing:"0.18em", textTransform:"uppercase" }}>ARCHORA</span>
                 </div>
               </div>
@@ -438,7 +438,7 @@ export function WhyUs() {
                   <div style={{ padding:"20px 24px 20px 0", display:"flex", alignItems:"center",
                     borderBottom:`1px solid rgba(27,108,168,0.1)` }}>
                     <span style={{ color:C.navy, fontSize:16,
-                      fontFamily:"'Cormorant Garamond', Georgia, serif" }}>{row.attr}</span>
+                      fontFamily:"Calibri, Arial, sans-serif" }}>{row.attr}</span>
                   </div>
                   {/* General */}
                   <div style={{ padding:"20px 28px", background:"rgba(192,57,43,0.05)",
@@ -456,7 +456,7 @@ export function WhyUs() {
                     <span style={{ width:18, height:18, borderRadius:"50%",
                       background:"rgba(27,108,168,0.12)", display:"flex", alignItems:"center",
                       justifyContent:"center", flexShrink:0, fontSize:12, color:C.blue }}>✓</span>
-                    <span style={{ color:C.navy, fontSize:15, fontWeight:500 }}>{row.archora}</span>
+                    <span style={{ color:C.navy, fontSize:15, fontWeight:400 }}>{row.archora}</span>
                   </div>
                 </motion.div>
               ))}
@@ -469,12 +469,12 @@ export function WhyUs() {
                 background:C.navy, display:"flex", alignItems:"center",
                 justifyContent:"space-between", flexWrap:"wrap", gap:20 }}>
               <p style={{ color:"rgba(255,255,255,0.7)", fontSize:16, margin:0, lineHeight:1.6,
-                fontFamily:"'Cormorant Garamond', Georgia, serif", fontStyle:"italic", maxWidth:480 }}>
+                fontFamily:"Calibri, Arial, sans-serif", fontStyle:"italic", maxWidth:480 }}>
                 "A general architect discovers NABH requirements after construction. ARCHORA builds them in from sketch one."
               </p>
               <button onClick={() => navigate("/contact")} style={{ padding:"12px 28px", background:C.blue, color:C.white, border:"none",
                 fontSize:13, letterSpacing:"0.18em", textTransform:"uppercase",
-                fontFamily:"monospace", cursor:"pointer", flexShrink:0 }}>
+                fontFamily:"Calibri, Arial, sans-serif", cursor:"pointer", flexShrink:0 }}>
                 Talk to a Specialist →
               </button>
             </motion.div>
@@ -494,7 +494,7 @@ export function WhyUs() {
               <SectionLabel text="Who We Work With" light/>
               <div style={{ display:"flex", alignItems:"flex-end", justifyContent:"space-between", gap:40 }}>
                 <h2 style={{ color:C.white, fontSize:"clamp(1.9rem,3.2vw,3rem)", fontWeight:400,
-                  fontFamily:"'Cormorant Garamond', Georgia, serif", margin:0, lineHeight:1.1 }}>
+                  fontFamily:"Calibri, Arial, sans-serif", margin:0, lineHeight:1.1 }}>
                   Built for Every<br /><em style={{ color:C.teal }}>Healthcare Promoter.</em>
                 </h2>
                 <p style={{ color:"rgba(255,255,255,0.45)", fontSize:16, lineHeight:1.8,
@@ -537,12 +537,12 @@ export function WhyUs() {
                     fontSize:24, marginBottom:24 }} aria-hidden="true">{a.icon}</div>
 
                   <h3 style={{ color:C.white, fontSize:19, marginBottom:12,
-                    fontFamily:"'Cormorant Garamond', Georgia, serif", fontWeight:400 }}>{a.label}</h3>
+                    fontFamily:"Calibri, Arial, sans-serif", fontWeight:400 }}>{a.label}</h3>
                   <p style={{ color:"rgba(255,255,255,0.55)", fontSize:16, lineHeight:1.8, margin:"0 0 24px" }}>{a.desc}</p>
 
                   <div style={{ display:"flex", alignItems:"center", gap:8 }}>
                     <span style={{ width:20, height:1, background:"rgba(75,204,212,0.35)" }}/>
-                    <span style={{ color:"rgba(75,204,212,0.65)", fontSize:13, fontFamily:"monospace",
+                    <span style={{ color:"rgba(75,204,212,0.65)", fontSize:13, fontFamily:"Calibri, Arial, sans-serif",
                       letterSpacing:"0.18em", textTransform:"uppercase" }}>Learn More →</span>
                   </div>
                 </motion.div>
@@ -561,7 +561,7 @@ export function WhyUs() {
               <div style={{ display:"flex", justifyContent:"center", marginBottom:32 }}>
                 <MedicalCross size={28} color={C.blue} opacity={0.4}/>
               </div>
-              <blockquote style={{ fontFamily:"'Cormorant Garamond', Georgia, serif",
+              <blockquote style={{ fontFamily:"Calibri, Arial, sans-serif",
                 fontSize:"clamp(1.7rem,2.8vw,2.6rem)", color:C.navy,
                 fontWeight:400, fontStyle:"italic", lineHeight:1.55, margin:"0 0 32px" }}>
                 "In tier 2 and tier 3 cities across India, brilliant doctors with real vision are hiring general architects
@@ -569,7 +569,7 @@ export function WhyUs() {
               </blockquote>
               <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:16 }}>
                 <div style={{ width:40, height:1, background:C.blue, opacity:0.3 }}/>
-                <span style={{ color:C.blue, fontSize:13, fontFamily:"monospace",
+                <span style={{ color:C.blue, fontSize:13, fontFamily:"Calibri, Arial, sans-serif",
                   letterSpacing:"0.18em", textTransform:"uppercase", opacity:0.7 }}>
                   Prasad Patil, Founder & CEO, ARCHORA
                 </span>
@@ -585,7 +585,7 @@ export function WhyUs() {
         <section id="faq" style={{ background:C.dark, padding:"120px 0", position:"relative", overflow:"hidden" }}>
           <div style={{ position:"absolute", inset:0, color:C.teal }}><BlueprintGrid opacity={0.04}/></div>
           <div style={{ position:"absolute", left:-20, top:"50%", transform:"translateY(-50%)",
-            fontFamily:"monospace", fontSize:"18vw", color:"rgba(75,204,212,0.02)",
+            fontFamily:"Calibri, Arial, sans-serif", fontSize:"18vw", color:"rgba(75,204,212,0.02)",
             lineHeight:1, pointerEvents:"none", userSelect:"none" }} aria-hidden="true">FAQ</div>
 
           <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 80px", position:"relative" }}>
@@ -595,14 +595,14 @@ export function WhyUs() {
               <SectionLabel text="Knowledge Centre" light/>
               <div style={{ display:"flex", alignItems:"flex-end", justifyContent:"space-between", flexWrap:"wrap", gap:24 }}>
                 <h2 style={{ color:C.white, fontSize:"clamp(2rem,3.5vw,3.2rem)", fontWeight:400,
-                  fontFamily:"'Cormorant Garamond', Georgia, serif", margin:0, lineHeight:1.1 }}>
+                  fontFamily:"Calibri, Arial, sans-serif", margin:0, lineHeight:1.1 }}>
                   Everything You Need to Know<br /><em style={{ color:C.teal }}>About Healthcare Infrastructure.</em>
                 </h2>
                 <div style={{ display:"flex", gap:2 }}>
                   {(["faq","privacy"] as const).map(tab => (
                     <button key={tab} onClick={() => setActiveTab(tab)}
                       style={{ padding:"10px 24px", fontSize:13, letterSpacing:"0.18em",
-                        textTransform:"uppercase", fontFamily:"monospace", cursor:"pointer",
+                        textTransform:"uppercase", fontFamily:"Calibri, Arial, sans-serif", cursor:"pointer",
                         border:"1px solid rgba(75,204,212,0.25)", transition:"all 0.25s",
                         background: activeTab===tab ? C.blue : "transparent",
                         color: activeTab===tab ? C.white : "rgba(75,204,212,0.65)" }}>
@@ -622,10 +622,10 @@ export function WhyUs() {
                       value={faqSearch} onChange={e => setFaqSearch(e.target.value)}
                       style={{ width:"100%", padding:"16px 56px 16px 20px",
                         background:"rgba(255,255,255,0.04)", border:"1px solid rgba(75,204,212,0.2)",
-                        color:C.white, fontSize:16, fontFamily:"'Georgia', serif",
+                        color:C.white, fontSize:16, fontFamily:"Calibri, Arial, sans-serif",
                         outline:"none", boxSizing:"border-box" }}/>
                     <span style={{ position:"absolute", right:20, top:"50%", transform:"translateY(-50%)",
-                      color:"rgba(75,204,212,0.4)", fontSize:18, fontFamily:"monospace" }}>⌕</span>
+                      color:"rgba(75,204,212,0.4)", fontSize:18, fontFamily:"Calibri, Arial, sans-serif" }}>⌕</span>
                   </div>
                   <div style={{ display:"flex", flexWrap:"wrap", gap:8, marginBottom:48 }}>
                     {faqSections.map(s => (
@@ -634,7 +634,7 @@ export function WhyUs() {
                         style={{ padding:"6px 14px", background:"rgba(75,204,212,0.06)",
                           border:"1px solid rgba(75,204,212,0.18)", color:"rgba(75,204,212,0.65)",
                           fontSize:13, letterSpacing:"0.16em", textTransform:"uppercase",
-                          fontFamily:"monospace", cursor:"pointer", transition:"all 0.2s" }}
+                          fontFamily:"Calibri, Arial, sans-serif", cursor:"pointer", transition:"all 0.2s" }}
                         onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background="rgba(75,204,212,0.12)"; (e.currentTarget as HTMLButtonElement).style.color=C.teal; }}
                         onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background="rgba(75,204,212,0.06)"; (e.currentTarget as HTMLButtonElement).style.color="rgba(75,204,212,0.65)"; }}
                       >{s.label}</button>
@@ -650,7 +650,7 @@ export function WhyUs() {
                             border:`1px solid ${activeSection===s.id ? "rgba(75,204,212,0.35)" : "rgba(75,204,212,0.08)"}`,
                             color: activeSection===s.id ? C.teal : "rgba(255,255,255,0.5)",
                             fontSize:13, letterSpacing:"0.12em", textTransform:"uppercase",
-                            fontFamily:"monospace", cursor:"pointer", transition:"all 0.25s" }}
+                            fontFamily:"Calibri, Arial, sans-serif", cursor:"pointer", transition:"all 0.25s" }}
                           onMouseEnter={e => { if (activeSection!==s.id) (e.currentTarget as HTMLButtonElement).style.color="rgba(255,255,255,0.75)"; }}
                           onMouseLeave={e => { if (activeSection!==s.id) (e.currentTarget as HTMLButtonElement).style.color="rgba(255,255,255,0.5)"; }}
                         >{s.label}</button>
@@ -663,7 +663,7 @@ export function WhyUs() {
                             paddingBottom:14, borderBottom:"1px solid rgba(75,204,212,0.1)" }}>
                             <span style={{ width:24, height:1, background:"rgba(75,204,212,0.5)" }}/>
                             <span style={{ color:"rgba(75,204,212,0.75)", fontSize:13, letterSpacing:"0.24em",
-                              textTransform:"uppercase", fontFamily:"monospace" }}>{section.label}</span>
+                              textTransform:"uppercase", fontFamily:"Calibri, Arial, sans-serif" }}>{section.label}</span>
                           </div>
                           {section.questions.map((item, qi) => (
                             <FAQItem key={qi} q={item.q} a={item.a} index={qi}/>
@@ -675,7 +675,7 @@ export function WhyUs() {
                             <button onClick={() => navigate("/contact")} style={{ padding:"8px 18px", background:"transparent",
                               color:"rgba(75,204,212,0.75)", border:"1px solid rgba(75,204,212,0.25)",
                               fontSize:13, letterSpacing:"0.16em", textTransform:"uppercase",
-                              fontFamily:"monospace", cursor:"pointer" }}>
+                              fontFamily:"Calibri, Arial, sans-serif", cursor:"pointer" }}>
                               Talk to our team →
                             </button>
                           </div>
@@ -692,14 +692,14 @@ export function WhyUs() {
                   <div style={{ display:"grid", gridTemplateColumns:"260px 1fr", gap:40, alignItems:"start" }}>
                     <div style={{ position:"sticky", top:100 }}>
                       <p style={{ color:"rgba(75,204,212,0.6)", fontSize:13, letterSpacing:"0.22em",
-                        textTransform:"uppercase", fontFamily:"monospace", marginBottom:16 }}>Contents</p>
+                        textTransform:"uppercase", fontFamily:"Calibri, Arial, sans-serif", marginBottom:16 }}>Contents</p>
                       {privacySections.map(s => (
                         <button key={s.num}
                           onClick={() => document.getElementById(`privacy-${s.num}`)?.scrollIntoView({ behavior:"smooth", block:"start" })}
                           style={{ display:"flex", alignItems:"center", gap:10, width:"100%", textAlign:"left",
                             padding:"10px 14px", marginBottom:2, background:"transparent",
                             border:"1px solid rgba(75,204,212,0.08)", color:"rgba(255,255,255,0.5)",
-                            fontSize:13, letterSpacing:"0.1em", fontFamily:"monospace",
+                            fontSize:13, letterSpacing:"0.1em", fontFamily:"Calibri, Arial, sans-serif",
                             cursor:"pointer", transition:"all 0.25s" }}
                           onMouseEnter={e => { const b=e.currentTarget as HTMLButtonElement; b.style.color="rgba(75,204,212,0.8)"; b.style.borderColor="rgba(75,204,212,0.25)"; }}
                           onMouseLeave={e => { const b=e.currentTarget as HTMLButtonElement; b.style.color="rgba(255,255,255,0.5)"; b.style.borderColor="rgba(75,204,212,0.08)"; }}>
@@ -708,7 +708,7 @@ export function WhyUs() {
                       ))}
                       <div style={{ marginTop:20, padding:"14px", background:"rgba(75,204,212,0.04)",
                         border:"1px solid rgba(75,204,212,0.1)" }}>
-                        <p style={{ color:"rgba(75,204,212,0.6)", fontSize:12, fontFamily:"monospace",
+                        <p style={{ color:"rgba(75,204,212,0.6)", fontSize:12, fontFamily:"Calibri, Arial, sans-serif",
                           letterSpacing:"0.12em", margin:"0 0 4px" }}>LAST UPDATED</p>
                         <p style={{ color:"rgba(255,255,255,0.6)", fontSize:14, margin:0 }}>May 2025</p>
                       </div>
@@ -720,10 +720,10 @@ export function WhyUs() {
                           viewport={{ once:true }} transition={{ duration:0.5, delay:i*0.05 }}
                           style={{ marginBottom:40, paddingBottom:40, borderBottom:"1px solid rgba(75,204,212,0.08)" }}>
                           <div style={{ display:"flex", alignItems:"center", gap:16, marginBottom:16 }}>
-                            <span style={{ fontFamily:"'Cormorant Garamond', Georgia, serif",
+                            <span style={{ fontFamily:"Calibri, Arial, sans-serif",
                               fontSize:32, color:"rgba(75,204,212,0.15)", lineHeight:1 }}>{s.num}</span>
                             <h3 style={{ color:C.white, fontSize:21,
-                              fontFamily:"'Cormorant Garamond', Georgia, serif",
+                              fontFamily:"Calibri, Arial, sans-serif",
                               fontWeight:400, margin:0 }}>{s.title}</h3>
                           </div>
                           <p style={{ color:"rgba(255,255,255,0.62)", fontSize:16, lineHeight:1.85, margin:0 }}>{s.content}</p>
@@ -732,7 +732,7 @@ export function WhyUs() {
                       <div style={{ padding:"24px 28px", background:"rgba(75,204,212,0.04)",
                         border:"1px solid rgba(75,204,212,0.12)" }}>
                         <p style={{ color:"rgba(75,204,212,0.75)", fontSize:13, letterSpacing:"0.22em",
-                          textTransform:"uppercase", fontFamily:"monospace", marginBottom:8 }}>Terms of Use</p>
+                          textTransform:"uppercase", fontFamily:"Calibri, Arial, sans-serif", marginBottom:8 }}>Terms of Use</p>
                         <p style={{ color:"rgba(255,255,255,0.58)", fontSize:15, lineHeight:1.8, margin:"0 0 16px" }}>
                           By accessing or using www.archora.in, you agree to our Terms of Use. All content on this Website
                           is the intellectual property of ARCHORA and protected under applicable Indian and international
@@ -740,7 +740,7 @@ export function WhyUs() {
                           you and ARCHORA. These Terms are governed by the laws of India and subject to the exclusive
                           jurisdiction of courts in Thane, Maharashtra.
                         </p>
-                        <p style={{ color:"rgba(255,255,255,0.35)", fontSize:13, fontFamily:"monospace",
+                        <p style={{ color:"rgba(255,255,255,0.35)", fontSize:13, fontFamily:"Calibri, Arial, sans-serif",
                           letterSpacing:"0.08em", margin:0 }}>
                           Last Updated: May 2025 · Governing Law: India · Jurisdiction: Thane, Maharashtra
                         </p>
@@ -774,7 +774,7 @@ export function WhyUs() {
               <SectionLabel text="Get In Touch" light/>
               <h2 style={{ color:C.white, fontSize:"clamp(2.2rem,4.5vw,3.6rem)",
                 marginBottom:24, fontWeight:400, lineHeight:1.1,
-                fontFamily:"'Cormorant Garamond', Georgia, serif" }}>
+                fontFamily:"Calibri, Arial, sans-serif" }}>
                 Your Hospital Project Deserves<br /><em style={{ color:C.teal }}>Specialists. Not Generalists.</em>
               </h2>
               <p style={{ color:"rgba(255,255,255,0.55)", lineHeight:1.85, fontSize:17,
@@ -784,18 +784,18 @@ export function WhyUs() {
               <div style={{ display:"flex", gap:14, justifyContent:"center", flexWrap:"wrap" }}>
                 <button onClick={() => navigate("/contact")} style={{ padding:"14px 32px", background:C.blue, color:C.white, border:"none",
                   fontSize:13, letterSpacing:"0.18em", textTransform:"uppercase",
-                  fontFamily:"monospace", cursor:"pointer" }}>
+                  fontFamily:"Calibri, Arial, sans-serif", cursor:"pointer" }}>
                   Book a Free Consultation →
                 </button>
                 <button onClick={() => window.open(WHATSAPP_URL, "_blank")} style={{ padding:"14px 32px", background:"transparent",
                   color:"rgba(75,204,212,0.75)", border:"1px solid rgba(75,204,212,0.28)",
                   fontSize:13, letterSpacing:"0.18em", textTransform:"uppercase",
-                  fontFamily:"monospace", cursor:"pointer" }}>
+                  fontFamily:"Calibri, Arial, sans-serif", cursor:"pointer" }}>
                   💬 WhatsApp Us
                 </button>
               </div>
               <p style={{ color:"rgba(255,255,255,0.25)", marginTop:28, fontSize:13,
-                fontFamily:"monospace", letterSpacing:"0.1em" }}>
+                fontFamily:"Calibri, Arial, sans-serif", letterSpacing:"0.1em" }}>
                 No obligation · No sales pressure · Honest advice from healthcare infrastructure specialists
               </p>
             </motion.div>

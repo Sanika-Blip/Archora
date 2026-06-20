@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence, useInView, useScroll, useTransform } from "motion/react";
 import { Helmet } from "react-helmet";
-import { createPortal } from "react-dom";
 import { useNavigate } from "react-router";
 
 const WHATSAPP_URL = "https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project.";
 
+const FONT = "Calibri, Arial, sans-serif";
 
 // ─────────────────────────────────────────────
 // DESIGN TOKENS
@@ -253,173 +253,6 @@ const services = [
   { num: "10", title: "Project Management & Commissioning", desc: "End-to-end project management from planning through to commissioning and handover: protecting your timeline.", icon: "🗂️" },
 ];
 
-const pillars = [
-  {
-    num: "01",
-    title: "Healthcare Only. Always.",
-    desc: "We do not design offices, residences, or commercial spaces. Healthcare infrastructure is all we do, our knowledge, processes, and vendor relationships are entirely built around one outcome.",
-    stat: "100%",
-    statLabel: "Healthcare Focus",
-  },
-  {
-    num: "02",
-    title: "Compliance Built In. Not Bolted On.",
-    desc: "NABH, NABL, INC, NMC, AERB, fire safety, part of our design process from day one, not an afterthought discovered during inspection.",
-    stat: "Zero",
-    statLabel: "Retrofits Needed",
-  },
-  {
-    num: "03",
-    title: "Single-Window Accountability.",
-    desc: "One team, one contract, one point of accountability, from architecture and engineering through construction, equipment, and commissioning.",
-    stat: "1",
-    statLabel: "Point of Contact",
-  },
-  {
-    num: "04",
-    title: "Global Standards. India-Wide Delivery.",
-    desc: "NHS-level hospital planning expertise meets India-specific clinical realities. International best practices, delivered in every corner of the country.",
-    stat: "NHS",
-    statLabel: "Standard Expertise",
-  },
-];
-
-const audiences = [
-  { icon: "🩺", label: "Doctors & Clinicians", desc: "Planning your first clinic, nursing home, or hospital? Infrastructure that matches your clinical vision, ready to operate from day one." },
-  { icon: "🏥", label: "Hospital Owners & Chains", desc: "Expanding an existing facility or building a new branch? Brownfield upgrades and greenfield projects with the same depth of expertise." },
-  { icon: "💼", label: "Healthcare Investors", desc: "Feasibility studies, DPRs, and turnkey delivery that protect your capital and your timeline, before and after you commit." },
-  { icon: "🎓", label: "Medical & Nursing Colleges", desc: "Building or expanding a campus? ARCHORA designs and delivers INC and NMC-compliant educational and clinical infrastructure." },
-  { icon: "🔬", label: "Diagnostic Centres & Labs", desc: "NABL-compliant spaces with the right technical infrastructure for every department and imaging modality." },
-  { icon: "🤝", label: "Healthcare Consultants", desc: "The infrastructure partner your clients need. We work collaboratively with consultants and advisors across India." },
-];
-
-// ─── UPDATED PROJECTS DATA (real ongoing projects from PDF) ───
-type Project = {
-  id: string;
-  name: string;
-  location: string;
-  type: string;
-  image: string;
-  status: string;
-  statusColor: string;
-  details: Record<string, string>;
-  description: string;
-  scopeItems: string[];
-};
-
-const projects: Project[] = [
-  {
-    id: "suresh-matre",
-    name: "Suresh Matre Multispecialty Hospital",
-    location: "Mankoli, Mumbai, Maharashtra",
-    type: "300-bed · Full Turnkey",
-    image: "/images/projects/suresh-matre-hospital.jpg",
-    status: "Design Phase, In Progress",
-    statusColor: "#f59e0b",
-    details: {
-      "Capacity": "300 Beds",
-      "Area": "2,00,000 Sq Ft",
-      "Project Value": "₹150 Crore+",
-      "Location": "Mankoli, Mumbai, Maharashtra",
-      "Key Department": "Oncology and Multispecialty",
-      "Scope": "Full Turnkey",
-      "Commissioned By": "Shri Suresh Matre, MP, 18th Lok Sabha",
-    },
-    description:
-      "A landmark charitable multispecialty hospital commissioned by MP Shri Suresh Matre, one of the most significant healthcare infrastructure projects currently underway in Maharashtra. ARCHORA is delivering the complete turnkey scope, from master planning and clinical space design through to oncology department planning and final commissioning.",
-    scopeItems: [
-      "Master Planning and Clinical Space Planning",
-      "Architecture and Structural Design",
-      "MEP Engineering, Medical Gas, HVAC, Fire Suppression",
-      "Modular OT and ICU Infrastructure",
-      "Oncology Department Planning",
-      "NABH-Compliant Design Framework",
-      "Interior Design and Execution",
-      "Medical Equipment Planning and Procurement",
-      "End-to-End Project Management and Commissioning",
-    ],
-  },
-  {
-    id: "binar-mp",
-    name: "Multispecialty Hospital",
-    location: "Binar, Madhya Pradesh",
-    type: "110-bed · Architecture & Design",
-    image: "/images/projects/binar-mp-hospital.jpg",
-    status: "Design Phase, In Progress",
-    statusColor: "#f59e0b",
-    details: {
-      "Facility Type": "Multispecialty Hospital",
-      "Capacity": "110 Beds",
-      "Area": "60,000 Sq Ft",
-      "Location": "Binar, Madhya Pradesh",
-      "Scope": "Architecture and Clinical Space Design",
-    },
-    description:
-      "A growing multispecialty hospital serving central India, designed for clinical efficiency, future scalability, and regulatory compliance from day one. ARCHORA is providing full architectural and clinical space design for this 110-bed facility.",
-    scopeItems: [
-      "Architecture and Clinical Space Design",
-      "NABH-Compliant Design Framework",
-      "Structural Engineering",
-      "Future Scalability Planning",
-    ],
-  },
-  {
-    id: "jogeshwari-redevelopment",
-    name: "Multispecialty Hospital Redevelopment",
-    location: "Jogeshwari, Mumbai, Maharashtra",
-    type: "20–25 Beds · Full Redevelopment",
-    image: "/images/projects/jogeshwari-redevelopment.jpg",
-    status: "Design Phase, In Progress",
-    statusColor: "#f59e0b",
-    details: {
-      "Facility Type": "Multispecialty Hospital, Full Redevelopment",
-      "Capacity": "20 to 25 Beds",
-      "Location": "Jogeshwari, Mumbai, Maharashtra",
-      "Scope": "Full Turnkey, Design and Execution",
-    },
-    description:
-      "An existing facility acquired by a healthcare investor, completely reimagined and rebuilt as a modern multispecialty hospital. ARCHORA is delivering full turnkey, from ground zero to operational hospital.",
-    scopeItems: [
-      "Full Architectural Redesign",
-      "Clinical Workflow Optimisation",
-      "Structural and MEP Engineering",
-      "Interior Design and Execution",
-      "NABH-Compliant Design Framework",
-      "Turnkey Execution and Commissioning",
-    ],
-  },
-  {
-    id: "chembur-conversion",
-    name: "Commercial Suite Conversion",
-    location: "Chembur, Mumbai, Maharashtra",
-    type: "Floor Renovation · NABH Compliant",
-    image: "/images/projects/chembur-conversion.jpg",
-    status: "Design and Execution, In Progress",
-    statusColor: "#f59e0b",
-    details: {
-      "Facility Type": "Charitable Hospital, Floor Renovation",
-      "Location": "Chembur, Mumbai, Maharashtra",
-      "Work Type": "5th Floor → Commercial Suites & Private Rooms",
-      "Scope": "NABH-Compliant Redesign and Execution",
-    },
-    description:
-      "A smart infrastructure upgrade, converting an underutilised hospital floor into revenue-generating private suites and single rooms, fully compliant with NABH standards. A model for how existing healthcare facilities can unlock new revenue streams through intelligent space redesign.",
-    scopeItems: [
-      "Clinical Space Reprogramming",
-      "NABH-Compliant Redesign",
-      "Interior Design and Fit-Out",
-      "MEP Upgrades",
-      "Project Execution and Commissioning",
-    ],
-  },
-];
-
-const team = [
-  { name: "Prasad Patil", role: "Founder & CEO", initial: "PP", color: "#1b6ca8" },
-  { name: "Ar. Vivek Patil", role: "Director & Principal Architect", initial: "VP", color: "#0f4a75" },
-  { name: "Aditya Kashikar", role: "Senior Advisor, Healthcare Infrastructure", initial: "AK", color: "#0a2e47" },
-];
-
 const metrics = [
   { val: 20, suffix: "+", label: "Years Collective Experience" },
   { val: 100, suffix: "%", label: "Healthcare Projects Only" },
@@ -445,211 +278,13 @@ function SectionLabel({ text, light = false }: { text: string; light?: boolean }
     <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
       <span style={{ width: 28, height: 1, background: light ? "rgba(75,204,212,0.6)" : C.blue, display: "block" }} />
       <span style={{
-        fontFamily: "monospace",
-        fontSize: 13,
+        fontFamily: FONT,
+        fontSize: 29,
         letterSpacing: "0.28em",
         textTransform: "uppercase",
         color: light ? "rgba(75,204,212,0.7)" : C.blue,
       }}>{text}</span>
     </div>
-  );
-}
-
-// ─────────────────────────────────────────────
-// PROJECT MODAL
-// ─────────────────────────────────────────────
-function ProjectModal({ project, onClose }: { project: Project | null; onClose: () => void }) {
-  const navigate = useNavigate();
-  useEffect(() => {
-    document.body.style.overflow = project ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [project]);
-
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [onClose]);
-
-  return createPortal(
-    <AnimatePresence>
-      {project && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            onClick={onClose}
-            role="button"
-            aria-label="Close project details"
-            style={{
-              position: "fixed", inset: 0, background: "rgba(4,28,46,0.88)",
-              zIndex: 9999, backdropFilter: "blur(6px)", cursor: "pointer",
-            }}
-          />
-
-          {/* Modal panel */}
-          <motion.div
-  role="dialog"
-  aria-modal="true"
-  aria-label={`${project.name} project details`}
-  initial={{ opacity: 0, y: 60, scale: 0.96 }}
-  animate={{ opacity: 1, y: 0, scale: 1 }}
-  exit={{ opacity: 0, y: 40, scale: 0.96 }}
-  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-  style={{
-    position: "fixed",
-    top: "5vh",
-    left: 0,
-    right: 0,
-    margin: "0 auto",
-    width: "min(860px, 94vw)",
-    maxHeight: "90vh",
-    background: "#0a1628",
-    border: "1px solid rgba(75,204,212,0.15)",
-    zIndex: 10000,
-    overflow: "hidden",
-    display: "flex",
-    flexDirection: "column",
-  }}
->
-            {/* Hero image */}
-            <div style={{ position: "relative", height: 260, flexShrink: 0, overflow: "hidden" }}>
-              <img
-                src={project.image} alt={`${project.name}, ${project.location}`}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                loading="lazy"
-              />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,22,40,0.96) 0%, rgba(10,22,40,0.25) 60%)" }} />
-
-              {/* Corner brackets */}
-              <div style={{ position: "absolute", top: 16, left: 16, width: 32, height: 32, borderLeft: "2px solid rgba(75,204,212,0.5)", borderTop: "2px solid rgba(75,204,212,0.5)" }} />
-
-              {/* Status badge */}
-              <div style={{
-                position: "absolute", top: 16, right: 56,
-                background: "rgba(10,22,40,0.85)", border: "1px solid rgba(75,204,212,0.2)",
-                padding: "5px 12px", display: "flex", alignItems: "center", gap: 6,
-                backdropFilter: "blur(8px)",
-              }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: project.statusColor, flexShrink: 0, display: "inline-block" }} />
-                <span style={{ color: "rgba(255,255,255,0.7)", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.14em" }}>
-                  {project.status}
-                </span>
-              </div>
-
-              {/* Close button */}
-              <button
-                onClick={onClose}
-                aria-label="Close"
-                style={{
-                  position: "absolute", top: 14, right: 14,
-                  width: 36, height: 36, border: "1px solid rgba(75,204,212,0.3)",
-                  background: "rgba(10,22,40,0.8)", color: "rgba(255,255,255,0.6)",
-                  cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: 22, lineHeight: 1, backdropFilter: "blur(4px)", transition: "all 0.2s",
-                }}
-                onMouseEnter={e => { const b = e.currentTarget as HTMLButtonElement; b.style.color = "#4bccd4"; b.style.borderColor = "rgba(75,204,212,0.6)"; }}
-                onMouseLeave={e => { const b = e.currentTarget as HTMLButtonElement; b.style.color = "rgba(255,255,255,0.6)"; b.style.borderColor = "rgba(75,204,212,0.3)"; }}
-              >×</button>
-
-              {/* Title */}
-              <div style={{ position: "absolute", bottom: 22, left: 28, right: 28 }}>
-                <p style={{ color: "rgba(75,204,212,0.65)", fontSize: 12, letterSpacing: "0.26em", textTransform: "uppercase", fontFamily: "monospace", margin: "0 0 7px" , fontWeight: 600 }}>
-                  {project.location}
-                </p>
-                <h2 style={{
-                  color: "#ffffff", fontSize: 27,
-                  fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-                  fontWeight: 400, margin: 0, lineHeight: 1.15,
-                }}>
-                  {project.name}
-                </h2>
-              </div>
-            </div>
-
-            {/* Scrollable body */}
-            <div style={{ overflowY: "auto", padding: "28px 32px 36px", flex: 1 }}>
-
-              {/* Description */}
-              <p style={{ color: "rgba(255,255,255,0.95)", fontSize: 19, lineHeight: 1.85, margin: "0 0 30px" , fontWeight: 600 }}>
-                {project.description}
-              </p>
-
-              {/* Two-column: Details + Scope */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}>
-
-                {/* Project details table */}
-                <div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-                    <span style={{ width: 20, height: 1, background: "rgba(75,204,212,0.5)" }} />
-                    <span style={{ color: "rgba(75,204,212,0.6)", fontSize: 12, letterSpacing: "0.24em", textTransform: "uppercase", fontFamily: "monospace" }}>
-                      Project Details
-                    </span>
-                  </div>
-                  <div style={{ border: "1px solid rgba(75,204,212,0.1)" }}>
-                    {Object.entries(project.details).map(([key, val], i, arr) => (
-                      <div
-                        key={key}
-                        style={{
-                          display: "grid", gridTemplateColumns: "1fr 1.4fr",
-                          borderBottom: i < arr.length - 1 ? "1px solid rgba(75,204,212,0.08)" : "none",
-                          padding: "10px 14px",
-                        }}
-                      >
-                        <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 13, fontFamily: "monospace", letterSpacing: "0.04em" }}>{key}</span>
-                        <span style={{ color: "rgba(255,255,255,0.78)", fontSize: 14, lineHeight: 1.5 }}>{val}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Scope of work */}
-                <div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-                    <span style={{ width: 20, height: 1, background: "rgba(75,204,212,0.5)" }} />
-                    <span style={{ color: "rgba(75,204,212,0.6)", fontSize: 12, letterSpacing: "0.24em", textTransform: "uppercase", fontFamily: "monospace" }}>
-                      Scope of Work
-                    </span>
-                  </div>
-                  <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 9 }}>
-                    {project.scopeItems.map((item, i) => (
-                      <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                        <span style={{ color: C.red, fontSize: 12, marginTop: 3, flexShrink: 0 }}>✦</span>
-                        <span style={{ color: "rgba(255,255,255,0.95)", fontSize: 17, lineHeight: 1.65 }}>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Footer CTAs */}
-              <div style={{ marginTop: 30, paddingTop: 22, borderTop: "1px solid rgba(75,204,212,0.1)", display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <button onClick={() => { onClose(); navigate("/contact"); }} style={{
-                  padding: "12px 28px", background: C.blue, color: C.white,
-                  border: "none", fontSize: 13, letterSpacing: "0.18em",
-                  textTransform: "uppercase", fontFamily: "monospace", cursor: "pointer", transition: "background 0.2s",
-                }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = C.navy; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = C.blue; (e.currentTarget as HTMLButtonElement).style.color = C.white; }}
-                >
-                  Discuss a Similar Project
-                </button>
-                <button onClick={() => { onClose(); navigate("/services"); }} style={{
-                  padding: "12px 28px", background: "transparent",
-                  color: "rgba(75,204,212,0.75)", border: "1px solid rgba(75,204,212,0.28)",
-                  fontSize: 13, letterSpacing: "0.18em", textTransform: "uppercase",
-                  fontFamily: "monospace", cursor: "pointer",
-                }}>
-                  Explore Our Services →
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>,
-    document.body
   );
 }
 
@@ -660,7 +295,6 @@ export function Home() {
   const navigate = useNavigate();
   const [heroIndex, setHeroIndex] = useState(0);
   const [direction, setDirection] = useState(1);
-  const [activeProject, setActiveProject] = useState<Project | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const goTo = useCallback((idx: number, dir: number) => {
@@ -683,7 +317,7 @@ export function Home() {
     <>
       <SEOHead />
 
-      <div style={{ fontFamily: "'Georgia', serif", overflowX: "hidden", background: C.cream }}>
+      <div style={{ fontFamily: FONT, overflowX: "hidden", background: C.cream }}>
 
         {/* ══════════════════════════════════════════
             HERO, IMMERSIVE CAROUSEL
@@ -760,7 +394,7 @@ export function Home() {
                 style={{
                   display: "flex", alignItems: "center", gap: 8,
                   fontSize: 12, letterSpacing: "0.28em", textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.92)", fontFamily: "monospace",
+                  color: "rgba(255,255,255,0.92)", fontFamily: FONT,
                   border: "1px solid rgba(255,255,255,0.15)", padding: "6px 14px",
                   backdropFilter: "blur(8px)",
                 }}
@@ -777,7 +411,7 @@ export function Home() {
                 style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
               >
-                <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 14, fontFamily: "monospace" }}>0{heroIndex + 1}</span>
+                <span style={{ color: "rgba(255,255,255,0.3)", fontSize: 14, fontFamily: FONT }}>0{heroIndex + 1}</span>
                 <div style={{ position: "relative", height: 1, width: 60, background: "rgba(255,255,255,0.15)", overflow: "hidden" }}>
                   <motion.div
                     key={heroIndex}
@@ -786,7 +420,7 @@ export function Home() {
                     transition={{ duration: 7, ease: "linear" }}
                   />
                 </div>
-                <span style={{ color: "rgba(255,255,255,0.2)", fontSize: 14, fontFamily: "monospace" }}>0{heroSlides.length}</span>
+                <span style={{ color: "rgba(255,255,255,0.2)", fontSize: 14, fontFamily: FONT }}>0{heroSlides.length}</span>
               </motion.div>
 
               <motion.div
@@ -794,7 +428,7 @@ export function Home() {
                 initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <span style={{ color: "rgba(255,255,255,0.90)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "monospace" }}>
+                <span style={{ color: "rgba(255,255,255,0.90)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: FONT }}>
                   Healthcare Infrastructure
                 </span>
               </motion.div>
@@ -807,9 +441,9 @@ export function Home() {
                   exit={{ opacity: 0, y: -24 }}
                   transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                   style={{
-                    fontSize: "clamp(2.4rem, 4.8vw, 4rem)", color: C.white,
+                    fontSize: "clamp(2.6rem, 5.2vw, 4.4rem)", color: C.white,
                     marginBottom: 24, lineHeight: 1.06,
-                    fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400,
+                    fontFamily: FONT, fontWeight: 400,
                     letterSpacing: "-0.01em",
                   }}
                 >
@@ -819,7 +453,7 @@ export function Home() {
 
               <motion.p
                 key={`sub-${heroIndex}`}
-                style={{ fontSize: 19, color: "#ffffff", marginBottom: 44, lineHeight: 1.75, maxWidth: 520, fontFamily: "'DM Sans', sans-serif" }}
+                style={{ fontSize: 18, color: "#ffffff", marginBottom: 44, lineHeight: 1.75, maxWidth: 520, fontFamily: FONT, fontWeight: 400 }}
                 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.4 }}
               >
@@ -836,7 +470,7 @@ export function Home() {
               </motion.div>
 
               <motion.p
-                style={{ marginTop: 20, fontSize: 13, color: "rgba(255,255,255,0.25)", letterSpacing: "0.12em", fontFamily: "monospace" }}
+                style={{ marginTop: 20, fontSize: 13, color: "rgba(255,255,255,0.25)", letterSpacing: "0.12em", fontFamily: FONT }}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}
               >
                 No obligation · No sales pressure · Honest expert advice
@@ -883,7 +517,7 @@ export function Home() {
             {Array(6).fill(["Hospital Planning", "Modular OT Design", "ICU Infrastructure", "NABH Compliance", "MEP Engineering", "Turnkey Delivery", "Medical Equipment Planning", "Pan India Projects"]).flat().map((item, i) => (
               <span key={i} style={{
                 color: "rgba(75,204,212,0.45)", fontSize: 13, letterSpacing: "0.26em",
-                textTransform: "uppercase", fontFamily: "monospace",
+                textTransform: "uppercase", fontFamily: FONT,
                 paddingRight: 48, display: "inline-flex", alignItems: "center", gap: 48,
               }}>
                 {item}
@@ -900,7 +534,7 @@ export function Home() {
           <div style={{ position: "absolute", inset: 0, color: C.teal, pointerEvents: "none" }}>
             <BlueprintGrid opacity={0.05} />
           </div>
-          <div style={{ position: "absolute", right: -20, top: "50%", transform: "translateY(-50%)", fontFamily: "monospace", fontSize: "22vw", color: "rgba(75,204,212,0.025)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }} aria-hidden="true">
+          <div style={{ position: "absolute", right: -20, top: "50%", transform: "translateY(-50%)", fontFamily: FONT, fontSize: "22vw", color: "rgba(75,204,212,0.025)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }} aria-hidden="true">
             01
           </div>
 
@@ -908,8 +542,8 @@ export function Home() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "center" }}>
 
               <motion.div {...fadeUp}>
-                <SectionLabel text="The Problem We Solve" light />
-                <h2 id="problem-heading" style={{ color: C.white, fontSize: "clamp(1.9rem, 3.2vw, 3rem)", lineHeight: 1.12, marginBottom: 32, fontWeight: 400, fontFamily: "'Cormorant Garamond', 'Georgia', serif" }}>
+                <SectionLabel text="The Problem We Solve" light  />
+                <h2 id="problem-heading" style={{ color: C.white, fontSize: "clamp(2.1rem, 3.6vw, 3.4rem)", lineHeight: 1.12, marginBottom: 32, fontWeight: 400, fontFamily: FONT }}>
                   Most Healthcare Facilities in India Are Built by the Wrong Team
                 </h2>
 
@@ -917,18 +551,18 @@ export function Home() {
                   "Building a hospital is not the same as building a commercial space. Clinical workflows, infection control, regulatory compliance, patient safety, and 24×7 operational demands make healthcare construction one of the most specialised disciplines in the built environment.",
                   "Yet most hospitals in India are designed by general architects, built by general contractors, and coordinated by promoters left managing 15 different vendors on their own.",
                 ].map((text, i) => (
-                  <p key={i} style={{ color: "rgba(255,255,255,0.95)", lineHeight: 1.85, marginBottom: 18, fontSize: 19 }}>{text}</p>
+                  <p key={i} style={{ color: "rgba(255,255,255,0.95)", lineHeight: 1.85, marginBottom: 18, fontSize: 17, fontWeight: 400, fontFamily: FONT }}>{text}</p>
                 ))}
 
                 <div style={{ borderLeft: `3px solid ${C.red}`, paddingLeft: 20, marginBottom: 32, marginTop: 28 }}>
-                  <p style={{ color: "rgba(192,57,43,0.85)", lineHeight: 1.8, fontStyle: "italic", margin: 0, fontSize: 19 , fontWeight: 600 }}>
+                  <p style={{ color: "rgba(192,57,43,0.85)", lineHeight: 1.8, fontStyle: "italic", margin: 0, fontSize: 17, fontWeight: 400, fontFamily: FONT }}>
                     Facilities that fail NABH audits. Departments that don't function as clinicians need. Projects that run over budget and time.
                   </p>
                 </div>
 
                 <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "20px 24px", background: "rgba(75,204,212,0.06)", border: "1px solid rgba(75,204,212,0.15)" }}>
                   <MedicalCross size={22} color={C.teal} opacity={0.7} />
-                  <p style={{ color: C.teal, fontStyle: "italic", fontSize: 20, margin: 0, opacity: 0.85 , fontWeight: 600 }}>ARCHORA was founded to change that.</p>
+                  <p style={{ color: C.teal, fontStyle: "italic", fontSize: 18, margin: 0, opacity: 0.85, fontWeight: 400, fontFamily: FONT }}>ARCHORA was founded to change that.</p>
                 </div>
               </motion.div>
 
@@ -959,17 +593,17 @@ export function Home() {
                       [130, 42, "OT Block"], [220, 42, "ICU / HDU"], [310, 42, "Admin"],
                       [130, 88, "Emergency"], [220, 88, "Radiology"], [310, 88, "Pharmacy"],
                     ] as [number, number, string][]).map(([x, y, t], i) => (
-                      <text key={i} x={x} y={y} textAnchor="middle" fill="#4bccd4" fontSize="7" fontFamily="monospace" opacity="0.45">{t}</text>
+                      <text key={i} x={x} y={y} textAnchor="middle" fill="#4bccd4" fontSize="7" fontFamily="Calibri, Arial, sans-serif" opacity="0.45">{t}</text>
                     ))}
                     <rect x="310" y="125" width="74" height="22" rx="2" fill="none" stroke="#4bccd4" strokeWidth="0.8" opacity="0.5" />
-                    <text x="347" y="140" textAnchor="middle" fill="#4bccd4" fontSize="7.5" fontFamily="monospace" opacity="0.65">NABH READY</text>
+                    <text x="347" y="140" textAnchor="middle" fill="#4bccd4" fontSize="7.5" fontFamily="Calibri, Arial, sans-serif" opacity="0.65">NABH READY</text>
                     <circle cx="42" cy="308" r="16" fill="none" stroke="#4bccd4" strokeWidth="0.6" opacity="0.25" />
                     <line x1="42" y1="323" x2="42" y2="340" stroke="#4bccd4" strokeWidth="0.8" opacity="0.25" />
                     <circle cx="398" cy="308" r="16" fill="none" stroke="#4bccd4" strokeWidth="0.6" opacity="0.25" />
                     <line x1="398" y1="323" x2="398" y2="340" stroke="#4bccd4" strokeWidth="0.8" opacity="0.25" />
                   </svg>
                   <div style={{ display: "flex", justifyContent: "center", marginTop: 12 }}>
-                    <span style={{ color: "rgba(75,204,212,0.35)", fontSize: 12, letterSpacing: "0.22em", textTransform: "uppercase", fontFamily: "monospace" }}>
+                    <span style={{ color: "rgba(75,204,212,0.35)", fontSize: 12, letterSpacing: "0.22em", textTransform: "uppercase", fontFamily: FONT }}>
                       Schematic Floor Plan, Archora Standard
                     </span>
                   </div>
@@ -990,19 +624,19 @@ export function Home() {
                 viewport={{ once: true }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
                 <SectionLabel text="Who We Are" />
-                <h2 id="whoweare-heading" style={{ color: C.navy, fontSize: "clamp(1.9rem, 3.2vw, 3rem)", lineHeight: 1.12, marginBottom: 28, fontWeight: 400, fontFamily: "'Cormorant Garamond', 'Georgia', serif" }}>
+                <h2 id="whoweare-heading" style={{ color: C.navy, fontSize: "clamp(2.1rem, 3.6vw, 3.4rem)", lineHeight: 1.12, marginBottom: 28, fontWeight: 400, fontFamily: FONT }}>
                   A Team That Works Exclusively in Healthcare Infrastructure
                 </h2>
-                <p style={{ color: "#111111", lineHeight: 1.85, marginBottom: 18, fontSize: 19, fontWeight: 600 }}>
+                <p style={{ color: "#111111", lineHeight: 1.85, marginBottom: 18, fontSize: 17, fontWeight: 400, fontFamily: FONT }}>
                   ARCHORA is not a general architecture or construction firm that also takes healthcare projects. Every architect, every engineer, and every project manager works exclusively on healthcare facilities.
                 </p>
-                <p style={{ color: "#111111", lineHeight: 1.85, marginBottom: 36, fontSize: 19, fontWeight: 600 }}>
+                <p style={{ color: "#111111", lineHeight: 1.85, marginBottom: 36, fontSize: 17, fontWeight: 400, fontFamily: FONT }}>
                   This focus means we understand the compliance standards, the clinical workflows, the infection control requirements, and the operational realities that make healthcare infrastructure different from every other building type.
                 </p>
 
                 <div style={{ display: "flex", alignItems: "center", gap: 14, padding: "18px 22px", background: C.navy, marginBottom: 40 }}>
                   <div style={{ width: 2, height: 36, background: C.teal, flexShrink: 0 }} />
-                  <p style={{ color: C.teal, fontSize: 20, fontStyle: "italic", margin: 0, opacity: 0.9, lineHeight: 1.5 , fontWeight: 600 }}>
+                  <p style={{ color: C.teal, fontSize: 18, fontStyle: "italic", margin: 0, opacity: 0.9, lineHeight: 1.5, fontWeight: 400, fontFamily: FONT }}>
                     One team. One point of accountability. From concept to commissioning.
                   </p>
                 </div>
@@ -1010,8 +644,8 @@ export function Home() {
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }}>
                   {[["20+", "Years Collective Experience"], ["Pan India", "Delivery"], ["NHS-Level", "UK Expertise"]].map(([val, lbl]) => (
                     <div key={lbl} style={{ borderTop: `2px solid ${C.blue}`, paddingTop: 14 }}>
-                      <div style={{ fontSize: 22, color: C.navy, fontFamily: "'Cormorant Garamond', 'Georgia', serif", marginBottom: 6, lineHeight: 1 }}>{val}</div>
-                      <p style={{ fontSize: 13, color: "#1a1a1a", textTransform: "uppercase", letterSpacing: "0.14em", lineHeight: 1.5, margin: 0 , fontWeight: 600 }}>{lbl}</p>
+                      <div style={{ fontSize: 24, color: C.navy, fontFamily: FONT, marginBottom: 6, lineHeight: 1, fontWeight: 400 }}>{val}</div>
+                      <p style={{ fontSize: 13, color: "#1a1a1a", textTransform: "uppercase", letterSpacing: "0.14em", lineHeight: 1.5, margin: 0, fontWeight: 400, fontFamily: FONT }}>{lbl}</p>
                     </div>
                   ))}
                 </div>
@@ -1039,8 +673,8 @@ export function Home() {
                   <div key={i} style={{ position: "absolute", width: 44, height: 44, ...style }} />
                 ))}
                 <div style={{ position: "absolute", bottom: 24, left: 24, background: C.navy, padding: "12px 18px", borderLeft: `3px solid ${C.red}` }}>
-                  <p style={{ color: C.white, fontSize: 17, margin: 0, fontFamily: "monospace" , fontWeight: 600 }}>Healthcare Only. Always.</p>
-                  <p style={{ color: "rgba(255,255,255,0.90)", fontSize: 13, margin: "4px 0 0", fontFamily: "monospace", letterSpacing: "0.1em" , fontWeight: 600 }}>Nothing outside infrastructure.</p>
+                  <p style={{ color: C.white, fontSize: 16, margin: 0, fontFamily: FONT, fontWeight: 400 }}>Healthcare Only. Always.</p>
+                  <p style={{ color: "rgba(255,255,255,0.90)", fontSize: 13, margin: "4px 0 0", fontFamily: FONT, letterSpacing: "0.1em", fontWeight: 400 }}>Nothing outside infrastructure.</p>
                 </div>
               </motion.div>
             </div>
@@ -1062,10 +696,10 @@ export function Home() {
                 viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}
                 style={{ textAlign: "center", padding: "0 32px", borderRight: i < 3 ? "1px solid rgba(255,255,255,0.18)" : "none" }}
               >
-                <div style={{ fontSize: 48, color: C.white, fontFamily: "'Cormorant Garamond', 'Georgia', serif", lineHeight: 1, marginBottom: 10 }}>
+                <div style={{ fontSize: 48, color: C.white, fontFamily: FONT, lineHeight: 1, marginBottom: 10, fontWeight: 400 }}>
                   <AnimatedCounter to={m.val} suffix={m.suffix} />
                 </div>
-                <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 13, textTransform: "uppercase", letterSpacing: "0.18em", lineHeight: 1.5, margin: 0, fontFamily: "monospace" , fontWeight: 600 }}>
+                <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 13, textTransform: "uppercase", letterSpacing: "0.18em", lineHeight: 1.5, margin: 0, fontFamily: FONT, fontWeight: 400 }}>
                   {m.label}
                 </p>
               </motion.div>
@@ -1080,17 +714,17 @@ export function Home() {
           <div style={{ position: "absolute", inset: 0, color: C.teal, pointerEvents: "none" }}>
             <BlueprintGrid opacity={0.04} />
           </div>
-          <div style={{ position: "absolute", left: -30, top: "50%", transform: "translateY(-50%)", fontFamily: "monospace", fontSize: "20vw", color: "rgba(75,204,212,0.02)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }} aria-hidden="true">
+          <div style={{ position: "absolute", left: -30, top: "50%", transform: "translateY(-50%)", fontFamily: FONT, fontSize: "20vw", color: "rgba(75,204,212,0.02)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }} aria-hidden="true">
             02
           </div>
 
           <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", position: "relative" }}>
             <motion.div style={{ marginBottom: 72, textAlign: "center" }} {...fadeUp}>
               <SectionLabel text="What We Do" light />
-              <h2 id="services-heading" style={{ color: C.white, fontSize: "clamp(1.9rem, 3.2vw, 3rem)", fontWeight: 400, fontFamily: "'Cormorant Garamond', 'Georgia', serif", margin: "0 auto 16px" }}>
+              <h2 id="services-heading" style={{ color: C.white, fontSize: "clamp(2.1rem, 3.6vw, 3.4rem)", fontWeight: 400, fontFamily: FONT, margin: "0 auto 16px" }}>
                 Everything You Need to Design, Build & Deliver
               </h2>
-              <p style={{ color: "rgba(255,255,255,0.90)", maxWidth: 520, margin: "0 auto", lineHeight: 1.75, fontSize: 19 , fontWeight: 600 }}>
+              <p style={{ color: "rgba(255,255,255,0.90)", maxWidth: 520, margin: "0 auto", lineHeight: 1.75, fontSize: 17, fontWeight: 400, fontFamily: FONT }}>
                 ARCHORA provides the complete range of healthcare infrastructure services under one roof.
               </p>
             </motion.div>
@@ -1106,318 +740,22 @@ export function Home() {
                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = "#0d1f38"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = "#0a1628"; }}
                 >
-                  <span style={{ position: "absolute", right: 20, top: 12, color: "rgba(75,204,212,0.04)", fontFamily: "monospace", fontSize: 56, lineHeight: 1, pointerEvents: "none" }} aria-hidden="true">{s.num}</span>
+                  <span style={{ position: "absolute", right: 20, top: 12, color: "rgba(75,204,212,0.04)", fontFamily: FONT, fontSize: 56, lineHeight: 1, pointerEvents: "none" }} aria-hidden="true">{s.num}</span>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: 20 }}>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, minWidth: 32, paddingTop: 2 }}>
-                      <span style={{ color: "rgba(75,204,212,0.35)", fontSize: 13, fontFamily: "monospace", letterSpacing: "0.05em" }}>{s.num}</span>
+                      <span style={{ color: "rgba(75,204,212,0.35)", fontSize: 13, fontFamily: FONT, letterSpacing: "0.05em" }}>{s.num}</span>
                       <div style={{ width: 1, height: 32, background: "rgba(75,204,212,0.15)" }} />
                     </div>
                     <div>
-                      <h3 style={{ color: C.white, fontSize: 20, marginBottom: 10, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.3 }}>{s.title}</h3>
-                      <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 20, lineHeight: 1.75, margin: 0 , fontWeight: 600 }}>{s.desc}</p>
-                      <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: C.teal, fontSize: 13, marginTop: 16, letterSpacing: "0.16em", fontFamily: "monospace", opacity: 0.75 }}>
+                      <h3 style={{ color: C.white, fontSize: 22, marginBottom: 10, fontFamily: FONT, fontWeight: 400, lineHeight: 1.3 }}>{s.title}</h3>
+                      <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 17, lineHeight: 1.75, margin: 0, fontWeight: 400, fontFamily: FONT }}>{s.desc}</p>
+                      <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: C.teal, fontSize: 13, marginTop: 16, letterSpacing: "0.16em", fontFamily: FONT, opacity: 0.75 }}>
                         Learn More <span>→</span>
                       </span>
                     </div>
                   </div>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════
-            WHY ARCHORA
-        ══════════════════════════════════════════ */}
-        <section aria-labelledby="why-heading" style={{ background: C.creamAlt, padding: "120px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", right: -40, top: "50%", transform: "translateY(-50%)", fontFamily: "monospace", fontSize: "20vw", color: "rgba(27,108,168,0.04)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }} aria-hidden="true">
-            03
-          </div>
-
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px" }}>
-            <motion.div style={{ marginBottom: 72 }} {...fadeUp}>
-              <SectionLabel text="Why ARCHORA" />
-              <h2 id="why-heading" style={{ color: C.navy, fontSize: "clamp(1.9rem, 3.2vw, 3rem)", fontWeight: 400, fontFamily: "'Cormorant Garamond', 'Georgia', serif", maxWidth: 640 }}>
-                Why Healthcare Promoters Across India Choose ARCHORA
-              </h2>
-            </motion.div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}>
-              {pillars.map((p, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.7, delay: i * 0.1 }}
-                  style={{ background: C.white, padding: "44px 44px", position: "relative", overflow: "hidden", cursor: "default", transition: "transform 0.4s ease, box-shadow 0.4s ease", borderTop: `3px solid ${C.blue}` }}
-                  onMouseEnter={e => { const el = e.currentTarget as HTMLDivElement; el.style.transform = "translateY(-6px)"; el.style.boxShadow = "0 20px 60px rgba(15,74,117,0.1)"; }}
-                  onMouseLeave={e => { const el = e.currentTarget as HTMLDivElement; el.style.transform = "translateY(0)"; el.style.boxShadow = "none"; }}
-                >
-                  <span style={{ position: "absolute", right: 24, top: 16, color: "rgba(27,108,168,0.05)", fontFamily: "monospace", fontSize: 72, lineHeight: 1 }} aria-hidden="true">{p.num}</span>
-                  <div style={{ display: "inline-flex", alignItems: "baseline", gap: 6, marginBottom: 28 }}>
-                    <span style={{ fontSize: 30, color: C.blue, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400 }}>{p.stat}</span>
-                    <span style={{ fontSize: 12, color: C.blue, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "monospace", opacity: 0.6 }}>{p.statLabel}</span>
-                  </div>
-                  <h3 style={{ color: C.navy, fontSize: 20, marginBottom: 14, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, lineHeight: 1.25 }}>{p.title}</h3>
-                  <p style={{ color: "#111111", fontSize: 20, lineHeight: 1.8, margin: 0 , fontWeight: 600 }}>{p.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════
-            WHO WE SERVE
-        ══════════════════════════════════════════ */}
-        <section aria-labelledby="serve-heading" style={{ background: C.white, padding: "120px 0", position: "relative" }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px" }}>
-            <motion.div style={{ marginBottom: 72, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "end" }} {...fadeUp}>
-              <div>
-                <SectionLabel text="Who We Work With" />
-                <h2 id="serve-heading" style={{ color: C.navy, fontSize: "clamp(1.9rem, 3.2vw, 3rem)", fontWeight: 400, fontFamily: "'Cormorant Garamond', 'Georgia', serif", margin: 0 }}>
-                  Who We Serve
-                </h2>
-              </div>
-              <p style={{ color: "#1a1a1a", lineHeight: 1.8, fontSize: 19, margin: 0 , fontWeight: 600 }}>
-                Whether you are starting from scratch or need specialist expertise at a specific stage, ARCHORA brings the same depth of healthcare infrastructure knowledge to every client.
-              </p>
-            </motion.div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, background: "rgba(27,108,168,0.06)" }}>
-              {audiences.map((a, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: (i % 3) * 0.1 }}
-                  style={{ background: C.white, padding: "36px 32px", transition: "all 0.3s", cursor: "default" }}
-                  onMouseEnter={e => { const el = e.currentTarget as HTMLDivElement; el.style.background = "#f0f7ff"; el.style.transform = "translateY(-4px)"; }}
-                  onMouseLeave={e => { const el = e.currentTarget as HTMLDivElement; el.style.background = C.white; el.style.transform = "translateY(0)"; }}
-                >
-                  <div style={{ fontSize: 32, marginBottom: 18, lineHeight: 1 }} aria-hidden="true">{a.icon}</div>
-                  <h3 style={{ color: C.navy, fontSize: 20, marginBottom: 10, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400 }}>{a.label}</h3>
-                  <p style={{ color: "#1a1a1a", fontSize: 20, lineHeight: 1.75, margin: 0 , fontWeight: 600 }}>{a.desc}</p>
-                  <div style={{ marginTop: 20, height: 1, background: "rgba(27,108,168,0.12)" }} />
-                  <span style={{ display: "inline-block", marginTop: 14, color: C.blue, fontSize: 13, letterSpacing: "0.16em", fontFamily: "monospace", opacity: 0.7 }}>Learn More →</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════
-            PROJECTS, ONGOING PORTFOLIO
-        ══════════════════════════════════════════ */}
-        <section aria-labelledby="projects-heading" style={{ background: C.cream, padding: "120px 0", position: "relative" }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px" }}>
-
-            <motion.div style={{ marginBottom: 72, display: "flex", alignItems: "flex-end", justifyContent: "space-between" }} {...fadeUp}>
-              <div>
-                <SectionLabel text="Ongoing Portfolio" />
-                <h2 id="projects-heading" style={{ color: C.navy, fontSize: "clamp(1.9rem, 3.2vw, 3rem)", fontWeight: 400, fontFamily: "'Cormorant Garamond', 'Georgia', serif", margin: 0 }}>
-                  Healthcare Infrastructure<br />Projects Across India
-                </h2>
-              </div>
-              <OutlineBtn dark onClick={() => navigate("/facilities")}>View All Projects →</OutlineBtn>
-            </motion.div>
-
-            {/* Featured hero project, Suresh Matre */}
-            <motion.article
-              initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.7 }}
-              onClick={() => setActiveProject(projects[0])}
-              aria-label={`View details: ${projects[0].name}`}
-              role="button"
-              tabIndex={0}
-              onKeyDown={e => { if (e.key === "Enter" || e.key === " ") setActiveProject(projects[0]); }}
-              style={{ position: "relative", overflow: "hidden", cursor: "pointer", height: 460, marginBottom: 16, outline: "none" }}
-              onMouseEnter={e => { const img = (e.currentTarget as HTMLElement).querySelector("img")!; img.style.transform = "scale(1.04)"; }}
-              onMouseLeave={e => { const img = (e.currentTarget as HTMLElement).querySelector("img")!; img.style.transform = "scale(1)"; }}
-            >
-              <img
-                src={projects[0].image}
-                alt={`${projects[0].name}, ${projects[0].location}, ${projects[0].type}`}
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", transition: "transform 0.8s ease", display: "block" }}
-                loading="lazy"
-              />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(4,28,46,0.92) 0%, rgba(4,28,46,0.35) 65%)" }} />
-
-              {/* Hero Project badge */}
-              <div style={{ position: "absolute", top: 20, left: 20, background: C.red, padding: "5px 14px" }}>
-                <span style={{ color: C.white, fontSize: 12, fontFamily: "monospace", letterSpacing: "0.2em", textTransform: "uppercase" }}>Hero Project</span>
-              </div>
-              <div style={{ position: "absolute", top: 52, left: 20, background: "rgba(27,108,168,0.8)", padding: "5px 12px", backdropFilter: "blur(6px)" }}>
-                <span style={{ color: C.white, fontSize: 13, fontFamily: "monospace", letterSpacing: "0.12em" }}>{projects[0].type}</span>
-              </div>
-
-              {/* Status */}
-              <div style={{ position: "absolute", top: 20, right: 20, background: "rgba(4,28,46,0.7)", border: "1px solid rgba(75,204,212,0.3)", padding: "6px 14px", backdropFilter: "blur(6px)", display: "flex", alignItems: "center", gap: 7 }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: projects[0].statusColor, display: "inline-block" }} />
-                <span style={{ color: "rgba(255,255,255,0.7)", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.14em" }}>{projects[0].status}</span>
-              </div>
-
-              {/* Click hint */}
-              <div style={{ position: "absolute", bottom: 28, right: 28, border: "1px solid rgba(75,204,212,0.35)", padding: "7px 16px", backdropFilter: "blur(6px)", background: "rgba(4,28,46,0.5)" }}>
-                <span style={{ color: "rgba(75,204,212,0.8)", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.18em" }}>View Full Details ↗</span>
-              </div>
-
-              {/* Content */}
-              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "36px 40px" }}>
-                <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 13, letterSpacing: "0.22em", textTransform: "uppercase", fontFamily: "monospace", marginBottom: 10 , fontWeight: 600 }}>
-                  {projects[0].location}
-                </p>
-                <h3 style={{ color: C.white, fontSize: 30, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, margin: "0 0 20px", maxWidth: 600 }}>
-                  {projects[0].name}
-                </h3>
-                <div style={{ display: "flex", gap: 36 }}>
-                  {[["300 Beds", "Capacity"], ["₹150 Cr+", "Project Value"], ["2,00,000 Sq Ft", "Built Area"], ["Full Turnkey", "Scope"]].map(([val, lbl]) => (
-                    <div key={lbl}>
-                      <div style={{ color: C.teal, fontSize: 20, fontFamily: "'Cormorant Garamond', 'Georgia', serif", marginBottom: 3 }}>{val}</div>
-                      <div style={{ color: "rgba(255,255,255,0.3)", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.14em", textTransform: "uppercase" }}>{lbl}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.article>
-
-            {/* Three smaller project cards */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
-              {projects.slice(1).map((p, i) => (
-                <motion.article
-                  key={p.id}
-                  initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }} transition={{ duration: 0.7, delay: i * 0.1 }}
-                  onClick={() => setActiveProject(p)}
-                  aria-label={`View details: ${p.name}`}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={e => { if (e.key === "Enter" || e.key === " ") setActiveProject(p); }}
-                  style={{ position: "relative", overflow: "hidden", cursor: "pointer", height: 300, outline: "none" }}
-                  onMouseEnter={e => {
-                    const img = (e.currentTarget as HTMLElement).querySelector("img")!;
-                    img.style.transform = "scale(1.06)";
-                    const hint = (e.currentTarget as HTMLElement).querySelector<HTMLElement>(".hint");
-                    if (hint) hint.style.opacity = "1";
-                  }}
-                  onMouseLeave={e => {
-                    const img = (e.currentTarget as HTMLElement).querySelector("img")!;
-                    img.style.transform = "scale(1)";
-                    const hint = (e.currentTarget as HTMLElement).querySelector<HTMLElement>(".hint");
-                    if (hint) hint.style.opacity = "0";
-                  }}
-                >
-                  <img
-                    src={p.image} alt={`${p.name}, ${p.location}, ${p.type}`}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.8s ease", display: "block" }}
-                    loading="lazy"
-                  />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(4,28,46,0.92) 0%, rgba(4,28,46,0.1) 55%)" }} />
-
-                  {/* Type badge */}
-                  <div style={{ position: "absolute", top: 14, left: 14, background: "rgba(27,108,168,0.8)", padding: "5px 10px", backdropFilter: "blur(6px)" }}>
-                    <span style={{ color: C.white, fontSize: 12, fontFamily: "monospace", letterSpacing: "0.1em" }}>{p.type}</span>
-                  </div>
-
-                  {/* Status dot */}
-                  <div style={{ position: "absolute", top: 14, right: 14, background: "rgba(4,28,46,0.7)", border: "1px solid rgba(75,204,212,0.2)", padding: "4px 10px", display: "flex", alignItems: "center", gap: 5 }}>
-                    <span style={{ width: 5, height: 5, borderRadius: "50%", background: p.statusColor, display: "inline-block" }} />
-                    <span style={{ color: "rgba(255,255,255,0.55)", fontSize: 11, fontFamily: "monospace", letterSpacing: "0.1em" }}>Ongoing</span>
-                  </div>
-
-                  {/* Hover hint */}
-                  <div className="hint" style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", opacity: 0, transition: "opacity 0.3s" }}>
-                    <div style={{ border: "1px solid rgba(75,204,212,0.5)", padding: "8px 18px", background: "rgba(4,28,46,0.7)", backdropFilter: "blur(6px)" }}>
-                      <span style={{ color: "rgba(75,204,212,0.9)", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.2em" }}>View Details ↗</span>
-                    </div>
-                  </div>
-
-                  {/* Card info */}
-                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "18px 20px" }}>
-                    <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 12, letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "monospace", marginBottom: 6 , fontWeight: 600 }}>{p.location}</p>
-                    <h3 style={{ color: C.white, fontSize: 20, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, margin: "0 0 10px", lineHeight: 1.25 }}>{p.name}</h3>
-                    <span style={{ color: "rgba(75,204,212,0.6)", fontSize: 12, fontFamily: "monospace", letterSpacing: "0.16em" }}>View Details ↗</span>
-                  </div>
-                </motion.article>
-              ))}
-            </div>
-
-            {/* Experience strip */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.7 }}
-              style={{ marginTop: 48, padding: "32px 40px", background: C.navy, display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 20 }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-                <MedicalCross size={24} color={C.teal} opacity={0.6} />
-                <div>
-                  <p style={{ color: C.white, fontSize: 20, fontFamily: "'Cormorant Garamond', 'Georgia', serif", margin: 0, lineHeight: 1.3 , fontWeight: 600 }}>
-                    The Experience Behind Every Project
-                  </p>
-                  <p style={{ color: "rgba(255,255,255,0.90)", fontSize: 17, margin: "4px 0 0", lineHeight: 1.5 , fontWeight: 600 }}>
-                    50+ healthcare infrastructure projects delivered across India, the UK, and Europe.
-                  </p>
-                </div>
-              </div>
-              <OutlineBtn light onClick={() => navigate("/facilities")}>View All Projects →</OutlineBtn>
-            </motion.div>
-
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════
-            LEADERSHIP
-        ══════════════════════════════════════════ */}
-        <section aria-labelledby="leadership-heading" style={{ background: C.navy, padding: "120px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, color: C.teal, pointerEvents: "none" }}>
-            <BlueprintGrid opacity={0.05} />
-          </div>
-          <div style={{ position: "absolute", right: -30, top: "50%", transform: "translateY(-50%)", fontFamily: "monospace", fontSize: "20vw", color: "rgba(75,204,212,0.025)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }} aria-hidden="true">
-            04
-          </div>
-
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", position: "relative" }}>
-            <motion.div style={{ marginBottom: 80, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "end" }} {...fadeUp}>
-              <div>
-                <SectionLabel text="Leadership" light />
-                <h2 id="leadership-heading" style={{ color: C.white, fontSize: "clamp(1.9rem, 3.2vw, 3rem)", fontWeight: 400, fontFamily: "'Cormorant Garamond', 'Georgia', serif", margin: 0 }}>
-                  Built by People Who Know Healthcare Infrastructure
-                </h2>
-              </div>
-              <p style={{ color: "rgba(255,255,255,0.90)", lineHeight: 1.85, fontSize: 19, margin: 0 , fontWeight: 600 }}>
-                Our leadership combines deep architectural expertise, hands-on construction experience, and senior-level NHS healthcare infrastructure knowledge from the United Kingdom.
-              </p>
-            </motion.div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
-              {team.map((t, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.15 }}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`View ${t.name}'s profile`}
-                  onClick={() => navigate("/about")}
-                  onKeyDown={e => { if (e.key === "Enter" || e.key === " ") navigate("/about"); }}
-                  style={{ padding: "44px 36px", border: "1px solid rgba(75,204,212,0.1)", transition: "all 0.4s", cursor: "pointer", position: "relative", overflow: "hidden" }}
-                  onMouseEnter={e => { const el = e.currentTarget as HTMLDivElement; el.style.borderColor = "rgba(75,204,212,0.35)"; el.style.background = "rgba(75,204,212,0.04)"; el.style.transform = "translateY(-6px)"; }}
-                  onMouseLeave={e => { const el = e.currentTarget as HTMLDivElement; el.style.borderColor = "rgba(75,204,212,0.1)"; el.style.background = "transparent"; el.style.transform = "translateY(0)"; }}
-                >
-                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: `linear-gradient(90deg, ${t.color}, transparent)` }} />
-                  <div style={{ width: 76, height: 76, background: t.color, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 0 24px", fontSize: 27, color: C.white, fontFamily: "'Cormorant Garamond', 'Georgia', serif", letterSpacing: "0.05em" }}>
-                    {t.initial}
-                  </div>
-                  <h3 style={{ color: C.white, fontSize: 20, fontFamily: "'Cormorant Garamond', 'Georgia', serif", fontWeight: 400, marginBottom: 6 }}>{t.name}</h3>
-                  <p style={{ color: "rgba(75,204,212,0.65)", fontSize: 17, lineHeight: 1.5, margin: "0 0 20px" , fontWeight: 600 }}>{t.role}</p>
-                  <div style={{ borderTop: "1px solid rgba(75,204,212,0.15)", paddingTop: 16 }}>
-                    <span style={{ color: "rgba(75,204,212,0.4)", fontSize: 13, letterSpacing: "0.16em", fontFamily: "monospace" }}>View Profile ↗</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <div style={{ textAlign: "center", marginTop: 48 }}>
-              <OutlineBtn light onClick={() => navigate("/about")}>Meet the Full Leadership Team →</OutlineBtn>
             </div>
           </div>
         </section>
@@ -1448,12 +786,12 @@ export function Home() {
             <motion.div {...fadeUp}>
               <SectionLabel text="Get In Touch" light />
 
-              <h2 id="cta-heading" style={{ color: C.white, fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)", marginBottom: 24, fontWeight: 400, lineHeight: 1.1, fontFamily: "'Cormorant Garamond', 'Georgia', serif" }}>
+              <h2 id="cta-heading" style={{ color: C.white, fontSize: "clamp(2.4rem, 5vw, 4.2rem)", marginBottom: 24, fontWeight: 400, lineHeight: 1.1, fontFamily: FONT }}>
                 Planning a Healthcare Facility?<br />
                 <em style={{ color: C.teal, fontStyle: "italic" }}>Let's Talk.</em>
               </h2>
 
-              <p style={{ color: "rgba(255,255,255,0.42)", marginBottom: 52, lineHeight: 1.85, maxWidth: 520, margin: "0 auto 52px", fontSize: 20 , fontWeight: 600 }}>
+              <p style={{ color: "rgba(255,255,255,0.42)", marginBottom: 52, lineHeight: 1.85, maxWidth: 520, margin: "0 auto 52px", fontSize: 18, fontWeight: 400, fontFamily: FONT }}>
                 Whether you are starting from zero or need expert support at any stage, ARCHORA is ready to help you design, build, and deliver infrastructure that works.
               </p>
 
@@ -1463,7 +801,7 @@ export function Home() {
                 <HeroBtn onClick={() => navigate("/contact")}>Send an Enquiry →</HeroBtn>
               </div>
 
-              <p style={{ color: "rgba(255,255,255,0.2)", marginTop: 28, fontSize: 14, fontFamily: "monospace", letterSpacing: "0.1em" , fontWeight: 600 }}>
+              <p style={{ color: "rgba(255,255,255,0.2)", marginTop: 28, fontSize: 14, fontFamily: FONT, letterSpacing: "0.1em", fontWeight: 400 }}>
                 No obligation · No sales pressure · Honest advice from healthcare infrastructure specialists
               </p>
             </motion.div>
@@ -1471,9 +809,6 @@ export function Home() {
         </section>
 
       </div>
-
-      {/* Project modal, rendered outside main div so it overlays everything */}
-      <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
     </>
   );
 }
@@ -1490,7 +825,7 @@ function HeroBtn({ children, primary, style: extraStyle, onClick }: { children: 
       onMouseLeave={() => setHover(false)}
       style={{
         padding: "14px 32px", fontSize: 14, letterSpacing: "0.18em",
-        textTransform: "uppercase", cursor: "pointer", fontFamily: "monospace",
+        textTransform: "uppercase", cursor: "pointer", fontFamily: FONT,
         border: "none", transition: "all 0.25s ease",
         ...(primary ? {
           background: hover ? "#4bccd4" : "#1b6ca8",
@@ -1524,34 +859,5 @@ function NavBtn({ onClick, children, "aria-label": ariaLabel }: { onClick: () =>
     >
       {children}
     </button>
-  );
-}
-
-function OutlineBtn({ children, dark, light, onClick }: { children: React.ReactNode; dark?: boolean; light?: boolean; onClick?: () => void }) {
-  const [hover, setHover] = useState(false);
-  return (
-    <button
-      onClick={onClick}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={{
-        background: hover ? (dark ? C.navy : "rgba(75,204,212,0.12)") : "transparent",
-        color: dark ? (hover ? C.white : C.navy) : "rgba(75,204,212,0.75)",
-        border: `1px solid ${dark ? "rgba(4,28,46,0.5)" : "rgba(75,204,212,0.3)"}`,
-        padding: "11px 26px", fontSize: 14, letterSpacing: "0.15em",
-        textTransform: "uppercase", fontFamily: "monospace", cursor: "pointer",
-        transition: "all 0.25s ease", whiteSpace: "nowrap",
-      }}
-    >
-      {children}
-    </button>
-  );
-}
-
-function ProjectBadge({ type }: { type: string }) {
-  return (
-    <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(27,108,168,0.75)", padding: "5px 12px", backdropFilter: "blur(6px)" }}>
-      <span style={{ color: C.white, fontSize: 13, fontFamily: "monospace", letterSpacing: "0.12em" }}>{type}</span>
-    </div>
   );
 }

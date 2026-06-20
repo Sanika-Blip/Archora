@@ -12,7 +12,7 @@ export function Footer() {
   const quickLinks = [
     { to: "/about", label: "About Us" },
     { to: "/services", label: "Services" },
-    { to: "/our-flow", label: "Our Process" },
+    { to: "/projects", label: "Projects" },
     { to: "/why-us", label: "Why Us" },
     { to: "/journal", label: "Journal" },
   ];

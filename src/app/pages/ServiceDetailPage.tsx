@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 
 const WHATSAPP_URL = "https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project.";
+const FONT = "Calibri, 'Calibri', Arial, sans-serif";
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
 interface ServiceSubSection {
@@ -516,7 +517,6 @@ export const servicesData: ServiceData[] = [
       body: "Talk to ARCHORA before your design begins. We will ensure that every regulatory standard applicable to your facility is integrated into the design from day one, so you never face a compliance failure after construction.",
     },
   },
-  // ─── SERVICE 04 ───────────────────────────────────────────────────────────────
   {
     id: "04",
     slug: "hospital-licensing",
@@ -675,7 +675,6 @@ export const servicesData: ServiceData[] = [
       body: "Talk to ARCHORA before you begin the approvals process. We will map every licence you need, prepare every application correctly, and manage the entire process so you can focus on building your healthcare business.",
     },
   },
-  // ─── SERVICE 05 ───────────────────────────────────────────────────────────────
   {
     id: "05",
     slug: "structural-design",
@@ -838,7 +837,6 @@ export const servicesData: ServiceData[] = [
       body: "Talk to ARCHORA before your structural design begins. We will ensure that your building structure is designed for every load, every clinical requirement, and every life-safety standard your healthcare facility demands.",
     },
   },
-  // ─── SERVICE 06 ───────────────────────────────────────────────────────────────
   {
     id: "06",
     slug: "mep-engineering",
@@ -1009,7 +1007,6 @@ export const servicesData: ServiceData[] = [
       body: "Talk to ARCHORA today. We will design every mechanical, electrical, plumbing, and medical gas system in your facility to the precise clinical, regulatory, and life-safety standards that your patients, your staff, and your accreditation body require.",
     },
   },
-  // ─── SERVICE 07 ───────────────────────────────────────────────────────────────
   {
     id: "07",
     slug: "modular-ot-icu",
@@ -1182,7 +1179,7 @@ export const servicesData: ServiceData[] = [
 
 function SectionLabel({ text, color }: { text: string; color: string }) {
   return (
-    <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 18, letterSpacing: "3px", textTransform: "uppercase", color, marginBottom: 16, display: "flex", alignItems: "center", gap: 14 }}>
+    <p style={{ fontFamily: FONT, fontSize: 18, letterSpacing: "3px", textTransform: "uppercase", color, marginBottom: 16, display: "flex", alignItems: "center", gap: 14, fontWeight: 600 }}>
       <span style={{ display: "block", width: 32, height: "0.5px", background: color }} />
       {text}
       <span style={{ display: "block", width: 32, height: "0.5px", background: color }} />
@@ -1198,7 +1195,7 @@ function LightFAQItem({ faq }: { faq: FAQ }) {
         onClick={() => setOpen(!open)}
         style={{ width: "100%", textAlign: "left", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 16, padding: "20px 0", background: "none", border: "none", cursor: "pointer" }}
       >
-        <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 300, lineHeight: 1.4, color: open ? "#185FA5" : "#042C53", transition: "color 0.25s" }}>
+        <span style={{ fontFamily: FONT, fontSize: "1.4rem", fontWeight: 600, lineHeight: 1.4, color: open ? "#185FA5" : "#042C53", transition: "color 0.25s" }}>
           {faq.q}
         </span>
         <span style={{ flexShrink: 0, color: open ? "#185FA5" : "rgba(4,44,83,0.35)", marginTop: 2 }}>
@@ -1208,7 +1205,7 @@ function LightFAQItem({ faq }: { faq: FAQ }) {
       <AnimatePresence>
         {open && (
           <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }} style={{ overflow: "hidden" }}>
-            <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, lineHeight: 1.9, color: "#185FA5", paddingBottom: 20 , fontWeight: 700 }}>{faq.a}</p>
+            <p style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.9, color: "#185FA5", paddingBottom: 20, fontWeight: 400 }}>{faq.a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -1224,9 +1221,9 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
   }, [service.slug]);
 
   return (
-    <div style={{ fontFamily: "'DM Mono', monospace" }}>
+    <div className="archora-page-scope" style={{ fontFamily: FONT }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap');
+        .archora-page-scope * { font-family: Calibri, 'Calibri', Arial, sans-serif !important; }
         @keyframes rotateSlow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
         .rotate-slow { animation: rotateSlow 80s linear infinite; }
         .service-coverage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
@@ -1238,11 +1235,11 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
           .process-timeline { grid-template-columns: 1fr; }
           .service-coverage-grid { grid-template-columns: 1fr; }
         }
-        .cta-btn-primary { padding: 13px 28px; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-family: 'DM Mono', monospace; background: #1b6ca8; color: #fff; border: none; cursor: pointer; transition: all 0.25s; border-radius: 1px; }
+        .cta-btn-primary { padding: 13px 28px; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; font-family: Calibri, 'Calibri', Arial, sans-serif; background: #1b6ca8; color: #fff; border: none; cursor: pointer; transition: all 0.25s; border-radius: 1px; }
         .cta-btn-primary:hover { background: #4bccd4; color: #041c2e; }
-        .cta-btn-outline { padding: 13px 28px; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-family: 'DM Mono', monospace; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; transition: all 0.25s; border-radius: 1px; }
+        .cta-btn-outline { padding: 13px 28px; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; font-family: Calibri, 'Calibri', Arial, sans-serif; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; transition: all 0.25s; border-radius: 1px; }
         .cta-btn-outline:hover { border-color: rgba(75,204,212,0.5); color: #4bccd4; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); background: none; border: none; cursor: pointer; padding: 0; transition: color 0.2s; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; font-family: Calibri, 'Calibri', Arial, sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); background: none; border: none; cursor: pointer; padding: 0; transition: color 0.2s; }
         .back-btn:hover { color: #4bd1d9; }
       `}</style>
 
@@ -1272,7 +1269,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
             <div style={{ width: 44, height: 44, display: "flex", alignItems: "center", justifyContent: "center", background: `${service.color}18`, border: `1px solid ${service.color}35`, borderRadius: 2, color: service.color }}>
               {service.icon}
             </div>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 17, letterSpacing: "3.5px", textTransform: "uppercase", color: `${service.color}90`, margin: 0 }}>
+            <p style={{ fontFamily: FONT, fontSize: 17, letterSpacing: "3.5px", textTransform: "uppercase", color: `${service.color}90`, margin: 0, fontWeight: 600 }}>
               {service.id}, Service
             </p>
           </motion.div>
@@ -1281,7 +1278,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
             initial={{ opacity: 0, y: 30, clipPath: "inset(100% 0 0 0)" }}
             animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.82rem, 4.5vw, 5.12rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: 24, maxWidth: 760, letterSpacing: "-0.01em" }}
+            style={{ fontFamily: FONT, fontSize: "clamp(2.4rem, 4.5vw, 4rem)", fontWeight: 600, color: "#fff", lineHeight: 1.1, marginBottom: 24, maxWidth: 760, letterSpacing: "-0.01em" }}
           >
             {service.heroH1.split(".").map((part, i, arr) =>
               i < arr.length - 1 ? (
@@ -1292,7 +1289,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
             )}
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.45 }} style={{ fontFamily: "'DM Mono', monospace", fontSize: 17, lineHeight: 1.95, color: "rgba(255,255,255,0.95)", maxWidth: 600, marginBottom: 40 }}>
+          <motion.p initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.45 }} style={{ fontFamily: FONT, fontSize: 18, lineHeight: 1.95, color: "rgba(255,255,255,0.95)", maxWidth: 600, marginBottom: 40, fontWeight: 400 }}>
             {service.heroSub}
           </motion.p>
 
@@ -1310,12 +1307,12 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 3rem" }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <SectionLabel text="The Challenge" color="#185FA5" />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3.5vw, 3.58rem)", fontWeight: 300, color: "#042C53", marginBottom: 28, lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#042C53", marginBottom: 28, lineHeight: 1.2 }}>
               {service.problem.heading}
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               {service.problem.body.map((para, i) => (
-                <p key={i} style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, lineHeight: 1.95, color: "#0a1a2a", borderLeft: i === service.problem.body.length - 1 ? "2px solid #185FA5" : "none", paddingLeft: i === service.problem.body.length - 1 ? 16 : 0, fontStyle: i === service.problem.body.length - 1 ? "italic" : "normal" , fontWeight: 700 }}>
+                <p key={i} style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.95, color: "#0a1a2a", borderLeft: i === service.problem.body.length - 1 ? "2px solid #185FA5" : "none", paddingLeft: i === service.problem.body.length - 1 ? 16 : 0, fontStyle: i === service.problem.body.length - 1 ? "italic" : "normal", fontWeight: 400 }}>
                   {para}
                 </p>
               ))}
@@ -1329,11 +1326,11 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 3rem" }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <SectionLabel text="What This Is" color={`${service.color}90`} />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3.5vw, 3.33rem)", fontWeight: 300, color: "#fff", marginBottom: 28, lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#fff", marginBottom: 28, lineHeight: 1.2 }}>
               {service.explainer.heading}
             </h2>
             {service.explainer.body.map((para, i) => (
-              <p key={i} style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, lineHeight: 1.95, color: "rgba(255,255,255,0.95)", marginBottom: 14 , fontWeight: 700 }}>{para}</p>
+              <p key={i} style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.95, color: "rgba(255,255,255,0.95)", marginBottom: 14, fontWeight: 400 }}>{para}</p>
             ))}
           </motion.div>
         </div>
@@ -1345,8 +1342,8 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <div style={{ display: "flex", gap: "4rem", flexWrap: "wrap", alignItems: "flex-start" }}>
               <div style={{ flex: "1 1 300px" }}>
-                <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 17, letterSpacing: "3px", textTransform: "uppercase", color: "rgba(255,255,255,0.95)", marginBottom: 14 }}>Who This Serves</p>
-                <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3vw, 3.07rem)", fontWeight: 300, color: "#fff", lineHeight: 1.2, marginBottom: 0 }}>
+                <p style={{ fontFamily: FONT, fontSize: 17, letterSpacing: "3px", textTransform: "uppercase", color: "rgba(255,255,255,0.95)", marginBottom: 14, fontWeight: 600 }}>Who This Serves</p>
+                <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3vw, 2.8rem)", fontWeight: 600, color: "#fff", lineHeight: 1.2, marginBottom: 0 }}>
                   {service.whoNeeds.heading}
                 </h2>
               </div>
@@ -1356,7 +1353,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                     <div style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(255,255,255,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 }}>
                       <Check size={11} color="#fff" />
                     </div>
-                    <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, lineHeight: 1.8, color: "rgba(255,255,255,0.75)" }}>{bullet}</span>
+                    <span style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.8, color: "rgba(255,255,255,0.75)", fontWeight: 400 }}>{bullet}</span>
                   </div>
                 ))}
               </div>
@@ -1371,7 +1368,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 3rem", position: "relative", zIndex: 1 }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "4.5rem" }}>
             <SectionLabel text="Scope of Service" color={`${service.color}90`} />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.56rem, 4vw, 4.1rem)", fontWeight: 300, color: "#fff", lineHeight: 1.15 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2.2rem, 4vw, 3.6rem)", fontWeight: 600, color: "#fff", lineHeight: 1.15 }}>
               {service.coverage.heading}
             </h2>
           </motion.div>
@@ -1385,12 +1382,12 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                   style={{ background: "rgba(255,255,255,0.025)", border: `0.5px solid ${service.color}18`, borderRadius: 2, padding: "1.8rem", position: "relative", overflow: "hidden" }}
                 >
                   <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: `linear-gradient(90deg, ${service.color}60, transparent)` }} />
-                  <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 400, color: "#fff", marginBottom: 16, lineHeight: 1.35 }}>{section.heading}</p>
+                  <p style={{ fontFamily: FONT, fontSize: "1.3rem", fontWeight: 600, color: "#fff", marginBottom: 16, lineHeight: 1.35 }}>{section.heading}</p>
                   <ul style={{ display: "flex", flexDirection: "column", gap: 8, margin: 0, padding: 0, listStyle: "none" }}>
                     {section.items.map((item, j) => (
                       <li key={j} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                         <span style={{ width: 4, height: 4, borderRadius: "50%", background: service.color, flexShrink: 0, marginTop: 6 }} />
-                        <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, lineHeight: 1.75, color: "rgba(255,255,255,0.95)" }}>{item}</span>
+                        <span style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.75, color: "rgba(255,255,255,0.95)", fontWeight: 400 }}>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -1401,29 +1398,29 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         </div>
       </section>
 
-      {/* ── EXTRA TABLE (service 02 only) ── */}
+      {/* ── EXTRA TABLE ── */}
       {service.extra && service.extra.tableRows && (
         <section style={{ background: "linear-gradient(160deg,#ffffff 0%,#e8f4fd 100%)", padding: "5.5rem 0" }}>
           <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3rem" }}>
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
               <SectionLabel text="Facility Types" color="#185FA5" />
-              <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3.5vw, 3.33rem)", fontWeight: 300, color: "#042C53", marginBottom: 32, lineHeight: 1.2 }}>
+              <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#042C53", marginBottom: 32, lineHeight: 1.2 }}>
                 {service.extra.heading}
               </h2>
               <div className="table-responsive">
-                <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: "'DM Mono', monospace" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: FONT }}>
                   <thead>
                     <tr>
                       {service.extra.tableHead?.map((h, i) => (
-                        <th key={i} style={{ textAlign: "left", padding: "12px 16px", fontSize: 18, letterSpacing: "2px", textTransform: "uppercase", color: "#185FA5", background: "rgba(4,44,83,0.06)", borderBottom: "1px solid rgba(24,95,165,0.2)", fontWeight: 500 }}>{h}</th>
+                        <th key={i} style={{ textAlign: "left", padding: "12px 16px", fontSize: 16, letterSpacing: "2px", textTransform: "uppercase", color: "#185FA5", background: "rgba(4,44,83,0.06)", borderBottom: "1px solid rgba(24,95,165,0.2)", fontWeight: 600, fontFamily: FONT }}>{h}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
                     {service.extra.tableRows?.map((row, i) => (
                       <tr key={i} style={{ background: i % 2 === 0 ? "rgba(4,44,83,0.02)" : "transparent" }}>
-                        <td style={{ padding: "12px 16px", fontSize: 19, color: "#042C53", borderBottom: "0.5px solid rgba(24,95,165,0.1)", fontWeight: 500 }}>{row[0]}</td>
-                        <td style={{ padding: "12px 16px", fontSize: 19, color: "#185FA5", borderBottom: "0.5px solid rgba(24,95,165,0.1)" }}>{row[1]}</td>
+                        <td style={{ padding: "12px 16px", fontSize: 17, color: "#042C53", borderBottom: "0.5px solid rgba(24,95,165,0.1)", fontWeight: 600, fontFamily: FONT }}>{row[0]}</td>
+                        <td style={{ padding: "12px 16px", fontSize: 17, color: "#185FA5", borderBottom: "0.5px solid rgba(24,95,165,0.1)", fontWeight: 400, fontFamily: FONT }}>{row[1]}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -1434,12 +1431,29 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         </section>
       )}
 
+      {/* ── EXTRA BODY (service 04) ── */}
+      {service.extra && service.extra.body && (
+        <section style={{ background: "linear-gradient(160deg,#ffffff 0%,#e8f4fd 100%)", padding: "5.5rem 0" }}>
+          <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 3rem" }}>
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+              <SectionLabel text="Important Note" color="#185FA5" />
+              <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#042C53", marginBottom: 28, lineHeight: 1.2 }}>
+                {service.extra.heading}
+              </h2>
+              {service.extra.body.map((para, i) => (
+                <p key={i} style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.95, color: "#0a1a2a", marginBottom: 14, fontWeight: 400 }}>{para}</p>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      )}
+
       {/* ── PROCESS ── */}
       <section style={{ background: "linear-gradient(160deg,#ffffff 0%,#daeef9 50%,#e8f4fd 100%)", padding: "7rem 0" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3.5rem" }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "5rem" }}>
             <SectionLabel text="Our Process" color="#185FA5" />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.56rem, 4vw, 3.84rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.15 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 600, color: "#042C53", lineHeight: 1.15 }}>
               How ARCHORA Delivers <em style={{ fontStyle: "italic", color: "#185FA5" }}>This Service</em>
             </h2>
           </motion.div>
@@ -1453,7 +1467,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                   style={{ display: "flex", gap: 18, alignItems: "flex-start", marginBottom: 32 }}
                 >
                   <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
-                    <div style={{ width: 42, height: 42, borderRadius: "50%", background: "linear-gradient(135deg,#185FA5,#4bd1d9)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'DM Mono', monospace", fontSize: 19, fontWeight: 500, color: "#fff", flexShrink: 0 }}>
+                    <div style={{ width: 42, height: 42, borderRadius: "50%", background: "linear-gradient(135deg,#185FA5,#4bd1d9)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT, fontSize: 16, fontWeight: 600, color: "#fff", flexShrink: 0 }}>
                       {step.step}
                     </div>
                     {i < service.process.length - 1 && (
@@ -1461,8 +1475,8 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                     )}
                   </div>
                   <div style={{ paddingTop: 8 }}>
-                    <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontWeight: 400, color: "#042C53", marginBottom: 6, lineHeight: 1.3 }}>{step.title}</h4>
-                    <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, lineHeight: 1.85, color: "#185FA5" , fontWeight: 700 }}>{step.desc}</p>
+                    <h4 style={{ fontFamily: FONT, fontSize: "1.3rem", fontWeight: 600, color: "#042C53", marginBottom: 6, lineHeight: 1.3 }}>{step.title}</h4>
+                    <p style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.85, color: "#185FA5", fontWeight: 400 }}>{step.desc}</p>
                   </div>
                 </motion.div>
               );
@@ -1482,7 +1496,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3rem" }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ marginBottom: "4rem" }}>
             <SectionLabel text="Why ARCHORA" color={`${service.color}90`} />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3.5vw, 3.33rem)", fontWeight: 300, color: "#fff", lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#fff", lineHeight: 1.2 }}>
               {service.whyUs.heading}
             </h2>
           </motion.div>
@@ -1496,7 +1510,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                   style={{ padding: "1.6rem", background: `${service.color}07`, border: `0.5px solid ${service.color}18`, borderRadius: 2 }}
                 >
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: service.color, marginBottom: 14 }} />
-                  <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, lineHeight: 1.85, color: "rgba(255,255,255,0.95)" , fontWeight: 700 }}>{point}</p>
+                  <p style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.85, color: "rgba(255,255,255,0.95)", fontWeight: 400 }}>{point}</p>
                 </motion.div>
               );
             })}
@@ -1509,7 +1523,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 3rem" }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ marginBottom: "3rem" }}>
             <SectionLabel text="Frequently Asked Questions" color="#185FA5" />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3.5vw, 3.33rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#042C53", lineHeight: 1.2 }}>
               Everything You Need to Know
             </h2>
           </motion.div>
@@ -1529,7 +1543,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3rem" }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ marginBottom: "3rem" }}>
             <SectionLabel text="Related Services" color={`${service.color}90`} />
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.3rem, 3.5vw, 3.07rem)", fontWeight: 300, color: "#fff", lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#fff", lineHeight: 1.2 }}>
               You Might Also Need
             </h2>
           </motion.div>
@@ -1541,7 +1555,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                 onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = `${service.color}08`; (e.currentTarget as HTMLDivElement).style.borderColor = `${service.color}35`; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.03)"; (e.currentTarget as HTMLDivElement).style.borderColor = `${service.color}18`; }}
               >
-                <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, lineHeight: 1.7, color: "rgba(255,255,255,0.97)", margin: 0 , fontWeight: 700 }}>{rel.title}</p>
+                <p style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.7, color: "rgba(255,255,255,0.97)", margin: 0, fontWeight: 400 }}>{rel.title}</p>
                 <ArrowRight size={13} color={service.color} style={{ flexShrink: 0, marginTop: 2 }} />
               </motion.div>
             ))}
@@ -1562,11 +1576,11 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
             <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 60, height: 60, borderRadius: "50%", background: `${service.color}15`, border: `1px solid ${service.color}30`, color: service.color, marginBottom: 28 }}>
               {service.icon}
             </div>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.56rem, 4vw, 4.1rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2.2rem, 4vw, 3.6rem)", fontWeight: 600, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
               {service.bottomCTA.heading.split("?")[0]}?<br />
               <em style={{ fontStyle: "italic", color: service.color }}>Talk to ARCHORA.</em>
             </h2>
-            <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, color: "rgba(255,255,255,0.90)", lineHeight: 1.9, marginBottom: 40 , fontWeight: 700 }}>
+            <p style={{ fontFamily: FONT, fontSize: 17, color: "rgba(255,255,255,0.90)", lineHeight: 1.9, marginBottom: 40, fontWeight: 400 }}>
               {service.bottomCTA.body}
             </p>
             <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
@@ -1574,7 +1588,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
               <button className="cta-btn-outline" onClick={() => window.open(WHATSAPP_URL, "_blank")}>💬 WhatsApp Us</button>
               <button className="cta-btn-outline" onClick={() => navigate("/contact")}>Send an Enquiry →</button>
             </div>
-            <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 18, color: "rgba(255,255,255,0.18)", marginTop: 24, letterSpacing: "0.1em" }}>
+            <p style={{ fontFamily: FONT, fontSize: 16, color: "rgba(255,255,255,0.18)", marginTop: 24, letterSpacing: "0.1em", fontWeight: 400 }}>
               No obligation · No sales pressure · Just clarity.
             </p>
           </motion.div>
