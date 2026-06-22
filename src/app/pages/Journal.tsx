@@ -250,23 +250,6 @@ const allCategories = ["All", ...Array.from(new Set(articlesMeta.map(a => a.cate
 // ─────────────────────────────────────────────────────────────────────────────
 // SHARED DECORATIONS
 // ─────────────────────────────────────────────────────────────────────────────
-function BlueprintGrid({ opacity = 0.05 }: { opacity?: number }) {
-  return (
-    <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <pattern id="bp-sm-j" width="24" height="24" patternUnits="userSpaceOnUse">
-          <path d="M24 0L0 0 0 24" fill="none" stroke="currentColor" strokeWidth="0.4" />
-        </pattern>
-        <pattern id="bp-lg-j" width="120" height="120" patternUnits="userSpaceOnUse">
-          <rect width="120" height="120" fill="url(#bp-sm-j)" />
-          <path d="M120 0L0 0 0 120" fill="none" stroke="currentColor" strokeWidth="1" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#bp-lg-j)" opacity={opacity} />
-    </svg>
-  );
-}
-
 function MedicalCross({ size = 20, color = C.red, opacity = 0.85 }: { size?: number; color?: string; opacity?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -487,9 +470,6 @@ export function Journal() {
             fetchPriority="high"
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.6) 0%, rgba(4,28,46,0.36) 60%, rgba(4,28,46,0.14) 100%)" }} />
-          <div style={{ position: "absolute", inset: 0, color: C.teal }}>
-            <BlueprintGrid opacity={0.07} />
-          </div>
 
           <div style={{ position: "relative", height: "100%", maxWidth: 1280, margin: "0 auto", padding: "0 80px", display: "flex", alignItems: "center", zIndex: 10 }}>
             <motion.div initial={{ opacity: 0, y: 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
@@ -585,9 +565,6 @@ export function Journal() {
 
         {/* ── NEWSLETTER CTA ── */}
         <section style={{ background: C.dark, padding: "100px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, color: C.teal }}>
-            <BlueprintGrid opacity={0.05} />
-          </div>
           {[500, 360].map((size, i) => (
             <motion.div
               key={size} aria-hidden="true"

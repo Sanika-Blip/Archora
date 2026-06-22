@@ -339,7 +339,6 @@ function MilestoneItem({ milestone, index }: { milestone: (typeof milestones)[0]
         <div style={{ fontFamily: FONT, fontSize: "15px", letterSpacing: "3px", textTransform: "uppercase", color: milestone.isCurrent ? "#7eb8f7" : "#378ADD", marginBottom: "5px" }}>{milestone.chapter}</div>
         <div style={{ fontFamily: FONT, fontSize: "1.5rem", fontWeight: 600, color: "#fff", marginBottom: "5px", lineHeight: 1.2 }}>{milestone.title}</div>
         <div style={{ fontFamily: FONT, fontSize: "17px", lineHeight: 1.8, color: "rgba(255,255,255,0.95)", fontWeight: 400 }}>{milestone.description}</div>
-        <div style={{ position: "absolute", top: "12px", right: "16px", fontFamily: FONT, fontSize: "2.6rem", fontWeight: 300, color: milestone.isCurrent ? "rgba(126,184,247,0.07)" : "rgba(75,209,217,0.06)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>{milestone.num}</div>
       </motion.div>
     </motion.div>
   );
@@ -525,7 +524,6 @@ export function About() {
       {/* ── Leadership ── */}
       <section className="py-24 relative" style={{ background: "linear-gradient(160deg,#040e1a 0%,#071e30 60%,#04141f 100%)" }}>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style={{ width: "80vw", height: "80vw", borderRadius: "50%", background: "radial-gradient(circle, rgba(75,209,217,0.04) 0%, transparent 70%)" }} />
-        <div style={{ position: "absolute", right: "-20px", top: "50%", transform: "translateY(-50%)", fontFamily: FONT, fontSize: "18vw", fontWeight: 300, color: "rgba(75,209,217,0.025)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>04</div>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <motion.div className="mb-14 text-center" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <SectionLabel text="Leadership" color="rgba(75,209,217,0.6)" dotColor="rgba(75,209,217,0.4)" />
@@ -611,7 +609,6 @@ export function About() {
       {/* ── Our Story ── */}
       <section style={{ background: "linear-gradient(170deg, #040e1a 0%, #071e30 55%, #04141f 100%)", padding: "88px 0 100px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "700px", height: "700px", borderRadius: "50%", background: "radial-gradient(circle, rgba(75,209,217,0.05) 0%, transparent 65%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", left: "-20px", top: "50%", transform: "translateY(-50%)", fontFamily: FONT, fontSize: "18vw", fontWeight: 300, color: "rgba(75,209,217,0.025)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>03</div>
         <div style={{ maxWidth: 640, margin: "0 auto", padding: "0 32px", position: "relative", zIndex: 1 }}>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "64px" }}>
             <SectionLabel text="Our Story" color="#4bd1d9" letterSpacing="4px" />
@@ -627,7 +624,6 @@ export function About() {
 
       {/* ── Services ── */}
       <section style={{ background: "linear-gradient(170deg,#040e1a 0%,#071e30 55%,#04141f 100%)", padding: "88px 0", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", right: "-20px", top: "50%", transform: "translateY(-50%)", fontFamily: FONT, fontSize: "18vw", fontWeight: 300, color: "rgba(75,209,217,0.025)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>02</div>
         <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 48px", position: "relative", zIndex: 1 }}>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ marginBottom: "56px" }}>
             <SectionLabel text="What We Do" color="#4bd1d9" letterSpacing="4px" centered={false} />
@@ -659,7 +655,7 @@ export function About() {
             <p style={{ fontFamily: FONT, fontSize: "18px", color: "rgba(255,255,255,0.90)", marginBottom: "44px", lineHeight: 1.85, maxWidth: "500px", margin: "0 auto 44px", fontWeight: 400 }}>Whether you are starting from zero or need expert support at any stage, ARCHORA is ready to help you design, build, and deliver infrastructure that works.</p>
             <div style={{ display: "flex", gap: "14px", justifyContent: "center", flexWrap: "wrap" }}>
               <button onClick={() => navigate("/contact")} style={{ padding: "14px 32px", fontSize: "17px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Book a Free Consultation</button>
-              <button onClick={() => window.open(WHATSAPP_URL, "_blank")} style={{ padding: "14px 32px", fontSize: "17px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>💬 WhatsApp Us</button>
+              <button onClick={() => window.open(WHATSAPP_URL, "_blank")} style={{ padding: "14px 32px", fontSize: "17px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>WhatsApp Us</button>
               <button onClick={() => navigate("/contact")} style={{ padding: "14px 32px", fontSize: "17px", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }} onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }} onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>Send an Enquiry →</button>
             </div>
             <p style={{ fontFamily: FONT, fontSize: "16px", color: "rgba(255,255,255,0.75)", marginTop: "28px", letterSpacing: "0.1em", fontWeight: 400 }}>No obligation · No sales pressure · Honest advice from healthcare infrastructure specialists</p>

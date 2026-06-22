@@ -135,46 +135,6 @@ function SEOHead() {
 // ─────────────────────────────────────────────
 // SHARED SVG DECORATIONS
 // ─────────────────────────────────────────────
-function BlueprintGrid({ opacity = 0.05 }: { opacity?: number }) {
-  return (
-    <svg
-      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <defs>
-        <pattern id="bp-sm" width="24" height="24" patternUnits="userSpaceOnUse">
-          <path d="M24 0L0 0 0 24" fill="none" stroke="currentColor" strokeWidth="0.4" />
-        </pattern>
-        <pattern id="bp-lg" width="120" height="120" patternUnits="userSpaceOnUse">
-          <rect width="120" height="120" fill="url(#bp-sm)" />
-          <path d="M120 0L0 0 0 120" fill="none" stroke="currentColor" strokeWidth="1" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#bp-lg)" opacity={opacity} />
-    </svg>
-  );
-}
-
-function Crosshair({ size = 48, spin = true }: { size?: number; spin?: boolean }) {
-  return (
-    <motion.svg
-      width={size} height={size} viewBox="0 0 48 48" fill="none"
-      animate={spin ? { rotate: 360 } : {}}
-      transition={spin ? { duration: 50, repeat: Infinity, ease: "linear" } : {}}
-      aria-hidden="true"
-    >
-      <circle cx="24" cy="24" r="9" stroke="currentColor" strokeWidth="1" />
-      <circle cx="24" cy="24" r="17" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 4" />
-      <line x1="24" y1="0" x2="24" y2="13" stroke="currentColor" strokeWidth="1" />
-      <line x1="24" y1="35" x2="24" y2="48" stroke="currentColor" strokeWidth="1" />
-      <line x1="0" y1="24" x2="13" y2="24" stroke="currentColor" strokeWidth="1" />
-      <line x1="35" y1="24" x2="48" y2="24" stroke="currentColor" strokeWidth="1" />
-      <circle cx="24" cy="24" r="2" fill="currentColor" opacity="0.4" />
-    </motion.svg>
-  );
-}
-
 function MedicalCross({ size = 20, color = C.red, opacity = 0.85 }: { size?: number; color?: string; opacity?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -241,16 +201,16 @@ const heroSlides = [
 ];
 
 const services = [
-  { num: "01", title: "Feasibility Studies & DPRs", desc: "Data-backed project planning before you commit capital. Site assessment, demand analysis, bed capacity planning, and cost estimation.", icon: "📊" },
-  { num: "02", title: "Healthcare Architecture & Space Planning", desc: "Compliance-integrated architectural design for hospitals, clinics, diagnostic centres, and medical colleges.", icon: "🏛️" },
-  { num: "03", title: "Regulatory Compliance & Accreditation-Ready Design", desc: "NABH, NABL, INC, NMC, AERB, PCPNDT, NBC, and fire safety standards integrated into every design from day one.", icon: "✅" },
-  { num: "04", title: "Hospital Licensing & Approvals Support", desc: "Expert navigation of all statutory licences and approvals required to open and operate a healthcare facility in India.", icon: "📋" },
-  { num: "05", title: "Structural Design for Healthcare", desc: "Healthcare-specific structural engineering for heavy equipment loads, seismic compliance, and clinical environments.", icon: "🏗️" },
-  { num: "06", title: "MEP Engineering for Healthcare", desc: "Hospital-grade HVAC, medical gas pipeline systems, electrical, plumbing, fire safety, and building management.", icon: "⚙️" },
-  { num: "07", title: "Modular OT & ICU Infrastructure", desc: "Design, supply, and installation of modular operating theatres and ICUs with laminar airflow and cleanroom standards.", icon: "🔬" },
-  { num: "08", title: "Turnkey Civil & Interior Execution", desc: "Complete healthcare construction and interior fit-out through a single point of accountability.", icon: "🔑" },
-  { num: "09", title: "Medical Equipment Planning & Procurement", desc: "Department-wise planning, budget optimisation, vendor evaluation, procurement support, and installation coordination.", icon: "🩺" },
-  { num: "10", title: "Project Management & Commissioning", desc: "End-to-end project management from planning through to commissioning and handover: protecting your timeline.", icon: "🗂️" },
+  { num: "01", title: "Feasibility Studies & DPRs", desc: "Data-backed project planning before you commit capital. Site assessment, demand analysis, bed capacity planning, and cost estimation." },
+  { num: "02", title: "Healthcare Architecture & Space Planning", desc: "Compliance-integrated architectural design for hospitals, clinics, diagnostic centres, and medical colleges." },
+  { num: "03", title: "Regulatory Compliance & Accreditation-Ready Design", desc: "NABH, NABL, INC, NMC, AERB, PCPNDT, NBC, and fire safety standards integrated into every design from day one." },
+  { num: "04", title: "Hospital Licensing & Approvals Support", desc: "Expert navigation of all statutory licences and approvals required to open and operate a healthcare facility in India." },
+  { num: "05", title: "Structural Design for Healthcare", desc: "Healthcare-specific structural engineering for heavy equipment loads, seismic compliance, and clinical environments." },
+  { num: "06", title: "MEP Engineering for Healthcare", desc: "Hospital-grade HVAC, medical gas pipeline systems, electrical, plumbing, fire safety, and building management." },
+  { num: "07", title: "Modular OT & ICU Infrastructure", desc: "Design, supply, and installation of modular operating theatres and ICUs with laminar airflow and cleanroom standards." },
+  { num: "08", title: "Turnkey Civil & Interior Execution", desc: "Complete healthcare construction and interior fit-out through a single point of accountability." },
+  { num: "09", title: "Medical Equipment Planning & Procurement", desc: "Department-wise planning, budget optimisation, vendor evaluation, procurement support, and installation coordination." },
+  { num: "10", title: "Project Management & Commissioning", desc: "End-to-end project management from planning through to commissioning and handover: protecting your timeline." },
 ];
 
 const metrics = [
@@ -346,24 +306,6 @@ export function Home() {
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(4,28,46,0.38) 0%, transparent 45%)" }} />
             </motion.div>
           </AnimatePresence>
-
-          <div style={{ position: "absolute", inset: 0, color: C.teal, pointerEvents: "none" }}>
-            <BlueprintGrid opacity={0.07} />
-          </div>
-
-          <div style={{ position: "absolute", top: "14%", right: "8%", color: C.teal, opacity: 0.2 }}>
-            <Crosshair size={90} />
-          </div>
-          <div style={{ position: "absolute", bottom: "20%", right: "16%", color: C.teal, opacity: 0.12 }}>
-            <Crosshair size={52} spin={false} />
-          </div>
-          <motion.div
-            style={{ position: "absolute", top: "40%", right: "35%", color: C.teal, opacity: 0.07 }}
-            animate={{ rotate: -360 }}
-            transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-          >
-            <Crosshair size={160} spin={false} />
-          </motion.div>
 
           {/* Left nav dots */}
           <div style={{ position: "absolute", left: 32, top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 12, zIndex: 20 }}>
@@ -531,13 +473,6 @@ export function Home() {
             PROBLEM SECTION
         ══════════════════════════════════════════ */}
         <section aria-labelledby="problem-heading" style={{ background: C.navy, padding: "120px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, color: C.teal, pointerEvents: "none" }}>
-            <BlueprintGrid opacity={0.05} />
-          </div>
-          <div style={{ position: "absolute", right: -20, top: "50%", transform: "translateY(-50%)", fontFamily: FONT, fontSize: "22vw", color: "rgba(75,204,212,0.025)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }} aria-hidden="true">
-            01
-          </div>
-
           <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", position: "relative" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "center" }}>
 
@@ -685,9 +620,6 @@ export function Home() {
             METRICS STRIP
         ══════════════════════════════════════════ */}
         <div style={{ background: C.blue, padding: "56px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
-            <BlueprintGrid opacity={0.07} />
-          </div>
           <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 0, position: "relative" }}>
             {metrics.map((m, i) => (
               <motion.div
@@ -711,13 +643,6 @@ export function Home() {
             SERVICES
         ══════════════════════════════════════════ */}
         <section aria-labelledby="services-heading" style={{ background: "#0a1628", padding: "120px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, color: C.teal, pointerEvents: "none" }}>
-            <BlueprintGrid opacity={0.04} />
-          </div>
-          <div style={{ position: "absolute", left: -30, top: "50%", transform: "translateY(-50%)", fontFamily: FONT, fontSize: "20vw", color: "rgba(75,204,212,0.02)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }} aria-hidden="true">
-            02
-          </div>
-
           <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", position: "relative" }}>
             <motion.div style={{ marginBottom: 72, textAlign: "center" }} {...fadeUp}>
               <SectionLabel text="What We Do" light />
@@ -740,7 +665,6 @@ export function Home() {
                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = "#0d1f38"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = "#0a1628"; }}
                 >
-                  <span style={{ position: "absolute", right: 20, top: 12, color: "rgba(75,204,212,0.04)", fontFamily: FONT, fontSize: 56, lineHeight: 1, pointerEvents: "none" }} aria-hidden="true">{s.num}</span>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: 20 }}>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, minWidth: 32, paddingTop: 2 }}>
                       <span style={{ color: "rgba(75,204,212,0.35)", fontSize: 13, fontFamily: FONT, letterSpacing: "0.05em" }}>{s.num}</span>
@@ -778,10 +702,6 @@ export function Home() {
             />
           ))}
 
-          <div style={{ position: "absolute", inset: 0, color: C.teal, pointerEvents: "none" }}>
-            <BlueprintGrid opacity={0.04} />
-          </div>
-
           <div style={{ maxWidth: 800, margin: "0 auto", padding: "0 80px", textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.div {...fadeUp}>
               <SectionLabel text="Get In Touch" light />
@@ -797,7 +717,7 @@ export function Home() {
 
               <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
                 <HeroBtn primary onClick={() => navigate("/contact")}>Book a Free Consultation</HeroBtn>
-                <HeroBtn onClick={() => window.open(WHATSAPP_URL, "_blank")}>💬 WhatsApp Us</HeroBtn>
+                <HeroBtn onClick={() => window.open(WHATSAPP_URL, "_blank")}>WhatsApp Us</HeroBtn>
                 <HeroBtn onClick={() => navigate("/contact")}>Send an Enquiry →</HeroBtn>
               </div>
 

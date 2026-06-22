@@ -421,10 +421,8 @@ export function Services() {
       <style>{`
         .archora-page-scope * { font-family: Calibri, 'Calibri', Arial, sans-serif !important; }
         @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-        @keyframes rotateSlow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
         @keyframes scrollBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
         .float-anim { animation: floatY 6s ease-in-out infinite; }
-        .rotate-slow { animation: rotateSlow 60s linear infinite; }
         .scroll-bounce { animation: scrollBounce 1.8s ease-in-out infinite; }
         .service-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
         .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
@@ -441,18 +439,6 @@ export function Services() {
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg, rgba(4,18,30,0.6) 0%, rgba(4,18,30,0.34) 55%, rgba(4,18,30,0.1) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.06) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-        </div>
-
-        <div className="rotate-slow" style={{ position: "absolute", right: "8%", top: "50%", transform: "translateY(-50%)", opacity: 0.08, pointerEvents: "none" }}>
-          <svg width="400" height="400" viewBox="0 0 100 100" fill="none" stroke="#4bd1d9">
-            <circle cx="50" cy="50" r="46" strokeWidth="0.4" strokeDasharray="4 6" />
-            <circle cx="50" cy="50" r="36" strokeWidth="0.3" />
-            <circle cx="50" cy="50" r="24" strokeWidth="0.4" strokeDasharray="2 4" />
-            <line x1="50" y1="4" x2="50" y2="16" strokeWidth="0.6" />
-            <line x1="50" y1="84" x2="50" y2="96" strokeWidth="0.6" />
-            <line x1="4" y1="50" x2="16" y2="50" strokeWidth="0.6" />
-            <line x1="84" y1="50" x2="96" y2="50" strokeWidth="0.6" />
-          </svg>
         </div>
 
         <div style={{ position: "absolute", left: 32, top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 12, zIndex: 2 }}>
@@ -611,7 +597,7 @@ export function Services() {
               <button onClick={() => window.open(WHATSAPP_URL, "_blank")} style={{ padding: "14px 32px", fontSize: 17, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>
-                💬 WhatsApp Us
+                WhatsApp Us
               </button>
               <button onClick={() => navigate("/contact")} style={{ padding: "14px 32px", fontSize: 17, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }}

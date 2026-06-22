@@ -11,6 +11,7 @@ import { Contact } from "./pages/Contact";
 import { Layout } from "./components/Layout";
 import { ServiceDetailWrapper } from "./pages/ServiceDetailWrapper";
 import { FacilityDetailPage } from "./pages/FacilityDetailPage";
+import { ComplianceDetailPage } from "./pages/ComplianceDetailPage";
 
 
 
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
       { path: "services/:slug", Component: ServiceDetailWrapper },
       { path: "facilities", Component: Facilities },
       { path: "facilities/:facilityId", Component: FacilityDetailPage },
+      { path: "compliance/:slug", Component: ComplianceDetailPage },
       { path: "projects", Component: Projects },
       { path: "why-us", Component: WhyUs },
       { path: "journal", Component: Journal },

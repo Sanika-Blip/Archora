@@ -20,24 +20,6 @@ const C = {
 // ─────────────────────────────────────────────
 // SHARED DECORATIONS (same as Home.tsx)
 // ─────────────────────────────────────────────
-function BlueprintGrid({ opacity = 0.05 }: { opacity?: number }) {
-  return (
-    <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}
-      xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <pattern id="bp-sm-flow" width="24" height="24" patternUnits="userSpaceOnUse">
-          <path d="M24 0L0 0 0 24" fill="none" stroke="currentColor" strokeWidth="0.4" />
-        </pattern>
-        <pattern id="bp-lg-flow" width="120" height="120" patternUnits="userSpaceOnUse">
-          <rect width="120" height="120" fill="url(#bp-sm-flow)" />
-          <path d="M120 0L0 0 0 120" fill="none" stroke="currentColor" strokeWidth="1" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#bp-lg-flow)" opacity={opacity} />
-    </svg>
-  );
-}
-
 function MedicalCross({ size = 20, color = C.red, opacity = 0.85 }: { size?: number; color?: string; opacity?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -68,7 +50,6 @@ const steps = [
     subtitle: "You Reach Out. We Listen.",
     desc: "No sales pitch. No package presentation. Just a genuine conversation about your project, what you are building, where you are building it, what stage you are at, and what you need. We ask the right questions so we understand your vision before we say anything about our services.",
     how: ["Call or WhatsApp us directly", "Fill the project enquiry form", "Email us your brief"],
-    icon: "📞",
     accent: "#4bccd4",
   },
   {
@@ -77,7 +58,6 @@ const steps = [
     subtitle: "You Meet the People Who Will Actually Work on Your Project.",
     desc: "A structured working session led personally by our founder, with our senior healthcare consultant and architect. We understand your clinical vision, assess your site and regulatory environment, flag potential challenges early, and give you a preliminary roadmap of the entire project journey.",
     how: ["Clinical vision and specialty focus", "Site, scale, and regulatory review", "Compliance requirements identified", "Preliminary project roadmap"],
-    icon: "🏛️",
     accent: "#1b6ca8",
   },
   {
@@ -86,7 +66,6 @@ const steps = [
     subtitle: "We Come to You. We See the Ground Reality.",
     desc: "Our team visits your site for a complete physical assessment, dimensions, orientation, access, existing structure, neighbouring infrastructure, and local regulatory context. Nothing is assumed. Everything is verified on ground.",
     how: ["Brownfield: assess existing structure, plan around constraints", "Greenfield: master planning and licensing feasibility", "Regulatory context verified on site"],
-    icon: "📍",
     accent: "#c0392b",
   },
   {
@@ -95,7 +74,6 @@ const steps = [
     subtitle: "You Know the Full Picture Before You Commit a Single Rupee.",
     desc: "Before any design begins, we present a comprehensive feasibility report. Whether your budget is ₹1 crore or ₹150 crore, you get the same honesty. We work with what you have, not what we wish you had.",
     how: ["Realistic project cost range", "Compliance and licensing roadmap", "Green flags and red flags", "Timeline from design to commissioning"],
-    icon: "📊",
     accent: "#4bccd4",
   },
   {
@@ -104,7 +82,6 @@ const steps = [
     subtitle: "Where Your Hospital Takes Shape.",
     desc: "Every design at ARCHORA is built with three non-negotiables: clinical workflow first, compliance by design, and future-ready. NABH, NABL, fire, and structural standards are built in from day one, never retrofitted.",
     how: ["Architectural design and space planning", "Structural and MEP engineering", "Modular OT and ICU design", "NABH-compliant layout framework"],
-    icon: "📐",
     accent: "#1b6ca8",
   },
   {
@@ -113,7 +90,6 @@ const steps = [
     subtitle: "We Handle the Paperwork. You Focus on Your Practice.",
     desc: "Licensing is where most hospital projects get stuck, sometimes for years. ARCHORA manages the entire licensing and approvals process through our in-house compliance team of NABH consultants, JCI-aware advisors, and healthcare-specialised architects.",
     how: ["Architectural drawing approvals", "Fire NOC", "NABH pre-accreditation documentation", "Local municipal clearances"],
-    icon: "✅",
     accent: "#c0392b",
   },
   {
@@ -122,7 +98,6 @@ const steps = [
     subtitle: "We Build. You Do Not Chase Anyone.",
     desc: "One team. One contract. One point of contact. Zero chaos. Most healthcare entrepreneurs are running between a contractor, MEP vendor, interior firm, OT company, and equipment planner, with no one taking overall accountability. At ARCHORA, one call handles everything.",
     how: ["Civil construction and structural execution", "MEP, Electrical, Plumbing, HVAC, Medical Gas", "Modular OT and ICU installation", "Interior fit-out and medical equipment"],
-    icon: "🏗️",
     accent: "#4bccd4",
   },
   {
@@ -131,7 +106,6 @@ const steps = [
     subtitle: "Your Hospital is Ready to Operate: Not Just Ready to Look At.",
     desc: "We do not hand over a building. We hand over an operational healthcare facility. You open your doors with confidence, because every system has been tested, every compliance box has been checked, and every detail has been verified.",
     how: ["System testing, MEP, OT, ICU, medical gas", "NABH compliance final check", "Staff walkthrough and orientation support", "Final documentation and handover package"],
-    icon: "🎯",
     accent: "#1b6ca8",
   },
 ];
@@ -215,8 +189,6 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
             fontFamily: "'Cormorant Garamond', Georgia, serif",
             fontSize: 24, fontWeight: 400, color: step.accent, lineHeight: 1,
           }}>{step.num}</span>
-          <div style={{ width: 1, height: 24, background: "rgba(75,204,212,0.15)", margin: "8px 0" }} />
-          <span style={{ fontSize: 24 }}>{step.icon}</span>
         </div>
 
         {/* Content */}
@@ -312,10 +284,6 @@ export function OurFlow() {
           </motion.div>
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.6) 0%, rgba(4,28,46,0.35) 55%, rgba(4,28,46,0.12) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(4,28,46,0.45) 0%, transparent 45%)" }} />
-
-          <div style={{ position: "absolute", inset: 0, color: C.teal }}>
-            <BlueprintGrid opacity={0.07} />
-          </div>
 
           {/* Decorative rotating ring */}
           <motion.div
@@ -440,15 +408,6 @@ export function OurFlow() {
             8-STEP PROCESS
         ═══════════════════════════════════ */}
         <section style={{ background: "#060f1e", padding: "120px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, color: C.teal }}>
-            <BlueprintGrid opacity={0.04} />
-          </div>
-
-          {/* Large ghost number */}
-          <div style={{ position: "absolute", right: -20, top: "50%", transform: "translateY(-50%)", fontFamily: "monospace", fontSize: "18vw", color: "rgba(75,204,212,0.02)", lineHeight: 1, pointerEvents: "none", userSelect: "none" }} aria-hidden="true">
-            PROCESS
-          </div>
-
           <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", position: "relative" }}>
 
             {/* Header */}
@@ -526,10 +485,6 @@ export function OurFlow() {
             COMPARISON TABLE
         ═══════════════════════════════════ */}
         <section style={{ background: C.navyMid, padding: "100px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, color: C.teal }}>
-            <BlueprintGrid opacity={0.05} />
-          </div>
-
           <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", position: "relative" }}>
             <motion.div
               initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
@@ -638,9 +593,6 @@ export function OurFlow() {
               transition={{ duration: 60 + i * 20, repeat: Infinity, ease: "linear" }}
             />
           ))}
-          <div style={{ position: "absolute", inset: 0, color: C.teal }}>
-            <BlueprintGrid opacity={0.04} />
-          </div>
 
           <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 80px", textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.div

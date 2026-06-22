@@ -24,24 +24,6 @@ const C = {
 // ─────────────────────────────────────────────
 // SHARED DECORATIONS
 // ─────────────────────────────────────────────
-function BlueprintGrid({ opacity = 0.05 }: { opacity?: number }) {
-  return (
-    <svg style={{ position:"absolute",inset:0,width:"100%",height:"100%",pointerEvents:"none" }}
-      xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <pattern id="bp-sm" width="24" height="24" patternUnits="userSpaceOnUse">
-          <path d="M24 0L0 0 0 24" fill="none" stroke="currentColor" strokeWidth="0.4"/>
-        </pattern>
-        <pattern id="bp-lg" width="120" height="120" patternUnits="userSpaceOnUse">
-          <rect width="120" height="120" fill="url(#bp-sm)"/>
-          <path d="M120 0L0 0 0 120" fill="none" stroke="currentColor" strokeWidth="1"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#bp-lg)" opacity={opacity}/>
-    </svg>
-  );
-}
-
 function MedicalCross({ size=20, color=C.red, opacity=0.85 }: { size?:number; color?:string; opacity?:number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -101,12 +83,12 @@ const comparison = [
 ];
 
 const audiences = [
-  { icon:"🩺", label:"Doctors & Clinicians",      desc:"Planning your first clinic, nursing home, or hospital? Infrastructure that matches your clinical vision, ready to operate from day one." },
-  { icon:"🏥", label:"Hospital Owners & Chains",   desc:"Expanding an existing facility or building a new branch? Brownfield upgrades and greenfield projects with the same depth of expertise." },
-  { icon:"💼", label:"Healthcare Investors",        desc:"Feasibility studies, DPRs, and turnkey delivery that protect your capital and your timeline, before and after you commit." },
-  { icon:"🎓", label:"Medical & Nursing Colleges", desc:"Building or expanding a campus? ARCHORA designs and delivers INC and NMC-compliant educational and clinical infrastructure." },
-  { icon:"🔬", label:"Diagnostic Centres & Labs",  desc:"NABL-compliant spaces with the right technical infrastructure for every department and imaging modality." },
-  { icon:"🤝", label:"Healthcare Consultants",     desc:"The infrastructure partner your clients need. We work collaboratively with consultants and advisors across India." },
+  { label:"Doctors & Clinicians",      desc:"Planning your first clinic, nursing home, or hospital? Infrastructure that matches your clinical vision, ready to operate from day one." },
+  { label:"Hospital Owners & Chains",   desc:"Expanding an existing facility or building a new branch? Brownfield upgrades and greenfield projects with the same depth of expertise." },
+  { label:"Healthcare Investors",        desc:"Feasibility studies, DPRs, and turnkey delivery that protect your capital and your timeline, before and after you commit." },
+  { label:"Medical & Nursing Colleges", desc:"Building or expanding a campus? ARCHORA designs and delivers INC and NMC-compliant educational and clinical infrastructure." },
+  { label:"Diagnostic Centres & Labs",  desc:"NABL-compliant spaces with the right technical infrastructure for every department and imaging modality." },
+  { label:"Healthcare Consultants",     desc:"The infrastructure partner your clients need. We work collaboratively with consultants and advisors across India." },
 ];
 
 const faqSections = [
@@ -264,7 +246,6 @@ export function WhyUs() {
           </motion.div>
           <div style={{ position:"absolute", inset:0, background:"linear-gradient(115deg,rgba(4,28,46,0.6) 0%,rgba(4,28,46,0.36) 55%,rgba(4,28,46,0.1) 100%)" }}/>
           <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top,rgba(4,28,46,0.42) 0%,transparent 45%)" }}/>
-          <div style={{ position:"absolute", inset:0, color:C.teal }}><BlueprintGrid opacity={0.07}/></div>
           {[220,140,80].map((size,i) => (
             <motion.div key={size} style={{ position:"absolute", top:"18%", right:"9%",
               width:size, height:size, border:`1px solid rgba(75,204,212,${0.06+i*0.03})`,
@@ -315,12 +296,6 @@ export function WhyUs() {
             2. PILLARS, deep dark #060f1e
         ══════════════════════════════════════ */}
         <section style={{ background:C.dark, padding:"120px 0", position:"relative", overflow:"hidden" }}>
-          <div style={{ position:"absolute", inset:0, color:C.teal }}><BlueprintGrid opacity={0.04}/></div>
-          <div style={{ position:"absolute", right:-20, top:"50%", transform:"translateY(-50%)",
-            fontFamily:"Calibri, Arial, sans-serif", fontSize:"22vw", color:"rgba(75,204,212,0.025)",
-            lineHeight:1, pointerEvents:"none", userSelect:"none", letterSpacing:"-0.04em" }}
-            aria-hidden="true">ARCH</div>
-
           <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 80px", position:"relative" }}>
             <motion.div initial={{ opacity:0, y:32 }} whileInView={{ opacity:1, y:0 }}
               viewport={{ once:true }} transition={{ duration:0.8 }}
@@ -392,10 +367,6 @@ export function WhyUs() {
             3. COMPARISON, cream light
         ══════════════════════════════════════ */}
         <section style={{ background:C.creamAlt, padding:"110px 0", position:"relative", overflow:"hidden" }}>
-          <div style={{ position:"absolute", right:-40, top:"50%", transform:"translateY(-50%)",
-            fontFamily:"Calibri, Arial, sans-serif", fontSize:"18vw", color:"rgba(27,108,168,0.04)",
-            lineHeight:1, pointerEvents:"none", userSelect:"none" }} aria-hidden="true">VS</div>
-
           <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 80px", position:"relative" }}>
             <motion.div style={{ marginBottom:64 }}
               initial={{ opacity:0, y:40 }} whileInView={{ opacity:1, y:0 }}
@@ -485,7 +456,6 @@ export function WhyUs() {
             4. WHO WE SERVE, deep dark slate
         ══════════════════════════════════════ */}
         <section style={{ background:C.slate, padding:"110px 0", position:"relative", overflow:"hidden" }}>
-          <div style={{ position:"absolute", inset:0, color:C.teal }}><BlueprintGrid opacity={0.035}/></div>
 
           <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 80px", position:"relative" }}>
             <motion.div style={{ marginBottom:72 }}
@@ -529,12 +499,6 @@ export function WhyUs() {
                     background: i % 2 === 0
                       ? "linear-gradient(90deg, rgba(75,204,212,0.6), transparent)"
                       : "linear-gradient(90deg, rgba(27,108,168,0.6), transparent)" }}/>
-
-                  {/* Icon circle */}
-                  <div style={{ width:52, height:52, borderRadius:"50%",
-                    background:"rgba(75,204,212,0.07)", border:"1px solid rgba(75,204,212,0.15)",
-                    display:"flex", alignItems:"center", justifyContent:"center",
-                    fontSize:24, marginBottom:24 }} aria-hidden="true">{a.icon}</div>
 
                   <h3 style={{ color:C.white, fontSize:19, marginBottom:12,
                     fontFamily:"Calibri, Arial, sans-serif", fontWeight:400 }}>{a.label}</h3>
@@ -583,11 +547,6 @@ export function WhyUs() {
             6. FAQ + PRIVACY, deep dark
         ══════════════════════════════════════ */}
         <section id="faq" style={{ background:C.dark, padding:"120px 0", position:"relative", overflow:"hidden" }}>
-          <div style={{ position:"absolute", inset:0, color:C.teal }}><BlueprintGrid opacity={0.04}/></div>
-          <div style={{ position:"absolute", left:-20, top:"50%", transform:"translateY(-50%)",
-            fontFamily:"Calibri, Arial, sans-serif", fontSize:"18vw", color:"rgba(75,204,212,0.02)",
-            lineHeight:1, pointerEvents:"none", userSelect:"none" }} aria-hidden="true">FAQ</div>
-
           <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 80px", position:"relative" }}>
             <motion.div style={{ marginBottom:56 }}
               initial={{ opacity:0, y:40 }} whileInView={{ opacity:1, y:0 }}
@@ -766,7 +725,6 @@ export function WhyUs() {
               animate={{ rotate:i%2===0?360:-360 }}
               transition={{ duration:60+i*20, repeat:Infinity, ease:"linear" }}/>
           ))}
-          <div style={{ position:"absolute", inset:0, color:C.teal }}><BlueprintGrid opacity={0.05}/></div>
           <div style={{ maxWidth:720, margin:"0 auto", padding:"0 80px",
             textAlign:"center", position:"relative", zIndex:10 }}>
             <motion.div initial={{ opacity:0, y:40 }} whileInView={{ opacity:1, y:0 }}
@@ -791,7 +749,7 @@ export function WhyUs() {
                   color:"rgba(75,204,212,0.75)", border:"1px solid rgba(75,204,212,0.28)",
                   fontSize:13, letterSpacing:"0.18em", textTransform:"uppercase",
                   fontFamily:"Calibri, Arial, sans-serif", cursor:"pointer" }}>
-                  💬 WhatsApp Us
+                  WhatsApp Us
                 </button>
               </div>
               <p style={{ color:"rgba(255,255,255,0.25)", marginTop:28, fontSize:13,

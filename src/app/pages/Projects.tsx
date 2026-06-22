@@ -23,24 +23,6 @@ const C = {
 // ─────────────────────────────────────────────
 // SHARED DECORATIONS
 // ─────────────────────────────────────────────
-function BlueprintGrid({ opacity = 0.05 }: { opacity?: number }) {
-  return (
-    <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}
-      xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <pattern id="bp-sm-projects" width="24" height="24" patternUnits="userSpaceOnUse">
-          <path d="M24 0L0 0 0 24" fill="none" stroke="currentColor" strokeWidth="0.4" />
-        </pattern>
-        <pattern id="bp-lg-projects" width="120" height="120" patternUnits="userSpaceOnUse">
-          <rect width="120" height="120" fill="url(#bp-sm-projects)" />
-          <path d="M120 0L0 0 0 120" fill="none" stroke="currentColor" strokeWidth="1" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#bp-lg-projects)" opacity={opacity} />
-    </svg>
-  );
-}
-
 function MedicalCross({ size = 20, color = C.red, opacity = 0.85 }: { size?: number; color?: string; opacity?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -603,9 +585,6 @@ export function Projects() {
               transition={{ duration: 60 + i * 20, repeat: Infinity, ease: "linear" }}
             />
           ))}
-          <div style={{ position: "absolute", inset: 0, color: C.teal }}>
-            <BlueprintGrid opacity={0.04} />
-          </div>
 
           <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 80px", textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.div

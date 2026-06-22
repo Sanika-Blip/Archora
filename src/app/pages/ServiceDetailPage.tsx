@@ -1224,8 +1224,6 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
     <div className="archora-page-scope" style={{ fontFamily: FONT }}>
       <style>{`
         .archora-page-scope * { font-family: Calibri, 'Calibri', Arial, sans-serif !important; }
-        @keyframes rotateSlow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-        .rotate-slow { animation: rotateSlow 80s linear infinite; }
         .service-coverage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
         .process-timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
         .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
@@ -1247,13 +1245,6 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
       <section style={{ position: "relative", minHeight: "68vh", display: "flex", alignItems: "flex-end", overflow: "hidden", background: "linear-gradient(160deg,#040e1a 0%,#071e30 55%,#04141f 100%)" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.05) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "20%", right: "5%", width: 500, height: 500, borderRadius: "50%", background: `radial-gradient(circle, ${service.color}08 0%, transparent 65%)`, pointerEvents: "none" }} />
-        <div className="rotate-slow" style={{ position: "absolute", right: "6%", top: "50%", transform: "translateY(-50%)", opacity: 0.06, pointerEvents: "none" }}>
-          <svg width="420" height="420" viewBox="0 0 100 100" fill="none" stroke={service.color}>
-            <circle cx="50" cy="50" r="46" strokeWidth="0.3" strokeDasharray="4 6" />
-            <circle cx="50" cy="50" r="35" strokeWidth="0.2" />
-            <circle cx="50" cy="50" r="22" strokeWidth="0.3" strokeDasharray="2 4" />
-          </svg>
-        </div>
         <div style={{ position: "absolute", left: 28, top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 10, zIndex: 2 }}>
           <div style={{ width: 1, height: 56, background: "rgba(255,255,255,0.08)" }} />
           <div style={{ width: 5, height: 5, borderRadius: "50%", background: service.color }} />
@@ -1585,7 +1576,7 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
             </p>
             <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
               <button className="cta-btn-primary" onClick={() => navigate("/contact")}>Book a Free Consultation</button>
-              <button className="cta-btn-outline" onClick={() => window.open(WHATSAPP_URL, "_blank")}>💬 WhatsApp Us</button>
+              <button className="cta-btn-outline" onClick={() => window.open(WHATSAPP_URL, "_blank")}>WhatsApp Us</button>
               <button className="cta-btn-outline" onClick={() => navigate("/contact")}>Send an Enquiry →</button>
             </div>
             <p style={{ fontFamily: FONT, fontSize: 16, color: "rgba(255,255,255,0.18)", marginTop: 24, letterSpacing: "0.1em", fontWeight: 400 }}>

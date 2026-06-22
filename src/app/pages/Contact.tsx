@@ -127,23 +127,6 @@ function SEOHead() {
 // ─────────────────────────────────────────────
 // SHARED DECORATIONS
 // ─────────────────────────────────────────────
-function BlueprintGrid({ opacity = 0.05 }: { opacity?: number }) {
-  return (
-    <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <pattern id="bp-sm-c" width="24" height="24" patternUnits="userSpaceOnUse">
-          <path d="M24 0L0 0 0 24" fill="none" stroke="currentColor" strokeWidth="0.4" />
-        </pattern>
-        <pattern id="bp-lg-c" width="120" height="120" patternUnits="userSpaceOnUse">
-          <rect width="120" height="120" fill="url(#bp-sm-c)" />
-          <path d="M120 0L0 0 0 120" fill="none" stroke="currentColor" strokeWidth="1" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#bp-lg-c)" opacity={opacity} />
-    </svg>
-  );
-}
-
 function MedicalCross({ size = 20, color = C.red, opacity = 0.85 }: { size?: number; color?: string; opacity?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -298,27 +281,6 @@ export function Contact() {
             fetchPriority="high"
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.62) 0%, rgba(4,28,46,0.36) 55%, rgba(4,28,46,0.14) 100%)" }} />
-          <div style={{ position: "absolute", inset: 0, color: C.teal }}>
-            <BlueprintGrid opacity={0.07} />
-          </div>
-
-          {/* Decorative cross */}
-          <div style={{ position: "absolute", top: "20%", right: "8%", opacity: 0.1 }}>
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-              style={{ width: 120, height: 120 }}
-            >
-              <svg viewBox="0 0 48 48" fill="none" width={120} height={120}>
-                <circle cx="24" cy="24" r="9" stroke={C.teal} strokeWidth="1" />
-                <circle cx="24" cy="24" r="17" stroke={C.teal} strokeWidth="0.5" strokeDasharray="3 4" />
-                <line x1="24" y1="0" x2="24" y2="13" stroke={C.teal} strokeWidth="1" />
-                <line x1="24" y1="35" x2="24" y2="48" stroke={C.teal} strokeWidth="1" />
-                <line x1="0" y1="24" x2="13" y2="24" stroke={C.teal} strokeWidth="1" />
-                <line x1="35" y1="24" x2="48" y2="24" stroke={C.teal} strokeWidth="1" />
-              </svg>
-            </motion.div>
-          </div>
 
           <div style={{ position: "relative", height: "100%", maxWidth: 1280, margin: "0 auto", padding: "0 80px", display: "flex", alignItems: "center", zIndex: 10 }}>
             <motion.div
@@ -350,10 +312,6 @@ export function Contact() {
             MAIN: FORM + CONTACT INFO
         ══════════════════════════════════════════ */}
         <section aria-labelledby="enquiry-heading" style={{ background: C.dark, padding: "100px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, color: C.teal }}>
-            <BlueprintGrid opacity={0.04} />
-          </div>
-
           <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", position: "relative" }}>
             <div style={{ maxWidth: 640, margin: "0 auto" }}>
 
@@ -452,7 +410,7 @@ export function Contact() {
                       <FieldGroup delay={0.4}>
                         <SubmitButton />
                         <p style={{ marginTop: 16, fontSize: 11, color: "rgba(255,255,255,0.22)", fontFamily: "Calibri, Arial, sans-serif", lineHeight: 1.7 }}>
-                          🔒 Your information is safe with us. We never share your details with third parties.{" "}
+                          Your information is safe with us. We never share your details with third parties.{" "}
                           <Link to="/why-us?tab=privacy" style={{ color: "rgba(75,204,212,0.5)", textDecoration: "underline" }}>Privacy Policy</Link>
                         </p>
                       </FieldGroup>
@@ -491,9 +449,6 @@ export function Contact() {
             FAQ
         ══════════════════════════════════════════ */}
         <section aria-labelledby="faq-heading" style={{ background: C.dark, padding: "100px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", inset: 0, color: C.teal }}>
-            <BlueprintGrid opacity={0.04} />
-          </div>
           <div style={{ maxWidth: 860, margin: "0 auto", padding: "0 80px", position: "relative" }}>
             <motion.div style={{ textAlign: "center", marginBottom: 64 }} {...fadeUp}>
               <SectionLabel text="Frequently Asked Questions" light />
@@ -565,9 +520,6 @@ export function Contact() {
               transition={{ duration: 70 + i * 20, repeat: Infinity, ease: "linear" }}
             />
           ))}
-          <div style={{ position: "absolute", inset: 0, color: C.teal }}>
-            <BlueprintGrid opacity={0.04} />
-          </div>
 
           <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 80px", textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.div {...fadeUp}>

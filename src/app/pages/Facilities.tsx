@@ -9,7 +9,6 @@ const categories = [
   {
     id: "cat-1",
     label: "Hospitals",
-    emoji: "🏥",
     color: "#4bd1d9",
     facilities: [
       { id: "F-01", title: "Multi-Speciality Hospital", primary: "NABH HCO Accreditation", secondary: "CEA Registration, Fire NOC, BCP" },
@@ -26,7 +25,6 @@ const categories = [
   {
     id: "cat-2",
     label: "Diagnostic & Imaging",
-    emoji: "🔬",
     color: "#7eb8f7",
     facilities: [
       { id: "F-10", title: "Diagnostic Centre", primary: "NABH MIS Accreditation + NABL", secondary: "AERB eLORA for X-ray, CT, MRI, CEA" },
@@ -38,7 +36,6 @@ const categories = [
   {
     id: "cat-3",
     label: "Laboratories",
-    emoji: "🧪",
     color: "#a78bfa",
     facilities: [
       { id: "F-14", title: "Clinical Pathology Laboratory", primary: "NABL Accreditation (ISO 15189)", secondary: "NABH Medical Laboratory Certification, CEA" },
@@ -51,7 +48,6 @@ const categories = [
   {
     id: "cat-4",
     label: "Fertility & Reproductive Health",
-    emoji: "🌱",
     color: "#34d399",
     facilities: [
       { id: "F-19", title: "IVF Lab & Fertility Centre", primary: "ART (Regulation) Act 2021 + ICMR Registration", secondary: "CEA Registration, Fire NOC, NABH SHCO" },
@@ -61,7 +57,6 @@ const categories = [
   {
     id: "cat-5",
     label: "Medical & Nursing Education",
-    emoji: "🎓",
     color: "#f59e0b",
     facilities: [
       { id: "F-21", title: "Medical College & Teaching Hospital", primary: "NMC (National Medical Commission) Approval", secondary: "University Affiliation, CEA, Fire NOC, NABH" },
@@ -74,7 +69,6 @@ const categories = [
   {
     id: "cat-6",
     label: "Primary & Ambulatory Care",
-    emoji: "🏃",
     color: "#fb923c",
     facilities: [
       { id: "F-26", title: "Clinic & Polyclinic", primary: "NABH Allopathic Clinics Accreditation", secondary: "CEA Registration, State Medical Council" },
@@ -87,7 +81,6 @@ const categories = [
   {
     id: "cat-7",
     label: "Specialised & Emerging",
-    emoji: "✨",
     color: "#f43f5e",
     facilities: [
       { id: "F-31", title: "Psychiatry & Mental Health Hospital", primary: "Mental Healthcare Act 2017 + State MHA Registration", secondary: "NABH HCO or SHCO, CEA" },
@@ -135,9 +128,6 @@ function FacilityCard({ facility, index, color }: {
       {/* top accent bar */}
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: `linear-gradient(90deg, ${color}, transparent)`, transform: hovered ? "scaleX(1)" : "scaleX(0)", transformOrigin: "left", transition: "transform 0.35s ease" }} />
 
-      {/* watermark id */}
-      <div style={{ position: "absolute", bottom: 8, right: 14, fontFamily: "Calibri, Arial, sans-serif", fontSize: "3.8rem", fontWeight: 300, color: `${color}07`, lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>{facility.id}</div>
-
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 14, gap: 8 }}>
         <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, letterSpacing: "2.5px", textTransform: "uppercase", color: `${color}90`, flexShrink: 0 }}>{facility.id}</span>
         <motion.div animate={{ x: hovered ? 3 : 0, opacity: hovered ? 1 : 0.4 }} transition={{ duration: 0.22 }} style={{ color }}>
@@ -178,7 +168,6 @@ function CategorySection({ category }: { category: typeof categories[0] }) {
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: "2.2rem", paddingBottom: "1.4rem", borderBottom: `0.5px solid ${category.color}20` }}
       >
-        <span style={{ fontSize: 24 }}>{category.emoji}</span>
         <h2 style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(1.95rem, 2.5vw, 2.6rem)", fontWeight: 300, color: "#fff", letterSpacing: "-0.01em" }}>{category.label}</h2>
         <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 18, letterSpacing: "2px", color: `${category.color}70`, background: `${category.color}12`, border: `0.5px solid ${category.color}30`, padding: "3px 10px", borderRadius: 20 }}>
           {category.facilities.length} types
@@ -202,6 +191,7 @@ function CategorySection({ category }: { category: typeof categories[0] }) {
 
 // ─── Main Page ─────────────────────────────────────────────────────────────────
 export function Facilities() {
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -222,11 +212,9 @@ export function Facilities() {
       <style>{`
 
         @keyframes scrollBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
-        @keyframes rotateSlow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
         @keyframes pulseRing { 0%,100%{transform:scale(1);opacity:0.15} 50%{transform:scale(1.08);opacity:0.25} }
 
         .scroll-bounce { animation: scrollBounce 1.8s ease-in-out infinite; }
-        .rotate-slow { animation: rotateSlow 80s linear infinite; }
 
         .filter-pill {
           font-family: Calibri, Arial, sans-serif;
@@ -275,22 +263,6 @@ export function Facilities() {
         {[600, 440, 290].map((size, i) => (
           <div key={size} style={{ position: "absolute", top: "50%", left: "22%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.03 + i * 0.015})`, pointerEvents: "none", animation: `pulseRing ${5 + i * 2}s ease-in-out infinite`, animationDelay: `${i * 0.7}s` }} />
         ))}
-
-        <div className="rotate-slow" style={{ position: "absolute", right: "6%", top: "50%", transform: "translateY(-50%)", opacity: 0.06, pointerEvents: "none" }}>
-          <svg width="440" height="440" viewBox="0 0 100 100" fill="none" stroke="#4bd1d9">
-            <circle cx="50" cy="50" r="46" strokeWidth="0.3" strokeDasharray="3 5" />
-            <circle cx="50" cy="50" r="34" strokeWidth="0.25" />
-            <circle cx="50" cy="50" r="20" strokeWidth="0.3" strokeDasharray="2 4" />
-            <line x1="50" y1="4" x2="50" y2="14" strokeWidth="0.5" />
-            <line x1="50" y1="86" x2="50" y2="96" strokeWidth="0.5" />
-            <line x1="4" y1="50" x2="14" y2="50" strokeWidth="0.5" />
-            <line x1="86" y1="50" x2="96" y2="50" strokeWidth="0.5" />
-            <line x1="18" y1="18" x2="25" y2="25" strokeWidth="0.4" />
-            <line x1="82" y1="18" x2="75" y2="25" strokeWidth="0.4" />
-            <line x1="18" y1="82" x2="25" y2="75" strokeWidth="0.4" />
-            <line x1="82" y1="82" x2="75" y2="75" strokeWidth="0.4" />
-          </svg>
-        </div>
 
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.05) 1px, transparent 1px)", backgroundSize: "32px 32px", pointerEvents: "none" }} />
 
@@ -415,7 +387,7 @@ export function Facilities() {
                 onClick={() => setActiveFilter(c.id)}
                 style={activeFilter === c.id ? { background: `${c.color}15`, borderColor: `${c.color}40`, color: c.color } : {}}
               >
-                {c.emoji} {c.label}
+                {c.label}
               </button>
             ))}
           </div>
@@ -448,7 +420,7 @@ export function Facilities() {
             transition={{ duration: 0.7 }}
             style={{ textAlign: "center", marginBottom: "4rem" }}
           >
-            <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 39, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
+            <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
               <span style={{ display: "block", width: 36, height: "0.5px", background: "#185FA5" }} />Compliance Bodies<span style={{ display: "block", width: 36, height: "0.5px", background: "#185FA5" }} />
             </p>
             <h2 style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(2.6rem,4vw,3.9rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.15 }}>
@@ -458,18 +430,18 @@ export function Facilities() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "1rem" }}>
             {[
-              { abbr: "NABH", name: "National Accreditation Board for Hospitals & Healthcare Providers", covers: "Hospitals, Clinics, Blood Banks, Imaging, AYUSH, Eye Care, Dental, Labs, Care Homes" },
-              { abbr: "NABL", name: "National Accreditation Board for Testing and Calibration Laboratories", covers: "All clinical, pathology, and diagnostic laboratories (ISO 15189)" },
-              { abbr: "AERB", name: "Atomic Energy Regulatory Board", covers: "X-ray, CT, MRI, PET-CT, Radiotherapy, Cath Lab, Nuclear Medicine" },
-              { abbr: "NMC", name: "National Medical Commission", covers: "Medical colleges and teaching hospitals" },
-              { abbr: "INC", name: "Indian Nursing Council", covers: "Nursing colleges and schools of nursing" },
-              { abbr: "DCI", name: "Dental Council of India", covers: "Dental colleges and dental hospitals" },
-              { abbr: "PCI", name: "Pharmacy Council of India", covers: "Pharmacy colleges" },
-              { abbr: "CEA", name: "Clinical Establishments Act Registration", covers: "All clinical establishments" },
-              { abbr: "Fire NOC", name: "State Fire Department", covers: "All healthcare buildings" },
-              { abbr: "ART Authority", name: "Assisted Reproductive Technology (Regulation) Act 2021", covers: "IVF labs, fertility centres, surrogacy centres" },
-              { abbr: "ICMR", name: "Indian Council of Medical Research", covers: "IVF labs and ART clinics" },
-              { abbr: "IRCA", name: "Integrated Rehabilitation Centre for Addicts", covers: "Addiction and rehabilitation centres" },
+              { abbr: "NABH", slug: "nabh", name: "National Accreditation Board for Hospitals & Healthcare Providers", covers: "Hospitals, Clinics, Blood Banks, Imaging, AYUSH, Eye Care, Dental, Labs, Care Homes" },
+              { abbr: "NABL", slug: "nabl", name: "National Accreditation Board for Testing and Calibration Laboratories", covers: "All clinical, pathology, and diagnostic laboratories (ISO 15189)" },
+              { abbr: "AERB", slug: "aerb", name: "Atomic Energy Regulatory Board", covers: "X-ray, CT, MRI, PET-CT, Radiotherapy, Cath Lab, Nuclear Medicine" },
+              { abbr: "NMC", slug: "nmc", name: "National Medical Commission", covers: "Medical colleges and teaching hospitals" },
+              { abbr: "INC", slug: "inc", name: "Indian Nursing Council", covers: "Nursing colleges and schools of nursing" },
+              { abbr: "DCI", slug: "dci", name: "Dental Council of India", covers: "Dental colleges and dental hospitals" },
+              { abbr: "PCI", slug: "pci", name: "Pharmacy Council of India", covers: "Pharmacy colleges" },
+              { abbr: "CEA", slug: "clinical-establishments-act", name: "Clinical Establishments Act Registration", covers: "All clinical establishments" },
+              { abbr: "Fire NOC", slug: "fire-noc", name: "State Fire Department", covers: "All healthcare buildings" },
+              { abbr: "ART Authority", slug: "art-authority", name: "Assisted Reproductive Technology (Regulation) Act 2021", covers: "IVF labs, fertility centres, surrogacy centres" },
+              { abbr: "ICMR", slug: "icmr", name: "Indian Council of Medical Research", covers: "IVF labs and ART clinics" },
+              { abbr: "IRCA", slug: "irca", name: "Integrated Rehabilitation Centre for Addicts", covers: "Addiction and rehabilitation centres" },
             ].map((item, i) => {
               const ref = useRef(null);
               const inView = useInView(ref, { once: true, margin: "-30px" });
@@ -480,17 +452,24 @@ export function Facilities() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: (i % 4) * 0.07, ease: [0.22, 1, 0.36, 1] }}
-                  style={{ padding: "1.6rem 1.4rem", background: "rgba(4,44,83,0.04)", border: "0.5px solid rgba(24,95,165,0.14)", borderRadius: 3, transition: "all 0.28s ease" }}
+                  onClick={() => navigate(`/compliance/${item.slug}`)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={e => { if (e.key === "Enter" || e.key === " ") navigate(`/compliance/${item.slug}`); }}
+                  aria-label={`View ${item.abbr} compliance details`}
+                  style={{ padding: "1.6rem 1.4rem", background: "rgba(4,44,83,0.04)", border: "0.5px solid rgba(24,95,165,0.14)", borderRadius: 3, transition: "all 0.28s ease", cursor: "pointer", outline: "none" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = "rgba(4,44,83,0.09)"; (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(24,95,165,0.3)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(-3px)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = "rgba(4,44,83,0.04)"; (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(24,95,165,0.14)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)"; }}
                 >
                   <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "1.7rem", fontWeight: 500, color: "#042C53", marginBottom: 6 }}>{item.abbr}</p>
                   <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, lineHeight: 1.7, color: "#185FA5", marginBottom: 10 , fontWeight: 400 }}>{item.name}</p>
-                  <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, lineHeight: 1.75, color: "rgba(4,44,83,0.90)" , fontWeight: 400 }}>{item.covers}</p>
+                  <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, lineHeight: 1.75, color: "rgba(4,44,83,0.90)" , fontWeight: 400, marginBottom: 12 }}>{item.covers}</p>
+                  <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 14, letterSpacing: "0.14em", textTransform: "uppercase", color: "#185FA5", opacity: 0.7 }}>View Details →</span>
                 </motion.div>
               );
             })}
           </div>
+
         </div>
       </section>
 
@@ -532,7 +511,7 @@ export function Facilities() {
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.45)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.2)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
               >
-                💬 WhatsApp Us
+                WhatsApp Us
               </button>
             </div>
             <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 17, color: "rgba(255,255,255,0.15)", marginTop: 24, letterSpacing: "0.1em" }}>

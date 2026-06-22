@@ -1229,8 +1229,6 @@ export function FacilityDetailPage() {
     <div className="archora-page-scope" style={{ minHeight: "100vh", background: "#040e1a", overflowX: "hidden" }}>
       <style>{`
         @keyframes pulseRing { 0%,100%{transform:scale(1);opacity:0.12} 50%{transform:scale(1.06);opacity:0.22} }
-        @keyframes rotateSlow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-        .rotate-slow { animation: rotateSlow 90s linear infinite; }
         .archora-page-scope * { font-family: Calibri, sans-serif !important; }
       `}</style>
 
@@ -1258,19 +1256,6 @@ export function FacilityDetailPage() {
         {[560, 400, 260].map((size, i) => (
           <div key={size} style={{ position: "absolute", top: "50%", left: "18%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid ${color}${i === 0 ? "10" : i === 1 ? "18" : "25"}`, pointerEvents: "none", animation: `pulseRing ${5 + i * 2}s ease-in-out infinite`, animationDelay: `${i * 0.8}s` }} />
         ))}
-
-        {/* rotating ornament */}
-        <div className="rotate-slow" style={{ position: "absolute", right: "5%", top: "50%", transform: "translateY(-50%)", opacity: 0.05, pointerEvents: "none" }}>
-          <svg width="400" height="400" viewBox="0 0 100 100" fill="none" stroke={color}>
-            <circle cx="50" cy="50" r="46" strokeWidth="0.3" strokeDasharray="3 5" />
-            <circle cx="50" cy="50" r="34" strokeWidth="0.25" />
-            <circle cx="50" cy="50" r="20" strokeWidth="0.3" strokeDasharray="2 4" />
-            <line x1="50" y1="4" x2="50" y2="14" strokeWidth="0.5" />
-            <line x1="50" y1="86" x2="50" y2="96" strokeWidth="0.5" />
-            <line x1="4" y1="50" x2="14" y2="50" strokeWidth="0.5" />
-            <line x1="86" y1="50" x2="96" y2="50" strokeWidth="0.5" />
-          </svg>
-        </div>
 
         {/* dot grid */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(circle, ${color}08 1px, transparent 1px)`, backgroundSize: "32px 32px", pointerEvents: "none" }} />
