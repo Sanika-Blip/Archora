@@ -257,11 +257,42 @@ const fadeUp = {
 // ─────────────────────────────────────────────
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Get a free Access Key at https://web3forms.com (enter contact@archora.in,
+  // the key arrives by email instantly — no account needed). Paste it below.
+  const WEB3FORMS_ACCESS_KEY = "c5060acb-26f4-4d5d-a91b-bb1e600f64dc";
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitError(null);
+    setSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+    formData.append("subject", "New Enquiry from ARCHORA Website");
+    formData.append("from_name", "ARCHORA Website");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError("Something went wrong sending your enquiry. Please try WhatsApp instead, or email us directly.");
+      }
+    } catch {
+      setSubmitError("Couldn't reach the server. Please check your connection or try WhatsApp instead.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -408,7 +439,12 @@ export function Contact() {
 
                       {/* Submit */}
                       <FieldGroup delay={0.4}>
-                        <SubmitButton />
+                        <SubmitButton submitting={submitting} />
+                        {submitError && (
+                          <p style={{ marginTop: 14, fontSize: 13, color: C.red, fontFamily: "Calibri, Arial, sans-serif", lineHeight: 1.6 }}>
+                            {submitError}
+                          </p>
+                        )}
                         <p style={{ marginTop: 16, fontSize: 11, color: "rgba(255,255,255,0.22)", fontFamily: "Calibri, Arial, sans-serif", lineHeight: 1.7 }}>
                           Your information is safe with us. We never share your details with third parties.{" "}
                           <Link to="/why-us?tab=privacy" style={{ color: "rgba(75,204,212,0.5)", textDecoration: "underline" }}>Privacy Policy</Link>
@@ -565,26 +601,28 @@ export function Contact() {
 // ─────────────────────────────────────────────
 // SUBMIT BUTTON
 // ─────────────────────────────────────────────
-function SubmitButton() {
+function SubmitButton({ submitting }: { submitting?: boolean }) {
   const [hover, setHover] = useState(false);
   return (
     <button
       type="submit"
+      disabled={submitting}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        padding: "15px 40px", background: hover ? C.teal : C.blue,
-        color: hover ? C.navy : C.white,
+        padding: "15px 40px", background: hover && !submitting ? C.teal : C.blue,
+        color: hover && !submitting ? C.navy : C.white,
         border: "none", fontSize: 10, letterSpacing: "0.2em",
         textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif",
-        cursor: "pointer", transition: "all 0.25s ease",
+        cursor: submitting ? "default" : "pointer", transition: "all 0.25s ease",
         display: "flex", alignItems: "center", gap: 10,
+        opacity: submitting ? 0.7 : 1,
       }}
     >
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
       </svg>
-      Submit Enquiry, We respond within 24 working hours
+      {submitting ? "Sending..." : "Submit Enquiry, We respond within 24 working hours"}
     </button>
   );
 }
