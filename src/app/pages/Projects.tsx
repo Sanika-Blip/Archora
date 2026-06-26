@@ -78,6 +78,7 @@ type Project = {
   details: Record<string, string>;
   description: string;
   scopeItems: string[];
+  gallery?: string[];
 };
 
 const projects: Project[] = [
@@ -111,6 +112,11 @@ const projects: Project[] = [
       "Medical Equipment Planning and Procurement",
       "End-to-End Project Management and Commissioning",
     ],
+    gallery: [
+      "/images/projects/gallery/suresh-matre-01.jpg",
+      "/images/projects/gallery/suresh-matre-02.png",
+
+    ],
   },
   {
     id: "binar-mp",
@@ -134,6 +140,15 @@ const projects: Project[] = [
       "NABH-Compliant Design Framework",
       "Structural Engineering",
       "Future Scalability Planning",
+    ],
+    gallery: [
+      "/images/projects/gallery/binar-mp-01.jpg",
+      "/images/projects/gallery/binar-mp-02.png",
+      "/images/projects/gallery/binar-mp-03.png",
+      "/images/projects/gallery/binar-mp-04.png",
+      "/images/projects/gallery/binar-mp-05.png",
+      "/images/projects/gallery/binar-mp-06.png",
+      "/images/projects/gallery/binar-mp-07.jpg",
     ],
   },
   {
@@ -198,20 +213,96 @@ const fadeUp = {
 };
 
 // ─────────────────────────────────────────────
+// GALLERY LIGHTBOX (for full-size viewing within the modal)
+// ─────────────────────────────────────────────
+function GalleryLightbox({ images, index, onClose, onNav }: { images: string[]; index: number; onClose: () => void; onNav: (i: number) => void }) {
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") onNav((index + 1) % images.length);
+      if (e.key === "ArrowLeft") onNav((index - 1 + images.length) % images.length);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [index, images.length, onClose, onNav]);
+
+  return createPortal(
+    <motion.div
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      onClick={onClose}
+      style={{ position: "fixed", inset: 0, background: "rgba(2,10,18,0.96)", zIndex: 10010, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}
+    >
+      <img
+        src={images[index]}
+        alt={`Gallery image ${index + 1}`}
+        onClick={e => e.stopPropagation()}
+        style={{ maxWidth: "88vw", maxHeight: "84vh", objectFit: "contain", cursor: "default" }}
+      />
+      <button
+        onClick={onClose}
+        aria-label="Close gallery"
+        style={{
+          position: "absolute", top: 24, right: 24, width: 40, height: 40,
+          border: "1px solid rgba(75,204,212,0.3)", background: "rgba(10,22,40,0.8)",
+          color: "rgba(255,255,255,0.7)", fontSize: 24, lineHeight: 1,
+          display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer",
+        }}
+      >×</button>
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={e => { e.stopPropagation(); onNav((index - 1 + images.length) % images.length); }}
+            aria-label="Previous image"
+            style={{
+              position: "absolute", left: 20, top: "50%", transform: "translateY(-50%)",
+              width: 44, height: 44, border: "1px solid rgba(75,204,212,0.3)", background: "rgba(10,22,40,0.7)",
+              color: "rgba(255,255,255,0.8)", fontSize: 20, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+            }}
+          >‹</button>
+          <button
+            onClick={e => { e.stopPropagation(); onNav((index + 1) % images.length); }}
+            aria-label="Next image"
+            style={{
+              position: "absolute", right: 20, top: "50%", transform: "translateY(-50%)",
+              width: 44, height: 44, border: "1px solid rgba(75,204,212,0.3)", background: "rgba(10,22,40,0.7)",
+              color: "rgba(255,255,255,0.8)", fontSize: 20, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+            }}
+          >›</button>
+          <div style={{ position: "absolute", bottom: 24, left: 0, right: 0, textAlign: "center" }}>
+            <span style={{ color: "rgba(255,255,255,0.5)", fontSize: 13, fontFamily: FONT, letterSpacing: "0.14em" }}>
+              {index + 1} / {images.length}
+            </span>
+          </div>
+        </>
+      )}
+    </motion.div>,
+    document.body
+  );
+}
+
+// ─────────────────────────────────────────────
 // PROJECT MODAL
 // ─────────────────────────────────────────────
 function ProjectModal({ project, onClose }: { project: Project | null; onClose: () => void }) {
   const navigate = useNavigate();
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
   useEffect(() => {
     document.body.style.overflow = project ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [project]);
 
   useEffect(() => {
+    setLightboxIndex(null);
+  }, [project]);
+
+  useEffect(() => {
+    if (lightboxIndex !== null) return; // lightbox handles its own escape key
     const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [onClose]);
+  }, [onClose, lightboxIndex]);
 
   return createPortal(
     <AnimatePresence>
@@ -365,6 +456,41 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
                 </div>
               </div>
 
+              {/* Gallery */}
+              {project.gallery && project.gallery.length > 0 && (
+                <div style={{ marginTop: 32 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+                    <span style={{ width: 20, height: 1, background: "rgba(75,204,212,0.5)" }} />
+                    <span style={{ color: "rgba(75,204,212,0.6)", fontSize: 12, letterSpacing: "0.24em", textTransform: "uppercase", fontFamily: FONT }}>
+                      Project Gallery
+                    </span>
+                  </div>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
+                    {project.gallery.map((src, i) => (
+                      <button
+                        key={src}
+                        onClick={() => setLightboxIndex(i)}
+                        aria-label={`Open gallery image ${i + 1}`}
+                        style={{
+                          position: "relative", padding: 0, border: "1px solid rgba(75,204,212,0.12)",
+                          background: "transparent", cursor: "pointer", overflow: "hidden",
+                          height: 110, display: "block",
+                        }}
+                        onMouseEnter={e => { const img = (e.currentTarget as HTMLElement).querySelector("img"); if (img) img.style.transform = "scale(1.07)"; }}
+                        onMouseLeave={e => { const img = (e.currentTarget as HTMLElement).querySelector("img"); if (img) img.style.transform = "scale(1)"; }}
+                      >
+                        <img
+                          src={src}
+                          alt={`${project.name}, gallery image ${i + 1}`}
+                          loading="lazy"
+                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.5s ease" }}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Footer CTAs */}
               <div style={{ marginTop: 30, paddingTop: 22, borderTop: "1px solid rgba(75,204,212,0.1)", display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <button onClick={() => { onClose(); navigate("/contact"); }} style={{
@@ -388,6 +514,16 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
               </div>
             </div>
           </motion.div>
+
+          {/* Gallery lightbox */}
+          {project.gallery && lightboxIndex !== null && (
+            <GalleryLightbox
+              images={project.gallery}
+              index={lightboxIndex}
+              onClose={() => setLightboxIndex(null)}
+              onNav={i => setLightboxIndex(i)}
+            />
+          )}
         </>
       )}
     </AnimatePresence>,

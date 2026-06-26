@@ -27,8 +27,8 @@ const leaders = [
     role: "Founder & CEO",
     education: "Based in Mumbai, Maharashtra",
     tagline: "One partner, one outcome, one standard of accountability",
-    image: "/images/team/prasad-patil.jpg",
-    accentColor: "#4bd1d9",
+    image: "/images/team/prasad-patil.png",
+    accentColor: "#7eb8f7",
     stats: [{ label: "Focus", value: "100%" }, { label: "Healthcare", value: "Only" }, { label: "Accountability", value: "Full" }],
     shortBio: "Prasad founded ARCHORA to replace India's fragmented, multi-vendor hospital infrastructure model with one accountable, single-window delivery system.",
     fullBio: [
@@ -65,8 +65,8 @@ const leaders = [
     role: "SME & Head Healthcare Consultant",
     education: "Based in London, United Kingdom",
     tagline: "NHS-level capital planning rigour, rare in the Indian healthcare sector",
-    image: "/images/team/aditya-kashikar.jpg",
-    accentColor: "#a78bfa",
+    image: "/images/team/aditya-kashikar.png",
+    accentColor: "#7eb8f7",
     stats: [{ label: "Experience", value: "17+" }, { label: "NHS", value: "Projects" }, { label: "Countries", value: "2" }],
     shortBio: "Aditya brings 17 years of NHS healthcare capital programme leadership to ARCHORA, currently serving as Associate Director at WSP UK.",
     fullBio: [
@@ -85,7 +85,7 @@ const leaders = [
     education: "Based in Vasind, Thane District",
     tagline: "The practitioner's voice behind every clinical design decision",
     image: "/images/team/kalpesh.png",
-    accentColor: "#34d399",
+    accentColor: "#7eb8f7",
     stats: [{ label: "Experience", value: "20+" }, { label: "Hospital", value: "Founder" }, { label: "Villages", value: "45+" }],
     shortBio: "Dr. Tarmale founded and runs a 36-bed multispeciality hospital in rural Thane, bringing two decades of frontline clinical and hospital operations experience to ARCHORA.",
     fullBio: [
@@ -220,49 +220,34 @@ function LeaderModal({ leader, onClose }: { leader: (typeof leaders)[0]; onClose
       >
         <motion.div
           className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl"
-          style={{ background: "#071e2e", border: "1px solid rgba(75,209,217,0.18)" }}
+          style={{ background: "#071e2e", border: "1px solid rgba(126,184,247,0.18)" }}
           initial={{ opacity: 0, y: 40, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.97 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           onClick={(e) => e.stopPropagation()}
         >
-          <button onClick={onClose} className="absolute top-5 right-5 z-10 flex items-center justify-center w-9 h-9 rounded-full transition-all" style={{ background: "rgba(255,255,255,0.08)", color: "#fff" }}>
+          <button onClick={onClose} className="absolute top-5 right-5 z-20 flex items-center justify-center w-9 h-9 rounded-full transition-all" style={{ background: "rgba(255,255,255,0.08)", color: "#fff" }}>
             <X size={18} />
           </button>
-          <div className="relative h-56 overflow-hidden rounded-t-2xl">
-            <ImageWithFallback src={leader.image} alt={leader.name} className="w-full h-full object-cover" style={{ filter: "brightness(0.35) saturate(0.7)" }} />
-            <div className="absolute inset-0" style={{ background: `linear-gradient(to right, rgba(7,30,46,0.95) 0%, rgba(7,30,46,0.5) 60%, transparent 100%)` }} />
-            <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: `linear-gradient(to right, ${leader.accentColor}, transparent)` }} />
-            <div className="absolute bottom-6 left-8">
-              <div className="text-base font-semibold tracking-widest uppercase mb-2" style={{ color: leader.accentColor, fontFamily: FONT }}>{leader.role}</div>
-              <h2 className="text-3xl font-light text-white" style={{ fontFamily: FONT }}>{leader.name}</h2>
-              <p className="text-lg mt-1" style={{ color: "rgba(255,255,255,0.95)", fontFamily: FONT }}>{leader.education}</p>
+          <div className="relative px-8 pt-8 pb-6" style={{ borderBottom: `0.5px solid rgba(126,184,247,0.18)` }}>
+            <div className="flex items-start justify-between gap-6 pr-12">
+              <div>
+                <div className="text-base font-semibold tracking-widest uppercase mb-2" style={{ color: leader.accentColor, fontFamily: FONT }}>{leader.role}</div>
+                <h2 className="text-3xl font-light text-white" style={{ fontFamily: FONT }}>{leader.name}</h2>
+                <p className="text-lg mt-1" style={{ color: "rgba(255,255,255,0.75)", fontFamily: FONT }}>{leader.education}</p>
+              </div>
+              <div
+                className="flex-shrink-0 rounded-xl overflow-hidden"
+                style={{ width: 160, height: 160, border: `2px solid ${leader.accentColor}55`, boxShadow: "0 8px 24px rgba(0,0,0,0.35)" }}
+              >
+                <ImageWithFallback src={leader.image} alt={leader.name} className="w-full h-full object-cover" style={{ objectPosition: "center top" }} />
+              </div>
             </div>
+            <div className="absolute bottom-0 left-0 h-0.5" style={{ width: 96, background: `linear-gradient(to right, ${leader.accentColor}, transparent)` }} />
           </div>
           <div className="p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="space-y-6">
-              <div className="grid grid-cols-3 gap-3">
-                {leader.stats.map((s) => {
-                  const len = s.value.length;
-                  const fontSize = len <= 4 ? "1.5rem" : len <= 6 ? "1.2rem" : len <= 8 ? "1rem" : "0.85rem";
-                  return (
-                    <div
-                      key={s.label}
-                      className="text-center rounded-lg py-3 px-1 overflow-hidden"
-                      style={{ background: "rgba(75,209,217,0.07)", border: "1px solid rgba(75,209,217,0.12)", minWidth: 0 }}
-                    >
-                      <div
-                        className="font-semibold leading-tight whitespace-nowrap overflow-hidden"
-                        style={{ color: leader.accentColor, fontSize, textOverflow: "ellipsis", fontFamily: FONT }}
-                      >
-                        {s.value}
-                      </div>
-                      <div className="text-base mt-0.5" style={{ color: "rgba(255,255,255,0.92)", fontFamily: FONT }}>{s.label}</div>
-                    </div>
-                  );
-                })}
-              </div>
               <div>
                 <div className="flex items-center gap-2 text-base font-semibold uppercase tracking-widest mb-3" style={{ color: leader.accentColor, fontFamily: FONT }}><Award size={13} />Credentials</div>
                 <ul className="space-y-2">

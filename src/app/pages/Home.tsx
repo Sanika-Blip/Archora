@@ -201,16 +201,16 @@ const heroSlides = [
 ];
 
 const services = [
-  { num: "01", title: "Feasibility Studies & DPRs", desc: "Data-backed project planning before you commit capital. Site assessment, demand analysis, bed capacity planning, and cost estimation." },
-  { num: "02", title: "Healthcare Architecture & Space Planning", desc: "Compliance-integrated architectural design for hospitals, clinics, diagnostic centres, and medical colleges." },
-  { num: "03", title: "Regulatory Compliance & Accreditation-Ready Design", desc: "NABH, NABL, INC, NMC, AERB, PCPNDT, NBC, and fire safety standards integrated into every design from day one." },
-  { num: "04", title: "Hospital Licensing & Approvals Support", desc: "Expert navigation of all statutory licences and approvals required to open and operate a healthcare facility in India." },
-  { num: "05", title: "Structural Design for Healthcare", desc: "Healthcare-specific structural engineering for heavy equipment loads, seismic compliance, and clinical environments." },
-  { num: "06", title: "MEP Engineering for Healthcare", desc: "Hospital-grade HVAC, medical gas pipeline systems, electrical, plumbing, fire safety, and building management." },
-  { num: "07", title: "Modular OT & ICU Infrastructure", desc: "Design, supply, and installation of modular operating theatres and ICUs with laminar airflow and cleanroom standards." },
-  { num: "08", title: "Turnkey Civil & Interior Execution", desc: "Complete healthcare construction and interior fit-out through a single point of accountability." },
-  { num: "09", title: "Medical Equipment Planning & Procurement", desc: "Department-wise planning, budget optimisation, vendor evaluation, procurement support, and installation coordination." },
-  { num: "10", title: "Project Management & Commissioning", desc: "End-to-end project management from planning through to commissioning and handover: protecting your timeline." },
+  { num: "01", slug: "feasibility-studies", title: "Feasibility Studies & DPRs", desc: "Data-backed project planning before you commit capital. Site assessment, demand analysis, bed capacity planning, and cost estimation." },
+  { num: "02", slug: "healthcare-architecture", title: "Healthcare Architecture & Space Planning", desc: "Compliance-integrated architectural design for hospitals, clinics, diagnostic centres, and medical colleges." },
+  { num: "03", slug: "regulatory-compliance", title: "Regulatory Compliance & Accreditation-Ready Design", desc: "NABH, NABL, INC, NMC, AERB, PCPNDT, NBC, and fire safety standards integrated into every design from day one." },
+  { num: "04", slug: "hospital-licensing", title: "Hospital Licensing & Approvals Support", desc: "Expert navigation of all statutory licences and approvals required to open and operate a healthcare facility in India." },
+  { num: "05", slug: "structural-design", title: "Structural Design for Healthcare", desc: "Healthcare-specific structural engineering for heavy equipment loads, seismic compliance, and clinical environments." },
+  { num: "06", slug: "mep-engineering", title: "MEP Engineering for Healthcare", desc: "Hospital-grade HVAC, medical gas pipeline systems, electrical, plumbing, fire safety, and building management." },
+  { num: "07", slug: "modular-ot-icu", title: "Modular OT & ICU Infrastructure", desc: "Design, supply, and installation of modular operating theatres and ICUs with laminar airflow and cleanroom standards." },
+  { num: "08", slug: null, title: "Turnkey Civil & Interior Execution", desc: "Complete healthcare construction and interior fit-out through a single point of accountability." },
+  { num: "09", slug: null, title: "Medical Equipment Planning & Procurement", desc: "Department-wise planning, budget optimisation, vendor evaluation, procurement support, and installation coordination." },
+  { num: "10", slug: null, title: "Project Management & Commissioning", desc: "End-to-end project management from planning through to commissioning and handover: protecting your timeline." },
 ];
 
 const metrics = [
@@ -661,7 +661,11 @@ export function Home() {
                   initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.5, delay: (i % 2) * 0.08 }}
-                  style={{ background: "#0a1628", padding: "36px 36px", cursor: "default", transition: "background 0.35s", position: "relative", overflow: "hidden" }}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => navigate(s.slug ? `/services/${s.slug}` : "/services")}
+                  onKeyDown={e => { if (e.key === "Enter" || e.key === " ") navigate(s.slug ? `/services/${s.slug}` : "/services"); }}
+                  style={{ background: "#0a1628", padding: "36px 36px", cursor: "pointer", transition: "background 0.35s", position: "relative", overflow: "hidden" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = "#0d1f38"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = "#0a1628"; }}
                 >
@@ -671,8 +675,8 @@ export function Home() {
                       <div style={{ width: 1, height: 32, background: "rgba(75,204,212,0.15)" }} />
                     </div>
                     <div>
-                      <h3 style={{ color: C.white, fontSize: 22, marginBottom: 10, fontFamily: FONT, fontWeight: 400, lineHeight: 1.3 }}>{s.title}</h3>
-                      <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 17, lineHeight: 1.75, margin: 0, fontWeight: 400, fontFamily: FONT }}>{s.desc}</p>
+                      <h3 style={{ color: C.white, fontSize: 28, marginBottom: 12, fontFamily: FONT, fontWeight: 700, lineHeight: 1.3 }}>{s.title}</h3>
+                      <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 19, lineHeight: 1.75, margin: 0, fontWeight: 400, fontFamily: FONT }}>{s.desc}</p>
                       <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: C.teal, fontSize: 13, marginTop: 16, letterSpacing: "0.16em", fontFamily: FONT, opacity: 0.75 }}>
                         Learn More <span>→</span>
                       </span>
