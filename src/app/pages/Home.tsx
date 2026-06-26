@@ -676,7 +676,7 @@ export function Home() {
                     </div>
                     <div>
                       <h3 style={{ color: C.white, fontSize: 28, marginBottom: 12, fontFamily: FONT, fontWeight: 700, lineHeight: 1.3 }}>{s.title}</h3>
-                      <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 19, lineHeight: 1.75, margin: 0, fontWeight: 400, fontFamily: FONT }}>{s.desc}</p>
+                      <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 17, lineHeight: 1.75, margin: 0, fontWeight: 400, fontFamily: FONT }}>{s.desc}</p>
                       <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: C.teal, fontSize: 13, marginTop: 16, letterSpacing: "0.16em", fontFamily: FONT, opacity: 0.75 }}>
                         Learn More <span>→</span>
                       </span>

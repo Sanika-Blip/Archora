@@ -29,7 +29,7 @@ const services = [
     ],
     whoFor: "Doctors, healthcare investors, promoters, and institutions planning greenfield or brownfield hospital projects who need a clear, data-backed project plan before committing capital.",
     whyMatters: "A well-prepared DPR reduces financial risk, aligns stakeholders, and gives your project a credible foundation from day one.",
-    color: "#4bd1d9",
+    color: "#7eb8f7",
     image: "/images/services/feasibility-studies.jpg",
   },
   {
@@ -75,7 +75,7 @@ const services = [
     ],
     whoFor: "Any healthcare facility (new or existing) that needs to meet statutory requirements or achieve accreditation.",
     whyMatters: "Compliance is not an add-on. When it is built into the design from day one, it eliminates costly retrofits, licence delays, and accreditation failures.",
-    color: "#a78bfa",
+    color: "#7eb8f7",
     image: "/images/services/regulatory-compliance.jpg",
   },
   {
@@ -95,7 +95,7 @@ const services = [
     ],
     whoFor: "Doctors and promoters who want expert guidance through the complex and time-consuming approval process, without the delays that come from navigating it alone.",
     whyMatters: "Licencing delays are one of the most common and costly setbacks in hospital projects. Expert support from the start prevents months of lost time.",
-    color: "#f59e0b",
+    color: "#7eb8f7",
     image: "/images/services/hospital-licensing.jpg",
   },
   {
@@ -114,7 +114,7 @@ const services = [
     ],
     whoFor: "All healthcare construction projects, new builds, expansions, and adaptive reuse of existing structures.",
     whyMatters: "Structural failures in hospitals are not just costly, they are dangerous. Healthcare-specific structural design ensures safety, longevity, and equipment performance.",
-    color: "#34d399",
+    color: "#7eb8f7",
     image: "/images/services/structural-design.jpg",
   },
   {
@@ -135,7 +135,7 @@ const services = [
     ],
     whoFor: "Every hospital and healthcare facility, new construction, renovation, or MEP upgrade of existing facilities.",
     whyMatters: "Substandard MEP in hospitals leads to infection outbreaks, equipment failures, fire hazards, and regulatory shutdowns. Healthcare MEP requires specialists, not generalists.",
-    color: "#fb923c",
+    color: "#7eb8f7",
     image: "/images/services/mep-engineering.jpg",
   },
   {
@@ -156,7 +156,7 @@ const services = [
     ],
     whoFor: "Hospitals, nursing homes, day-surgery centres, and any facility building or upgrading surgical and critical care infrastructure.",
     whyMatters: "A poorly designed OT or ICU is a direct patient safety risk. Surgical site infections (SSIs), equipment failures, and compliance shutdowns are the cost of getting this wrong. ARCHORA ensures it is done right.",
-    color: "#f43f5e",
+    color: "#7eb8f7",
     image: "/images/services/modular-ot-icu.jpg",
   },
   {
@@ -179,7 +179,7 @@ const services = [
     ],
     whoFor: "Healthcare promoters and institutions who want a single point of accountability from foundation to finishing, without the complexity of managing multiple contractors independently.",
     whyMatters: "Healthcare construction requires specialists who understand clinical requirements, infection control standards, and regulatory compliance. A general contractor cannot deliver this. ARCHORA can.",
-    color: "#4bd1d9",
+    color: "#7eb8f7",
     image: "/images/services/turnkey-execution.jpg",
   },
   {
@@ -223,7 +223,7 @@ const services = [
     ],
     whoFor: "Healthcare promoters and institutions who want a professional project manager to protect their investment, manage their contractors, and deliver their facility without surprises.",
     whyMatters: "Without dedicated project management, healthcare projects routinely exceed budgets by 20–40% and timelines by 6–18 months. ARCHORA's project management protects your investment and your opening date.",
-    color: "#a78bfa",
+    color: "#7eb8f7",
     image: "/images/services/project-management.jpg",
   },
 ];
@@ -295,8 +295,8 @@ function ServiceModal({ service, onClose }: { service: (typeof services)[0]; onC
                   <p style={{ fontFamily: FONT, fontSize: 17, letterSpacing: "3px", textTransform: "uppercase", color: service.color, marginBottom: 10, fontWeight: 600 }}>Who This Is For</p>
                   <p style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.8, color: "rgba(255,255,255,0.95)", fontWeight: 400 }}>{service.whoFor}</p>
                 </div>
-                <div style={{ padding: "20px", background: "rgba(75,209,217,0.05)", border: "0.5px solid rgba(75,209,217,0.15)", borderRadius: 2 }}>
-                  <p style={{ fontFamily: FONT, fontSize: 17, letterSpacing: "3px", textTransform: "uppercase", color: "#4bd1d9", marginBottom: 10, fontWeight: 600 }}>Why It Matters</p>
+                <div style={{ padding: "20px", background: "rgba(126,184,247,0.05)", border: "0.5px solid rgba(126,184,247,0.15)", borderRadius: 2 }}>
+                  <p style={{ fontFamily: FONT, fontSize: 17, letterSpacing: "3px", textTransform: "uppercase", color: "#7eb8f7", marginBottom: 10, fontWeight: 600 }}>Why It Matters</p>
                   <p style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.8, color: "rgba(255,255,255,0.95)", fontStyle: "italic", fontWeight: 400 }}>{service.whyMatters}</p>
                 </div>
               </div>
