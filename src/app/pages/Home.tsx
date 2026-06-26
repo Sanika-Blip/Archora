@@ -52,15 +52,15 @@ function SEOHead() {
         "@type": "WebSite",
         "@id": "https://archora.in/#website",
         "url": "https://archora.in",
-        "name": "ARCHORA, Healthcare Infrastructure Partner",
+        "name": "ARCHORA, Healthcare Architecture Partner",
         "publisher": { "@id": "https://archora.in/#organization" }
       },
       {
         "@type": "WebPage",
         "@id": "https://archora.in/#webpage",
         "url": "https://archora.in",
-        "name": "ARCHORA, India's Dedicated Healthcare Infrastructure Partner",
-        "description": "ARCHORA designs, builds, and delivers hospitals, clinics, modular OTs, ICUs, laboratories, and medical colleges across India under one roof. NABH-compliant from day one.",
+        "name": "ARCHORA, Healthcare Architecture Partner",
+        "description": "ARCHORA is a healthcare architecture firm designing NABH-compliant hospitals, clinics, OTs, ICUs, and labs across India, from planning to installation.",
         "isPartOf": { "@id": "https://archora.in/#website" },
         "about": { "@id": "https://archora.in/#organization" },
         "breadcrumb": {
@@ -95,16 +95,16 @@ function SEOHead() {
   return (
     <Helmet>
       {/* Primary Meta */}
-      <title>ARCHORA, India's Dedicated Healthcare Infrastructure Partner</title>
-      <meta name="description" content="ARCHORA designs, builds, and delivers hospitals, clinics, modular OTs, ICUs, laboratories, and medical colleges across India, NABH-compliant from day one, under one roof." />
+      <title>ARCHORA, Healthcare Architecture Partner</title>
+      <meta name="description" content="ARCHORA is a healthcare architecture firm designing NABH-compliant hospitals, clinics, OTs, ICUs, and labs across India, from planning to installation." />
       <meta name="keywords" content="hospital design India, healthcare infrastructure, NABH compliant hospital, modular OT design, hospital construction India, ICU infrastructure, medical college design, turnkey hospital, hospital architecture India, MEP engineering healthcare" />
       <link rel="canonical" href="https://archora.in" />
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://archora.in" />
-      <meta property="og:title" content="ARCHORA, India's Dedicated Healthcare Infrastructure Partner" />
-      <meta property="og:description" content="We design, build, and deliver hospitals, clinics, modular OTs, ICUs, and medical colleges across India. NABH-compliant architecture. Full turnkey. One team." />
+      <meta property="og:title" content="ARCHORA, Healthcare Architecture Partner" />
+      <meta property="og:description" content="ARCHORA is a healthcare architecture firm designing NABH-compliant hospitals, clinics, OTs, ICUs, and labs across India, from planning to installation." />
       <meta property="og:image" content="https://archora.in/og-image.jpg" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
@@ -113,8 +113,8 @@ function SEOHead() {
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="ARCHORA, India's Dedicated Healthcare Infrastructure Partner" />
-      <meta name="twitter:description" content="Hospital design, construction, modular OT & ICU, NABH compliance, delivered under one roof across India." />
+      <meta name="twitter:title" content="ARCHORA, Healthcare Architecture Partner" />
+      <meta name="twitter:description" content="ARCHORA is a healthcare architecture firm designing NABH-compliant hospitals, clinics, OTs, ICUs, and labs across India, from planning to installation." />
       <meta name="twitter:image" content="https://archora.in/og-image.jpg" />
 
       {/* Geo & Language */}
