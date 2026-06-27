@@ -73,7 +73,7 @@ const leaders = [
     "His portfolio has spanned new-build inpatient facilities, a COVID-19 Lighthouse Testing Laboratory, pathology service centralisation, and ward remodelling and bed capacity programmes, including work with Imperial College Healthcare, Barts Health, Sussex Partnership, Northwest Anglia Hospitals, and St George's University Hospitals.",
     "At ARCHORA, Aditya provides the advisory layer behind every project's capital planning, clinical briefing, governance, and risk management, bringing the same standard of design quality, construction efficiency, and programme discipline applied to National Health Service hospital projects for nearly two decades to ARCHORA's clients in India.",
   ],
-  credentials: [ "NEC3/4 Accredited Project Manager", "MAPM & MACQP"],
+  credentials: [ "18+ Years of Healthcare Infrastructure Experience","NEC3/4 Accredited Project Manager", "MAPM & MACQP"],
   expertise: ["Healthcare Capital Planning", "NHS Programme Governance", "Contract & Procurement Strategy", "Risk & Change Management"],
   linkedin: "linkedin.com/in/aditya-kashikar",
 },
