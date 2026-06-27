@@ -232,6 +232,10 @@ export function WhyUs() {
       </Helmet>
 
       <div style={{ fontFamily:"Calibri, Arial, sans-serif", overflowX:"hidden", background:C.cream }}>
+        <style>{`
+          @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+          @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        `}</style>
 
         {/* ══════════════════════════════════════
             1. HERO, dark navy
@@ -242,16 +246,17 @@ export function WhyUs() {
               src="/images/hero/why-us-hero.jpg"
               alt="ARCHORA healthcare infrastructure"
               style={{ width:"100%", height:"115%", objectFit:"cover", objectPosition:"center 35%" }}
+              fetchPriority="high"
             />
           </motion.div>
           <div style={{ position:"absolute", inset:0, background:"linear-gradient(115deg,rgba(4,28,46,0.6) 0%,rgba(4,28,46,0.36) 55%,rgba(4,28,46,0.1) 100%)" }}/>
           <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top,rgba(4,28,46,0.42) 0%,transparent 45%)" }}/>
           {[220,140,80].map((size,i) => (
-            <motion.div key={size} style={{ position:"absolute", top:"18%", right:"9%",
+            <div key={size} style={{ position:"absolute", top:"18%", right:"9%",
               width:size, height:size, border:`1px solid rgba(75,204,212,${0.06+i*0.03})`,
-              borderRadius:"50%", pointerEvents:"none" }}
-              animate={{ rotate:i%2===0?360:-360 }}
-              transition={{ duration:70-i*15, repeat:Infinity, ease:"linear" }}/>
+              borderRadius:"50%", pointerEvents:"none",
+              animation: `${i%2===0?"spinCW":"spinCCW"} ${70-i*15}s linear infinite`,
+              willChange: "transform" }}/>
           ))}
           <div style={{ position:"relative", maxWidth:1280, margin:"0 auto",
             padding:"160px 80px 90px", zIndex:10 }}>
@@ -717,13 +722,13 @@ export function WhyUs() {
         ══════════════════════════════════════ */}
         <section style={{ background:C.navy, padding:"120px 0", position:"relative", overflow:"hidden" }}>
           {[700,500,340].map((size,i) => (
-            <motion.div key={size} aria-hidden="true"
+            <div key={size} aria-hidden="true"
               style={{ position:"absolute", top:"50%", left:"50%",
                 width:size, height:size, marginLeft:-size/2, marginTop:-size/2,
                 borderRadius:"50%", border:`1px solid rgba(75,204,212,${0.02+i*0.01})`,
-                pointerEvents:"none" }}
-              animate={{ rotate:i%2===0?360:-360 }}
-              transition={{ duration:60+i*20, repeat:Infinity, ease:"linear" }}/>
+                pointerEvents:"none",
+                animation: `${i%2===0?"spinCW":"spinCCW"} ${60+i*20}s linear infinite`,
+                willChange: "transform" }}/>
           ))}
           <div style={{ maxWidth:720, margin:"0 auto", padding:"0 80px",
             textAlign:"center", position:"relative", zIndex:10 }}>

@@ -460,6 +460,10 @@ export function Journal() {
       <SEOHead />
 
       <div style={{ fontFamily: "Calibri, Arial, sans-serif", overflowX: "hidden", background: "#f8fbfe" }}>
+        <style>{`
+          @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+          @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        `}</style>
 
         {/* ── HERO ── */}
         <section style={{ position: "relative", height: "52vh", minHeight: 380, overflow: "hidden" }}>
@@ -566,11 +570,9 @@ export function Journal() {
         {/* ── NEWSLETTER CTA ── */}
         <section style={{ background: C.dark, padding: "100px 0", position: "relative", overflow: "hidden" }}>
           {[500, 360].map((size, i) => (
-            <motion.div
+            <div
               key={size} aria-hidden="true"
-              style={{ position: "absolute", top: "50%", left: "50%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.03 + i * 0.01})`, pointerEvents: "none" }}
-              animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-              transition={{ duration: 60 + i * 15, repeat: Infinity, ease: "linear" }}
+              style={{ position: "absolute", top: "50%", left: "50%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.03 + i * 0.01})`, pointerEvents: "none", willChange: "transform", animation: `${i % 2 === 0 ? "spinCW" : "spinCCW"} ${60 + i * 15}s linear infinite` }}
             />
           ))}
 

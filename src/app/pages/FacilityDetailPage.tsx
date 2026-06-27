@@ -1229,6 +1229,9 @@ export function FacilityDetailPage() {
     <div className="archora-page-scope" style={{ minHeight: "100vh", background: "#040e1a", overflowX: "hidden" }}>
       <style>{`
         @keyframes pulseRing { 0%,100%{transform:scale(1);opacity:0.12} 50%{transform:scale(1.06);opacity:0.22} }
+        @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        .decor-ring { position: absolute; top: 50%; left: 50%; border-radius: 50%; pointer-events: none; will-change: transform; }
         .archora-page-scope * { font-family: Calibri, sans-serif !important; }
       `}</style>
 
@@ -1254,7 +1257,7 @@ export function FacilityDetailPage() {
       <section style={{ position: "relative", minHeight: "65vh", display: "flex", alignItems: "center", overflow: "hidden", background: `linear-gradient(160deg, #040e1a 0%, #071e30 60%, #04141f 100%)`, paddingTop: 120 }}>
         {/* ambient rings */}
         {[560, 400, 260].map((size, i) => (
-          <div key={size} style={{ position: "absolute", top: "50%", left: "18%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid ${color}${i === 0 ? "10" : i === 1 ? "18" : "25"}`, pointerEvents: "none", animation: `pulseRing ${5 + i * 2}s ease-in-out infinite`, animationDelay: `${i * 0.8}s` }} />
+          <div key={size} style={{ position: "absolute", top: "50%", left: "18%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid ${color}${i === 0 ? "10" : i === 1 ? "18" : "25"}`, pointerEvents: "none", willChange: "transform", animation: `pulseRing ${5 + i * 2}s ease-in-out infinite`, animationDelay: `${i * 0.8}s` }} />
         ))}
 
         {/* dot grid */}
@@ -1519,7 +1522,16 @@ export function FacilityDetailPage() {
       {/* ── CTA ── */}
       <section style={{ background: "linear-gradient(160deg,#040e1a 0%,#071e30 70%,#04141f 100%)", padding: "8rem 0", position: "relative", overflow: "hidden" }}>
         {[500, 350, 210].map((size, i) => (
-          <motion.div key={size} style={{ position: "absolute", top: "50%", left: "50%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid ${color}${i === 0 ? "08" : i === 1 ? "12" : "18"}`, pointerEvents: "none" }} animate={{ rotate: i % 2 === 0 ? 360 : -360 }} transition={{ duration: 70 + i * 20, repeat: Infinity, ease: "linear" }} />
+          <div
+            key={size}
+            className="decor-ring"
+            style={{
+              width: size, height: size,
+              marginLeft: -size / 2, marginTop: -size / 2,
+              border: `1px solid ${color}${i === 0 ? "08" : i === 1 ? "12" : "18"}`,
+              animation: `${i % 2 === 0 ? "spinCW" : "spinCCW"} ${70 + i * 20}s linear infinite`,
+            }}
+          />
         ))}
 
         <div style={{ maxWidth: 620, margin: "0 auto", padding: "0 3rem", textAlign: "center", position: "relative", zIndex: 2 }}>

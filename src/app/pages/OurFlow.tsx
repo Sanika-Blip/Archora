@@ -270,6 +270,10 @@ export function OurFlow() {
       </Helmet>
 
       <div style={{ fontFamily: "'Georgia', serif", overflowX: "hidden", background: C.navy, paddingTop: 72 }}>
+        <style>{`
+          @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+          @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        `}</style>
 
         {/* ═══════════════════════════════════
             HERO
@@ -280,21 +284,18 @@ export function OurFlow() {
               src="/images/hero/our-flow-hero.jpg"
               alt="ARCHORA process"
               style={{ width: "100%", height: "115%", objectFit: "cover", objectPosition: "center 40%" }}
+              fetchPriority="high"
             />
           </motion.div>
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.6) 0%, rgba(4,28,46,0.35) 55%, rgba(4,28,46,0.12) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(4,28,46,0.45) 0%, transparent 45%)" }} />
 
           {/* Decorative rotating ring */}
-          <motion.div
-            style={{ position: "absolute", top: "20%", right: "10%", width: 200, height: 200, border: "1px solid rgba(75,204,212,0.08)", borderRadius: "50%" }}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+          <div
+            style={{ position: "absolute", top: "20%", right: "10%", width: 200, height: 200, border: "1px solid rgba(75,204,212,0.08)", borderRadius: "50%", animation: "spinCW 80s linear infinite", willChange: "transform" }}
           />
-          <motion.div
-            style={{ position: "absolute", top: "25%", right: "12%", width: 120, height: 120, border: "1px solid rgba(75,204,212,0.12)", borderRadius: "50%" }}
-            animate={{ rotate: -360 }}
-            transition={{ duration: 55, repeat: Infinity, ease: "linear" }}
+          <div
+            style={{ position: "absolute", top: "25%", right: "12%", width: 120, height: 120, border: "1px solid rgba(75,204,212,0.12)", borderRadius: "50%", animation: "spinCCW 55s linear infinite", willChange: "transform" }}
           />
 
           <div style={{ position: "relative", height: "100%", maxWidth: 1280, margin: "0 auto", padding: "0 80px", display: "flex", alignItems: "center", zIndex: 10 }}>
@@ -583,14 +584,14 @@ export function OurFlow() {
         ═══════════════════════════════════ */}
         <section style={{ background: "#060f1e", padding: "120px 0", position: "relative", overflow: "hidden" }}>
           {[700, 500, 340].map((size, i) => (
-            <motion.div key={size} aria-hidden="true"
+            <div key={size} aria-hidden="true"
               style={{
                 position: "absolute", top: "50%", left: "50%",
                 width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2,
                 borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.02 + i * 0.01})`, pointerEvents: "none",
+                animation: `${i % 2 === 0 ? "spinCW" : "spinCCW"} ${60 + i * 20}s linear infinite`,
+                willChange: "transform",
               }}
-              animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-              transition={{ duration: 60 + i * 20, repeat: Infinity, ease: "linear" }}
             />
           ))}
 

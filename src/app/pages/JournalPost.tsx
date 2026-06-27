@@ -2337,6 +2337,8 @@ export function JournalPost() {
             src={article.image}
             alt={article.title}
             className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
           />
           <div
             className="absolute inset-0"

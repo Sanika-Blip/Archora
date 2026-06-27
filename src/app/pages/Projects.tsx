@@ -546,6 +546,10 @@ export function Projects() {
       </Helmet>
 
       <div style={{ fontFamily: FONT, overflowX: "hidden", background: C.navy, paddingTop: 72 }}>
+        <style>{`
+          @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+          @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        `}</style>
 
         {/* ══════════════════════════════════════════
             PROJECTS, ONGOING PORTFOLIO
@@ -553,14 +557,11 @@ export function Projects() {
         <section aria-labelledby="projects-heading" style={{ background: C.cream, padding: "120px 0", position: "relative" }}>
           <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px" }}>
 
-            <motion.div style={{ marginBottom: 72, display: "flex", alignItems: "flex-end", justifyContent: "space-between" }} {...fadeUp}>
-              <div>
-                <SectionLabel text="Ongoing Portfolio" />
-                <h2 id="projects-heading" style={{ color: C.navy, fontSize: "clamp(2.1rem, 3.6vw, 3.4rem)", fontWeight: 400, fontFamily: FONT, margin: 0 }}>
-                  Healthcare Infrastructure<br />Projects Across India
-                </h2>
-              </div>
-              <OutlineBtn dark onClick={() => navigate("/facilities")}>View All Projects →</OutlineBtn>
+            <motion.div style={{ marginBottom: 72 }} {...fadeUp}>
+              <SectionLabel text="Ongoing Portfolio" />
+              <h2 id="projects-heading" style={{ color: C.navy, fontSize: "clamp(2.1rem, 3.6vw, 3.4rem)", fontWeight: 400, fontFamily: FONT, margin: 0 }}>
+                Healthcare Infrastructure<br />Projects Across India
+              </h2>
             </motion.div>
 
             {/* Featured hero project, Suresh Matre */}
@@ -687,20 +688,17 @@ export function Projects() {
             <motion.div
               initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.7 }}
-              style={{ marginTop: 48, padding: "32px 40px", background: C.navy, display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 20 }}
+              style={{ marginTop: 48, padding: "32px 40px", background: C.navy, display: "flex", alignItems: "center", gap: 18 }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-                <MedicalCross size={24} color={C.teal} opacity={0.6} />
-                <div>
-                  <p style={{ color: C.white, fontSize: 18, fontFamily: FONT, margin: 0, lineHeight: 1.3, fontWeight: 400 }}>
-                    The Experience Behind Every Project
-                  </p>
-                  <p style={{ color: "rgba(255,255,255,0.90)", fontSize: 15, margin: "4px 0 0", lineHeight: 1.5, fontWeight: 400, fontFamily: FONT }}>
-                    50+ healthcare infrastructure projects delivered across India, the UK, and Europe.
-                  </p>
-                </div>
+              <MedicalCross size={24} color={C.teal} opacity={0.6} />
+              <div>
+                <p style={{ color: C.white, fontSize: 18, fontFamily: FONT, margin: 0, lineHeight: 1.3, fontWeight: 400 }}>
+                  The Experience Behind Every Project
+                </p>
+                <p style={{ color: "rgba(255,255,255,0.90)", fontSize: 15, margin: "4px 0 0", lineHeight: 1.5, fontWeight: 400, fontFamily: FONT }}>
+                  50+ healthcare infrastructure projects delivered across India, the UK, and Europe.
+                </p>
               </div>
-              <OutlineBtn light onClick={() => navigate("/facilities")}>View All Projects →</OutlineBtn>
             </motion.div>
 
           </div>
@@ -711,14 +709,13 @@ export function Projects() {
         ═══════════════════════════════════ */}
         <section style={{ background: "#060f1e", padding: "120px 0", position: "relative", overflow: "hidden" }}>
           {[700, 500, 340].map((size, i) => (
-            <motion.div key={size} aria-hidden="true"
+            <div key={size} aria-hidden="true"
               style={{
                 position: "absolute", top: "50%", left: "50%",
                 width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2,
-                borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.02 + i * 0.01})`, pointerEvents: "none",
+                borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.02 + i * 0.01})`, pointerEvents: "none", willChange: "transform",
+                animation: `${i % 2 === 0 ? "spinCW" : "spinCCW"} ${60 + i * 20}s linear infinite`,
               }}
-              animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-              transition={{ duration: 60 + i * 20, repeat: Infinity, ease: "linear" }}
             />
           ))}
 

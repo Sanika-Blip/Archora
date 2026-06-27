@@ -278,6 +278,10 @@ export function Home() {
       <SEOHead />
 
       <div style={{ fontFamily: FONT, overflowX: "hidden", background: C.cream }}>
+        <style>{`
+          @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+          @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        `}</style>
 
         {/* ══════════════════════════════════════════
             HERO, IMMERSIVE CAROUSEL
@@ -693,16 +697,15 @@ export function Home() {
         ══════════════════════════════════════════ */}
         <section aria-labelledby="cta-heading" style={{ background: "#060f1e", padding: "140px 0", position: "relative", overflow: "hidden" }}>
           {[800, 600, 420, 280].map((size, i) => (
-            <motion.div
+            <div
               key={size}
               aria-hidden="true"
               style={{
                 position: "absolute", top: "50%", left: "50%",
                 width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2,
-                borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.02 + i * 0.01})`, pointerEvents: "none",
+                borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.02 + i * 0.01})`, pointerEvents: "none", willChange: "transform",
+                animation: `${i % 2 === 0 ? "spinCW" : "spinCCW"} ${60 + i * 20}s linear infinite`,
               }}
-              animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-              transition={{ duration: 60 + i * 20, repeat: Infinity, ease: "linear" }}
             />
           ))}
 

@@ -1224,6 +1224,9 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
     <div className="archora-page-scope" style={{ fontFamily: FONT }}>
       <style>{`
         .archora-page-scope * { font-family: Calibri, 'Calibri', Arial, sans-serif !important; }
+        @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        .decor-ring { position: absolute; top: 50%; left: 50%; border-radius: 50%; pointer-events: none; will-change: transform; }
         .service-coverage-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
         .process-timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
         .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
@@ -1557,8 +1560,15 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
       {/* ── BOTTOM CTA ── */}
       <section style={{ background: "#040e1a", padding: "100px 0", position: "relative", overflow: "hidden" }}>
         {[600, 420, 260].map((size, i) => (
-          <motion.div key={size} style={{ position: "absolute", top: "50%", left: "50%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid ${service.color}${i === 0 ? "06" : i === 1 ? "08" : "12"}`, pointerEvents: "none" }}
-            animate={{ rotate: i % 2 === 0 ? 360 : -360 }} transition={{ duration: 60 + i * 20, repeat: Infinity, ease: "linear" }}
+          <div
+            key={size}
+            className="decor-ring"
+            style={{
+              width: size, height: size,
+              marginLeft: -size / 2, marginTop: -size / 2,
+              border: `1px solid ${service.color}${i === 0 ? "06" : i === 1 ? "08" : "12"}`,
+              animation: `${i % 2 === 0 ? "spinCW" : "spinCCW"} ${60 + i * 20}s linear infinite`,
+            }}
           />
         ))}
 

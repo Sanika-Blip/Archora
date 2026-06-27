@@ -422,6 +422,9 @@ export function Services() {
         .archora-page-scope * { font-family: Calibri, 'Calibri', Arial, sans-serif !important; }
         @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
         @keyframes scrollBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+        @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        .decor-ring { position: absolute; top: 50%; left: 50%; border-radius: 50%; pointer-events: none; will-change: transform; }
         .float-anim { animation: floatY 6s ease-in-out infinite; }
         .scroll-bounce { animation: scrollBounce 1.8s ease-in-out infinite; }
         .service-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
@@ -436,6 +439,8 @@ export function Services() {
             src="/images/hero/services-hero.jpg"
             alt="Healthcare Infrastructure Services"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            loading="eager"
+            fetchPriority="high"
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg, rgba(4,18,30,0.6) 0%, rgba(4,18,30,0.34) 55%, rgba(4,18,30,0.1) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.06) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
@@ -574,7 +579,16 @@ export function Services() {
       {/* ── Bottom CTA ── */}
       <section style={{ background: "#040e1a", padding: "120px 0", position: "relative", overflow: "hidden" }}>
         {[700, 500, 320, 180].map((size, i) => (
-          <motion.div key={size} style={{ position: "absolute", top: "50%", left: "50%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.02 + i * 0.01})`, pointerEvents: "none" }} animate={{ rotate: i % 2 === 0 ? 360 : -360 }} transition={{ duration: 60 + i * 20, repeat: Infinity, ease: "linear" }} />
+          <div
+            key={size}
+            className="decor-ring"
+            style={{
+              width: size, height: size,
+              marginLeft: -size / 2, marginTop: -size / 2,
+              border: `1px solid rgba(75,204,212,${0.02 + i * 0.01})`,
+              animation: `${i % 2 === 0 ? "spinCW" : "spinCCW"} ${60 + i * 20}s linear infinite`,
+            }}
+          />
         ))}
 
         <div style={{ maxWidth: 700, margin: "0 auto", padding: "0 3rem", textAlign: "center", position: "relative", zIndex: 2 }}>

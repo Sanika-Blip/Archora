@@ -213,6 +213,9 @@ export function Facilities() {
 
         @keyframes scrollBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
         @keyframes pulseRing { 0%,100%{transform:scale(1);opacity:0.15} 50%{transform:scale(1.08);opacity:0.25} }
+        @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        .decor-ring { position: absolute; top: 50%; left: 50%; border-radius: 50%; pointer-events: none; will-change: transform; }
 
         .scroll-bounce { animation: scrollBounce 1.8s ease-in-out infinite; }
 
@@ -261,7 +264,7 @@ export function Facilities() {
       <section style={{ position: "relative", minHeight: "68vh", display: "flex", alignItems: "center", overflow: "hidden", background: "linear-gradient(160deg, #040e1a 0%, #071e30 60%, #04141f 100%)" }}>
 
         {[600, 440, 290].map((size, i) => (
-          <div key={size} style={{ position: "absolute", top: "50%", left: "22%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.03 + i * 0.015})`, pointerEvents: "none", animation: `pulseRing ${5 + i * 2}s ease-in-out infinite`, animationDelay: `${i * 0.7}s` }} />
+          <div key={size} style={{ position: "absolute", top: "50%", left: "22%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.03 + i * 0.015})`, pointerEvents: "none", willChange: "transform", animation: `pulseRing ${5 + i * 2}s ease-in-out infinite`, animationDelay: `${i * 0.7}s` }} />
         ))}
 
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.05) 1px, transparent 1px)", backgroundSize: "32px 32px", pointerEvents: "none" }} />
@@ -476,7 +479,16 @@ export function Facilities() {
       {/* ── CTA ── */}
       <section style={{ background: "#040e1a", padding: "100px 0", position: "relative", overflow: "hidden" }}>
         {[600, 420, 260].map((size, i) => (
-          <motion.div key={size} style={{ position: "absolute", top: "50%", left: "50%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.02 + i * 0.01})`, pointerEvents: "none" }} animate={{ rotate: i % 2 === 0 ? 360 : -360 }} transition={{ duration: 70 + i * 20, repeat: Infinity, ease: "linear" }} />
+          <div
+            key={size}
+            className="decor-ring"
+            style={{
+              width: size, height: size,
+              marginLeft: -size / 2, marginTop: -size / 2,
+              border: `1px solid rgba(75,204,212,${0.02 + i * 0.01})`,
+              animation: `${i % 2 === 0 ? "spinCW" : "spinCCW"} ${70 + i * 20}s linear infinite`,
+            }}
+          />
         ))}
 
         <div style={{ maxWidth: 660, margin: "0 auto", padding: "0 3rem", textAlign: "center", position: "relative", zIndex: 2 }}>

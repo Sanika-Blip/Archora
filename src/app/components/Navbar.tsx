@@ -8,8 +8,19 @@ export function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    let ticking = false;
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setIsScrolled((prev) => {
+          const next = window.scrollY > 50;
+          return prev === next ? prev : next;
+        });
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -224,6 +235,9 @@ export function Navbar() {
 
             {/* Desktop nav links */}
             <div className="hidden md:flex items-center gap-7">
+              <style>{`
+                .nav-link-item::after { background: var(--link-underline-color, #4bccd4); }
+              `}</style>
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path;
                 const isFacilities = link.path === "/facilities";
@@ -237,9 +251,6 @@ export function Navbar() {
                       ["--link-underline-color" as string]: "#0f7a8a",
                     }}
                   >
-                    <style>{`
-                      .nav-link-item::after { background: var(--link-underline-color, #4bccd4); }
-                    `}</style>
                     {isFacilities ? (
                       <span className="nav-facilities-badge">
                         {link.label}

@@ -450,6 +450,9 @@ export function About() {
         .timeline-spine-fill{position:absolute;left:0;top:0;width:100%;background:linear-gradient(to bottom,#4bd1d9,#378ADD);height:0%;transition:height 1.6s cubic-bezier(.22,1,.36,1);}
         .hero-section{cursor:crosshair;}
         @keyframes scrollBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+        @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+        .decor-ring { position: absolute; top: 50%; left: 50%; border-radius: 50%; pointer-events: none; will-change: transform; }
         .scroll-bounce{animation:scrollBounce 1.8s ease-in-out infinite;}
 
       `}</style>
@@ -457,14 +460,14 @@ export function About() {
       {/* ── Hero ── */}
       <section ref={heroRef} className="hero-section relative overflow-hidden" style={{ height: "85vh", minHeight: "600px" }}>
         <motion.div className="absolute inset-0" style={{ y: heroY }}>
-          <ImageWithFallback src="/images/about/team-professionals.jpg" alt="ARCHORA, Healthcare Infrastructure" className="w-full h-full object-cover" style={{ scale: 1.04 }} />
+          <ImageWithFallback src="/images/about/team-professionals.jpg" alt="ARCHORA, Healthcare Infrastructure" className="w-full h-full object-cover" style={{ scale: 1.04 }} loading="eager" fetchPriority="high" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(120deg, rgba(4,28,46,0.6) 0%, rgba(4,28,46,0.3) 55%, rgba(4,28,46,0.08) 100%)" }} />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(4,28,46,0.4) 0%, transparent 45%)" }} />
           <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.07) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
         </motion.div>
-        <motion.div className="absolute" style={{ top: "18%", right: "12%", opacity: 0.12, color: "#4bd1d9" }} animate={{ rotate: 360 }} transition={{ duration: 80, repeat: Infinity, ease: "linear" }}>
+        <div className="absolute" style={{ top: "18%", right: "12%", opacity: 0.12, color: "#4bd1d9", animation: "spinCW 80s linear infinite" }}>
           <svg width="120" height="120" viewBox="0 0 48 48" fill="none" stroke="currentColor"><circle cx="24" cy="24" r="9" strokeWidth="0.8" /><circle cx="24" cy="24" r="18" strokeWidth="0.4" strokeDasharray="3 4" /><line x1="24" y1="0" x2="24" y2="13" strokeWidth="0.8" /><line x1="24" y1="35" x2="24" y2="48" strokeWidth="0.8" /><line x1="0" y1="24" x2="13" y2="24" strokeWidth="0.8" /><line x1="35" y1="24" x2="48" y2="24" strokeWidth="0.8" /></svg>
-        </motion.div>
+        </div>
         <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 z-10">
           <div style={{ width: "1px", height: "60px", background: "rgba(255,255,255,0.12)" }} />
           <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4bd1d9" }} />
@@ -627,7 +630,16 @@ export function About() {
       {/* ── CTA ── */}
       <section style={{ background: "#060f1e", padding: "120px 0", position: "relative", overflow: "hidden" }}>
         {[800, 580, 380, 220].map((size, i) => (
-          <motion.div key={size} style={{ position: "absolute", top: "50%", left: "50%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid rgba(75,204,212,${0.02 + i * 0.01})`, pointerEvents: "none" }} animate={{ rotate: i % 2 === 0 ? 360 : -360 }} transition={{ duration: 60 + i * 20, repeat: Infinity, ease: "linear" }} />
+          <div
+            key={size}
+            className="decor-ring"
+            style={{
+              width: size, height: size,
+              marginLeft: -size / 2, marginTop: -size / 2,
+              border: `1px solid rgba(75,204,212,${0.02 + i * 0.01})`,
+              animation: `${i % 2 === 0 ? "spinCW" : "spinCCW"} ${60 + i * 20}s linear infinite`,
+            }}
+          />
         ))}
         <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 48px", textAlign: "center", position: "relative", zIndex: 10 }}>
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
