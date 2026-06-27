@@ -254,17 +254,17 @@ export function WhyUs() {
               transition={{ duration:70-i*15, repeat:Infinity, ease:"linear" }}/>
           ))}
           <div style={{ position:"relative", maxWidth:1280, margin:"0 auto",
-            padding:"110px 80px 90px", zIndex:10 }}>
+            padding:"160px 80px 90px", zIndex:10 }}>
             <motion.div initial={{ opacity:0, y:48 }} animate={{ opacity:1, y:0 }}
               transition={{ duration:1, ease:[0.22,1,0.36,1] }} style={{ maxWidth:720 }}>
               <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:28 }}>
-                <span style={{ color:"rgba(255,255,255,0.55)", fontSize:13, letterSpacing:"0.32em",
+                <span style={{ color:"rgba(255,255,255,0.90)", fontSize:15, fontWeight:700, letterSpacing:"0.32em",
                   textTransform:"uppercase", fontFamily:"Calibri, Arial, sans-serif" }}>
-                  Healthcare Infrastructure · India
+                  Healthcare Infrastructure Partner · India
                 </span>
               </div>
-              <h1 style={{ fontSize:"clamp(2.8rem, 4.5vw, 4.4rem)", color:C.white, lineHeight:1.1,
-                marginBottom:24, fontFamily:"Calibri, Arial, sans-serif", fontWeight:400 }}>
+              <h1 style={{ fontSize:"clamp(2.6rem, 4.5vw, 4.4rem)", color:C.white, lineHeight:1.1,
+                marginBottom:24, fontFamily:"Calibri, Arial, sans-serif", fontWeight:600 }}>
                 Most Hospital Projects<br />Go Wrong Before<br />
                 <em style={{ color:C.teal }}>a Single Brick Is Laid.</em>
               </h1>

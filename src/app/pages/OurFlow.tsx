@@ -305,14 +305,14 @@ export function OurFlow() {
               style={{ maxWidth: 680 }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
-                <span style={{ color: "rgba(255,255,255,0.88)", fontSize: 19, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "monospace" }}>
+                <span style={{ color: "rgba(255,255,255,0.90)", fontSize: 15, fontWeight: 700, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif" }}>
                   How ARCHORA Works
                 </span>
               </div>
               <h1 style={{
-                fontSize: "clamp(2.8rem, 4.5vw, 4.4rem)", color: C.white,
+                fontSize: "clamp(2.6rem, 4.5vw, 4.4rem)", color: C.white,
                 lineHeight: 1.06, marginBottom: 20,
-                fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400,
+                fontFamily: "Calibri, Arial, sans-serif", fontWeight: 600,
               }}>
                 From First Conversation<br />
                 <em style={{ color: C.teal, fontStyle: "italic" }}>to Final Commissioning.</em>

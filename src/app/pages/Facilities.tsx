@@ -279,14 +279,14 @@ export function Facilities() {
             transition={{ duration: 0.65, delay: 0.15 }}
             style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 22 }}
           >
-            <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 18, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.85)" }}>Healthcare Facility Types</span>
+            <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 15, fontWeight: 700, letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(255,255,255,0.90)" }}>Healthcare Facility Types</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 36, clipPath: "inset(100% 0 0 0)" }}
             animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
             transition={{ duration: 0.95, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(3.64rem, 5.5vw, 5.98rem)", fontWeight: 300, color: "#fff", lineHeight: 1.05, marginBottom: 24, maxWidth: 680, letterSpacing: "-0.01em" }}
+            style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(2.6rem, 4.5vw, 4.4rem)", fontWeight: 600, color: "#fff", lineHeight: 1.05, marginBottom: 24, maxWidth: 680, letterSpacing: "-0.01em" }}
           >
             Every Healthcare Facility<br />
             <em style={{ fontStyle: "italic", color: "#4bccd4" }}>We Design & Build.</em>

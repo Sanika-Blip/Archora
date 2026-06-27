@@ -1283,7 +1283,7 @@ export function FacilityDetailPage() {
             initial={{ opacity: 0, y: 32, clipPath: "inset(100% 0 0 0)" }}
             animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 700, color: "#fff", lineHeight: 1.08, marginBottom: 16, letterSpacing: "-0.01em", maxWidth: 760 }}
+            style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(2.6rem, 4.5vw, 4.4rem)", fontWeight: 600, color: "#fff", lineHeight: 1.08, marginBottom: 16, letterSpacing: "-0.01em", maxWidth: 760 }}
           >
             {data.title}
           </motion.h1>

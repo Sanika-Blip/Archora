@@ -11,7 +11,7 @@ const FONT = "Calibri, Arial, sans-serif";
 // ─── Type-scale constants (kept here so every compliance page is identical) ──
 const SIZE = {
   eyebrow: 17,        // small uppercase label above a heading
-  h1: "clamp(2.6rem, 4.6vw, 4.4rem)",
+  h1: "clamp(2.6rem, 4.5vw, 4.4rem)",
   h2: "clamp(2.1rem, 3.2vw, 3rem)",
   h3: "1.7rem",
   bodyLg: 18,          // hero sub copy

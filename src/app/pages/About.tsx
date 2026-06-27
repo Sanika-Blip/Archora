@@ -49,9 +49,11 @@ const leaders = [
     stats: [{ label: "Focus", value: "100%" }, { label: "Healthcare", value: "Only" }, { label: "Compliance", value: "First" }],
     shortBio: "Ar. Vivek Patil is ARCHORA's Principal Architect, a Registered Architect leading clinical design, NABH-compliant planning, and project delivery across every facility ARCHORA builds.",
     fullBio: [
-      "Ar. Vivek Patil is ARCHORA's Director and Principal Architect, leading architecture, clinical design, and project delivery across every facility type the company builds. A Registered Architect with the Council of Architecture India, his early career at Megarch Plus in Thane (working with clients including Reliance Industries, Godrej, and L&T, and contributing to the Navi Mumbai International Airport project) built the large-scale coordination discipline he now applies to healthcare projects.",
-      "He later focused his practice entirely on healthcare, developing specialist expertise in NABH and JCI standards, infection control planning, and hospital workflow design. Working freelance with healthcare consultancies across India, he designed everything from small clinics and diagnostic centres to large multi- and super-speciality hospitals.",
-      "At ARCHORA, Vivek leads the full design and delivery function (hospital architecture, clinical zone planning, modular OT and ICU design, healthcare MEP engineering, turnkey execution, and equipment planning) guided by one principle: a healthcare facility must first be a clinical instrument.",
+      "Ar. Vivek Patil is ARCHORA's Director and Principal Architect, leading architecture, clinical planning, and project delivery for healthcare facilities across India. As a Registered Architect with the Council of Architecture, he specializes exclusively in designing hospitals and healthcare infrastructure that combine operational efficiency, regulatory compliance, and patient-centered care.",
+      "During the early years of his professional career, Vivek contributed to the planning and execution of large-scale architectural and infrastructure projects for leading organizations including Reliance Industries, Godrej, Larsen & Toubro (L&T), and the Navi Mumbai International Airport development. This experience provided him with a strong foundation in multidisciplinary coordination, technical detailing, quality management, and large-scale project execution.",
+      "Recognizing the growing need for specialized healthcare infrastructure, he dedicated his practice entirely to hospital architecture. Over the years, he has worked with healthcare consultants, hospitals, and medical institutions across India, designing projects ranging from outpatient clinics and diagnostic centres to multi-speciality and super-speciality hospitals.",
+      "His expertise spans NABH and JCI compliance, infection prevention and control, evidence-based healthcare planning, modular Operation Theatres, Intensive Care Units, Cath Labs, CSSD, medical gas systems, and healthcare MEPF integration. He believes that every healthcare facility should function as a clinical tool—enhancing patient outcomes while improving operational efficiency for doctors, nurses, and hospital administrators.",
+      "At ARCHORA, Vivek leads every stage of project delivery, including hospital architecture, master planning, clinical zoning, modular OT and ICU design, healthcare MEPF engineering, medical equipment planning, interior design, and turnkey execution.",
     ],
     credentials: ["Director & Principal Architect, ARCHORA", "Registered Architect, Council of Architecture India", "Bachelor of Architecture, Mumbai University"],
     expertise: ["Hospital Architecture", "Modular OT & ICU Design", "NABH & JCI Compliance", "Clinical Workflow Planning"],
@@ -60,20 +62,20 @@ const leaders = [
   {
   id: 2,
   name: "Ar. Aditya Kashikar",
-  role: "SME & Lead Healthcare Advisory Consultant",
+  role: "Lead Healthcare Consultant",
   tagline: "NHS-level capital planning rigour, rare in the Indian healthcare sector",
   image: "/images/team/aditya-kashikar.png",
   accentColor: "#7eb8f7",
   stats: [{ label: "Experience", value: "18+" }, { label: "NHS", value: "Projects" }, { label: "Countries", value: "2" }],
   shortBio: "Aditya brings over 18 years of NHS healthcare capital programme leadership to ARCHORA, currently serving as Associate Director at WSP UK.",
   fullBio: [
-    "Ar. Aditya Kashikar is ARCHORA's SME and Lead Healthcare Advisory Consultant, bringing over 18 years of healthcare capital planning and infrastructure programme leadership from the UK's National Health Service to the Indian market." ,
-    "An architect by initial training with an MSc in Construction Management, Development Economics and International Development from the University of Greenwich, he is also an NEC3/4 Accredited Project Manager and a Member of both the Association for Project Management and the Association of Construction Quality Professionals.",
-    "He has worked within a leading technical management consultancy environment, delivering projects across public sector government frameworks.", 
+    "Ar. Aditya Kashikar is ARCHORA's SME and Lead Healthcare Advisory Consultant, bringing over 18 years of healthcare capital planning and infrastructure programme leadership from the UK's National Health Service to the Indian market.",
+    " An architect by initial training with an MSc in Construction Management, Development Economics and International Development from the University of Greenwich, he is also an NEC3/4 Accredited Project Manager and a Member of both the Association for Project Management and the Association of Construction Quality Professionals.",
+    "He has worked within a leading technical management consultancy environment, delivering projects across public sector government frameworks.",
     "His portfolio has spanned new-build inpatient facilities, a COVID-19 Lighthouse Testing Laboratory, pathology service centralisation, and ward remodelling and bed capacity programmes, including work with Imperial College Healthcare, Barts Health, Sussex Partnership, Northwest Anglia Hospitals, and St George's University Hospitals.",
     "At ARCHORA, Aditya provides the advisory layer behind every project's capital planning, clinical briefing, governance, and risk management, bringing the same standard of design quality, construction efficiency, and programme discipline applied to National Health Service hospital projects for nearly two decades to ARCHORA's clients in India.",
   ],
-  credentials: [ "18+ Years of Healthcare Infrastructure Experience","NEC3/4 Accredited Project Manager", "MAPM & MACQP"],
+  credentials: ["18+ Years of Healthcare Infrastructure Experience", "NEC3/4 Accredited Project Manager", "MAPM & MACQP"],
   expertise: ["Healthcare Capital Planning", "NHS Programme Governance", "Contract & Procurement Strategy", "Risk & Change Management"],
   linkedin: "linkedin.com/in/aditya-kashikar",
 },
@@ -471,9 +473,9 @@ export function About() {
         <motion.div className="relative h-full max-w-7xl mx-auto px-16 flex items-center z-10" style={{ opacity: heroOpacity }}>
           <div style={{ maxWidth: "680px" }}>
             <motion.div className="flex items-center gap-3 mb-6" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}>
-              <span style={{ fontFamily: FONT, fontSize: "18px", letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(255,255,255,0.90)" }}>Healthcare Infrastructure</span>
+              <span style={{ fontFamily: FONT, fontSize: 15, fontWeight: 700, letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(255,255,255,0.90)" }}>Healthcare Infrastructure Partner</span>
             </motion.div>
-            <motion.h1 initial={{ opacity: 0, y: 36, clipPath: "inset(100% 0 0 0)" }} animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }} transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }} style={{ fontFamily: FONT, fontSize: "clamp(3rem,5.5vw,5rem)", fontWeight: 600, color: "#fff", lineHeight: 1.06, marginBottom: "24px", letterSpacing: "-0.01em" }}>
+            <motion.h1 initial={{ opacity: 0, y: 36, clipPath: "inset(100% 0 0 0)" }} animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }} transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }} style={{ fontFamily: FONT, fontSize: "clamp(2.6rem,4.5vw,4.4rem)", fontWeight: 600, color: "#fff", lineHeight: 1.06, marginBottom: "24px", letterSpacing: "-0.01em" }}>
               We Build the Infrastructure<br /><em style={{ fontStyle: "italic", color: "#4bccd4" }}>That Heals India.</em>
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.6 }} style={{ fontSize: "18px", color: "rgba(255,255,255,0.97)", marginBottom: "40px", lineHeight: 1.85, maxWidth: "520px", fontFamily: FONT, fontWeight: 400 }}>

@@ -2407,10 +2407,10 @@ export function JournalPost() {
             transition={{ delay: 0.35, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
             className="text-white mb-5"
             style={{
-              fontFamily: "Cormorant Garamond, serif",
+              fontFamily: "Calibri, Arial, sans-serif",
               fontWeight: 600,
-              fontSize: "clamp(2rem, 4.5vw, 3.1rem)",
-              lineHeight: 1.18,
+              fontSize: "clamp(2.6rem, 4.5vw, 4.4rem)",
+              lineHeight: 1.06,
             }}
           >
             {article.title}

@@ -449,14 +449,14 @@ export function Services() {
 
         <div style={{ position: "relative", maxWidth: 1200, margin: "0 0 0 4rem", padding: "5rem 5rem 5rem 4.5rem", zIndex: 2 }}>
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
-            <span style={{ fontFamily: FONT, fontSize: 17, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", fontWeight: 400 }}>Healthcare Infrastructure Services</span>
+            <span style={{ fontFamily: FONT, fontSize: 15, letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(255,255,255,0.90)", fontWeight: 700 }}>Healthcare Infrastructure Services</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 40, clipPath: "inset(100% 0 0 0)" }}
             animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
             transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: FONT, fontSize: "clamp(2.8rem,4.5vw,5rem)", fontWeight: 600, color: "#fff", lineHeight: 1.08, marginBottom: 28, maxWidth: 700, letterSpacing: "-0.01em" }}
+            style={{ fontFamily: FONT, fontSize: "clamp(2.6rem,4.5vw,4.4rem)", fontWeight: 600, color: "#fff", lineHeight: 1.08, marginBottom: 28, maxWidth: 700, letterSpacing: "-0.01em" }}
           >
             End-to-End Healthcare Infrastructure.<br />
             <em style={{ fontStyle: "italic", color: "#4bccd4" }}>Designed. Built. Delivered.</em>

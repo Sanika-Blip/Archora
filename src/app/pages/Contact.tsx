@@ -313,19 +313,19 @@ export function Contact() {
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.62) 0%, rgba(4,28,46,0.36) 55%, rgba(4,28,46,0.14) 100%)" }} />
 
-          <div style={{ position: "relative", height: "100%", maxWidth: 1280, margin: "0 auto", padding: "0 80px", display: "flex", alignItems: "center", zIndex: 10 }}>
+          <div style={{ position: "relative", height: "100%", maxWidth: 1280, margin: "0 auto", padding: "60px 80px 0", display: "flex", alignItems: "center", zIndex: 10 }}>
             <motion.div
               initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
-                <span style={{ color: "rgba(255,255,255,0.38)", fontSize: 10, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif" }}>
-                  Healthcare Infrastructure
+                <span style={{ color: "rgba(255,255,255,0.90)", fontSize: 15, fontWeight: 700, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif" }}>
+                  Healthcare Infrastructure Partner
                 </span>
               </div>
               <h1 style={{
-                fontSize: "clamp(2.4rem, 5vw, 4.2rem)", color: C.white,
-                fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400,
+                fontSize: "clamp(2.6rem, 4.5vw, 4.4rem)", color: C.white,
+                fontFamily: "Calibri, Arial, sans-serif", fontWeight: 600,
                 lineHeight: 1.06, marginBottom: 16, letterSpacing: "-0.01em",
               }}>
                 Let's Build Your<br />

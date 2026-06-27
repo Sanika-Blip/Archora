@@ -370,8 +370,8 @@ export function Home() {
                 initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <span style={{ color: "rgba(255,255,255,0.90)", fontSize: 13, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: FONT }}>
-                  Healthcare Infrastructure
+                <span style={{ color: "rgba(255,255,255,0.90)", fontSize: 15, fontWeight: 700, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: FONT }}>
+                  Healthcare Infrastructure Partner
                 </span>
               </motion.div>
 
@@ -383,9 +383,9 @@ export function Home() {
                   exit={{ opacity: 0, y: -24 }}
                   transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                   style={{
-                    fontSize: "clamp(2.6rem, 5.2vw, 4.4rem)", color: C.white,
+                    fontSize: "clamp(2.6rem, 4.5vw, 4.4rem)", color: C.white,
                     marginBottom: 24, lineHeight: 1.06,
-                    fontFamily: FONT, fontWeight: 400,
+                    fontFamily: FONT, fontWeight: 600,
                     letterSpacing: "-0.01em",
                   }}
                 >
