@@ -244,7 +244,7 @@ function ServiceModal({ service, onClose }: { service: (typeof services)[0]; onC
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+        className="fixed inset-0 z-[100] flex items-center justify-center p-3 md:p-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -252,7 +252,7 @@ function ServiceModal({ service, onClose }: { service: (typeof services)[0]; onC
         onClick={onClose}
       >
         <motion.div
-          className="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto"
+          className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto"
           style={{ background: "linear-gradient(145deg,#071e2e,#04141f)", border: `1px solid ${service.color}30`, borderRadius: 4 }}
           initial={{ opacity: 0, y: 48, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -261,54 +261,54 @@ function ServiceModal({ service, onClose }: { service: (typeof services)[0]; onC
           onClick={e => e.stopPropagation()}
         >
           <div style={{ height: "3px", background: `linear-gradient(90deg, ${service.color}, transparent)` }} />
-          <button onClick={onClose} className="absolute top-5 right-5 z-10 flex items-center justify-center w-9 h-9 rounded-full" style={{ background: "rgba(255,255,255,0.07)", color: "#fff", border: "none", cursor: "pointer" }}>
+          <button onClick={onClose} className="absolute top-4 right-4 z-10 flex items-center justify-center w-9 h-9 rounded-full" style={{ background: "rgba(255,255,255,0.07)", color: "#fff", border: "none", cursor: "pointer" }}>
             <X size={16} />
           </button>
 
-          <div className="p-8 md:p-10">
-            <div className="flex items-start gap-5 mb-8">
-              <div style={{ width: 56, height: 56, display: "flex", alignItems: "center", justifyContent: "center", background: `${service.color}18`, border: `1px solid ${service.color}35`, borderRadius: 2, flexShrink: 0, color: service.color }}>
+          <div className="p-5 md:p-8 lg:p-10">
+            <div className="flex items-start gap-4 mb-7 pr-8">
+              <div style={{ width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center", background: `${service.color}18`, border: `1px solid ${service.color}35`, borderRadius: 2, flexShrink: 0, color: service.color }}>
                 {service.icon}
               </div>
               <div>
-                <p style={{ fontFamily: FONT, fontSize: 17, letterSpacing: "3px", textTransform: "uppercase", color: service.color, marginBottom: 8, fontWeight: 600 }}>{service.id}, Service</p>
-                <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3vw, 2.8rem)", fontWeight: 600, color: "#fff", lineHeight: 1.2 }}>{service.title}</h2>
+                <p style={{ fontFamily: FONT, fontSize: "clamp(13px, 1.5vw, 17px)", letterSpacing: "3px", textTransform: "uppercase", color: service.color, marginBottom: 6, fontWeight: 600 }}>{service.id}, Service</p>
+                <h2 style={{ fontFamily: FONT, fontSize: "clamp(1.4rem, 3vw, 2.8rem)", fontWeight: 600, color: "#fff", lineHeight: 1.2 }}>{service.title}</h2>
               </div>
             </div>
 
-            <p style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.9, color: "rgba(255,255,255,0.97)", marginBottom: 32, fontWeight: 400 }}>{service.description}</p>
+            <p style={{ fontFamily: FONT, fontSize: "clamp(14px, 1.8vw, 17px)", lineHeight: 1.9, color: "rgba(255,255,255,0.97)", marginBottom: 28, fontWeight: 400 }}>{service.description}</p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <div>
-                <p style={{ fontFamily: FONT, fontSize: 17, letterSpacing: "3px", textTransform: "uppercase", color: service.color, marginBottom: 16, fontWeight: 600 }}>What We Do</p>
-                <ul style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                <p style={{ fontFamily: FONT, fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "3px", textTransform: "uppercase", color: service.color, marginBottom: 14, fontWeight: 600 }}>What We Do</p>
+                <ul style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {service.whatWeDo.map((item, i) => (
                     <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                       <span style={{ width: 5, height: 5, borderRadius: "50%", background: service.color, flexShrink: 0, marginTop: 6 }} />
-                      <span style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.75, color: "rgba(255,255,255,0.97)", fontWeight: 400 }}>{item}</span>
+                      <span style={{ fontFamily: FONT, fontSize: "clamp(13px, 1.6vw, 17px)", lineHeight: 1.75, color: "rgba(255,255,255,0.97)", fontWeight: 400 }}>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-                <div style={{ padding: "20px", background: `${service.color}08`, border: `0.5px solid ${service.color}20`, borderRadius: 2 }}>
-                  <p style={{ fontFamily: FONT, fontSize: 17, letterSpacing: "3px", textTransform: "uppercase", color: service.color, marginBottom: 10, fontWeight: 600 }}>Who This Is For</p>
-                  <p style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.8, color: "rgba(255,255,255,0.95)", fontWeight: 400 }}>{service.whoFor}</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+                <div style={{ padding: "16px 18px", background: `${service.color}08`, border: `0.5px solid ${service.color}20`, borderRadius: 2 }}>
+                  <p style={{ fontFamily: FONT, fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "3px", textTransform: "uppercase", color: service.color, marginBottom: 10, fontWeight: 600 }}>Who This Is For</p>
+                  <p style={{ fontFamily: FONT, fontSize: "clamp(13px, 1.6vw, 17px)", lineHeight: 1.8, color: "rgba(255,255,255,0.95)", fontWeight: 400 }}>{service.whoFor}</p>
                 </div>
-                <div style={{ padding: "20px", background: "rgba(126,184,247,0.05)", border: "0.5px solid rgba(126,184,247,0.15)", borderRadius: 2 }}>
-                  <p style={{ fontFamily: FONT, fontSize: 17, letterSpacing: "3px", textTransform: "uppercase", color: "#7eb8f7", marginBottom: 10, fontWeight: 600 }}>Why It Matters</p>
-                  <p style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.8, color: "rgba(255,255,255,0.95)", fontStyle: "italic", fontWeight: 400 }}>{service.whyMatters}</p>
+                <div style={{ padding: "16px 18px", background: "rgba(126,184,247,0.05)", border: "0.5px solid rgba(126,184,247,0.15)", borderRadius: 2 }}>
+                  <p style={{ fontFamily: FONT, fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "3px", textTransform: "uppercase", color: "#7eb8f7", marginBottom: 10, fontWeight: 600 }}>Why It Matters</p>
+                  <p style={{ fontFamily: FONT, fontSize: "clamp(13px, 1.6vw, 17px)", lineHeight: 1.8, color: "rgba(255,255,255,0.95)", fontStyle: "italic", fontWeight: 400 }}>{service.whyMatters}</p>
                 </div>
               </div>
             </div>
 
-            <div style={{ marginTop: 32, paddingTop: 24, borderTop: "0.5px solid rgba(255,255,255,0.08)", display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <button onClick={() => { onClose(); navigate("/contact"); }} style={{ padding: "12px 24px", fontSize: 17, letterSpacing: "0.16em", textTransform: "uppercase", fontFamily: FONT, background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", borderRadius: 1 }}
+            <div className="svc-modal-actions" style={{ marginTop: 28, paddingTop: 20, borderTop: "0.5px solid rgba(255,255,255,0.08)" }}>
+              <button onClick={() => { onClose(); navigate("/contact"); }} style={{ padding: "12px 22px", fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "0.16em", textTransform: "uppercase", fontFamily: FONT, background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", borderRadius: 1 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>
                 Book a Free Consultation
               </button>
-              <button onClick={onClose} style={{ padding: "12px 24px", fontSize: 17, letterSpacing: "0.16em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "rgba(255,255,255,0.95)", border: "0.5px solid rgba(255,255,255,0.15)", cursor: "pointer", borderRadius: 1 }}>
+              <button onClick={onClose} style={{ padding: "12px 22px", fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "0.16em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "rgba(255,255,255,0.95)", border: "0.5px solid rgba(255,255,255,0.15)", cursor: "pointer", borderRadius: 1 }}>
                 Close
               </button>
             </div>
@@ -338,7 +338,7 @@ function ServiceCard({ service, index, onClick }: { service: (typeof services)[0
         background: hovered ? "linear-gradient(145deg,#071e30,#0a2640)" : "linear-gradient(145deg,#061624,#040e1a)",
         border: `0.5px solid ${hovered ? service.color + "50" : "rgba(255,255,255,0.07)"}`,
         borderRadius: 2,
-        padding: "2.2rem 1.8rem",
+        padding: "clamp(1.4rem, 3vw, 2.2rem) clamp(1.2rem, 2.5vw, 1.8rem)",
         cursor: "pointer",
         position: "relative",
         overflow: "hidden",
@@ -348,30 +348,30 @@ function ServiceCard({ service, index, onClick }: { service: (typeof services)[0
       }}
     >
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: `linear-gradient(90deg, ${service.color}, transparent)`, transform: hovered ? "scaleX(1)" : "scaleX(0)", transformOrigin: "left", transition: "transform 0.4s ease" }} />
-      <div style={{ position: "absolute", top: 12, right: 16, fontFamily: FONT, fontSize: "4rem", fontWeight: 300, color: `${service.color}08`, lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>{service.id}</div>
+      <div style={{ position: "absolute", top: 12, right: 16, fontFamily: FONT, fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 300, color: `${service.color}08`, lineHeight: 1, pointerEvents: "none", userSelect: "none" }}>{service.id}</div>
 
       {hasDetailPage && (
         <div style={{
-          position: "absolute", top: 16, right: 16,
-          fontFamily: FONT, fontSize: 13, letterSpacing: "2px",
+          position: "absolute", top: 14, right: 14,
+          fontFamily: FONT, fontSize: 12, letterSpacing: "2px",
           textTransform: "uppercase", color: service.color,
           background: `${service.color}12`, border: `0.5px solid ${service.color}30`,
-          padding: "3px 8px", borderRadius: 1,
+          padding: "3px 7px", borderRadius: 1,
           opacity: hovered ? 1 : 0, transition: "opacity 0.3s", fontWeight: 400,
         }}>
           Full Details →
         </div>
       )}
 
-      <div style={{ width: 52, height: 52, display: "flex", alignItems: "center", justifyContent: "center", background: `${service.color}12`, border: `0.5px solid ${service.color}25`, borderRadius: 2, marginBottom: "1.5rem", color: service.color, transition: "all 0.3s ease", ...(hovered ? { background: `${service.color}22`, border: `0.5px solid ${service.color}45` } : {}) }}>
+      <div style={{ width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center", background: `${service.color}12`, border: `0.5px solid ${service.color}25`, borderRadius: 2, marginBottom: "1.2rem", color: service.color, transition: "all 0.3s ease", ...(hovered ? { background: `${service.color}22`, border: `0.5px solid ${service.color}45` } : {}) }}>
         {service.icon}
       </div>
 
-      <p style={{ fontFamily: FONT, fontSize: 15, letterSpacing: "3px", textTransform: "uppercase", color: `${service.color}90`, marginBottom: 10, fontWeight: 600 }}>{service.id}, Service</p>
-      <h3 style={{ fontFamily: FONT, fontSize: "1.7rem", fontWeight: 600, color: "#fff", lineHeight: 1.3, marginBottom: 12 }}>{service.title}</h3>
-      <p style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.8, color: "rgba(255,255,255,0.92)", marginBottom: 20, fontWeight: 400 }}>{service.shortDesc}</p>
+      <p style={{ fontFamily: FONT, fontSize: "clamp(11px, 1.2vw, 15px)", letterSpacing: "3px", textTransform: "uppercase", color: `${service.color}90`, marginBottom: 8, fontWeight: 600 }}>{service.id}, Service</p>
+      <h3 style={{ fontFamily: FONT, fontSize: "clamp(1.2rem, 2.5vw, 1.7rem)", fontWeight: 600, color: "#fff", lineHeight: 1.3, marginBottom: 10 }}>{service.title}</h3>
+      <p style={{ fontFamily: FONT, fontSize: "clamp(13px, 1.6vw, 17px)", lineHeight: 1.8, color: "rgba(255,255,255,0.92)", marginBottom: 18, fontWeight: 400 }}>{service.shortDesc}</p>
 
-      <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: FONT, fontSize: 15, letterSpacing: "2px", textTransform: "uppercase", color: service.color, opacity: hovered ? 1 : 0.6, transition: "opacity 0.3s", fontWeight: 600 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: FONT, fontSize: "clamp(11px, 1.2vw, 15px)", letterSpacing: "2px", textTransform: "uppercase", color: service.color, opacity: hovered ? 1 : 0.6, transition: "opacity 0.3s", fontWeight: 600 }}>
         {hasDetailPage ? "View Full Details" : "Learn More"}
         <motion.div animate={{ x: hovered ? 4 : 0 }} transition={{ duration: 0.25 }}>
           <ArrowRight size={13} />
@@ -390,15 +390,15 @@ function ProcessStep({ step, index }: { step: (typeof processSteps)[0]; index: n
       initial={{ opacity: 0, x: -20 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.55, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      style={{ display: "flex", gap: 20, alignItems: "flex-start" }}
+      style={{ display: "flex", gap: 18, alignItems: "flex-start" }}
     >
       <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg,#185FA5,#4bd1d9)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT, fontSize: 16, fontWeight: 600, color: "#fff", flexShrink: 0 }}>{step.num}</div>
-        {index < processSteps.length - 1 && <div style={{ width: 1, height: 48, background: "linear-gradient(to bottom, rgba(24,95,165,0.4), rgba(24,95,165,0.05))", marginTop: 8 }} />}
+        <div style={{ width: 40, height: 40, borderRadius: "50%", background: "linear-gradient(135deg,#185FA5,#4bd1d9)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT, fontSize: 14, fontWeight: 600, color: "#fff", flexShrink: 0 }}>{step.num}</div>
+        {index < processSteps.length - 1 && <div style={{ width: 1, height: 44, background: "linear-gradient(to bottom, rgba(24,95,165,0.4), rgba(24,95,165,0.05))", marginTop: 8 }} />}
       </div>
-      <div style={{ paddingTop: 10, paddingBottom: index < processSteps.length - 1 ? 16 : 0 }}>
-        <h4 style={{ fontFamily: FONT, fontSize: "1.5rem", fontWeight: 600, color: "#042C53", marginBottom: 8 }}>{step.title}</h4>
-        <p style={{ fontFamily: FONT, fontSize: 17, lineHeight: 1.85, color: "#0a1a2a", fontWeight: 400 }}>{step.desc}</p>
+      <div style={{ paddingTop: 8, paddingBottom: index < processSteps.length - 1 ? 14 : 0 }}>
+        <h4 style={{ fontFamily: FONT, fontSize: "clamp(1.1rem, 2vw, 1.5rem)", fontWeight: 600, color: "#042C53", marginBottom: 7 }}>{step.title}</h4>
+        <p style={{ fontFamily: FONT, fontSize: "clamp(13px, 1.6vw, 17px)", lineHeight: 1.85, color: "#0a1a2a", fontWeight: 400 }}>{step.desc}</p>
       </div>
     </motion.div>
   );
@@ -419,7 +419,10 @@ export function Services() {
   return (
     <div className="min-h-screen pt-20 archora-page-scope" style={{ overflowX: "hidden", fontFamily: FONT }}>
       <style>{`
+        /* ── Global font reset ── */
         .archora-page-scope * { font-family: Calibri, 'Calibri', Arial, sans-serif !important; }
+
+        /* ── Animations ── */
         @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
         @keyframes scrollBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
         @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -427,9 +430,153 @@ export function Services() {
         .decor-ring { position: absolute; top: 50%; left: 50%; border-radius: 50%; pointer-events: none; will-change: transform; }
         .float-anim { animation: floatY 6s ease-in-out infinite; }
         .scroll-bounce { animation: scrollBounce 1.8s ease-in-out infinite; }
-        .service-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-        .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
-        @media (max-width: 768px) { .process-grid { grid-template-columns: 1fr; } }
+
+        /* ══════════════════════════════════════════
+           RESPONSIVE LAYOUT CLASSES
+        ══════════════════════════════════════════ */
+
+        /* Consistent horizontal padding for all sections */
+        .svc-wrap {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 80px;
+          box-sizing: border-box;
+        }
+        @media (max-width: 1024px) { .svc-wrap { padding: 0 48px; } }
+        @media (max-width: 640px)  { .svc-wrap { padding: 0 20px; } }
+
+        /* Narrow wrap for intro / CTA */
+        .svc-wrap-narrow {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 80px;
+          box-sizing: border-box;
+        }
+        @media (max-width: 1024px) { .svc-wrap-narrow { padding: 0 48px; } }
+        @media (max-width: 640px)  { .svc-wrap-narrow { padding: 0 20px; } }
+
+        /* Hero content area */
+        .svc-hero-content {
+          position: relative;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 5rem 80px;
+          z-index: 2;
+          box-sizing: border-box;
+        }
+        @media (max-width: 1024px) { .svc-hero-content { padding: 4rem 48px; } }
+        @media (max-width: 640px)  { .svc-hero-content { padding: 3rem 20px; } }
+
+        /* Hero heading */
+        .svc-hero-h1 { font-size: clamp(2rem, 5.5vw, 4.4rem); }
+
+        /* Hero sidebar decoration — hide on mobile */
+        .svc-hero-sidebar {
+          position: absolute;
+          left: 32px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          z-index: 2;
+        }
+        @media (max-width: 640px) { .svc-hero-sidebar { display: none; } }
+
+        /* Hero scroll indicator */
+        .svc-scroll-hint { display: flex; }
+        @media (max-width: 420px) { .svc-scroll-hint { display: none; } }
+
+        /* Hero action buttons */
+        .svc-hero-btns {
+          display: flex;
+          gap: 14px;
+          flex-wrap: wrap;
+        }
+        @media (max-width: 480px) {
+          .svc-hero-btns { flex-direction: column; }
+          .svc-hero-btns button { width: 100%; }
+        }
+
+        /* Services card grid: auto-fill 3-col → 2-col → 1-col */
+        .svc-card-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.25rem;
+        }
+        @media (max-width: 960px) {
+          .svc-card-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+          .svc-card-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Process steps: 2-col → 1-col */
+        .svc-process-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0 56px;
+        }
+        @media (max-width: 760px) {
+          .svc-process-grid { grid-template-columns: 1fr; gap: 0; }
+        }
+
+        /* Section vertical padding */
+        .svc-section-py { padding-top: 96px; padding-bottom: 96px; }
+        @media (max-width: 760px) { .svc-section-py { padding-top: 64px; padding-bottom: 64px; } }
+        @media (max-width: 480px) { .svc-section-py { padding-top: 48px; padding-bottom: 48px; } }
+
+        .svc-section-py-lg { padding-top: 112px; padding-bottom: 112px; }
+        @media (max-width: 760px) { .svc-section-py-lg { padding-top: 72px; padding-bottom: 72px; } }
+        @media (max-width: 480px) { .svc-section-py-lg { padding-top: 52px; padding-bottom: 52px; } }
+
+        /* Section headings */
+        .svc-h2 { font-size: clamp(1.8rem, 4.5vw, 4rem); }
+        .svc-h2-lg { font-size: clamp(2rem, 5vw, 4.4rem); }
+
+        /* Section label eyebrow */
+        .svc-label {
+          font-family: Calibri, Arial, sans-serif;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          margin-bottom: 14px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 14px;
+          font-weight: 600;
+          font-size: clamp(12px, 1.5vw, 39px);
+        }
+
+        /* Modal action buttons */
+        .svc-modal-actions {
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+        @media (max-width: 480px) {
+          .svc-modal-actions { flex-direction: column; }
+          .svc-modal-actions button { width: 100%; }
+        }
+
+        /* CTA buttons */
+        .svc-cta-btns {
+          display: flex;
+          gap: 14px;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        @media (max-width: 480px) {
+          .svc-cta-btns { flex-direction: column; align-items: stretch; }
+          .svc-cta-btns button { width: 100%; }
+        }
+
+        /* Intro paragraph font */
+        .svc-intro-p { font-size: clamp(14px, 2vw, 18px); }
+
+        /* CTA section overflow guard */
+        .svc-cta-section { position: relative; overflow: hidden; }
       `}</style>
 
       {/* ── Hero ── */}
@@ -446,38 +593,40 @@ export function Services() {
           <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.06) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
         </div>
 
-        <div style={{ position: "absolute", left: 32, top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 12, zIndex: 2 }}>
+        {/* Decorative sidebar — hidden on mobile via CSS */}
+        <div className="svc-hero-sidebar">
           <div style={{ width: 1, height: 64, background: "rgba(255,255,255,0.1)" }} />
           <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#4bd1d9" }} />
           <div style={{ width: 1, height: 64, background: "rgba(255,255,255,0.1)" }} />
         </div>
 
-        <div style={{ position: "relative", maxWidth: 1200, margin: "0 0 0 4rem", padding: "5rem 5rem 5rem 4.5rem", zIndex: 2 }}>
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
-            <span style={{ fontFamily: FONT, fontSize: 15, letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(255,255,255,0.90)", fontWeight: 700 }}>Healthcare Infrastructure Services</span>
+        <div className="svc-hero-content">
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 22 }}>
+            <span style={{ fontFamily: FONT, fontSize: "clamp(11px, 1.3vw, 15px)", letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(255,255,255,0.90)", fontWeight: 700 }}>Healthcare Infrastructure Services</span>
           </motion.div>
 
           <motion.h1
+            className="svc-hero-h1"
             initial={{ opacity: 0, y: 40, clipPath: "inset(100% 0 0 0)" }}
             animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
             transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: FONT, fontSize: "clamp(2.6rem,4.5vw,4.4rem)", fontWeight: 600, color: "#fff", lineHeight: 1.08, marginBottom: 28, maxWidth: 700, letterSpacing: "-0.01em" }}
+            style={{ fontFamily: FONT, fontWeight: 600, color: "#fff", lineHeight: 1.08, marginBottom: 24, maxWidth: 700, letterSpacing: "-0.01em" }}
           >
             End-to-End Healthcare Infrastructure.<br />
             <em style={{ fontStyle: "italic", color: "#4bccd4" }}>Designed. Built. Delivered.</em>
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.6 }} style={{ fontFamily: FONT, fontSize: 18, lineHeight: 1.9, color: "rgba(255,255,255,0.95)", maxWidth: 560, marginBottom: 44, fontWeight: 400 }}>
+          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.6 }} style={{ fontFamily: FONT, fontSize: "clamp(14px, 2vw, 18px)", lineHeight: 1.9, color: "rgba(255,255,255,0.95)", maxWidth: 560, marginBottom: 40, fontWeight: 400 }}>
             From your first sketch to final handover, ARCHORA is your single-window partner for designing and delivering hospitals, clinics, laboratories, medical colleges, and every form of healthcare infrastructure across India.
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.8 }} style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-            <button onClick={() => document.getElementById("services-grid")?.scrollIntoView({ behavior: "smooth", block: "start" })} style={{ padding: "13px 30px", fontSize: 17, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }}
+          <motion.div className="svc-hero-btns" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.8 }}>
+            <button onClick={() => document.getElementById("services-grid")?.scrollIntoView({ behavior: "smooth", block: "start" })} style={{ padding: "12px 28px", fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }}
               onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>
               Explore Our Services
             </button>
-            <button onClick={() => navigate("/contact")} style={{ padding: "13px 30px", fontSize: 17, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }}
+            <button onClick={() => navigate("/contact")} style={{ padding: "12px 28px", fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }}
               onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>
               Talk to Our Team →
@@ -485,26 +634,26 @@ export function Services() {
           </motion.div>
         </div>
 
-        <motion.div style={{ position: "absolute", bottom: 40, left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 8, zIndex: 2 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}>
-          <span style={{ fontFamily: FONT, fontSize: 15, letterSpacing: "0.28em", color: "rgba(75,204,212,0.4)", textTransform: "uppercase", fontWeight: 400 }}>Scroll</span>
+        <motion.div className="svc-scroll-hint" style={{ position: "absolute", bottom: 32, left: "50%", transform: "translateX(-50%)", flexDirection: "column", alignItems: "center", gap: 8, zIndex: 2 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}>
+          <span style={{ fontFamily: FONT, fontSize: 13, letterSpacing: "0.28em", color: "rgba(75,204,212,0.4)", textTransform: "uppercase", fontWeight: 400 }}>Scroll</span>
           <div className="scroll-bounce" style={{ color: "rgba(75,204,212,0.4)" }}><ChevronDown size={16} /></div>
         </motion.div>
       </section>
 
       {/* ── Intro ── */}
-      <section style={{ background: "linear-gradient(160deg,#ffffff 0%,#e8f4fd 100%)", padding: "6rem 0" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 3rem", textAlign: "center" }}>
+      <section className="svc-section-py" style={{ background: "linear-gradient(160deg,#ffffff 0%,#e8f4fd 100%)" }}>
+        <div className="svc-wrap-narrow" style={{ textAlign: "center" }}>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <p style={{ fontFamily: FONT, fontSize: 39, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 14, fontWeight: 600 }}>
+            <p className="svc-label" style={{ color: "#185FA5" }}>
               <span style={{ display: "block", width: 36, height: "0.5px", background: "#185FA5" }} />Who We Are<span style={{ display: "block", width: 36, height: "0.5px", background: "#185FA5" }} />
             </p>
-            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2.4rem,4vw,4rem)", fontWeight: 600, color: "#042C53", marginBottom: 24, lineHeight: 1.15 }}>
+            <h2 className="svc-h2" style={{ fontFamily: FONT, fontWeight: 600, color: "#042C53", marginBottom: 22, lineHeight: 1.15 }}>
               Not a General Architecture Firm.<br /><em style={{ fontStyle: "italic", color: "#185FA5" }}>A Dedicated Healthcare Infrastructure Partner.</em>
             </h2>
-            <p style={{ fontFamily: FONT, fontSize: 18, lineHeight: 1.95, color: "#0a1a2a", marginBottom: 16, fontWeight: 400 }}>
+            <p className="svc-intro-p" style={{ fontFamily: FONT, lineHeight: 1.95, color: "#0a1a2a", marginBottom: 14, fontWeight: 400 }}>
               Whether you are a doctor planning your first hospital, a healthcare investor building a multispeciality facility, or an existing hospital looking to expand, renovate, or achieve compliance accreditation, ARCHORA delivers the complete infrastructure solution under one roof.
             </p>
-            <p style={{ fontFamily: FONT, fontSize: 18, lineHeight: 1.95, color: "#0a1a2a", fontWeight: 400 }}>
+            <p className="svc-intro-p" style={{ fontFamily: FONT, lineHeight: 1.95, color: "#0a1a2a", fontWeight: 400 }}>
               We combine clinical planning knowledge, regulatory compliance expertise, and full-scale execution capability to deliver facilities that are <strong style={{ color: "#042C53", fontWeight: 600 }}>safe, efficient, and future-ready.</strong>
             </p>
           </motion.div>
@@ -512,23 +661,23 @@ export function Services() {
       </section>
 
       {/* ── Services Grid ── */}
-      <section id="services-grid" style={{ background: "linear-gradient(170deg,#040e1a 0%,#071e30 55%,#04141f 100%)", padding: "7rem 0", position: "relative" }}>
+      <section id="services-grid" className="svc-section-py-lg" style={{ background: "linear-gradient(170deg,#040e1a 0%,#071e30 55%,#04141f 100%)", position: "relative" }}>
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "900px", height: "900px", borderRadius: "50%", background: "radial-gradient(circle, rgba(75,209,217,0.03) 0%, transparent 65%)", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 3rem", position: "relative", zIndex: 1 }}>
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "4.5rem" }}>
-            <p style={{ fontFamily: FONT, fontSize: 39, letterSpacing: "3px", textTransform: "uppercase", color: "rgba(75,209,217,0.6)", marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 14, fontWeight: 600 }}>
+        <div className="svc-wrap" style={{ position: "relative", zIndex: 1 }}>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "4rem" }}>
+            <p className="svc-label" style={{ color: "rgba(75,209,217,0.6)" }}>
               <span style={{ display: "block", width: 36, height: "0.5px", background: "rgba(75,209,217,0.4)" }} />Our Services<span style={{ display: "block", width: 36, height: "0.5px", background: "rgba(75,209,217,0.4)" }} />
             </p>
-            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2.6rem,4.5vw,4.4rem)", fontWeight: 600, color: "#fff", lineHeight: 1.1, marginBottom: 16 }}>
+            <h2 className="svc-h2-lg" style={{ fontFamily: FONT, fontWeight: 600, color: "#fff", lineHeight: 1.1, marginBottom: 14 }}>
               Every Phase of Healthcare Infrastructure.<br /><em style={{ fontStyle: "italic", color: "#4bccd4" }}>Covered.</em>
             </h2>
-            <p style={{ fontFamily: FONT, fontSize: 18, color: "rgba(255,255,255,0.90)", maxWidth: 540, margin: "0 auto", lineHeight: 1.85, fontWeight: 400 }}>
+            <p className="svc-intro-p" style={{ fontFamily: FONT, color: "rgba(255,255,255,0.90)", maxWidth: 540, margin: "0 auto", lineHeight: 1.85, fontWeight: 400 }}>
               Our services cover every phase of healthcare infrastructure development, from feasibility and design to construction, equipping, and commissioning.
             </p>
           </motion.div>
 
-          <div className="service-card-grid">
+          <div className="svc-card-grid">
             {services.map((service, i) => (
               <ServiceCard
                 key={service.id}
@@ -549,25 +698,25 @@ export function Services() {
       </section>
 
       {/* ── How We Work ── */}
-      <section style={{ background: "linear-gradient(160deg,#ffffff 0%,#daeef9 50%,#e8f4fd 100%)", padding: "7rem 0" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3.5rem" }}>
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "5rem" }}>
-            <p style={{ fontFamily: FONT, fontSize: 39, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 14, fontWeight: 600 }}>
+      <section className="svc-section-py-lg" style={{ background: "linear-gradient(160deg,#ffffff 0%,#daeef9 50%,#e8f4fd 100%)" }}>
+        <div className="svc-wrap" style={{ maxWidth: 1100 }}>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "4rem" }}>
+            <p className="svc-label" style={{ color: "#185FA5" }}>
               <span style={{ display: "block", width: 36, height: "0.5px", background: "#185FA5" }} />Our Process<span style={{ display: "block", width: 36, height: "0.5px", background: "#185FA5" }} />
             </p>
-            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2.4rem,4vw,4rem)", fontWeight: 600, color: "#042C53", lineHeight: 1.15 }}>
+            <h2 className="svc-h2" style={{ fontFamily: FONT, fontWeight: 600, color: "#042C53", lineHeight: 1.15 }}>
               How ARCHORA Delivers<br /><em style={{ fontStyle: "italic", color: "#185FA5" }}>Your Project</em>
             </h2>
           </motion.div>
 
-          <div className="process-grid">
+          <div className="svc-process-grid">
             {processSteps.map((step, i) => (
               <ProcessStep key={step.num} step={step} index={i} />
             ))}
           </div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} style={{ marginTop: "4rem", textAlign: "center" }}>
-            <button onClick={() => navigate("/contact")} style={{ padding: "14px 36px", fontSize: 17, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "linear-gradient(135deg,#042C53,#185FA5)", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }} style={{ marginTop: "3.5rem", textAlign: "center" }}>
+            <button onClick={() => navigate("/contact")} style={{ padding: "13px 32px", fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "linear-gradient(135deg,#042C53,#185FA5)", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }}
               onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "linear-gradient(135deg,#042C53,#185FA5)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>
               Book a Free Consultation
@@ -577,7 +726,7 @@ export function Services() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section style={{ background: "#040e1a", padding: "120px 0", position: "relative", overflow: "hidden" }}>
+      <section className="svc-cta-section svc-section-py-lg" style={{ background: "#040e1a" }}>
         {[700, 500, 320, 180].map((size, i) => (
           <div
             key={size}
@@ -591,35 +740,35 @@ export function Services() {
           />
         ))}
 
-        <div style={{ maxWidth: 700, margin: "0 auto", padding: "0 3rem", textAlign: "center", position: "relative", zIndex: 2 }}>
+        <div className="svc-wrap-narrow" style={{ textAlign: "center", position: "relative", zIndex: 2 }}>
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
-            <p style={{ fontFamily: FONT, fontSize: 39, letterSpacing: "4px", textTransform: "uppercase", color: "rgba(75,204,212,0.5)", marginBottom: 16, display: "flex", alignItems: "center", justifyContent: "center", gap: 14, fontWeight: 600 }}>
+            <p className="svc-label" style={{ color: "rgba(75,204,212,0.5)", marginBottom: 16 }}>
               <span style={{ display: "block", width: 28, height: "0.5px", background: "rgba(75,204,212,0.4)" }} />Not Sure Which Services You Need?<span style={{ display: "block", width: 28, height: "0.5px", background: "rgba(75,204,212,0.4)" }} />
             </p>
-            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2.6rem,4.5vw,4.4rem)", fontWeight: 600, color: "#fff", lineHeight: 1.1, marginBottom: 24 }}>
+            <h2 className="svc-h2-lg" style={{ fontFamily: FONT, fontWeight: 600, color: "#fff", lineHeight: 1.1, marginBottom: 22 }}>
               Ready to Build Your<br /><em style={{ fontStyle: "italic", color: "#4bccd4" }}>Healthcare Facility?</em>
             </h2>
-            <p style={{ fontFamily: FONT, fontSize: 18, color: "rgba(255,255,255,0.90)", lineHeight: 1.9, marginBottom: 48, maxWidth: 520, margin: "0 auto 48px", fontWeight: 400 }}>
+            <p className="svc-intro-p" style={{ fontFamily: FONT, color: "rgba(255,255,255,0.90)", lineHeight: 1.9, marginBottom: 44, maxWidth: 520, margin: "0 auto 44px", fontWeight: 400 }}>
               Most of our clients come to us at different stages of their project journey. Wherever you are, talk to us. We will tell you honestly what you need and what you do not.
             </p>
-            <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-              <button onClick={() => navigate("/contact")} style={{ padding: "14px 32px", fontSize: 17, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }}
+            <div className="svc-cta-btns">
+              <button onClick={() => navigate("/contact")} style={{ padding: "13px 28px", fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>
                 Book a Free Consultation
               </button>
-              <button onClick={() => window.open(WHATSAPP_URL, "_blank")} style={{ padding: "14px 32px", fontSize: 17, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }}
+              <button onClick={() => window.open(WHATSAPP_URL, "_blank")} style={{ padding: "13px 28px", fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>
                 WhatsApp Us
               </button>
-              <button onClick={() => navigate("/contact")} style={{ padding: "14px 32px", fontSize: 17, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }}
+              <button onClick={() => navigate("/contact")} style={{ padding: "13px 28px", fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>
                 Send an Enquiry →
               </button>
             </div>
-            <p style={{ fontFamily: FONT, fontSize: 16, color: "rgba(255,255,255,0.18)", marginTop: 28, letterSpacing: "0.1em", fontWeight: 400 }}>
+            <p style={{ fontFamily: FONT, fontSize: "clamp(12px, 1.2vw, 16px)", color: "rgba(255,255,255,0.18)", marginTop: 28, letterSpacing: "0.1em", fontWeight: 400 }}>
               No obligation · No sales pressure · Talk to our team today. Just clarity.
             </p>
           </motion.div>

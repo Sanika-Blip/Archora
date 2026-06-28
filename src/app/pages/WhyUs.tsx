@@ -235,6 +235,199 @@ export function WhyUs() {
         <style>{`
           @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
           @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+          /* ============ RESPONSIVE LAYOUT RULES ============ */
+
+          /* Page-wide horizontal padding wrappers — fixed 80px sides crush
+             content on tablet/phone, same scaling as Home's .home-wrap. */
+          .why-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 80px;
+            box-sizing: border-box;
+            position: relative;
+          }
+          @media (max-width: 1024px) {
+            .why-wrap { padding: 0 48px; }
+          }
+          @media (max-width: 640px) {
+            .why-wrap { padding: 0 24px; }
+          }
+
+          .why-narrow-wrap {
+            margin: 0 auto;
+            padding: 0 80px;
+            box-sizing: border-box;
+            position: relative;
+          }
+          @media (max-width: 1024px) {
+            .why-narrow-wrap { padding: 0 48px; }
+          }
+          @media (max-width: 640px) {
+            .why-narrow-wrap { padding: 0 24px; }
+          }
+
+          /* Hero: fixed top/side/bottom padding crowds the headline on phones */
+          .why-hero-inner {
+            padding: 160px 80px 90px;
+          }
+          @media (max-width: 1024px) {
+            .why-hero-inner { padding: 140px 48px 72px; }
+          }
+          @media (max-width: 640px) {
+            .why-hero-inner { padding: 120px 24px 64px; }
+          }
+
+          .why-hero-headline {
+            font-size: clamp(2.1rem, 4.5vw, 4.4rem);
+          }
+
+          /* Section heading rows: heading + right-aligned blurb side by side
+             collapse to stacked, left-aligned text below ~760px. */
+          .why-heading-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 40px;
+          }
+          @media (max-width: 760px) {
+            .why-heading-row {
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 20px;
+            }
+            .why-heading-row p {
+              text-align: left !important;
+              max-width: 100% !important;
+            }
+          }
+
+          /* Pillars: 4 equal columns with vertical dividers -> 2 -> 1,
+             dropping the right-border divider once columns stack. */
+          .why-pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid rgba(75,204,212,0.08);
+          }
+          @media (max-width: 900px) {
+            .why-pillars-grid { grid-template-columns: repeat(2, 1fr); }
+          }
+          @media (max-width: 480px) {
+            .why-pillars-grid { grid-template-columns: 1fr; }
+          }
+          .why-pillar-cell {
+            padding: 48px 36px 44px;
+          }
+          @media (max-width: 900px) {
+            .why-pillar-cell { padding: 36px 28px 32px; }
+          }
+          @media (max-width: 480px) {
+            .why-pillar-cell {
+              padding: 32px 22px 28px;
+              border-right: none !important;
+              border-bottom: 1px solid rgba(75,204,212,0.08);
+            }
+          }
+
+          .why-pillars-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+          }
+
+          /* Comparison table: 3-column grid is far too tight under ~600px,
+             so collapse each row into a stacked card layout. */
+          .why-compare-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+          }
+          @media (max-width: 600px) {
+            .why-compare-header { display: none; }
+          }
+          .why-compare-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+          }
+          @media (max-width: 600px) {
+            .why-compare-row {
+              grid-template-columns: 1fr;
+              border: 1px solid rgba(27,108,168,0.12);
+              margin-bottom: 10px !important;
+            }
+            .why-compare-row > div {
+              border-bottom: none !important;
+              padding: 12px 16px !important;
+            }
+            .why-compare-row > div:first-child {
+              background: rgba(27,108,168,0.04);
+              font-weight: 600;
+            }
+          }
+
+          .why-compare-cta-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+          }
+
+          /* Who-we-serve: 3-col audience grid -> 1 col on phone */
+          .why-audiences-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(75,204,212,0.06);
+          }
+          @media (max-width: 760px) {
+            .why-audiences-grid { grid-template-columns: 1fr; }
+          }
+
+          /* FAQ + Privacy tab toggle row wraps under heading on phones */
+          .why-faq-header-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 24px;
+          }
+
+          /* FAQ / Privacy two-column layout: 260px fixed sidebar + sticky
+             positioning is unusable on mobile, so stack and drop sticky. */
+          .why-faq-cols {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 40px;
+            align-items: start;
+          }
+          @media (max-width: 800px) {
+            .why-faq-cols { grid-template-columns: 1fr; gap: 24px; }
+          }
+
+          .why-faq-sidebar {
+            position: sticky;
+            top: 100px;
+          }
+          @media (max-width: 800px) {
+            .why-faq-sidebar {
+              position: static;
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+            }
+            .why-faq-sidebar button {
+              width: auto !important;
+              flex: 1 1 auto;
+            }
+          }
+
+          /* FAQ category quick-jump pill row + question topic chips already
+             wrap via inline flexWrap, just tighten gap on phones */
+          @media (max-width: 480px) {
+            .why-faq-chip-row { gap: 6px !important; }
+          }
         `}</style>
 
         {/* ══════════════════════════════════════
@@ -258,8 +451,7 @@ export function WhyUs() {
               animation: `${i%2===0?"spinCW":"spinCCW"} ${70-i*15}s linear infinite`,
               willChange: "transform" }}/>
           ))}
-          <div style={{ position:"relative", maxWidth:1280, margin:"0 auto",
-            padding:"160px 80px 90px", zIndex:10 }}>
+          <div className="why-wrap why-hero-inner" style={{ maxWidth:1280, zIndex:10 }}>
             <motion.div initial={{ opacity:0, y:48 }} animate={{ opacity:1, y:0 }}
               transition={{ duration:1, ease:[0.22,1,0.36,1] }} style={{ maxWidth:720 }}>
               <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:28 }}>
@@ -268,7 +460,7 @@ export function WhyUs() {
                   Healthcare Infrastructure Partner · India
                 </span>
               </div>
-              <h1 style={{ fontSize:"clamp(2.6rem, 4.5vw, 4.4rem)", color:C.white, lineHeight:1.1,
+              <h1 className="why-hero-headline" style={{ color:C.white, lineHeight:1.1,
                 marginBottom:24, fontFamily:"Calibri, Arial, sans-serif", fontWeight:600 }}>
                 Most Hospital Projects<br />Go Wrong Before<br />
                 <em style={{ color:C.teal }}>a Single Brick Is Laid.</em>
@@ -301,11 +493,11 @@ export function WhyUs() {
             2. PILLARS, deep dark #060f1e
         ══════════════════════════════════════ */}
         <section style={{ background:C.dark, padding:"120px 0", position:"relative", overflow:"hidden" }}>
-          <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 80px", position:"relative" }}>
+          <div className="why-wrap">
             <motion.div initial={{ opacity:0, y:32 }} whileInView={{ opacity:1, y:0 }}
               viewport={{ once:true }} transition={{ duration:0.8 }}
-              style={{ display:"flex", alignItems:"flex-end", justifyContent:"space-between",
-                marginBottom:80, borderBottom:"1px solid rgba(75,204,212,0.1)", paddingBottom:40 }}>
+              className="why-heading-row"
+              style={{ marginBottom:80, borderBottom:"1px solid rgba(75,204,212,0.1)", paddingBottom:40 }}>
               <div>
                 <SectionLabel text="Why ARCHORA" light/>
                 <h2 style={{ color:C.white, fontSize:"clamp(2rem,3.2vw,2.8rem)", fontWeight:400, margin:0,
@@ -319,14 +511,14 @@ export function WhyUs() {
               </p>
             </motion.div>
 
-            <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)",
-              borderTop:"1px solid rgba(75,204,212,0.08)" }}>
+            <div className="why-pillars-grid">
               {pillars.map((p, i) => (
                 <motion.div key={i}
                   initial={{ opacity:0, y:40 }} whileInView={{ opacity:1, y:0 }}
                   viewport={{ once:true, margin:"-40px" }}
                   transition={{ duration:0.7, delay:i*0.12 }}
-                  style={{ padding:"48px 36px 44px",
+                  className="why-pillar-cell"
+                  style={{
                     borderRight: i < 3 ? "1px solid rgba(75,204,212,0.08)" : "none",
                     position:"relative", cursor:"default", transition:"background 0.4s ease" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = "rgba(75,204,212,0.04)"; }}
@@ -352,8 +544,8 @@ export function WhyUs() {
 
             <motion.div initial={{ opacity:0 }} whileInView={{ opacity:1 }}
               viewport={{ once:true }} transition={{ duration:0.8, delay:0.4 }}
-              style={{ borderTop:"1px solid rgba(75,204,212,0.08)", padding:"28px 0 0",
-                display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:16 }}>
+              className="why-pillars-footer"
+              style={{ borderTop:"1px solid rgba(75,204,212,0.08)", padding:"28px 0 0" }}>
               <p style={{ color:"rgba(255,255,255,0.35)", fontSize:14, fontFamily:"Calibri, Arial, sans-serif",
                 letterSpacing:"0.12em", margin:0 }}>
                 Headquartered in Thane · Pan-India delivery · Healthcare only since founding
@@ -372,12 +564,12 @@ export function WhyUs() {
             3. COMPARISON, cream light
         ══════════════════════════════════════ */}
         <section style={{ background:C.creamAlt, padding:"110px 0", position:"relative", overflow:"hidden" }}>
-          <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 80px", position:"relative" }}>
+          <div className="why-wrap">
             <motion.div style={{ marginBottom:64 }}
               initial={{ opacity:0, y:40 }} whileInView={{ opacity:1, y:0 }}
               viewport={{ once:true }} transition={{ duration:0.8 }}>
               <SectionLabel text="The ARCHORA Difference"/>
-              <div style={{ display:"flex", alignItems:"flex-end", justifyContent:"space-between", gap:40 }}>
+              <div className="why-heading-row">
                 <h2 style={{ color:C.navy, fontSize:"clamp(2rem,3.5vw,3rem)", fontWeight:400,
                   fontFamily:"Calibri, Arial, sans-serif", margin:0, lineHeight:1.1 }}>
                   ARCHORA vs.<br /><em>a General Architect.</em>
@@ -393,7 +585,7 @@ export function WhyUs() {
               style={{ overflow:"hidden" }}>
 
               {/* Header */}
-              <div style={{ display:"grid", gridTemplateColumns:"2fr 1fr 1fr", marginBottom:2 }}>
+              <div className="why-compare-header" style={{ marginBottom:2 }}>
                 <div style={{ padding:"14px 0" }}/>
                 <div style={{ padding:"18px 28px", background:C.red, textAlign:"center" }}>
                   <span style={{ color:"rgba(255,255,255,0.9)", fontSize:13, fontFamily:"Calibri, Arial, sans-serif",
@@ -409,7 +601,8 @@ export function WhyUs() {
                 <motion.div key={i}
                   initial={{ opacity:0, x:-20 }} whileInView={{ opacity:1, x:0 }}
                   viewport={{ once:true }} transition={{ duration:0.4, delay:i*0.05 }}
-                  style={{ display:"grid", gridTemplateColumns:"2fr 1fr 1fr", marginBottom:2 }}>
+                  className="why-compare-row"
+                  style={{ marginBottom:2 }}>
                   {/* Attribute */}
                   <div style={{ padding:"20px 24px 20px 0", display:"flex", alignItems:"center",
                     borderBottom:`1px solid rgba(27,108,168,0.1)` }}>
@@ -441,9 +634,8 @@ export function WhyUs() {
             {/* CTA strip below table */}
             <motion.div initial={{ opacity:0 }} whileInView={{ opacity:1 }}
               viewport={{ once:true }} transition={{ duration:0.6, delay:0.3 }}
-              style={{ marginTop:40, padding:"28px 36px",
-                background:C.navy, display:"flex", alignItems:"center",
-                justifyContent:"space-between", flexWrap:"wrap", gap:20 }}>
+              className="why-compare-cta-strip"
+              style={{ marginTop:40, padding:"28px 36px", background:C.navy }}>
               <p style={{ color:"rgba(255,255,255,0.7)", fontSize:16, margin:0, lineHeight:1.6,
                 fontFamily:"Calibri, Arial, sans-serif", fontStyle:"italic", maxWidth:480 }}>
                 "A general architect discovers NABH requirements after construction. ARCHORA builds them in from sketch one."
@@ -462,12 +654,12 @@ export function WhyUs() {
         ══════════════════════════════════════ */}
         <section style={{ background:C.slate, padding:"110px 0", position:"relative", overflow:"hidden" }}>
 
-          <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 80px", position:"relative" }}>
+          <div className="why-wrap">
             <motion.div style={{ marginBottom:72 }}
               initial={{ opacity:0, y:40 }} whileInView={{ opacity:1, y:0 }}
               viewport={{ once:true }} transition={{ duration:0.8 }}>
               <SectionLabel text="Who We Work With" light/>
-              <div style={{ display:"flex", alignItems:"flex-end", justifyContent:"space-between", gap:40 }}>
+              <div className="why-heading-row">
                 <h2 style={{ color:C.white, fontSize:"clamp(1.9rem,3.2vw,3rem)", fontWeight:400,
                   fontFamily:"Calibri, Arial, sans-serif", margin:0, lineHeight:1.1 }}>
                   Built for Every<br /><em style={{ color:C.teal }}>Healthcare Promoter.</em>
@@ -480,8 +672,7 @@ export function WhyUs() {
             </motion.div>
 
             {/* 3-col cards, dark glass style */}
-            <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:1,
-              background:"rgba(75,204,212,0.06)" }}>
+            <div className="why-audiences-grid">
               {audiences.map((a, i) => (
                 <motion.div key={i}
                   initial={{ opacity:0, y:32 }} whileInView={{ opacity:1, y:0 }}
@@ -524,19 +715,19 @@ export function WhyUs() {
             5. FOUNDER QUOTE, cream break
         ══════════════════════════════════════ */}
         <section style={{ background:C.cream, padding:"96px 0", position:"relative", overflow:"hidden" }}>
-          <div style={{ maxWidth:960, margin:"0 auto", padding:"0 80px", textAlign:"center", position:"relative" }}>
+          <div className="why-narrow-wrap" style={{ maxWidth:960, textAlign:"center" }}>
             <motion.div initial={{ opacity:0, y:40 }} whileInView={{ opacity:1, y:0 }}
               viewport={{ once:true }} transition={{ duration:0.9 }}>
               <div style={{ display:"flex", justifyContent:"center", marginBottom:32 }}>
                 <MedicalCross size={28} color={C.blue} opacity={0.4}/>
               </div>
               <blockquote style={{ fontFamily:"Calibri, Arial, sans-serif",
-                fontSize:"clamp(1.7rem,2.8vw,2.6rem)", color:C.navy,
+                fontSize:"clamp(1.5rem,2.8vw,2.6rem)", color:C.navy,
                 fontWeight:400, fontStyle:"italic", lineHeight:1.55, margin:"0 0 32px" }}>
                 "In tier 2 and tier 3 cities across India, brilliant doctors with real vision are hiring general architects
                 and paying for it twice, once for the wrong design and once for the retrofit. That gap is why ARCHORA exists."
               </blockquote>
-              <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:16 }}>
+              <div style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:16, flexWrap:"wrap" }}>
                 <div style={{ width:40, height:1, background:C.blue, opacity:0.3 }}/>
                 <span style={{ color:C.blue, fontSize:13, fontFamily:"Calibri, Arial, sans-serif",
                   letterSpacing:"0.18em", textTransform:"uppercase", opacity:0.7 }}>
@@ -552,13 +743,13 @@ export function WhyUs() {
             6. FAQ + PRIVACY, deep dark
         ══════════════════════════════════════ */}
         <section id="faq" style={{ background:C.dark, padding:"120px 0", position:"relative", overflow:"hidden" }}>
-          <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 80px", position:"relative" }}>
+          <div className="why-wrap">
             <motion.div style={{ marginBottom:56 }}
               initial={{ opacity:0, y:40 }} whileInView={{ opacity:1, y:0 }}
               viewport={{ once:true }} transition={{ duration:0.8 }}>
               <SectionLabel text="Knowledge Centre" light/>
-              <div style={{ display:"flex", alignItems:"flex-end", justifyContent:"space-between", flexWrap:"wrap", gap:24 }}>
-                <h2 style={{ color:C.white, fontSize:"clamp(2rem,3.5vw,3.2rem)", fontWeight:400,
+              <div className="why-faq-header-row">
+                <h2 style={{ color:C.white, fontSize:"clamp(1.9rem,3.5vw,3.2rem)", fontWeight:400,
                   fontFamily:"Calibri, Arial, sans-serif", margin:0, lineHeight:1.1 }}>
                   Everything You Need to Know<br /><em style={{ color:C.teal }}>About Healthcare Infrastructure.</em>
                 </h2>
@@ -591,7 +782,7 @@ export function WhyUs() {
                     <span style={{ position:"absolute", right:20, top:"50%", transform:"translateY(-50%)",
                       color:"rgba(75,204,212,0.4)", fontSize:18, fontFamily:"Calibri, Arial, sans-serif" }}>⌕</span>
                   </div>
-                  <div style={{ display:"flex", flexWrap:"wrap", gap:8, marginBottom:48 }}>
+                  <div className="why-faq-chip-row" style={{ display:"flex", flexWrap:"wrap", gap:8, marginBottom:48 }}>
                     {faqSections.map(s => (
                       <button key={s.id}
                         onClick={() => { setFaqSearch(""); document.getElementById(`faq-${s.id}`)?.scrollIntoView({ behavior:"smooth", block:"start" }); }}
@@ -604,8 +795,8 @@ export function WhyUs() {
                       >{s.label}</button>
                     ))}
                   </div>
-                  <div style={{ display:"grid", gridTemplateColumns:"260px 1fr", gap:40, alignItems:"start" }}>
-                    <div style={{ position:"sticky", top:100 }}>
+                  <div className="why-faq-cols">
+                    <div className="why-faq-sidebar">
                       {faqSections.map(s => (
                         <button key={s.id} onClick={() => { setActiveSection(s.id); setFaqSearch(""); }}
                           style={{ display:"block", width:"100%", textAlign:"left",
@@ -634,7 +825,7 @@ export function WhyUs() {
                           ))}
                           <div style={{ marginTop:24, padding:"14px 20px",
                             background:"rgba(75,204,212,0.04)", border:"1px solid rgba(75,204,212,0.1)",
-                            display:"flex", alignItems:"center", justifyContent:"space-between" }}>
+                            display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:12 }}>
                             <span style={{ color:"rgba(255,255,255,0.5)", fontSize:15 }}>Still have questions?</span>
                             <button onClick={() => navigate("/contact")} style={{ padding:"8px 18px", background:"transparent",
                               color:"rgba(75,204,212,0.75)", border:"1px solid rgba(75,204,212,0.25)",
@@ -653,10 +844,10 @@ export function WhyUs() {
               {activeTab === "privacy" && (
                 <motion.div key="privacy" initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }}
                   exit={{ opacity:0, y:-20 }} transition={{ duration:0.4 }}>
-                  <div style={{ display:"grid", gridTemplateColumns:"260px 1fr", gap:40, alignItems:"start" }}>
-                    <div style={{ position:"sticky", top:100 }}>
+                  <div className="why-faq-cols">
+                    <div className="why-faq-sidebar">
                       <p style={{ color:"rgba(75,204,212,0.6)", fontSize:13, letterSpacing:"0.22em",
-                        textTransform:"uppercase", fontFamily:"Calibri, Arial, sans-serif", marginBottom:16 }}>Contents</p>
+                        textTransform:"uppercase", fontFamily:"Calibri, Arial, sans-serif", marginBottom:16, width:"100%" }}>Contents</p>
                       {privacySections.map(s => (
                         <button key={s.num}
                           onClick={() => document.getElementById(`privacy-${s.num}`)?.scrollIntoView({ behavior:"smooth", block:"start" })}
@@ -671,7 +862,7 @@ export function WhyUs() {
                         </button>
                       ))}
                       <div style={{ marginTop:20, padding:"14px", background:"rgba(75,204,212,0.04)",
-                        border:"1px solid rgba(75,204,212,0.1)" }}>
+                        border:"1px solid rgba(75,204,212,0.1)", width:"100%", boxSizing:"border-box" }}>
                         <p style={{ color:"rgba(75,204,212,0.6)", fontSize:12, fontFamily:"Calibri, Arial, sans-serif",
                           letterSpacing:"0.12em", margin:"0 0 4px" }}>LAST UPDATED</p>
                         <p style={{ color:"rgba(255,255,255,0.6)", fontSize:14, margin:0 }}>May 2025</p>
@@ -730,12 +921,11 @@ export function WhyUs() {
                 animation: `${i%2===0?"spinCW":"spinCCW"} ${60+i*20}s linear infinite`,
                 willChange: "transform" }}/>
           ))}
-          <div style={{ maxWidth:720, margin:"0 auto", padding:"0 80px",
-            textAlign:"center", position:"relative", zIndex:10 }}>
+          <div className="why-narrow-wrap" style={{ maxWidth:720, textAlign:"center", zIndex:10 }}>
             <motion.div initial={{ opacity:0, y:40 }} whileInView={{ opacity:1, y:0 }}
               viewport={{ once:true }} transition={{ duration:0.9 }}>
               <SectionLabel text="Get In Touch" light/>
-              <h2 style={{ color:C.white, fontSize:"clamp(2.2rem,4.5vw,3.6rem)",
+              <h2 style={{ color:C.white, fontSize:"clamp(2rem,4.5vw,3.6rem)",
                 marginBottom:24, fontWeight:400, lineHeight:1.1,
                 fontFamily:"Calibri, Arial, sans-serif" }}>
                 Your Hospital Project Deserves<br /><em style={{ color:C.teal }}>Specialists. Not Generalists.</em>

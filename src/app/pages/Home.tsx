@@ -239,7 +239,7 @@ function SectionLabel({ text, light = false }: { text: string; light?: boolean }
       <span style={{ width: 28, height: 1, background: light ? "rgba(75,204,212,0.6)" : C.blue, display: "block" }} />
       <span style={{
         fontFamily: FONT,
-        fontSize: 29,
+        fontSize: 13,
         letterSpacing: "0.28em",
         textTransform: "uppercase",
         color: light ? "rgba(75,204,212,0.7)" : C.blue,
@@ -281,12 +281,201 @@ export function Home() {
         <style>{`
           @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
           @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+          /* ============ RESPONSIVE LAYOUT RULES ============ */
+
+          /* Section wrappers: fixed 80px side padding crushed mobile content.
+             Scale padding down at tablet and phone widths. */
+          .home-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 80px;
+            box-sizing: border-box;
+          }
+          @media (max-width: 1024px) {
+            .home-wrap { padding: 0 48px; }
+          }
+          @media (max-width: 640px) {
+            .home-wrap { padding: 0 24px; }
+          }
+
+          /* Two-column split sections (Problem, Who We Are): stack on tablet/phone */
+          .home-split-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+          }
+          @media (max-width: 900px) {
+            .home-split-2 {
+              grid-template-columns: 1fr;
+              gap: 56px;
+            }
+          }
+
+          /* 3-column mini-stat row inside Who We Are */
+          .home-stat-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+          }
+          @media (max-width: 520px) {
+            .home-stat-3 {
+              grid-template-columns: 1fr;
+              gap: 20px;
+            }
+          }
+
+          /* Metrics strip: 4 columns -> 2 -> 1 */
+          .home-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+          }
+          @media (max-width: 760px) {
+            .home-metrics-grid {
+              grid-template-columns: repeat(2, 1fr);
+              row-gap: 36px;
+            }
+          }
+          @media (max-width: 420px) {
+            .home-metrics-grid {
+              grid-template-columns: 1fr;
+            }
+          }
+          .home-metric-cell {
+            text-align: center;
+            padding: 0 32px;
+          }
+          @media (max-width: 760px) {
+            .home-metric-cell { padding: 0 12px; }
+          }
+          .home-metric-cell.has-border {
+            border-right: 1px solid rgba(255,255,255,0.18);
+          }
+          @media (max-width: 760px) {
+            .home-metric-cell.has-border { border-right: none; }
+          }
+
+          /* Services grid: 2 columns -> 1 on mobile */
+          .home-services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: rgba(75,204,212,0.06);
+          }
+          @media (max-width: 760px) {
+            .home-services-grid {
+              grid-template-columns: 1fr;
+            }
+          }
+
+          /* Hero content area: free-floating absolute nav dots / slide label
+             collide with heading text on narrow screens, so hide/reflow them. */
+          .home-hero-side-dots {
+            position: absolute;
+            left: 32px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            z-index: 20;
+          }
+          @media (max-width: 760px) {
+            .home-hero-side-dots { display: none; }
+          }
+
+          .home-hero-slide-label {
+            position: absolute;
+            top: 88px;
+            right: 32px;
+            z-index: 20;
+          }
+          @media (max-width: 760px) {
+            .home-hero-slide-label { top: 20px; right: 16px; }
+          }
+          @media (max-width: 480px) {
+            .home-hero-slide-label { display: none; }
+          }
+
+          .home-hero-content {
+            position: relative;
+            height: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 80px;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+            box-sizing: border-box;
+          }
+          @media (max-width: 1024px) {
+            .home-hero-content { padding: 0 48px; }
+          }
+          @media (max-width: 640px) {
+            .home-hero-content { padding: 0 24px; }
+          }
+
+          .home-hero-inner {
+            max-width: 680px;
+          }
+
+          .home-hero-headline {
+            font-size: clamp(2.1rem, 7vw, 4.4rem);
+          }
+
+          /* About image frame: decorative offset border + corner brackets add
+             extra box dimensions beyond the image — contain them on mobile. */
+          .home-about-frame {
+            position: relative;
+          }
+          .home-about-offset-border {
+            position: absolute;
+            top: -16px;
+            left: -16px;
+            right: 16px;
+            bottom: 16px;
+            border: 1px solid rgba(27,108,168,0.2);
+          }
+          @media (max-width: 640px) {
+            .home-about-offset-border { top: -8px; left: -8px; right: 8px; bottom: 8px; }
+          }
+          .home-about-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+          }
+          @media (max-width: 760px) {
+            .home-about-img { height: 360px; }
+          }
+          @media (max-width: 480px) {
+            .home-about-img { height: 280px; }
+          }
+
+          /* Bottom carousel controls: tighten on phone so arrows don't crowd dots */
+          .home-carousel-controls {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 20;
+            max-width: calc(100% - 32px);
+          }
+          @media (max-width: 480px) {
+            .home-carousel-controls { gap: 8px; bottom: 16px; }
+          }
         `}</style>
 
         {/* ══════════════════════════════════════════
             HERO, IMMERSIVE CAROUSEL
         ══════════════════════════════════════════ */}
-        <section ref={heroRef} aria-label="Hero" style={{ position: "relative", height: "100vh", minHeight: 700, overflow: "hidden" }}>
+        <section ref={heroRef} aria-label="Hero" style={{ position: "relative", height: "100vh", minHeight: 560, overflow: "hidden" }}>
 
           <AnimatePresence initial={false} custom={direction} mode="sync">
             <motion.div
@@ -311,8 +500,8 @@ export function Home() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Left nav dots */}
-          <div style={{ position: "absolute", left: 32, top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 12, zIndex: 20 }}>
+          {/* Left nav dots — hidden on mobile, see .home-hero-side-dots */}
+          <div className="home-hero-side-dots">
             <div style={{ width: 1, height: 80, background: "rgba(255,255,255,0.12)" }} />
             {heroSlides.map((_, i) => (
               <button
@@ -331,7 +520,7 @@ export function Home() {
           </div>
 
           {/* Slide label top right */}
-          <div style={{ position: "absolute", top: 88, right: 32, zIndex: 20 }}>
+          <div className="home-hero-slide-label">
             <AnimatePresence mode="wait">
               <motion.span
                 key={heroIndex}
@@ -342,7 +531,7 @@ export function Home() {
                   fontSize: 12, letterSpacing: "0.28em", textTransform: "uppercase",
                   color: "rgba(255,255,255,0.92)", fontFamily: FONT,
                   border: "1px solid rgba(255,255,255,0.15)", padding: "6px 14px",
-                  backdropFilter: "blur(8px)",
+                  backdropFilter: "blur(8px)", whiteSpace: "nowrap",
                 }}
               >
                 {heroSlides[heroIndex].label}
@@ -351,8 +540,8 @@ export function Home() {
           </div>
 
           {/* Main hero content */}
-          <div style={{ position: "relative", height: "100%", maxWidth: 1280, margin: "0 auto", padding: "0 80px", display: "flex", alignItems: "center", zIndex: 10 }}>
-            <div style={{ maxWidth: 680 }}>
+          <div className="home-hero-content">
+            <div className="home-hero-inner">
               <motion.div
                 style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
@@ -374,7 +563,7 @@ export function Home() {
                 initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <span style={{ color: "rgba(255,255,255,0.90)", fontSize: 15, fontWeight: 700, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: FONT }}>
+                <span style={{ color: "rgba(255,255,255,0.90)", fontSize: 13, fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase", fontFamily: FONT }}>
                   Healthcare Infrastructure Partner
                 </span>
               </motion.div>
@@ -382,13 +571,14 @@ export function Home() {
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={heroIndex}
+                  className="home-hero-headline"
                   initial={{ opacity: 0, y: 36, clipPath: "inset(100% 0 0 0)" }}
                   animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
                   exit={{ opacity: 0, y: -24 }}
                   transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                   style={{
-                    fontSize: "clamp(2.6rem, 4.5vw, 4.4rem)", color: C.white,
-                    marginBottom: 24, lineHeight: 1.06,
+                    color: C.white,
+                    marginBottom: 24, lineHeight: 1.1,
                     fontFamily: FONT, fontWeight: 600,
                     letterSpacing: "-0.01em",
                   }}
@@ -399,7 +589,7 @@ export function Home() {
 
               <motion.p
                 key={`sub-${heroIndex}`}
-                style={{ fontSize: 18, color: "#ffffff", marginBottom: 44, lineHeight: 1.75, maxWidth: 520, fontFamily: FONT, fontWeight: 400 }}
+                style={{ fontSize: 16, color: "#ffffff", marginBottom: 36, lineHeight: 1.75, maxWidth: 520, fontFamily: FONT, fontWeight: 400 }}
                 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.4 }}
               >
@@ -416,7 +606,7 @@ export function Home() {
               </motion.div>
 
               <motion.p
-                style={{ marginTop: 20, fontSize: 13, color: "rgba(255,255,255,0.25)", letterSpacing: "0.12em", fontFamily: FONT }}
+                style={{ marginTop: 20, fontSize: 12, color: "rgba(255,255,255,0.25)", letterSpacing: "0.1em", fontFamily: FONT }}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}
               >
                 No obligation · No sales pressure · Honest expert advice
@@ -425,7 +615,7 @@ export function Home() {
           </div>
 
           {/* Bottom carousel controls */}
-          <div style={{ position: "absolute", bottom: 36, left: "50%", transform: "translateX(-50%)", display: "flex", alignItems: "center", gap: 12, zIndex: 20 }}>
+          <div className="home-carousel-controls">
             <NavBtn onClick={prev} aria-label="Previous slide">‹</NavBtn>
             <div style={{ display: "flex", gap: 6 }} role="tablist" aria-label="Slide navigation">
               {heroSlides.map((_, i) => (
@@ -476,13 +666,13 @@ export function Home() {
         {/* ══════════════════════════════════════════
             PROBLEM SECTION
         ══════════════════════════════════════════ */}
-        <section aria-labelledby="problem-heading" style={{ background: C.navy, padding: "120px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", position: "relative" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "center" }}>
+        <section aria-labelledby="problem-heading" style={{ background: C.navy, padding: "80px 0", position: "relative", overflow: "hidden" }}>
+          <div className="home-wrap">
+            <div className="home-split-2">
 
               <motion.div {...fadeUp}>
                 <SectionLabel text="The Problem We Solve" light  />
-                <h2 id="problem-heading" style={{ color: C.white, fontSize: "clamp(2.1rem, 3.6vw, 3.4rem)", lineHeight: 1.12, marginBottom: 32, fontWeight: 400, fontFamily: FONT }}>
+                <h2 id="problem-heading" style={{ color: C.white, fontSize: "clamp(1.9rem, 5vw, 3.4rem)", lineHeight: 1.18, marginBottom: 28, fontWeight: 400, fontFamily: FONT }}>
                   Most Healthcare Facilities in India Are Built by the Wrong Team
                 </h2>
 
@@ -490,18 +680,18 @@ export function Home() {
                   "Building a hospital is not the same as building a commercial space. Clinical workflows, infection control, regulatory compliance, patient safety, and 24×7 operational demands make healthcare construction one of the most specialised disciplines in the built environment.",
                   "Yet most hospitals in India are designed by general architects, built by general contractors, and coordinated by promoters left managing 15 different vendors on their own.",
                 ].map((text, i) => (
-                  <p key={i} style={{ color: "rgba(255,255,255,0.95)", lineHeight: 1.85, marginBottom: 18, fontSize: 17, fontWeight: 400, fontFamily: FONT }}>{text}</p>
+                  <p key={i} style={{ color: "rgba(255,255,255,0.95)", lineHeight: 1.85, marginBottom: 18, fontSize: 16, fontWeight: 400, fontFamily: FONT }}>{text}</p>
                 ))}
 
                 <div style={{ borderLeft: `3px solid ${C.red}`, paddingLeft: 20, marginBottom: 32, marginTop: 28 }}>
-                  <p style={{ color: "rgba(192,57,43,0.85)", lineHeight: 1.8, fontStyle: "italic", margin: 0, fontSize: 17, fontWeight: 400, fontFamily: FONT }}>
+                  <p style={{ color: "rgba(192,57,43,0.85)", lineHeight: 1.8, fontStyle: "italic", margin: 0, fontSize: 16, fontWeight: 400, fontFamily: FONT }}>
                     Facilities that fail NABH audits. Departments that don't function as clinicians need. Projects that run over budget and time.
                   </p>
                 </div>
 
-                <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "20px 24px", background: "rgba(75,204,212,0.06)", border: "1px solid rgba(75,204,212,0.15)" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "18px 20px", background: "rgba(75,204,212,0.06)", border: "1px solid rgba(75,204,212,0.15)" }}>
                   <MedicalCross size={22} color={C.teal} opacity={0.7} />
-                  <p style={{ color: C.teal, fontStyle: "italic", fontSize: 18, margin: 0, opacity: 0.85, fontWeight: 400, fontFamily: FONT }}>ARCHORA was founded to change that.</p>
+                  <p style={{ color: C.teal, fontStyle: "italic", fontSize: 16, margin: 0, opacity: 0.85, fontWeight: 400, fontFamily: FONT }}>ARCHORA was founded to change that.</p>
                 </div>
               </motion.div>
 
@@ -510,7 +700,7 @@ export function Home() {
                 initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div style={{ position: "relative", border: `1px solid rgba(75,204,212,0.15)`, padding: 32, background: "rgba(75,204,212,0.02)" }}>
+                <div style={{ position: "relative", border: `1px solid rgba(75,204,212,0.15)`, padding: 24, background: "rgba(75,204,212,0.02)" }}>
                   <div style={{ position: "absolute", top: -1, left: -1, width: 40, height: 40, borderLeft: `2px solid ${C.teal}`, borderTop: `2px solid ${C.teal}`, opacity: 0.5 }} />
                   <div style={{ position: "absolute", bottom: -1, right: -1, width: 40, height: 40, borderRight: `2px solid ${C.teal}`, borderBottom: `2px solid ${C.teal}`, opacity: 0.5 }} />
                   <svg viewBox="0 0 440 380" style={{ width: "100%" }} xmlns="http://www.w3.org/2000/svg" aria-label="Hospital schematic floor plan">
@@ -555,52 +745,52 @@ export function Home() {
         {/* ══════════════════════════════════════════
             WHO WE ARE
         ══════════════════════════════════════════ */}
-        <section aria-labelledby="whoweare-heading" style={{ background: C.cream, padding: "120px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "center" }}>
+        <section aria-labelledby="whoweare-heading" style={{ background: C.cream, padding: "80px 0", position: "relative", overflow: "hidden" }}>
+          <div className="home-wrap">
+            <div className="home-split-2">
               <motion.div
                 initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
                 <SectionLabel text="Who We Are" />
-                <h2 id="whoweare-heading" style={{ color: C.navy, fontSize: "clamp(2.1rem, 3.6vw, 3.4rem)", lineHeight: 1.12, marginBottom: 28, fontWeight: 400, fontFamily: FONT }}>
+                <h2 id="whoweare-heading" style={{ color: C.navy, fontSize: "clamp(1.9rem, 5vw, 3.4rem)", lineHeight: 1.18, marginBottom: 24, fontWeight: 400, fontFamily: FONT }}>
                   A Team That Works Exclusively in Healthcare Infrastructure
                 </h2>
-                <p style={{ color: "#111111", lineHeight: 1.85, marginBottom: 18, fontSize: 17, fontWeight: 400, fontFamily: FONT }}>
+                <p style={{ color: "#111111", lineHeight: 1.85, marginBottom: 18, fontSize: 16, fontWeight: 400, fontFamily: FONT }}>
                   ARCHORA is not a general architecture or construction firm that also takes healthcare projects. Every architect, every engineer, and every project manager works exclusively on healthcare facilities.
                 </p>
-                <p style={{ color: "#111111", lineHeight: 1.85, marginBottom: 36, fontSize: 17, fontWeight: 400, fontFamily: FONT }}>
+                <p style={{ color: "#111111", lineHeight: 1.85, marginBottom: 32, fontSize: 16, fontWeight: 400, fontFamily: FONT }}>
                   This focus means we understand the compliance standards, the clinical workflows, the infection control requirements, and the operational realities that make healthcare infrastructure different from every other building type.
                 </p>
 
-                <div style={{ display: "flex", alignItems: "center", gap: 14, padding: "18px 22px", background: C.navy, marginBottom: 40 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 14, padding: "16px 20px", background: C.navy, marginBottom: 36 }}>
                   <div style={{ width: 2, height: 36, background: C.teal, flexShrink: 0 }} />
-                  <p style={{ color: C.teal, fontSize: 18, fontStyle: "italic", margin: 0, opacity: 0.9, lineHeight: 1.5, fontWeight: 400, fontFamily: FONT }}>
+                  <p style={{ color: C.teal, fontSize: 16, fontStyle: "italic", margin: 0, opacity: 0.9, lineHeight: 1.5, fontWeight: 400, fontFamily: FONT }}>
                     One team. One point of accountability. From concept to commissioning.
                   </p>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }}>
+                <div className="home-stat-3">
                   {[["20+", "Years Collective Experience"], ["Pan India", "Delivery"], ["NHS-Level", "UK Expertise"]].map(([val, lbl]) => (
                     <div key={lbl} style={{ borderTop: `2px solid ${C.blue}`, paddingTop: 14 }}>
-                      <div style={{ fontSize: 24, color: C.navy, fontFamily: FONT, marginBottom: 6, lineHeight: 1, fontWeight: 400 }}>{val}</div>
-                      <p style={{ fontSize: 13, color: "#1a1a1a", textTransform: "uppercase", letterSpacing: "0.14em", lineHeight: 1.5, margin: 0, fontWeight: 400, fontFamily: FONT }}>{lbl}</p>
+                      <div style={{ fontSize: 22, color: C.navy, fontFamily: FONT, marginBottom: 6, lineHeight: 1, fontWeight: 400 }}>{val}</div>
+                      <p style={{ fontSize: 12.5, color: "#1a1a1a", textTransform: "uppercase", letterSpacing: "0.12em", lineHeight: 1.5, margin: 0, fontWeight: 400, fontFamily: FONT }}>{lbl}</p>
                     </div>
                   ))}
                 </div>
               </motion.div>
 
               <motion.div
-                style={{ position: "relative" }}
+                className="home-about-frame"
                 initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div style={{ position: "absolute", top: -16, left: -16, right: 16, bottom: 16, border: `1px solid rgba(27,108,168,0.2)` }} />
+                <div className="home-about-offset-border" />
                 <div style={{ position: "relative", overflow: "hidden" }}>
                   <img
                     src="/images/about/team-at-work.jpg"
                     alt="ARCHORA healthcare infrastructure team at work"
-                    style={{ width: "100%", height: 500, objectFit: "cover", display: "block" }}
+                    className="home-about-img"
                     loading="lazy"
                   />
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(4,28,46,0.4) 0%, transparent 60%)" }} />
@@ -611,9 +801,9 @@ export function Home() {
                 ].map((style, i) => (
                   <div key={i} style={{ position: "absolute", width: 44, height: 44, ...style }} />
                 ))}
-                <div style={{ position: "absolute", bottom: 24, left: 24, background: C.navy, padding: "12px 18px", borderLeft: `3px solid ${C.red}` }}>
-                  <p style={{ color: C.white, fontSize: 16, margin: 0, fontFamily: FONT, fontWeight: 400 }}>Healthcare Only. Always.</p>
-                  <p style={{ color: "rgba(255,255,255,0.90)", fontSize: 13, margin: "4px 0 0", fontFamily: FONT, letterSpacing: "0.1em", fontWeight: 400 }}>Nothing outside infrastructure.</p>
+                <div style={{ position: "absolute", bottom: 16, left: 16, background: C.navy, padding: "10px 16px", borderLeft: `3px solid ${C.red}`, maxWidth: "calc(100% - 32px)" }}>
+                  <p style={{ color: C.white, fontSize: 15, margin: 0, fontFamily: FONT, fontWeight: 400 }}>Healthcare Only. Always.</p>
+                  <p style={{ color: "rgba(255,255,255,0.90)", fontSize: 12, margin: "4px 0 0", fontFamily: FONT, letterSpacing: "0.08em", fontWeight: 400 }}>Nothing outside infrastructure.</p>
                 </div>
               </motion.div>
             </div>
@@ -623,19 +813,19 @@ export function Home() {
         {/* ══════════════════════════════════════════
             METRICS STRIP
         ══════════════════════════════════════════ */}
-        <div style={{ background: C.blue, padding: "56px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 0, position: "relative" }}>
+        <div style={{ background: C.blue, padding: "48px 0", position: "relative", overflow: "hidden" }}>
+          <div className="home-wrap home-metrics-grid">
             {metrics.map((m, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}
-                style={{ textAlign: "center", padding: "0 32px", borderRight: i < 3 ? "1px solid rgba(255,255,255,0.18)" : "none" }}
+                className={`home-metric-cell${i < 3 ? " has-border" : ""}`}
               >
-                <div style={{ fontSize: 48, color: C.white, fontFamily: FONT, lineHeight: 1, marginBottom: 10, fontWeight: 400 }}>
+                <div style={{ fontSize: 40, color: C.white, fontFamily: FONT, lineHeight: 1, marginBottom: 8, fontWeight: 400 }}>
                   <AnimatedCounter to={m.val} suffix={m.suffix} />
                 </div>
-                <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 13, textTransform: "uppercase", letterSpacing: "0.18em", lineHeight: 1.5, margin: 0, fontFamily: FONT, fontWeight: 400 }}>
+                <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 12.5, textTransform: "uppercase", letterSpacing: "0.16em", lineHeight: 1.5, margin: 0, fontFamily: FONT, fontWeight: 400 }}>
                   {m.label}
                 </p>
               </motion.div>
@@ -646,19 +836,19 @@ export function Home() {
         {/* ══════════════════════════════════════════
             SERVICES
         ══════════════════════════════════════════ */}
-        <section aria-labelledby="services-heading" style={{ background: "#0a1628", padding: "120px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", position: "relative" }}>
-            <motion.div style={{ marginBottom: 72, textAlign: "center" }} {...fadeUp}>
+        <section aria-labelledby="services-heading" style={{ background: "#0a1628", padding: "80px 0", position: "relative", overflow: "hidden" }}>
+          <div className="home-wrap">
+            <motion.div style={{ marginBottom: 56, textAlign: "center" }} {...fadeUp}>
               <SectionLabel text="What We Do" light />
-              <h2 id="services-heading" style={{ color: C.white, fontSize: "clamp(2.1rem, 3.6vw, 3.4rem)", fontWeight: 400, fontFamily: FONT, margin: "0 auto 16px" }}>
+              <h2 id="services-heading" style={{ color: C.white, fontSize: "clamp(1.9rem, 5vw, 3.4rem)", fontWeight: 400, fontFamily: FONT, margin: "0 auto 16px" }}>
                 Everything You Need to Design, Build & Deliver
               </h2>
-              <p style={{ color: "rgba(255,255,255,0.90)", maxWidth: 520, margin: "0 auto", lineHeight: 1.75, fontSize: 17, fontWeight: 400, fontFamily: FONT }}>
+              <p style={{ color: "rgba(255,255,255,0.90)", maxWidth: 520, margin: "0 auto", lineHeight: 1.75, fontSize: 16, fontWeight: 400, fontFamily: FONT }}>
                 ARCHORA provides the complete range of healthcare infrastructure services under one roof.
               </p>
             </motion.div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 1, background: "rgba(75,204,212,0.06)" }}>
+            <div className="home-services-grid">
               {services.map((s, i) => (
                 <motion.div
                   key={i}
@@ -669,18 +859,18 @@ export function Home() {
                   tabIndex={0}
                   onClick={() => navigate(s.slug ? `/services/${s.slug}` : "/services")}
                   onKeyDown={e => { if (e.key === "Enter" || e.key === " ") navigate(s.slug ? `/services/${s.slug}` : "/services"); }}
-                  style={{ background: "#0a1628", padding: "36px 36px", cursor: "pointer", transition: "background 0.35s", position: "relative", overflow: "hidden" }}
+                  style={{ background: "#0a1628", padding: "28px 24px", cursor: "pointer", transition: "background 0.35s", position: "relative", overflow: "hidden" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = "#0d1f38"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = "#0a1628"; }}
                 >
-                  <div style={{ display: "flex", alignItems: "flex-start", gap: 20 }}>
-                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, minWidth: 32, paddingTop: 2 }}>
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: 18 }}>
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, minWidth: 28, paddingTop: 2 }}>
                       <span style={{ color: "rgba(75,204,212,0.35)", fontSize: 13, fontFamily: FONT, letterSpacing: "0.05em" }}>{s.num}</span>
                       <div style={{ width: 1, height: 32, background: "rgba(75,204,212,0.15)" }} />
                     </div>
-                    <div>
-                      <h3 style={{ color: C.white, fontSize: 28, marginBottom: 12, fontFamily: FONT, fontWeight: 700, lineHeight: 1.3 }}>{s.title}</h3>
-                      <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 17, lineHeight: 1.75, margin: 0, fontWeight: 400, fontFamily: FONT }}>{s.desc}</p>
+                    <div style={{ minWidth: 0 }}>
+                      <h3 style={{ color: C.white, fontSize: 22, marginBottom: 12, fontFamily: FONT, fontWeight: 700, lineHeight: 1.3 }}>{s.title}</h3>
+                      <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 16, lineHeight: 1.75, margin: 0, fontWeight: 400, fontFamily: FONT }}>{s.desc}</p>
                       <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: C.teal, fontSize: 13, marginTop: 16, letterSpacing: "0.16em", fontFamily: FONT, opacity: 0.75 }}>
                         Learn More <span>→</span>
                       </span>
@@ -695,7 +885,7 @@ export function Home() {
         {/* ══════════════════════════════════════════
             FINAL CTA
         ══════════════════════════════════════════ */}
-        <section aria-labelledby="cta-heading" style={{ background: "#060f1e", padding: "140px 0", position: "relative", overflow: "hidden" }}>
+        <section aria-labelledby="cta-heading" style={{ background: "#060f1e", padding: "96px 0", position: "relative", overflow: "hidden" }}>
           {[800, 600, 420, 280].map((size, i) => (
             <div
               key={size}
@@ -709,16 +899,16 @@ export function Home() {
             />
           ))}
 
-          <div style={{ maxWidth: 800, margin: "0 auto", padding: "0 80px", textAlign: "center", position: "relative", zIndex: 10 }}>
+          <div className="home-wrap" style={{ maxWidth: 800, textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.div {...fadeUp}>
               <SectionLabel text="Get In Touch" light />
 
-              <h2 id="cta-heading" style={{ color: C.white, fontSize: "clamp(2.4rem, 5vw, 4.2rem)", marginBottom: 24, fontWeight: 400, lineHeight: 1.1, fontFamily: FONT }}>
+              <h2 id="cta-heading" style={{ color: C.white, fontSize: "clamp(2rem, 7vw, 4.2rem)", marginBottom: 24, fontWeight: 400, lineHeight: 1.15, fontFamily: FONT }}>
                 Planning a Healthcare Facility?<br />
                 <em style={{ color: C.teal, fontStyle: "italic" }}>Let's Talk.</em>
               </h2>
 
-              <p style={{ color: "rgba(255,255,255,0.42)", marginBottom: 52, lineHeight: 1.85, maxWidth: 520, margin: "0 auto 52px", fontSize: 18, fontWeight: 400, fontFamily: FONT }}>
+              <p style={{ color: "rgba(255,255,255,0.42)", marginBottom: 44, lineHeight: 1.85, maxWidth: 520, margin: "0 auto 44px", fontSize: 16, fontWeight: 400, fontFamily: FONT }}>
                 Whether you are starting from zero or need expert support at any stage, ARCHORA is ready to help you design, build, and deliver infrastructure that works.
               </p>
 
@@ -728,7 +918,7 @@ export function Home() {
                 <HeroBtn onClick={() => navigate("/contact")}>Send an Enquiry →</HeroBtn>
               </div>
 
-              <p style={{ color: "rgba(255,255,255,0.2)", marginTop: 28, fontSize: 14, fontFamily: FONT, letterSpacing: "0.1em", fontWeight: 400 }}>
+              <p style={{ color: "rgba(255,255,255,0.2)", marginTop: 24, fontSize: 13, fontFamily: FONT, letterSpacing: "0.08em", fontWeight: 400 }}>
                 No obligation · No sales pressure · Honest advice from healthcare infrastructure specialists
               </p>
             </motion.div>
@@ -751,7 +941,7 @@ function HeroBtn({ children, primary, style: extraStyle, onClick }: { children: 
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        padding: "14px 32px", fontSize: 14, letterSpacing: "0.18em",
+        padding: "13px 26px", fontSize: 13, letterSpacing: "0.16em",
         textTransform: "uppercase", cursor: "pointer", fontFamily: FONT,
         border: "none", transition: "all 0.25s ease",
         ...(primary ? {
@@ -776,10 +966,10 @@ function NavBtn({ onClick, children, "aria-label": ariaLabel }: { onClick: () =>
       onClick={onClick}
       aria-label={ariaLabel}
       style={{
-        width: 40, height: 40, border: "1px solid rgba(255,255,255,0.2)",
+        width: 36, height: 36, border: "1px solid rgba(255,255,255,0.2)",
         background: "transparent", color: "rgba(255,255,255,0.55)",
         cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
-        backdropFilter: "blur(4px)", fontSize: 22, transition: "all 0.2s",
+        backdropFilter: "blur(4px)", fontSize: 20, transition: "all 0.2s", flexShrink: 0,
       }}
       onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }}
       onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.2)"; (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.55)"; }}

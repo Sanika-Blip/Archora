@@ -1232,29 +1232,158 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
         .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
         .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
         .table-responsive { overflow-x: auto; }
+
+        /* ============ RESPONSIVE LAYOUT RULES ============ */
+
+        /* Page section wrappers — fixed 3rem/3.5rem side padding crushes
+           content on tablet/phone, scale down progressively. */
+        .svc-wrap-3 {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 3rem;
+          box-sizing: border-box;
+        }
+        .svc-wrap-1100 {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 3rem;
+          box-sizing: border-box;
+        }
+        .svc-wrap-1200 {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 3rem;
+          box-sizing: border-box;
+        }
+        .svc-wrap-1100-wide {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 3.5rem;
+          box-sizing: border-box;
+        }
+        .svc-wrap-820 {
+          max-width: 820px;
+          margin: 0 auto;
+          padding: 0 3rem;
+          box-sizing: border-box;
+        }
+        .svc-wrap-680 {
+          max-width: 680px;
+          margin: 0 auto;
+          padding: 0 3rem;
+          box-sizing: border-box;
+          text-align: center;
+        }
+        @media (max-width: 1024px) {
+          .svc-wrap-3, .svc-wrap-1100, .svc-wrap-1200, .svc-wrap-1100-wide, .svc-wrap-820, .svc-wrap-680 {
+            padding-left: 2rem;
+            padding-right: 2rem;
+          }
+        }
+        @media (max-width: 640px) {
+          .svc-wrap-3, .svc-wrap-1100, .svc-wrap-1200, .svc-wrap-1100-wide, .svc-wrap-820, .svc-wrap-680 {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+          }
+        }
+
+        /* Hero: fixed 6rem/5rem/5.5rem padding plus absolute side-dot rail
+           crowd the headline on phones. */
+        .svc-hero-inner {
+          position: relative;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 6rem 5rem 6rem 5.5rem;
+          z-index: 2;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        @media (max-width: 1024px) {
+          .svc-hero-inner { padding: 5.5rem 2.5rem 4.5rem 4.5rem; }
+        }
+        @media (max-width: 760px) {
+          .svc-hero-inner { padding: 6rem 1.5rem 3.5rem 1.5rem; }
+        }
+
+        .svc-hero-side-rail {
+          position: absolute;
+          left: 28px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          z-index: 2;
+        }
+        @media (max-width: 760px) {
+          .svc-hero-side-rail { display: none; }
+        }
+
+        .svc-hero-headline {
+          font-size: clamp(2.1rem, 4.5vw, 4.4rem);
+        }
+
+        /* Who-needs split layout: heading column + bullet column sit side
+           by side via flex-basis, already wraps via flexWrap but tighten
+           gap on phone so it doesn't feel like two unrelated blocks. */
+        .svc-who-needs-row {
+          display: flex;
+          gap: 4rem;
+          flex-wrap: wrap;
+          align-items: flex-start;
+        }
+        @media (max-width: 640px) {
+          .svc-who-needs-row { gap: 2rem; }
+        }
+
+        /* Coverage / why-us / related grids already use auto-fill, but force
+           single column under 420px since minmax(220-320px) can still feel
+           tight against very narrow phones with side padding included. */
+        @media (max-width: 420px) {
+          .service-coverage-grid, .why-grid, .related-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+
         @media (max-width: 768px) {
           .process-timeline { grid-template-columns: 1fr; }
           .service-coverage-grid { grid-template-columns: 1fr; }
         }
-        .cta-btn-primary { padding: 13px 28px; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; font-family: Calibri, 'Calibri', Arial, sans-serif; background: #1b6ca8; color: #fff; border: none; cursor: pointer; transition: all 0.25s; border-radius: 1px; }
-        .cta-btn-primary:hover { background: #4bccd4; color: #041c2e; }
-        .cta-btn-outline { padding: 13px 28px; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; font-family: Calibri, 'Calibri', Arial, sans-serif; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; transition: all 0.25s; border-radius: 1px; }
-        .cta-btn-outline:hover { border-color: rgba(75,204,212,0.5); color: #4bccd4; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; font-family: Calibri, 'Calibri', Arial, sans-serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); background: none; border: none; cursor: pointer; padding: 0; transition: color 0.2s; }
-        .back-btn:hover { color: #4bd1d9; }
+
+        /* Data comparison table: keep horizontal scroll but shrink cell
+           padding/font slightly on phone so more fits before scrolling kicks in */
+        @media (max-width: 640px) {
+          .table-responsive table th,
+          .table-responsive table td {
+            padding: 10px 12px !important;
+            font-size: 15px !important;
+          }
+        }
+
+        /* FAQ accordion container: fixed 2rem side padding plus question/
+           chevron row can feel cramped on phone */
+        @media (max-width: 480px) {
+          .svc-faq-box { padding: 0 1.25rem !important; }
+        }
+
+        /* Bottom CTA button row safety net (already flexWrap, just tighten) */
+        @media (max-width: 480px) {
+          .svc-cta-btn-row { gap: 8px !important; }
+        }
       `}</style>
 
       {/* ── HERO ── */}
       <section style={{ position: "relative", minHeight: "68vh", display: "flex", alignItems: "flex-end", overflow: "hidden", background: "linear-gradient(160deg,#040e1a 0%,#071e30 55%,#04141f 100%)" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.05) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "20%", right: "5%", width: 500, height: 500, borderRadius: "50%", background: `radial-gradient(circle, ${service.color}08 0%, transparent 65%)`, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", left: 28, top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 10, zIndex: 2 }}>
+        <div className="svc-hero-side-rail">
           <div style={{ width: 1, height: 56, background: "rgba(255,255,255,0.08)" }} />
           <div style={{ width: 5, height: 5, borderRadius: "50%", background: service.color }} />
           <div style={{ width: 1, height: 56, background: "rgba(255,255,255,0.08)" }} />
         </div>
 
-        <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto", padding: "6rem 5rem 6rem 5.5rem", zIndex: 2, width: "100%" }}>
+        <div className="svc-hero-inner">
           <motion.button className="back-btn" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }} onClick={onBack} style={{ marginBottom: 32 }}>
             <ArrowLeft size={13} /> Back to Services
           </motion.button>
@@ -1272,7 +1401,8 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
             initial={{ opacity: 0, y: 30, clipPath: "inset(100% 0 0 0)" }}
             animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: FONT, fontSize: "clamp(2.6rem, 4.5vw, 4.4rem)", fontWeight: 600, color: "#fff", lineHeight: 1.1, marginBottom: 24, maxWidth: 760, letterSpacing: "-0.01em" }}
+            className="svc-hero-headline"
+            style={{ fontFamily: FONT, fontWeight: 600, color: "#fff", lineHeight: 1.1, marginBottom: 24, maxWidth: 760, letterSpacing: "-0.01em" }}
           >
             {service.heroH1.split(".").map((part, i, arr) =>
               i < arr.length - 1 ? (
@@ -1298,10 +1428,10 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
 
       {/* ── PROBLEM ── */}
       <section style={{ background: "linear-gradient(160deg,#ffffff 0%,#e8f4fd 100%)", padding: "5.5rem 0" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 3rem" }}>
+        <div className="svc-wrap-3">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <SectionLabel text="The Challenge" color="#185FA5" />
-            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#042C53", marginBottom: 28, lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontWeight: 600, color: "#042C53", marginBottom: 28, lineHeight: 1.2 }}>
               {service.problem.heading}
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -1317,10 +1447,10 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
 
       {/* ── EXPLAINER ── */}
       <section style={{ background: "linear-gradient(170deg,#040e1a 0%,#071e30 55%,#04141f 100%)", padding: "5.5rem 0" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 3rem" }}>
+        <div className="svc-wrap-3">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <SectionLabel text="What This Is" color={`${service.color}90`} />
-            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#fff", marginBottom: 28, lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontWeight: 600, color: "#fff", marginBottom: 28, lineHeight: 1.2 }}>
               {service.explainer.heading}
             </h2>
             {service.explainer.body.map((para, i) => (
@@ -1332,12 +1462,12 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
 
       {/* ── WHO NEEDS ── */}
       <section style={{ background: "linear-gradient(160deg,#042C53 0%,#185FA5 100%)", padding: "5rem 0" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3rem" }}>
+        <div className="svc-wrap-1100">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <div style={{ display: "flex", gap: "4rem", flexWrap: "wrap", alignItems: "flex-start" }}>
+            <div className="svc-who-needs-row">
               <div style={{ flex: "1 1 300px" }}>
                 <p style={{ fontFamily: FONT, fontSize: 17, letterSpacing: "3px", textTransform: "uppercase", color: "rgba(255,255,255,0.95)", marginBottom: 14, fontWeight: 600 }}>Who This Serves</p>
-                <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3vw, 2.8rem)", fontWeight: 600, color: "#fff", lineHeight: 1.2, marginBottom: 0 }}>
+                <h2 style={{ fontFamily: FONT, fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 600, color: "#fff", lineHeight: 1.2, marginBottom: 0 }}>
                   {service.whoNeeds.heading}
                 </h2>
               </div>
@@ -1359,10 +1489,10 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
       {/* ── COVERAGE ── */}
       <section style={{ background: "linear-gradient(170deg,#040e1a 0%,#071e30 55%,#04141f 100%)", padding: "7rem 0", position: "relative" }}>
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 800, height: 800, borderRadius: "50%", background: `radial-gradient(circle, ${service.color}04 0%, transparent 65%)`, pointerEvents: "none" }} />
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 3rem", position: "relative", zIndex: 1 }}>
+        <div className="svc-wrap-1200" style={{ position: "relative", zIndex: 1 }}>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "4.5rem" }}>
             <SectionLabel text="Scope of Service" color={`${service.color}90`} />
-            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2.2rem, 4vw, 3.6rem)", fontWeight: 600, color: "#fff", lineHeight: 1.15 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 4vw, 3.6rem)", fontWeight: 600, color: "#fff", lineHeight: 1.15 }}>
               {service.coverage.heading}
             </h2>
           </motion.div>
@@ -1395,10 +1525,10 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
       {/* ── EXTRA TABLE ── */}
       {service.extra && service.extra.tableRows && (
         <section style={{ background: "linear-gradient(160deg,#ffffff 0%,#e8f4fd 100%)", padding: "5.5rem 0" }}>
-          <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3rem" }}>
+          <div className="svc-wrap-1100">
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
               <SectionLabel text="Facility Types" color="#185FA5" />
-              <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#042C53", marginBottom: 32, lineHeight: 1.2 }}>
+              <h2 style={{ fontFamily: FONT, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontWeight: 600, color: "#042C53", marginBottom: 32, lineHeight: 1.2 }}>
                 {service.extra.heading}
               </h2>
               <div className="table-responsive">
@@ -1406,14 +1536,14 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
                   <thead>
                     <tr>
                       {service.extra.tableHead?.map((h, i) => (
-                        <th key={i} style={{ textAlign: "left", padding: "12px 16px", fontSize: 16, letterSpacing: "2px", textTransform: "uppercase", color: "#185FA5", background: "rgba(4,44,83,0.06)", borderBottom: "1px solid rgba(24,95,165,0.2)", fontWeight: 600, fontFamily: FONT }}>{h}</th>
+                        <th key={i} style={{ textAlign: "left", padding: "12px 16px", fontSize: 16, letterSpacing: "2px", textTransform: "uppercase", color: "#185FA5", background: "rgba(4,44,83,0.06)", borderBottom: "1px solid rgba(24,95,165,0.2)", fontWeight: 600, fontFamily: FONT, whiteSpace: "nowrap" }}>{h}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
                     {service.extra.tableRows?.map((row, i) => (
                       <tr key={i} style={{ background: i % 2 === 0 ? "rgba(4,44,83,0.02)" : "transparent" }}>
-                        <td style={{ padding: "12px 16px", fontSize: 17, color: "#042C53", borderBottom: "0.5px solid rgba(24,95,165,0.1)", fontWeight: 600, fontFamily: FONT }}>{row[0]}</td>
+                        <td style={{ padding: "12px 16px", fontSize: 17, color: "#042C53", borderBottom: "0.5px solid rgba(24,95,165,0.1)", fontWeight: 600, fontFamily: FONT, whiteSpace: "nowrap" }}>{row[0]}</td>
                         <td style={{ padding: "12px 16px", fontSize: 17, color: "#185FA5", borderBottom: "0.5px solid rgba(24,95,165,0.1)", fontWeight: 400, fontFamily: FONT }}>{row[1]}</td>
                       </tr>
                     ))}
@@ -1428,10 +1558,10 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
       {/* ── EXTRA BODY (service 04) ── */}
       {service.extra && service.extra.body && (
         <section style={{ background: "linear-gradient(160deg,#ffffff 0%,#e8f4fd 100%)", padding: "5.5rem 0" }}>
-          <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 3rem" }}>
+          <div className="svc-wrap-3">
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
               <SectionLabel text="Important Note" color="#185FA5" />
-              <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#042C53", marginBottom: 28, lineHeight: 1.2 }}>
+              <h2 style={{ fontFamily: FONT, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontWeight: 600, color: "#042C53", marginBottom: 28, lineHeight: 1.2 }}>
                 {service.extra.heading}
               </h2>
               {service.extra.body.map((para, i) => (
@@ -1444,10 +1574,10 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
 
       {/* ── PROCESS ── */}
       <section style={{ background: "linear-gradient(160deg,#ffffff 0%,#daeef9 50%,#e8f4fd 100%)", padding: "7rem 0" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3.5rem" }}>
+        <div className="svc-wrap-1100-wide">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ textAlign: "center", marginBottom: "5rem" }}>
             <SectionLabel text="Our Process" color="#185FA5" />
-            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2.2rem, 4vw, 3.4rem)", fontWeight: 600, color: "#042C53", lineHeight: 1.15 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 4vw, 3.4rem)", fontWeight: 600, color: "#042C53", lineHeight: 1.15 }}>
               How ARCHORA Delivers <em style={{ fontStyle: "italic", color: "#185FA5" }}>This Service</em>
             </h2>
           </motion.div>
@@ -1487,10 +1617,10 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
 
       {/* ── WHY ARCHORA ── */}
       <section style={{ background: "linear-gradient(170deg,#040e1a 0%,#071e30 55%,#04141f 100%)", padding: "6rem 0" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3rem" }}>
+        <div className="svc-wrap-1100">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ marginBottom: "4rem" }}>
             <SectionLabel text="Why ARCHORA" color={`${service.color}90`} />
-            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#fff", lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontWeight: 600, color: "#fff", lineHeight: 1.2 }}>
               {service.whyUs.heading}
             </h2>
           </motion.div>
@@ -1514,15 +1644,15 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
 
       {/* ── FAQs ── */}
       <section style={{ background: "linear-gradient(160deg,#ffffff 0%,#e8f4fd 100%)", padding: "6rem 0" }}>
-        <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 3rem" }}>
+        <div className="svc-wrap-820">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ marginBottom: "3rem" }}>
             <SectionLabel text="Frequently Asked Questions" color="#185FA5" />
-            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#042C53", lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontWeight: 600, color: "#042C53", lineHeight: 1.2 }}>
               Everything You Need to Know
             </h2>
           </motion.div>
 
-          <div style={{ background: "#fff", border: "0.5px solid rgba(24,95,165,0.15)", borderRadius: 4, padding: "0 2rem", boxShadow: "0 4px 32px rgba(4,44,83,0.06)" }}>
+          <div className="svc-faq-box" style={{ background: "#fff", border: "0.5px solid rgba(24,95,165,0.15)", borderRadius: 4, padding: "0 2rem", boxShadow: "0 4px 32px rgba(4,44,83,0.06)" }}>
             {service.faqs.map((faq, i) => (
               <div key={i} style={{ borderBottom: i < service.faqs.length - 1 ? "0.5px solid rgba(24,95,165,0.1)" : "none" }}>
                 <LightFAQItem faq={faq} />
@@ -1534,10 +1664,10 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
 
       {/* ── RELATED SERVICES ── */}
       <section style={{ background: "linear-gradient(170deg,#040e1a 0%,#071e30 55%,#04141f 100%)", padding: "5.5rem 0" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3rem" }}>
+        <div className="svc-wrap-1100">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} style={{ marginBottom: "3rem" }}>
             <SectionLabel text="Related Services" color={`${service.color}90`} />
-            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 600, color: "#fff", lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontWeight: 600, color: "#fff", lineHeight: 1.2 }}>
               You Might Also Need
             </h2>
           </motion.div>
@@ -1572,19 +1702,19 @@ export function ServiceDetailPage({ service, onBack }: { service: ServiceData; o
           />
         ))}
 
-        <div style={{ maxWidth: 680, margin: "0 auto", padding: "0 3rem", textAlign: "center", position: "relative", zIndex: 2 }}>
+        <div className="svc-wrap-680" style={{ position: "relative", zIndex: 2 }}>
           <motion.div initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
             <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 60, height: 60, borderRadius: "50%", background: `${service.color}15`, border: `1px solid ${service.color}30`, color: service.color, marginBottom: 28 }}>
               {service.icon}
             </div>
-            <h2 style={{ fontFamily: FONT, fontSize: "clamp(2.2rem, 4vw, 3.6rem)", fontWeight: 600, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
+            <h2 style={{ fontFamily: FONT, fontSize: "clamp(1.9rem, 4vw, 3.6rem)", fontWeight: 600, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
               {service.bottomCTA.heading.split("?")[0]}?<br />
               <em style={{ fontStyle: "italic", color: service.color }}>Talk to ARCHORA.</em>
             </h2>
             <p style={{ fontFamily: FONT, fontSize: 17, color: "rgba(255,255,255,0.90)", lineHeight: 1.9, marginBottom: 40, fontWeight: 400 }}>
               {service.bottomCTA.body}
             </p>
-            <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+            <div className="svc-cta-btn-row" style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
               <button className="cta-btn-primary" onClick={() => navigate("/contact")}>Book a Free Consultation</button>
               <button className="cta-btn-outline" onClick={() => window.open(WHATSAPP_URL, "_blank")}>WhatsApp Us</button>
               <button className="cta-btn-outline" onClick={() => navigate("/contact")}>Send an Enquiry →</button>

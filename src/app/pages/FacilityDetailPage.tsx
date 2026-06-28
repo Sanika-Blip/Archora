@@ -1172,7 +1172,7 @@ function FAQItem({ item, color, index }: { item: FAQItem; color: string; index: 
           gap: 16, background: "none", border: "none", cursor: "pointer",
         }}
       >
-        <span style={{ fontFamily: "Calibri, sans-serif", fontSize: "1.3rem", fontWeight: 600, color: open ? color : "rgba(255,255,255,0.8)", lineHeight: 1.4, transition: "color 0.2s" }}>
+        <span style={{ fontFamily: "Calibri, sans-serif", fontSize: "1.2rem", fontWeight: 600, color: open ? color : "rgba(255,255,255,0.8)", lineHeight: 1.4, transition: "color 0.2s" }}>
           {item.q}
         </span>
         <motion.div animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.22 }} style={{ color, flexShrink: 0, marginTop: 3 }}>
@@ -1184,7 +1184,7 @@ function FAQItem({ item, color, index }: { item: FAQItem; color: string; index: 
       </button>
       <AnimatePresenceWrapper open={open}>
         <div style={{ paddingBottom: "1.4rem" }}>
-          <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 18, lineHeight: 1.9, color: "rgba(255,255,255,0.6)" }}>{item.a}</p>
+          <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 17, lineHeight: 1.9, color: "rgba(255,255,255,0.6)" }}>{item.a}</p>
         </div>
       </AnimatePresenceWrapper>
     </motion.div>
@@ -1212,8 +1212,8 @@ export function FacilityDetailPage() {
 
   if (!data) {
     return (
-      <div style={{ minHeight: "100vh", background: "#040e1a", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 24 }}>
-        <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: "2.2rem", color: "rgba(255,255,255,0.4)" }}>Facility not found.</p>
+      <div style={{ minHeight: "100vh", background: "#040e1a", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 24, padding: "0 24px", textAlign: "center" }}>
+        <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: "1.8rem", color: "rgba(255,255,255,0.4)" }}>Facility not found.</p>
         <Link to="/facilities">
           <button style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 14, letterSpacing: "0.16em", textTransform: "uppercase", padding: "12px 24px", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer" }}>
             ← Back to Facilities
@@ -1233,28 +1233,136 @@ export function FacilityDetailPage() {
         @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
         .decor-ring { position: absolute; top: 50%; left: 50%; border-radius: 50%; pointer-events: none; will-change: transform; }
         .archora-page-scope * { font-family: Calibri, sans-serif !important; }
+
+        /* ============ RESPONSIVE LAYOUT RULES ============ */
+
+        /* Shared content wrapper for Intro/Services/Compliance/Process/FAQ sections.
+           Original used an asymmetric "0 5rem 0 6rem" pad to clear the hero's left
+           rail decoration -- but these sections don't have that rail, so on mobile
+           it just eats most of the viewport width for nothing. */
+        .fac-section-wrap {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 5rem 0 6rem;
+          box-sizing: border-box;
+        }
+        @media (max-width: 900px) {
+          .fac-section-wrap { padding: 0 2.5rem; }
+        }
+        @media (max-width: 560px) {
+          .fac-section-wrap { padding: 0 1.25rem; }
+        }
+
+        .fac-hero-wrap {
+          position: relative;
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 4rem 5rem 4rem 6rem;
+          z-index: 2;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        @media (max-width: 900px) {
+          .fac-hero-wrap { padding: 3rem 2.5rem; }
+        }
+        @media (max-width: 560px) {
+          .fac-hero-wrap { padding: 2.25rem 1.25rem; }
+        }
+
+        .fac-backnav-wrap {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 3rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 12px;
+          box-sizing: border-box;
+        }
+        @media (max-width: 700px) {
+          .fac-backnav-wrap { padding: 0 1.25rem; }
+        }
+
+        /* Left rail decoration in hero: collides with heading text on narrow
+           viewports, hide on mobile. */
+        .fac-hero-rail {
+          position: absolute;
+          left: 32px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          z-index: 2;
+        }
+        @media (max-width: 700px) {
+          .fac-hero-rail { display: none; }
+        }
+
+        /* Intro section: 1fr/2fr split crushes the label column on mobile */
+        .fac-intro-grid {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          gap: 4rem;
+          align-items: start;
+        }
+        @media (max-width: 760px) {
+          .fac-intro-grid {
+            grid-template-columns: 1fr;
+            gap: 1.75rem;
+          }
+        }
+
+        /* CTA decorative spinning rings: large fixed widths centered with
+           negative margins can overflow horizontally on narrow viewports
+           since the section itself doesn't clip them. */
+        .fac-cta-section {
+          overflow: hidden;
+        }
+
+        .fac-cta-buttons {
+          display: flex;
+          gap: 12px;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .fac-process-row {
+          display: flex;
+          gap: 2rem;
+          align-items: flex-start;
+          padding: 1.6rem 0 1.6rem 3rem;
+          position: relative;
+        }
+        @media (max-width: 560px) {
+          .fac-process-row {
+            gap: 1rem;
+            padding: 1.4rem 0 1.4rem 2.2rem;
+          }
+        }
       `}</style>
 
       {/* ── Back Nav ── */}
       <div style={{ position: "fixed", top: 72, left: 0, right: 0, zIndex: 50, background: "rgba(4,14,26,0.95)", backdropFilter: "blur(14px)", borderBottom: `0.5px solid ${color}15`, padding: "12px 0" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div className="fac-backnav-wrap">
           <button
             onClick={() => navigate(-1)}
-            style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "2.5px", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", background: "none", border: "none", cursor: "pointer", transition: "color 0.2s" }}
+            style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "2.5px", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", background: "none", border: "none", cursor: "pointer", transition: "color 0.2s", flexShrink: 0 }}
             onMouseEnter={e => (e.currentTarget.style.color = color)}
             onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}
           >
             <ArrowLeft size={12} /> All Facilities
           </button>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <span style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: "2px", color: `${color}70`, background: `${color}12`, border: `0.5px solid ${color}30`, padding: "3px 10px", borderRadius: 20 }}>{data.catLabel}</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", justifyContent: "flex-end" }}>
+            <span style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: "2px", color: `${color}70`, background: `${color}12`, border: `0.5px solid ${color}30`, padding: "3px 10px", borderRadius: 20, whiteSpace: "nowrap" }}>{data.catLabel}</span>
             <span style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: "2px", color: "rgba(255,255,255,0.25)", background: "rgba(255,255,255,0.05)", padding: "3px 10px", borderRadius: 20 }}>{data.id}</span>
           </div>
         </div>
       </div>
 
       {/* ── Hero ── */}
-      <section style={{ position: "relative", minHeight: "65vh", display: "flex", alignItems: "center", overflow: "hidden", background: `linear-gradient(160deg, #040e1a 0%, #071e30 60%, #04141f 100%)`, paddingTop: 120 }}>
+      <section style={{ position: "relative", minHeight: "60vh", display: "flex", alignItems: "center", overflow: "hidden", background: `linear-gradient(160deg, #040e1a 0%, #071e30 60%, #04141f 100%)`, paddingTop: 120 }}>
         {/* ambient rings */}
         {[560, 400, 260].map((size, i) => (
           <div key={size} style={{ position: "absolute", top: "50%", left: "18%", width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2, borderRadius: "50%", border: `1px solid ${color}${i === 0 ? "10" : i === 1 ? "18" : "25"}`, pointerEvents: "none", willChange: "transform", animation: `pulseRing ${5 + i * 2}s ease-in-out infinite`, animationDelay: `${i * 0.8}s` }} />
@@ -1264,20 +1372,20 @@ export function FacilityDetailPage() {
         <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(circle, ${color}08 1px, transparent 1px)`, backgroundSize: "32px 32px", pointerEvents: "none" }} />
 
         {/* left rail */}
-        <div style={{ position: "absolute", left: 32, top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 12, zIndex: 2 }}>
+        <div className="fac-hero-rail">
           <div style={{ width: 1, height: 60, background: "rgba(255,255,255,0.08)" }} />
           <div style={{ width: 5, height: 5, borderRadius: "50%", background: color, opacity: 0.6 }} />
           <div style={{ width: 1, height: 60, background: "rgba(255,255,255,0.08)" }} />
         </div>
 
-        <div style={{ position: "relative", maxWidth: 1100, margin: "0 auto", padding: "4rem 5rem 4rem 6rem", zIndex: 2, width: "100%" }}>
+        <div className="fac-hero-wrap">
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}
           >
-            <span style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>
+            <span style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: "0.24em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>
               {data.catLabel} · {data.id}
             </span>
           </motion.div>
@@ -1286,7 +1394,7 @@ export function FacilityDetailPage() {
             initial={{ opacity: 0, y: 32, clipPath: "inset(100% 0 0 0)" }}
             animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(2.6rem, 4.5vw, 4.4rem)", fontWeight: 600, color: "#fff", lineHeight: 1.08, marginBottom: 16, letterSpacing: "-0.01em", maxWidth: 760 }}
+            style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(2.1rem, 7vw, 4.4rem)", fontWeight: 600, color: "#fff", lineHeight: 1.12, marginBottom: 16, letterSpacing: "-0.01em", maxWidth: 760 }}
           >
             {data.title}
           </motion.h1>
@@ -1295,7 +1403,7 @@ export function FacilityDetailPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45 }}
-            style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 15, letterSpacing: "0.12em", color: `${color}90`, textTransform: "uppercase", marginBottom: 32 }}
+            style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 14, letterSpacing: "0.1em", color: `${color}90`, textTransform: "uppercase", marginBottom: 32, lineHeight: 1.5 }}
           >
             {data.subtitle}
           </motion.p>
@@ -1328,9 +1436,9 @@ export function FacilityDetailPage() {
       </section>
 
       {/* ── Intro ── */}
-      <section style={{ background: "linear-gradient(170deg,#040e1a 0%,#071e30 60%,#04141f 100%)", padding: "6rem 0" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 5rem 0 6rem" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "4rem", alignItems: "start" }}>
+      <section style={{ background: "linear-gradient(170deg,#040e1a 0%,#071e30 60%,#04141f 100%)", padding: "4.5rem 0" }}>
+        <div className="fac-section-wrap">
+          <div className="fac-intro-grid">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -1339,7 +1447,7 @@ export function FacilityDetailPage() {
             >
               <div style={{ width: "2px", height: 60, background: `linear-gradient(to bottom, ${color}, transparent)`, marginBottom: 20 }} />
               <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "3px", textTransform: "uppercase", color: color, marginBottom: 12 }}>Overview</p>
-              <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(1.8rem, 3.2vw, 2.4rem)", fontWeight: 700, color: "#fff", lineHeight: 1.25 }}>
+              <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(1.6rem, 4.5vw, 2.4rem)", fontWeight: 700, color: "#fff", lineHeight: 1.25 }}>
                 What ARCHORA Delivers for {data.title}
               </h2>
             </motion.div>
@@ -1351,7 +1459,7 @@ export function FacilityDetailPage() {
               style={{ display: "flex", flexDirection: "column", gap: 18 }}
             >
               {data.intro.map((para, i) => (
-                <p key={i} style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 19, lineHeight: 1.85, color: "rgba(255,255,255,0.65)" }}>{para}</p>
+                <p key={i} style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 17, lineHeight: 1.85, color: "rgba(255,255,255,0.65)" }}>{para}</p>
               ))}
             </motion.div>
           </div>
@@ -1359,22 +1467,22 @@ export function FacilityDetailPage() {
       </section>
 
       {/* ── Services ── */}
-      <section style={{ background: "#040e1a", padding: "6rem 0" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 5rem 0 6rem" }}>
+      <section style={{ background: "#040e1a", padding: "4.5rem 0" }}>
+        <div className="fac-section-wrap">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            style={{ marginBottom: "3.5rem", paddingBottom: "2rem", borderBottom: `0.5px solid ${color}20` }}
+            style={{ marginBottom: "3rem", paddingBottom: "1.6rem", borderBottom: `0.5px solid ${color}20` }}
           >
             <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "3px", textTransform: "uppercase", color: color, marginBottom: 10 }}>What We Build</p>
-            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(2rem, 3.6vw, 2.8rem)", fontWeight: 700, color: "#fff" }}>
+            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(1.7rem, 5vw, 2.8rem)", fontWeight: 700, color: "#fff" }}>
               Infrastructure Services
             </h2>
           </motion.div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "1rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "1rem" }}>
             {data.services.map((service, i) => {
               const ref = useRef(null);
               const inView = useInView(ref, { once: true, margin: "-30px" });
@@ -1385,15 +1493,15 @@ export function FacilityDetailPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
-                  style={{ padding: "1.8rem 1.6rem", background: "linear-gradient(145deg,#061624,#040e1a)", border: `0.5px solid rgba(255,255,255,0.06)`, borderRadius: 3, transition: "all 0.28s ease" }}
+                  style={{ padding: "1.6rem 1.4rem", background: "linear-gradient(145deg,#061624,#040e1a)", border: `0.5px solid rgba(255,255,255,0.06)`, borderRadius: 3, transition: "all 0.28s ease" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = "linear-gradient(145deg,#071e30,#0a2640)"; (e.currentTarget as HTMLDivElement).style.borderColor = `${color}40`; (e.currentTarget as HTMLDivElement).style.transform = "translateY(-3px)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = "linear-gradient(145deg,#061624,#040e1a)"; (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)"; }}
                 >
                   <div style={{ display: "flex", gap: 8, alignItems: "flex-start", marginBottom: 10 }}>
                     <div style={{ width: 4, height: 4, borderRadius: "50%", background: color, flexShrink: 0, marginTop: 5 }} />
-                    <h3 style={{ fontFamily: "Calibri, sans-serif", fontSize: "1.35rem", fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>{service.title}</h3>
+                    <h3 style={{ fontFamily: "Calibri, sans-serif", fontSize: "1.2rem", fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>{service.title}</h3>
                   </div>
-                  <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 18, lineHeight: 1.7, color: "rgba(255,255,255,0.55)", paddingLeft: 12 }}>{service.description}</p>
+                  <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 16, lineHeight: 1.7, color: "rgba(255,255,255,0.55)", paddingLeft: 12 }}>{service.description}</p>
                 </motion.div>
               );
             })}
@@ -1402,22 +1510,22 @@ export function FacilityDetailPage() {
       </section>
 
       {/* ── Compliance ── */}
-      <section style={{ background: "linear-gradient(160deg, #ffffff 0%, #daeef9 50%, #e8f4fd 100%)", padding: "6rem 0" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 5rem 0 6rem" }}>
+      <section style={{ background: "linear-gradient(160deg, #ffffff 0%, #daeef9 50%, #e8f4fd 100%)", padding: "4.5rem 0" }}>
+        <div className="fac-section-wrap">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            style={{ marginBottom: "3rem" }}
+            style={{ marginBottom: "2.5rem" }}
           >
             <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 10 }}>Regulatory Framework</p>
-            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(2rem, 3.6vw, 2.8rem)", fontWeight: 700, color: "#042C53" }}>
+            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(1.7rem, 5vw, 2.8rem)", fontWeight: 700, color: "#042C53" }}>
               Compliance Requirements
             </h2>
           </motion.div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "0.8rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "0.8rem" }}>
             {data.compliance.map((item, i) => {
               const ref = useRef(null);
               const inView = useInView(ref, { once: true, margin: "-20px" });
@@ -1428,13 +1536,13 @@ export function FacilityDetailPage() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.45, delay: (i % 3) * 0.07 }}
-                  style={{ padding: "1.5rem 1.4rem", background: "rgba(4,44,83,0.04)", border: "0.5px solid rgba(24,95,165,0.14)", borderRadius: 3, transition: "all 0.25s ease" }}
+                  style={{ padding: "1.4rem 1.3rem", background: "rgba(4,44,83,0.04)", border: "0.5px solid rgba(24,95,165,0.14)", borderRadius: 3, transition: "all 0.25s ease" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = "rgba(4,44,83,0.09)"; (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(24,95,165,0.3)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = "rgba(4,44,83,0.04)"; (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(24,95,165,0.14)"; (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)"; }}
                 >
-                  <p style={{ fontFamily: "Calibri, sans-serif", fontSize: "1.4rem", fontWeight: 700, color: "#042C53", marginBottom: 4 }}>{item.name}</p>
-                  <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 16, color: "#185FA5", marginBottom: 8, lineHeight: 1.6 }}>{item.authority}</p>
-                  <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 16, lineHeight: 1.75, color: "rgba(4,44,83,0.65)" }}>{item.scope}</p>
+                  <p style={{ fontFamily: "Calibri, sans-serif", fontSize: "1.25rem", fontWeight: 700, color: "#042C53", marginBottom: 4 }}>{item.name}</p>
+                  <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 15, color: "#185FA5", marginBottom: 8, lineHeight: 1.6 }}>{item.authority}</p>
+                  <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 15, lineHeight: 1.75, color: "rgba(4,44,83,0.65)" }}>{item.scope}</p>
                 </motion.div>
               );
             })}
@@ -1443,17 +1551,17 @@ export function FacilityDetailPage() {
       </section>
 
       {/* ── Process ── */}
-      <section style={{ background: "linear-gradient(170deg,#040e1a 0%,#071e30 60%,#04141f 100%)", padding: "6rem 0" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 5rem 0 6rem" }}>
+      <section style={{ background: "linear-gradient(170deg,#040e1a 0%,#071e30 60%,#04141f 100%)", padding: "4.5rem 0" }}>
+        <div className="fac-section-wrap">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            style={{ marginBottom: "3.5rem" }}
+            style={{ marginBottom: "3rem" }}
           >
             <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "3px", textTransform: "uppercase", color: color, marginBottom: 10 }}>How We Work</p>
-            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(2rem, 3.6vw, 2.8rem)", fontWeight: 700, color: "#fff" }}>
+            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(1.7rem, 5vw, 2.8rem)", fontWeight: 700, color: "#fff" }}>
               Our Process
             </h2>
           </motion.div>
@@ -1473,19 +1581,19 @@ export function FacilityDetailPage() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.5, delay: i * 0.04 }}
-                    style={{ display: "flex", gap: "2rem", alignItems: "flex-start", padding: "1.6rem 0 1.6rem 3rem", position: "relative" }}
+                    className="fac-process-row"
                   >
                     {/* step node */}
                     <div style={{ position: "absolute", left: 10, top: "1.9rem", width: 16, height: 16, borderRadius: "50%", background: "#040e1a", border: `1.5px solid ${color}70`, display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <div style={{ width: 5, height: 5, borderRadius: "50%", background: color, opacity: 0.8 }} />
                     </div>
 
-                    <div style={{ flex: 1 }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8, flexWrap: "wrap" }}>
                         <span style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: "2px", color: `${color}60` }}>0{i + 1}</span>
-                        <h3 style={{ fontFamily: "Calibri, sans-serif", fontSize: "1.3rem", fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>{step.title}</h3>
+                        <h3 style={{ fontFamily: "Calibri, sans-serif", fontSize: "1.2rem", fontWeight: 700, color: "#fff", lineHeight: 1.3 }}>{step.title}</h3>
                       </div>
-                      <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 18, lineHeight: 1.75, color: "rgba(255,255,255,0.55)" }}>{step.description}</p>
+                      <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 16, lineHeight: 1.75, color: "rgba(255,255,255,0.55)" }}>{step.description}</p>
                     </div>
                   </motion.div>
                 );
@@ -1496,17 +1604,17 @@ export function FacilityDetailPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ background: "#040e1a", padding: "6rem 0" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 5rem 0 6rem" }}>
+      <section style={{ background: "#040e1a", padding: "4.5rem 0" }}>
+        <div className="fac-section-wrap">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            style={{ marginBottom: "3rem" }}
+            style={{ marginBottom: "2.5rem" }}
           >
             <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "3px", textTransform: "uppercase", color: color, marginBottom: 10 }}>Common Questions</p>
-            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(2rem, 3.6vw, 2.8rem)", fontWeight: 700, color: "#fff" }}>
+            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(1.7rem, 5vw, 2.8rem)", fontWeight: 700, color: "#fff" }}>
               Frequently Asked
             </h2>
           </motion.div>
@@ -1520,7 +1628,7 @@ export function FacilityDetailPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section style={{ background: "linear-gradient(160deg,#040e1a 0%,#071e30 70%,#04141f 100%)", padding: "8rem 0", position: "relative", overflow: "hidden" }}>
+      <section className="fac-cta-section" style={{ background: "linear-gradient(160deg,#040e1a 0%,#071e30 70%,#04141f 100%)", padding: "5.5rem 0", position: "relative" }}>
         {[500, 350, 210].map((size, i) => (
           <div
             key={size}
@@ -1534,24 +1642,24 @@ export function FacilityDetailPage() {
           />
         ))}
 
-        <div style={{ maxWidth: 620, margin: "0 auto", padding: "0 3rem", textAlign: "center", position: "relative", zIndex: 2 }}>
+        <div style={{ maxWidth: 620, margin: "0 auto", padding: "0 1.75rem", textAlign: "center", position: "relative", zIndex: 2 }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 13, letterSpacing: "3.5px", textTransform: "uppercase", color: `${color}50`, marginBottom: 16, display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
+            <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: "3px", textTransform: "uppercase", color: `${color}50`, marginBottom: 16, display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
               <span style={{ display: "block", width: 24, height: "0.5px", background: `${color}40` }} />
               Start Your Project<span style={{ display: "block", width: 24, height: "0.5px", background: `${color}40` }} />
             </p>
-            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", fontWeight: 700, color: "#fff", lineHeight: 1.1, marginBottom: 18 }}>
+            <h2 style={{ fontFamily: "Calibri, sans-serif", fontSize: "clamp(1.8rem, 7vw, 3.5rem)", fontWeight: 700, color: "#fff", lineHeight: 1.15, marginBottom: 18 }}>
               {data.ctaHeading}
             </h2>
-            <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 18, color: "rgba(255,255,255,0.5)", lineHeight: 1.8, marginBottom: 36 }}>
+            <p style={{ fontFamily: "Calibri, sans-serif", fontWeight: 400, fontSize: 16, color: "rgba(255,255,255,0.5)", lineHeight: 1.8, marginBottom: 32 }}>
               {data.ctaBody}
             </p>
-            <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+            <div className="fac-cta-buttons">
               <Link to="/contact">
                 <button
                   style={{ padding: "13px 28px", fontSize: 14, fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "Calibri, sans-serif", background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .22s" }}

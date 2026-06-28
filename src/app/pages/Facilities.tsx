@@ -166,16 +166,17 @@ function CategorySection({ category }: { category: typeof categories[0] }) {
         initial={{ opacity: 0, x: -16 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        className="fac-cat-header"
         style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: "2.2rem", paddingBottom: "1.4rem", borderBottom: `0.5px solid ${category.color}20` }}
       >
         <h2 style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(1.95rem, 2.5vw, 2.6rem)", fontWeight: 300, color: "#fff", letterSpacing: "-0.01em" }}>{category.label}</h2>
-        <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 18, letterSpacing: "2px", color: `${category.color}70`, background: `${category.color}12`, border: `0.5px solid ${category.color}30`, padding: "3px 10px", borderRadius: 20 }}>
+        <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 18, letterSpacing: "2px", color: `${category.color}70`, background: `${category.color}12`, border: `0.5px solid ${category.color}30`, padding: "3px 10px", borderRadius: 20, flexShrink: 0 }}>
           {category.facilities.length} types
         </span>
-        <div style={{ flex: 1, height: "0.5px", background: `linear-gradient(90deg, ${category.color}20, transparent)` }} />
+        <div className="fac-cat-header-line" style={{ flex: 1, height: "0.5px", background: `linear-gradient(90deg, ${category.color}20, transparent)` }} />
       </motion.div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "1rem" }}>
+      <div className="fac-grid">
         {category.facilities.map((f, i) => (
           <FacilityCard
             key={f.id}
@@ -230,6 +231,7 @@ export function Facilities() {
           transition: all 0.22s ease;
           white-space: nowrap;
           border: 0.5px solid transparent;
+          flex-shrink: 0;
         }
         .filter-pill.inactive {
           background: rgba(255,255,255,0.04);
@@ -253,11 +255,153 @@ export function Facilities() {
           transition: all 0.2s ease;
           width: 240px;
           letter-spacing: 0.05em;
+          box-sizing: border-box;
         }
         .search-input::placeholder { color: rgba(255,255,255,0.22); letter-spacing: 1px; }
         .search-input:focus { border-color: rgba(75,209,217,0.45); background: rgba(75,209,217,0.04); }
 
         .stat-chip { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+
+        /* ============ RESPONSIVE LAYOUT RULES ============ */
+
+        /* Page-wide horizontal padding wrapper — fixed 3rem/5-6rem values
+           crushed content edge-to-edge on tablet/phone, so scale it down. */
+        .fac-wrap {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 3rem;
+          box-sizing: border-box;
+        }
+        @media (max-width: 1024px) {
+          .fac-wrap { padding: 0 2rem; }
+        }
+        @media (max-width: 640px) {
+          .fac-wrap { padding: 0 1.25rem; }
+        }
+
+        /* Hero section: fixed left/right/bottom padding (5rem 5rem 5rem 6rem)
+           plus the absolute side-dot rail eats into headline width on mobile. */
+        .fac-hero-inner {
+          position: relative;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 5rem 5rem 5rem 6rem;
+          z-index: 2;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        @media (max-width: 1024px) {
+          .fac-hero-inner { padding: 4.5rem 2.5rem 4rem 4.5rem; }
+        }
+        @media (max-width: 760px) {
+          .fac-hero-inner { padding: 5rem 1.5rem 3.5rem 1.5rem; }
+        }
+
+        .fac-hero-side-rail {
+          position: absolute;
+          left: 32px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          z-index: 2;
+        }
+        @media (max-width: 760px) {
+          .fac-hero-side-rail { display: none; }
+        }
+
+        .fac-hero-stats {
+          display: flex;
+          gap: 36px;
+          flex-wrap: wrap;
+          margin-bottom: 44px;
+        }
+        @media (max-width: 480px) {
+          .fac-hero-stats { gap: 28px; }
+        }
+
+        /* Sticky filter/search bar: fixed 3px side padding + a 240px-wide
+           search box overflow on phones, so let them shrink/scroll. */
+        .fac-filter-bar {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 3rem;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          overflow-x: auto;
+          box-sizing: border-box;
+        }
+        @media (max-width: 1024px) {
+          .fac-filter-bar { padding: 0 2rem; }
+        }
+        @media (max-width: 640px) {
+          .fac-filter-bar { padding: 0 1.25rem; gap: 10px; }
+        }
+
+        @media (max-width: 640px) {
+          .search-input { width: 170px; }
+        }
+        @media (max-width: 420px) {
+          .search-input { width: 140px; font-size: 14px; }
+        }
+
+        /* Category header: heading + pill + divider line in one row wraps
+           awkwardly on phones once the heading text gets long. */
+        @media (max-width: 480px) {
+          .fac-cat-header { flex-wrap: wrap; gap: 10px; }
+          .fac-cat-header-line { display: none; }
+        }
+
+        /* Facility cards grid: auto-fill 260px minimum is fine down to ~360px
+           but tighten gap and padding a bit below 480px. */
+        .fac-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+          gap: 1rem;
+        }
+        @media (max-width: 480px) {
+          .fac-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+        }
+
+        /* Compliance bodies grid: same auto-fill pattern, single column on phone */
+        .fac-compliance-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+          gap: 1rem;
+        }
+        @media (max-width: 480px) {
+          .fac-compliance-grid { grid-template-columns: 1fr; }
+        }
+
+        .fac-compliance-section-pad {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 3.5rem;
+          box-sizing: border-box;
+        }
+        @media (max-width: 1024px) {
+          .fac-compliance-section-pad { padding: 0 2rem; }
+        }
+        @media (max-width: 640px) {
+          .fac-compliance-section-pad { padding: 0 1.25rem; }
+        }
+
+        /* CTA section inner padding */
+        .fac-cta-inner {
+          max-width: 660px;
+          margin: 0 auto;
+          padding: 0 3rem;
+          text-align: center;
+          position: relative;
+          z-index: 2;
+          box-sizing: border-box;
+        }
+        @media (max-width: 640px) {
+          .fac-cta-inner { padding: 0 1.5rem; }
+        }
       `}</style>
 
       {/* ── Hero ── */}
@@ -269,13 +413,13 @@ export function Facilities() {
 
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.05) 1px, transparent 1px)", backgroundSize: "32px 32px", pointerEvents: "none" }} />
 
-        <div style={{ position: "absolute", left: 32, top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 12, zIndex: 2 }}>
+        <div className="fac-hero-side-rail">
           <div style={{ width: 1, height: 60, background: "rgba(255,255,255,0.08)" }} />
           <div style={{ width: 5, height: 5, borderRadius: "50%", background: "#4bd1d9", opacity: 0.6 }} />
           <div style={{ width: 1, height: 60, background: "rgba(255,255,255,0.08)" }} />
         </div>
 
-        <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto", padding: "5rem 5rem 5rem 6rem", zIndex: 2, width: "100%" }}>
+        <div className="fac-hero-inner">
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
@@ -289,7 +433,7 @@ export function Facilities() {
             initial={{ opacity: 0, y: 36, clipPath: "inset(100% 0 0 0)" }}
             animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
             transition={{ duration: 0.95, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(2.6rem, 4.5vw, 4.4rem)", fontWeight: 600, color: "#fff", lineHeight: 1.05, marginBottom: 24, maxWidth: 680, letterSpacing: "-0.01em" }}
+            style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(2.2rem, 4.5vw, 4.4rem)", fontWeight: 600, color: "#fff", lineHeight: 1.05, marginBottom: 24, maxWidth: 680, letterSpacing: "-0.01em" }}
           >
             Every Healthcare Facility<br />
             <em style={{ fontStyle: "italic", color: "#4bccd4" }}>We Design & Build.</em>
@@ -308,7 +452,7 @@ export function Facilities() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            style={{ display: "flex", gap: 36, flexWrap: "wrap", marginBottom: 44 }}
+            className="fac-hero-stats"
           >
             {[
               { num: "35", label: "Facility Types" },
@@ -362,7 +506,7 @@ export function Facilities() {
 
       {/* ── Filter + Search Bar ── */}
       <div style={{ position: "sticky", top: 72, zIndex: 40, background: "rgba(4,14,26,0.97)", backdropFilter: "blur(16px)", borderBottom: "0.5px solid rgba(75,204,212,0.1)", padding: "14px 0" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 3rem", display: "flex", alignItems: "center", gap: 12, overflowX: "auto" }}>
+        <div className="fac-filter-bar">
           <div style={{ position: "relative", flexShrink: 0 }}>
             <Search size={13} style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "rgba(75,204,212,0.5)", pointerEvents: "none" }} />
             <input
@@ -399,7 +543,7 @@ export function Facilities() {
 
       {/* ── Facilities Grid ── */}
       <section style={{ background: "linear-gradient(170deg,#040e1a 0%,#071e30 55%,#04141f 100%)", padding: "6rem 0 8rem", minHeight: "60vh" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 3rem" }}>
+        <div className="fac-wrap">
           {filteredCategories.length === 0 ? (
             <div style={{ textAlign: "center", padding: "6rem 0" }}>
               <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "2.4rem", fontWeight: 300, color: "rgba(255,255,255,0.80)", marginBottom: 12 }}>No facilities found</p>
@@ -415,7 +559,7 @@ export function Facilities() {
 
       {/* ── Compliance Reference ── */}
       <section style={{ background: "linear-gradient(160deg,#ffffff 0%,#daeef9 50%,#e8f4fd 100%)", padding: "7rem 0" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 3.5rem" }}>
+        <div className="fac-compliance-section-pad">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -426,12 +570,12 @@ export function Facilities() {
             <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, letterSpacing: "3px", textTransform: "uppercase", color: "#185FA5", marginBottom: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
               <span style={{ display: "block", width: 36, height: "0.5px", background: "#185FA5" }} />Compliance Bodies<span style={{ display: "block", width: 36, height: "0.5px", background: "#185FA5" }} />
             </p>
-            <h2 style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(2.6rem,4vw,3.9rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.15 }}>
+            <h2 style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(2.2rem,4vw,3.9rem)", fontWeight: 300, color: "#042C53", lineHeight: 1.15 }}>
               Every Regulatory Authority. <em style={{ fontStyle: "italic", color: "#185FA5" }}>Mapped.</em>
             </h2>
           </motion.div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "1rem" }}>
+          <div className="fac-compliance-grid">
             {[
               { abbr: "NABH", slug: "nabh", name: "National Accreditation Board for Hospitals & Healthcare Providers", covers: "Hospitals, Clinics, Blood Banks, Imaging, AYUSH, Eye Care, Dental, Labs, Care Homes" },
               { abbr: "NABL", slug: "nabl", name: "National Accreditation Board for Testing and Calibration Laboratories", covers: "All clinical, pathology, and diagnostic laboratories (ISO 15189)" },
@@ -491,7 +635,7 @@ export function Facilities() {
           />
         ))}
 
-        <div style={{ maxWidth: 660, margin: "0 auto", padding: "0 3rem", textAlign: "center", position: "relative", zIndex: 2 }}>
+        <div className="fac-cta-inner">
           <motion.div
             initial={{ opacity: 0, y: 36 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -501,7 +645,7 @@ export function Facilities() {
             <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 18, letterSpacing: "4px", textTransform: "uppercase", color: "rgba(75,204,212,0.4)", marginBottom: 18, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
               <span style={{ display: "block", width: 24, height: "0.5px", background: "rgba(75,204,212,0.35)" }} />Don't See Your Facility Type?<span style={{ display: "block", width: 24, height: "0.5px", background: "rgba(75,204,212,0.35)" }} />
             </p>
-            <h2 style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(2.6rem,4.5vw,4.42rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
+            <h2 style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: "clamp(2.2rem,4.5vw,4.42rem)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
               Tell Us About Your<br /><em style={{ fontStyle: "italic", color: "#4bccd4" }}>Facility Vision</em>
             </h2>
             <p style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 19, color: "rgba(255,255,255,0.88)", lineHeight: 1.9, marginBottom: 40, maxWidth: 480, margin: "0 auto 40px" , fontWeight: 400 }}>

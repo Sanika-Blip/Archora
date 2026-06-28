@@ -289,8 +289,8 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
           aria-label={`Read article: ${article.title}`}
         >
           <div
+            className="jrnl-featured-grid"
             style={{
-              display: "grid", gridTemplateColumns: "1fr 1fr",
               border: "1px solid rgba(27,108,168,0.12)",
               overflow: "hidden", background: C.white,
               transition: "box-shadow 0.4s ease, transform 0.4s ease",
@@ -299,7 +299,7 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
             onMouseLeave={e => { const el = e.currentTarget as HTMLDivElement; el.style.boxShadow = "none"; el.style.transform = "translateY(0)"; }}
           >
             {/* Image */}
-            <div style={{ position: "relative", overflow: "hidden", aspectRatio: "16/11" }}>
+            <div className="jrnl-featured-image" style={{ position: "relative", overflow: "hidden", aspectRatio: "16/11" }}>
               <img
                 src={article.image} alt={article.title}
                 style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.8s ease" }}
@@ -311,7 +311,7 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
             </div>
 
             {/* Content */}
-            <div style={{ padding: "52px 48px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            <div className="jrnl-featured-content" style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20, flexWrap: "wrap" }}>
                 <span style={{ background: "rgba(192,57,43,0.1)", color: C.red, border: "1px solid rgba(192,57,43,0.2)", padding: "4px 12px", fontSize: 12, fontFamily: "Calibri, Arial, sans-serif", letterSpacing: "0.2em", textTransform: "uppercase" }}>
                   Featured
@@ -321,7 +321,7 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
                 </span>
               </div>
 
-              <h2 style={{ color: C.ink, fontSize: "clamp(1.4rem, 2vw, 1.9rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 600, lineHeight: 1.2, marginBottom: 16 }}>
+              <h2 style={{ color: C.ink, fontSize: "clamp(1.3rem, 2vw, 1.9rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 600, lineHeight: 1.2, marginBottom: 16 }}>
                 {article.title}
               </h2>
 
@@ -329,7 +329,7 @@ function ArticleCard({ article, featured = false, index = 0 }: { article: Articl
                 {article.excerpt}
               </p>
 
-              <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 28 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 28, flexWrap: "wrap" }}>
                 <span style={{ color: C.muted, fontSize: 13, fontFamily: "Calibri, Arial, sans-serif", display: "flex", alignItems: "center", gap: 5 }}>
                   <Calendar size={13} /> {article.date}
                 </span>
@@ -463,6 +463,102 @@ export function Journal() {
         <style>{`
           @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
           @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+          /* ============ RESPONSIVE LAYOUT RULES ============ */
+
+          /* Page-wide horizontal padding wrappers — fixed 80px sides crush
+             content on tablet/phone, same scaling as Home's .home-wrap. */
+          .jrnl-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 80px;
+            box-sizing: border-box;
+          }
+          @media (max-width: 1024px) {
+            .jrnl-wrap { padding: 0 48px; }
+          }
+          @media (max-width: 640px) {
+            .jrnl-wrap { padding: 0 24px; }
+          }
+
+          /* Hero: fixed left/right padding plus top offset for sticky nav */
+          .jrnl-hero-inner {
+            padding: 60px 80px 0;
+          }
+          @media (max-width: 1024px) {
+            .jrnl-hero-inner { padding: 56px 48px 0; }
+          }
+          @media (max-width: 640px) {
+            .jrnl-hero-inner { padding: 48px 24px 0; }
+          }
+          .jrnl-hero-headline {
+            font-size: clamp(2.1rem, 4.5vw, 4.4rem);
+          }
+
+          /* Category filter bar: horizontal scroll already works, just tighten
+             tap-target padding slightly on phone so more categories fit/scroll smoothly */
+          .jrnl-filter-bar {
+            padding: 0 80px;
+          }
+          @media (max-width: 1024px) {
+            .jrnl-filter-bar { padding: 0 48px; }
+          }
+          @media (max-width: 640px) {
+            .jrnl-filter-bar { padding: 0 24px; }
+          }
+
+          /* Featured article card: side-by-side image+content grid is the
+             biggest break risk — stacks to a single column on tablet/phone,
+             and the fixed 52px/48px content padding shrinks to match. */
+          .jrnl-featured-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+          }
+          @media (max-width: 760px) {
+            .jrnl-featured-grid { grid-template-columns: 1fr; }
+          }
+          .jrnl-featured-image {
+            aspect-ratio: 16/11;
+          }
+          @media (max-width: 760px) {
+            .jrnl-featured-image { aspect-ratio: 16/10; }
+          }
+          .jrnl-featured-content {
+            padding: 52px 48px;
+          }
+          @media (max-width: 760px) {
+            .jrnl-featured-content { padding: 36px 28px; }
+          }
+          @media (max-width: 480px) {
+            .jrnl-featured-content { padding: 28px 20px; }
+          }
+
+          /* Standard article grid: 3 cols -> 2 -> 1 */
+          .jrnl-articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+          }
+          @media (max-width: 900px) {
+            .jrnl-articles-grid { grid-template-columns: repeat(2, 1fr); }
+          }
+          @media (max-width: 560px) {
+            .jrnl-articles-grid { grid-template-columns: 1fr; }
+          }
+
+          /* Newsletter input + button row: side-by-side with no border-radius
+             gap relies on fixed widths; let it wrap into a stacked block on
+             phones instead of squeezing the email field unreadably small. */
+          .jrnl-newsletter-row {
+            display: flex;
+            gap: 0;
+            max-width: 460px;
+            margin: 0 auto;
+          }
+          @media (max-width: 480px) {
+            .jrnl-newsletter-row { flex-direction: column; gap: 10px; }
+            .jrnl-newsletter-row input { border-right: 1px solid rgba(75,204,212,0.2) !important; }
+          }
         `}</style>
 
         {/* ── HERO ── */}
@@ -475,14 +571,14 @@ export function Journal() {
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.6) 0%, rgba(4,28,46,0.36) 60%, rgba(4,28,46,0.14) 100%)" }} />
 
-          <div style={{ position: "relative", height: "100%", maxWidth: 1280, margin: "0 auto", padding: "60px 80px 0", display: "flex", alignItems: "center", zIndex: 10 }}>
+          <div className="jrnl-hero-inner" style={{ position: "relative", height: "100%", maxWidth: 1280, margin: "0 auto", display: "flex", alignItems: "center", zIndex: 10 }}>
             <motion.div initial={{ opacity: 0, y: 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
                 <span style={{ color: "rgba(255,255,255,0.90)", fontSize: 15, fontWeight: 700, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif" }}>
                   Healthcare Infrastructure Partner
                 </span>
               </div>
-              <h1 style={{ fontSize: "clamp(2.6rem, 4.5vw, 4.4rem)", color: C.white, fontFamily: "Calibri, Arial, sans-serif", fontWeight: 600, lineHeight: 1.06, marginBottom: 16, letterSpacing: "-0.01em" }}>
+              <h1 className="jrnl-hero-headline" style={{ color: C.white, fontFamily: "Calibri, Arial, sans-serif", fontWeight: 600, lineHeight: 1.06, marginBottom: 16, letterSpacing: "-0.01em" }}>
                 The ARCHORA Journal
               </h1>
               <p style={{ color: "rgba(255,255,255,0.65)", fontSize: 17, lineHeight: 1.75, maxWidth: 500, fontFamily: "Calibri, Arial, sans-serif" }}>
@@ -494,7 +590,7 @@ export function Journal() {
 
         {/* ── CATEGORY FILTER ── */}
         <div style={{ background: C.white, borderBottom: "1px solid rgba(27,108,168,0.1)", position: "sticky", top: 0, zIndex: 50 }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px" }}>
+          <div className="jrnl-wrap jrnl-filter-bar" style={{ maxWidth: 1280 }}>
             <div style={{ display: "flex", gap: 0, overflowX: "auto" }}>
               {allCategories.map(cat => (
                 <button
@@ -518,7 +614,7 @@ export function Journal() {
 
         {/* ── ARTICLE GRID ── */}
         <section style={{ padding: "80px 0 100px", position: "relative" }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px" }}>
+          <div className="jrnl-wrap">
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -529,7 +625,7 @@ export function Journal() {
                 transition={{ duration: 0.4 }}
               >
                 {/* Article count */}
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 48 }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 48, flexWrap: "wrap", gap: 12 }}>
                   <div>
                     <SectionLabel text="Latest Articles" />
                     <p style={{ color: C.muted, fontSize: 14, fontFamily: "Calibri, Arial, sans-serif", margin: 0 }}>
@@ -551,9 +647,9 @@ export function Journal() {
                       </div>
                     )}
 
-                    {/* Remaining articles, 3-column grid */}
+                    {/* Remaining articles, responsive grid */}
                     {rest.length > 0 && (
-                      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+                      <div className="jrnl-articles-grid">
                         {rest.map((article, i) => (
                           <ArticleCard key={article.id} article={article} index={i} />
                         ))}
@@ -576,7 +672,7 @@ export function Journal() {
             />
           ))}
 
-          <div style={{ maxWidth: 640, margin: "0 auto", padding: "0 80px", textAlign: "center", position: "relative", zIndex: 10 }}>
+          <div className="jrnl-wrap" style={{ maxWidth: 640, textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.div {...fadeUp}>
               <SectionLabel text="Stay Informed" light />
               <h2 style={{ color: C.white, fontSize: "clamp(1.8rem, 3.5vw, 3rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, lineHeight: 1.1, marginBottom: 16 }}>
@@ -586,7 +682,7 @@ export function Journal() {
               <p style={{ color: "rgba(255,255,255,0.58)", fontSize: 16, lineHeight: 1.85, marginBottom: 40 }}>
                 Subscribe for expert articles on hospital design, NABH compliance, modular OT infrastructure, and more, written by practicing healthcare infrastructure specialists.
               </p>
-              <div style={{ display: "flex", gap: 0, maxWidth: 460, margin: "0 auto" }}>
+              <div className="jrnl-newsletter-row">
                 <input
                   type="email"
                   value={email}
@@ -598,7 +694,7 @@ export function Journal() {
                     flex: 1, padding: "13px 18px", background: "rgba(255,255,255,0.06)",
                     border: "1px solid rgba(75,204,212,0.2)", borderRight: "none",
                     color: C.white, fontFamily: "Calibri, Arial, sans-serif", fontSize: 15,
-                    outline: "none",
+                    outline: "none", minWidth: 0,
                   }}
                 />
                 <button

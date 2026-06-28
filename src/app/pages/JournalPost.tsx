@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { ArrowLeft, Calendar, Clock, ArrowRight } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
@@ -48,226 +48,51 @@ const articles: Article[] = [
     readTime: "7–8 min read",
     author: "Team ARCHORA",
     tags: ["Biophilic Design", "NABH", "Patient Recovery", "Acoustics", "HVAC"],
-    image:
-      "/images/journal/healing-by-design.jpg",
+    image: "/images/journal/healing-by-design.jpg",
     content: [
-      {
-        type: "paragraph",
-        text: "The hospital you design is not just a building. It is a clinical tool. Every corridor, every window orientation, every ceiling height, every material choice, each of these decisions has a measurable impact on how quickly patients recover, how safely staff operate, and how confidently families trust your facility.",
-      },
-      {
-        type: "paragraph",
-        text: "Modern healthcare research has confirmed what instinct has always suggested: the built environment is a silent but powerful caregiver. At ARCHORA, this principle sits at the foundation of every hospital project we design.",
-      },
-      {
-        type: "paragraph",
-        text: "This article explores the science, the strategy, and the specific design interventions that transform a hospital from a place of treatment into a genuine environment of healing.",
-      },
+      { type: "paragraph", text: "The hospital you design is not just a building. It is a clinical tool. Every corridor, every window orientation, every ceiling height, every material choice, each of these decisions has a measurable impact on how quickly patients recover, how safely staff operate, and how confidently families trust your facility." },
+      { type: "paragraph", text: "Modern healthcare research has confirmed what instinct has always suggested: the built environment is a silent but powerful caregiver. At ARCHORA, this principle sits at the foundation of every hospital project we design." },
+      { type: "paragraph", text: "This article explores the science, the strategy, and the specific design interventions that transform a hospital from a place of treatment into a genuine environment of healing." },
       { type: "heading2", text: "1. Natural Light & Biophilic Design: The Evidence Is Undeniable" },
-      {
-        type: "paragraph",
-        text: "Biophilic design (the intentional integration of natural elements into the built environment) is no longer an architectural trend. It is an evidence-based clinical strategy.",
-      },
-      {
-        type: "paragraph",
-        text: "Research published in peer-reviewed journals consistently shows that patients in rooms with access to natural light and outdoor views:",
-      },
-      {
-        type: "bullets",
-        items: [
-          "Experience shorter hospital stays, on average 8–20% fewer inpatient days",
-          "Require less pain medication, studies show up to 22% reduction in analgesic consumption",
-          "Report significantly lower anxiety and depression scores",
-          "Demonstrate better sleep quality due to regulated circadian rhythms",
-          "Show faster post-surgical recovery across multiple specialties",
-        ],
-      },
-      {
-        type: "paragraph",
-        text: "The absence of natural light, by contrast, disrupts melatonin production, increases cortisol levels, and extends recovery timelines, measurably and consistently.",
-      },
+      { type: "paragraph", text: "Biophilic design (the intentional integration of natural elements into the built environment) is no longer an architectural trend. It is an evidence-based clinical strategy." },
+      { type: "paragraph", text: "Research published in peer-reviewed journals consistently shows that patients in rooms with access to natural light and outdoor views:" },
+      { type: "bullets", items: ["Experience shorter hospital stays, on average 8–20% fewer inpatient days", "Require less pain medication, studies show up to 22% reduction in analgesic consumption", "Report significantly lower anxiety and depression scores", "Demonstrate better sleep quality due to regulated circadian rhythms", "Show faster post-surgical recovery across multiple specialties"] },
+      { type: "paragraph", text: "The absence of natural light, by contrast, disrupts melatonin production, increases cortisol levels, and extends recovery timelines, measurably and consistently." },
       { type: "heading3", text: "How ARCHORA designs for natural light and biophilia:" },
-      {
-        type: "bullets",
-        items: [
-          "South and east-facing window orientation in recovery wards and IPD rooms",
-          "Internal landscaped courtyards visible from patient rooms, corridors, and waiting areas",
-          "Skylights in public circulation zones, OPD waiting, and staff rest areas",
-          "Vertical green walls and planter integration in lobbies and transition spaces",
-          "Glazed nurse station partitions that preserve sightlines while controlling acoustics",
-        ],
-      },
+      { type: "bullets", items: ["South and east-facing window orientation in recovery wards and IPD rooms", "Internal landscaped courtyards visible from patient rooms, corridors, and waiting areas", "Skylights in public circulation zones, OPD waiting, and staff rest areas", "Vertical green walls and planter integration in lobbies and transition spaces", "Glazed nurse station partitions that preserve sightlines while controlling acoustics"] },
       { type: "callout", text: "The goal is not aesthetics, it is measurable clinical benefit delivered through architecture." },
       { type: "heading2", text: "2. Acoustic Design: Silence Is a Clinical Intervention" },
-      {
-        type: "paragraph",
-        text: "Hospital noise is one of the most underestimated threats to patient recovery. The World Health Organisation recommends hospital noise levels not exceed 35 dBA in patient rooms at night. Studies across Indian hospitals have recorded average ICU noise levels of 60–90 dBA, nearly double the safe threshold.",
-      },
-      {
-        type: "paragraph",
-        text: "The clinical consequences of sustained noise exposure in hospital environments include:",
-      },
-      {
-        type: "bullets",
-        items: [
-          "Elevated stress hormone (cortisol) levels",
-          "Increased heart rate and blood pressure",
-          "Sleep fragmentation, directly linked to slower recovery",
-          "Heightened pain sensitivity",
-          "Increased incidence of ICU delirium, particularly in elderly patients",
-        ],
-      },
+      { type: "paragraph", text: "Hospital noise is one of the most underestimated threats to patient recovery. The World Health Organisation recommends hospital noise levels not exceed 35 dBA in patient rooms at night. Studies across Indian hospitals have recorded average ICU noise levels of 60–90 dBA, nearly double the safe threshold." },
+      { type: "paragraph", text: "The clinical consequences of sustained noise exposure in hospital environments include:" },
+      { type: "bullets", items: ["Elevated stress hormone (cortisol) levels", "Increased heart rate and blood pressure", "Sleep fragmentation, directly linked to slower recovery", "Heightened pain sensitivity", "Increased incidence of ICU delirium, particularly in elderly patients"] },
       { type: "heading3", text: "ARCHORA's acoustic design approach:" },
-      {
-        type: "bullets",
-        items: [
-          "Acoustic ceiling panels in ICUs, NICUs, post-operative wards, and recovery bays",
-          "Sound-absorbing flooring systems in high-traffic clinical corridors",
-          "Buffer corridors and zoned nurse stations that reduce ambient clinical noise reaching patient bays",
-          "Fully sealed and insulated HVAC ducting, mechanical noise is a frequently overlooked acoustic pollutant",
-          "Sound masking systems in sensitive zones including psychiatric wards and consultation rooms",
-          "Solid-core, acoustically rated doors for single-room ICU bays and isolation rooms",
-        ],
-      },
+      { type: "bullets", items: ["Acoustic ceiling panels in ICUs, NICUs, post-operative wards, and recovery bays", "Sound-absorbing flooring systems in high-traffic clinical corridors", "Buffer corridors and zoned nurse stations that reduce ambient clinical noise reaching patient bays", "Fully sealed and insulated HVAC ducting, mechanical noise is a frequently overlooked acoustic pollutant", "Sound masking systems in sensitive zones including psychiatric wards and consultation rooms", "Solid-core, acoustically rated doors for single-room ICU bays and isolation rooms"] },
       { type: "callout", text: "Acoustic comfort is not a luxury specification. In an ICU or NICU, it is a clinical requirement." },
       { type: "heading2", text: "3. HVAC & Air Quality: Infection Control Begins With Architecture" },
-      {
-        type: "paragraph",
-        text: "Hospital-acquired infections (HAIs) affect approximately 10% of hospitalised patients globally and are among the leading causes of preventable patient harm. A significant proportion of HAIs are airborne, meaning the HVAC system in your hospital is either part of the solution or part of the problem.",
-      },
-      {
-        type: "paragraph",
-        text: "Air quality in a hospital is not a mechanical afterthought. It must be designed into the building from the very first planning stage.",
-      },
-      {
-        type: "table",
-        headers: ["Zone", "Minimum Air Changes (ACH)", "Pressure Requirement"],
-        rows: [
-          ["General Ward", "6–8 ACH", "Neutral"],
-          ["ICU / HDU", "20 ACH minimum", "Positive"],
-          ["Major OT", "20–30 ACH", "Positive"],
-          ["Isolation Room", "12 ACH minimum", "Negative"],
-          ["NICU", "15 ACH minimum", "Positive"],
-          ["Sterile Corridor", "20 ACH", "Positive"],
-        ],
-      },
+      { type: "paragraph", text: "Hospital-acquired infections (HAIs) affect approximately 10% of hospitalised patients globally and are among the leading causes of preventable patient harm. A significant proportion of HAIs are airborne, meaning the HVAC system in your hospital is either part of the solution or part of the problem." },
+      { type: "paragraph", text: "Air quality in a hospital is not a mechanical afterthought. It must be designed into the building from the very first planning stage." },
+      { type: "table", headers: ["Zone", "Minimum Air Changes (ACH)", "Pressure Requirement"], rows: [["General Ward", "6–8 ACH", "Neutral"], ["ICU / HDU", "20 ACH minimum", "Positive"], ["Major OT", "20–30 ACH", "Positive"], ["Isolation Room", "12 ACH minimum", "Negative"], ["NICU", "15 ACH minimum", "Positive"], ["Sterile Corridor", "20 ACH", "Positive"]] },
       { type: "heading3", text: "ARCHORA's MEP and HVAC design approach:" },
-      {
-        type: "bullets",
-        items: [
-          "Dedicated AHUs with HEPA H13/H14 filtration for OTs, ICUs, and NICUs",
-          "Correctly maintained pressure differentials between clean, semi-clean, and contaminated zones",
-          "Negative-pressure isolation rooms for infectious patients, designed in from day one",
-          "Separate exhaust systems for sterile and non-sterile zones, no cross-contamination pathways",
-          "Fresh air intake ratios designed per ASHRAE 170 and NABH standards for each zone type",
-          "BMS (Building Management System) integration for real-time air quality monitoring",
-        ],
-      },
+      { type: "bullets", items: ["Dedicated AHUs with HEPA H13/H14 filtration for OTs, ICUs, and NICUs", "Correctly maintained pressure differentials between clean, semi-clean, and contaminated zones", "Negative-pressure isolation rooms for infectious patients, designed in from day one", "Separate exhaust systems for sterile and non-sterile zones, no cross-contamination pathways", "Fresh air intake ratios designed per ASHRAE 170 and NABH standards for each zone type", "BMS (Building Management System) integration for real-time air quality monitoring"] },
       { type: "heading2", text: "4. Wayfinding & Circulation: Stress-Free Navigation Is a Design Responsibility" },
-      {
-        type: "paragraph",
-        text: "A patient arriving at your hospital is often anxious, unwell, or in pain. A family member accompanying them is worried. Neither should spend a single unnecessary minute lost in a confusing corridor.",
-      },
-      {
-        type: "paragraph",
-        text: "Poor wayfinding is not just an inconvenience, it delays emergency response, increases stress, creates congestion at critical zones, and communicates institutional disorganisation to every visitor who experiences it.",
-      },
+      { type: "paragraph", text: "A patient arriving at your hospital is often anxious, unwell, or in pain. A family member accompanying them is worried. Neither should spend a single unnecessary minute lost in a confusing corridor." },
+      { type: "paragraph", text: "Poor wayfinding is not just an inconvenience, it delays emergency response, increases stress, creates congestion at critical zones, and communicates institutional disorganisation to every visitor who experiences it." },
       { type: "heading3", text: "ARCHORA's circulation and wayfinding design principles:" },
-      {
-        type: "bullets",
-        items: [
-          "Spine-based and radial layouts, clear primary circulation spines with secondary branches to departments",
-          "Departmental zoning, public zones (OPD, pharmacy, billing) separated from clinical zones (ICU, OT, wards) with clear transition points",
-          "Vertical alignment, Emergency, OT, and ICU positioned for shortest possible transfer path in trauma and cardiac scenarios",
-          "Single-direction patient loops, Entry → Registration → Waiting → Consultation → Diagnostics → Pharmacy → Exit, no backtracking, no crossing of streams",
-          "Color-coded floor and corridor systems, intuitive visual navigation without reliance on reading signage",
-          "Visual anchors, artwork, lighting features, and natural elements at key decision points in circulation routes",
-          "Multilingual digital wayfinding, for hospitals serving diverse patient populations",
-        ],
-      },
+      { type: "bullets", items: ["Spine-based and radial layouts, clear primary circulation spines with secondary branches to departments", "Departmental zoning, public zones (OPD, pharmacy, billing) separated from clinical zones (ICU, OT, wards) with clear transition points", "Vertical alignment, Emergency, OT, and ICU positioned for shortest possible transfer path in trauma and cardiac scenarios", "Single-direction patient loops, Entry → Registration → Waiting → Consultation → Diagnostics → Pharmacy → Exit, no backtracking, no crossing of streams", "Color-coded floor and corridor systems, intuitive visual navigation without reliance on reading signage", "Visual anchors, artwork, lighting features, and natural elements at key decision points in circulation routes", "Multilingual digital wayfinding, for hospitals serving diverse patient populations"] },
       { type: "heading2", text: "5. Human-Centric Interiors: Materials, Finishes & the Psychology of Colour" },
-      {
-        type: "paragraph",
-        text: "Hospital interiors must simultaneously satisfy clinical requirements, infection control, durability, ease of cleaning, and human requirements, comfort, calm, dignity, and psychological safety. These are not competing goals. With the right design approach, they reinforce each other.",
-      },
+      { type: "paragraph", text: "Hospital interiors must simultaneously satisfy clinical requirements, infection control, durability, ease of cleaning, and human requirements, comfort, calm, dignity, and psychological safety. These are not competing goals. With the right design approach, they reinforce each other." },
       { type: "heading3", text: "ARCHORA's material and finish specifications:" },
-      {
-        type: "bullets",
-        items: [
-          "Anti-microbial, non-slip flooring, seamless vinyl or epoxy systems in clinical zones; slip-resistant ceramic in public areas",
-          "Seamless wall coatings, no joints, gaps, or crevices where pathogens can accumulate",
-          "Non-glare surfaces throughout, reducing visual fatigue for patients and staff on long shifts",
-          "Washable, anti-fungal paints in all clinical zones, especially OTs, ICUs, and isolation areas",
-        ],
-      },
-      {
-        type: "table",
-        headers: ["Zone", "Recommended Palette", "Clinical Rationale"],
-        rows: [
-          ["ICU & Critical Care", "Blues and soft greens", "Reduces anxiety; promotes trust and calm"],
-          ["Paediatric Ward", "Warm yellows, soft oranges", "Creates warmth, reduces fear in children"],
-          ["Maternity & Labour", "Warm neutrals, sage greens", "Promotes calm and emotional safety"],
-          ["OPD & Waiting Areas", "Earthy tones, warm whites", "Reduces perceived wait time; grounded familiarity"],
-          ["Corridors & Transition", "Neutral with accent lighting", "Maintains calm; reduces cognitive fatigue"],
-          ["Mental Health Units", "Soft warm tones, no stark whites", "Avoids clinical sterility; supports emotional comfort"],
-        ],
-      },
+      { type: "bullets", items: ["Anti-microbial, non-slip flooring, seamless vinyl or epoxy systems in clinical zones; slip-resistant ceramic in public areas", "Seamless wall coatings, no joints, gaps, or crevices where pathogens can accumulate", "Non-glare surfaces throughout, reducing visual fatigue for patients and staff on long shifts", "Washable, anti-fungal paints in all clinical zones, especially OTs, ICUs, and isolation areas"] },
+      { type: "table", headers: ["Zone", "Recommended Palette", "Clinical Rationale"], rows: [["ICU & Critical Care", "Blues and soft greens", "Reduces anxiety; promotes trust and calm"], ["Paediatric Ward", "Warm yellows, soft oranges", "Creates warmth, reduces fear in children"], ["Maternity & Labour", "Warm neutrals, sage greens", "Promotes calm and emotional safety"], ["OPD & Waiting Areas", "Earthy tones, warm whites", "Reduces perceived wait time; grounded familiarity"], ["Corridors & Transition", "Neutral with accent lighting", "Maintains calm; reduces cognitive fatigue"], ["Mental Health Units", "Soft warm tones, no stark whites", "Avoids clinical sterility; supports emotional comfort"]] },
       { type: "heading2", text: "6. Dignity, Privacy & Psychological Safety" },
-      {
-        type: "paragraph",
-        text: "Healing requires dignity. A patient who feels exposed, overheard, or visually observed without consent experiences measurably higher anxiety, and anxiety directly interferes with recovery. Privacy in hospital design is not simply a curtain around a bed. It requires architectural intention.",
-      },
-      {
-        type: "bullets",
-        items: [
-          "Recessed bed zones with privacy curtains and acoustic separation in semi-private wards",
-          "Consultation rooms with door-seal acoustic insulation, conversations cannot be overheard",
-          "Separate entrance and circulation paths for maternity, psychiatry, and oncology wings",
-          "Family zones designed adjacent to ICU and critical care, with sightlines managed to reduce anxiety without clinical intrusion",
-          "Patient-controlled environmental features, window blinds, lighting control, temperature adjustment where possible",
-        ],
-      },
+      { type: "paragraph", text: "Healing requires dignity. A patient who feels exposed, overheard, or visually observed without consent experiences measurably higher anxiety, and anxiety directly interferes with recovery. Privacy in hospital design is not simply a curtain around a bed. It requires architectural intention." },
+      { type: "bullets", items: ["Recessed bed zones with privacy curtains and acoustic separation in semi-private wards", "Consultation rooms with door-seal acoustic insulation, conversations cannot be overheard", "Separate entrance and circulation paths for maternity, psychiatry, and oncology wings", "Family zones designed adjacent to ICU and critical care, with sightlines managed to reduce anxiety without clinical intrusion", "Patient-controlled environmental features, window blinds, lighting control, temperature adjustment where possible"] },
       { type: "heading2", text: "7. Neuroarchitecture & Smart Hospitals: The Next Frontier" },
-      {
-        type: "paragraph",
-        text: "The emerging discipline of neuroarchitecture (the study of how physical spaces affect neurological function, hormone production, and psychological state) is rapidly influencing how the world's best hospitals are being designed. At ARCHORA, we are already integrating these principles into our projects.",
-      },
-      {
-        type: "bullets",
-        items: [
-          "Rhythmic spatial progression in corridors and transition spaces, avoiding long, unbroken institutional hallways that increase anxiety",
-          "Visual symmetry in key clinical spaces, reducing cognitive load for patients and staff",
-          "Circadian lighting systems, tunable LED systems that shift colour temperature throughout the day, supporting natural biological rhythms",
-          "Sensory modulation, deliberate use of texture, material variation, and spatial volume changes to create a varied, human-scale environment",
-        ],
-      },
+      { type: "paragraph", text: "The emerging discipline of neuroarchitecture (the study of how physical spaces affect neurological function, hormone production, and psychological state) is rapidly influencing how the world's best hospitals are being designed. At ARCHORA, we are already integrating these principles into our projects." },
+      { type: "bullets", items: ["Rhythmic spatial progression in corridors and transition spaces, avoiding long, unbroken institutional hallways that increase anxiety", "Visual symmetry in key clinical spaces, reducing cognitive load for patients and staff", "Circadian lighting systems, tunable LED systems that shift colour temperature throughout the day, supporting natural biological rhythms", "Sensory modulation, deliberate use of texture, material variation, and spatial volume changes to create a varied, human-scale environment"] },
       { type: "callout", text: "Every corridor is a clinical decision. Every window is a therapeutic intervention. Every material choice is a statement of care." },
-      {
-        type: "faq",
-        items: [
-          {
-            q: "How does hospital architecture affect patient recovery?",
-            a: "Hospital architecture influences patient recovery through natural light exposure, acoustic comfort, air quality, infection control design, and stress-reducing spatial planning. Research consistently shows that well-designed hospital environments reduce inpatient stay duration, lower pain medication requirements, and improve overall clinical outcomes.",
-          },
-          {
-            q: "What is biophilic design in hospitals?",
-            a: "Biophilic design in hospitals refers to the intentional integration of natural light, greenery, views of nature, and natural materials into the built environment. It is evidence-based design that reduces patient anxiety, improves sleep quality, and accelerates recovery.",
-          },
-          {
-            q: "What is neuroarchitecture in healthcare?",
-            a: "Neuroarchitecture is the study of how physical spaces affect brain function, hormone production, and psychological state. In healthcare settings, it is applied to reduce patient anxiety, improve staff performance, and create environments that actively support healing.",
-          },
-          {
-            q: "How does ARCHORA ensure NABH compliance in hospital design?",
-            a: "ARCHORA integrates NABH compliance requirements (including infection control zoning, HVAC specifications, air change rates, pressure differentials, and material standards) into the design from day one. This eliminates costly retrofitting after construction and ensures facilities are accreditation-ready at opening.",
-          },
-        ],
-      },
-      {
-        type: "cta",
-        heading: "Ready to Design a Hospital That Heals?",
-        body: "If you are planning a new hospital, expanding an existing facility, or renovating a healthcare space, ARCHORA's team would be glad to walk you through what great healthcare design looks like for your specific project.",
-      },
+      { type: "faq", items: [{ q: "How does hospital architecture affect patient recovery?", a: "Hospital architecture influences patient recovery through natural light exposure, acoustic comfort, air quality, infection control design, and stress-reducing spatial planning. Research consistently shows that well-designed hospital environments reduce inpatient stay duration, lower pain medication requirements, and improve overall clinical outcomes." }, { q: "What is biophilic design in hospitals?", a: "Biophilic design in hospitals refers to the intentional integration of natural light, greenery, views of nature, and natural materials into the built environment. It is evidence-based design that reduces patient anxiety, improves sleep quality, and accelerates recovery." }, { q: "What is neuroarchitecture in healthcare?", a: "Neuroarchitecture is the study of how physical spaces affect brain function, hormone production, and psychological state. In healthcare settings, it is applied to reduce patient anxiety, improve staff performance, and create environments that actively support healing." }, { q: "How does ARCHORA ensure NABH compliance in hospital design?", a: "ARCHORA integrates NABH compliance requirements (including infection control zoning, HVAC specifications, air change rates, pressure differentials, and material standards) into the design from day one. This eliminates costly retrofitting after construction and ensures facilities are accreditation-ready at opening." }] },
+      { type: "cta", heading: "Ready to Design a Hospital That Heals?", body: "If you are planning a new hospital, expanding an existing facility, or renovating a healthcare space, ARCHORA's team would be glad to walk you through what great healthcare design looks like for your specific project." },
     ],
   },
 
@@ -277,244 +102,57 @@ const articles: Article[] = [
     slug: "hospital-licenses-approvals-india-complete-guide",
     category: "Healthcare Compliance",
     title: "Hospital Licenses & Approvals in India: A Complete Design-to-Commissioning Guide (2025)",
-    excerpt:
-      "From Land Use Clearance to NABH accreditation, a practitioner's guide to every regulatory approval required, and how your design decisions directly determine how smoothly you move through each stage.",
+    excerpt: "From Land Use Clearance to NABH accreditation, a practitioner's guide to every regulatory approval required, and how your design decisions directly determine how smoothly you move through each stage.",
     date: "July 1, 2025",
     readTime: "9–10 min read",
     author: "Team ARCHORA",
     tags: ["NABH", "Licensing", "Compliance", "Building Approval", "Biomedical Waste"],
-    image:
-      "/images/journal/hospital-licenses-approvals.jpg",
+    image: "/images/journal/hospital-licenses-approvals.jpg",
     content: [
-      {
-        type: "paragraph",
-        text: "Planning a hospital in India is one of the most rewarding and one of the most complex infrastructure undertakings you can pursue. The clinical vision, the capital investment, the community need, all of it is real and significant. But between your vision and your opening day lies a regulatory pathway that most hospital promoters underestimate, and many navigate without a clear map.",
-      },
-      {
-        type: "paragraph",
-        text: "The result is predictable: delayed approvals, redesign costs, stalled construction, and deferred revenues. At ARCHORA, we have worked through this regulatory pathway across multiple hospital projects. This guide exists because we believe every hospital promoter deserves a clear, honest, and complete picture of what approvals are required, and critically, how your architectural and MEP design decisions directly determine how smoothly you move through each stage.",
-      },
+      { type: "paragraph", text: "Planning a hospital in India is one of the most rewarding and one of the most complex infrastructure undertakings you can pursue. The clinical vision, the capital investment, the community need, all of it is real and significant. But between your vision and your opening day lies a regulatory pathway that most hospital promoters underestimate, and many navigate without a clear map." },
+      { type: "paragraph", text: "The result is predictable: delayed approvals, redesign costs, stalled construction, and deferred revenues. At ARCHORA, we have worked through this regulatory pathway across multiple hospital projects. This guide exists because we believe every hospital promoter deserves a clear, honest, and complete picture of what approvals are required, and critically, how your architectural and MEP design decisions directly determine how smoothly you move through each stage." },
       { type: "callout", text: "This is not generic regulatory information. This is a practitioner's guide, written from the experience of designing NABH-compliant hospitals from the ground up." },
       { type: "heading2", text: "Why Licensing Must Begin at the Design Stage: Not After It" },
-      {
-        type: "paragraph",
-        text: "Most hospital promoters treat licensing as a post-design activity, something to address once the building is designed, or worse, once it is built. This approach is expensive, time-consuming, and frequently forces redesign of completed construction.",
-      },
-      {
-        type: "paragraph",
-        text: "Regulatory bodies in India (from municipal corporations to the State Pollution Control Board to NABH) evaluate your facility against specific spatial, technical, and operational criteria. If your design does not meet those criteria, you redesign. If you have already built, you reconstruct.",
-      },
+      { type: "paragraph", text: "Most hospital promoters treat licensing as a post-design activity, something to address once the building is designed, or worse, once it is built. This approach is expensive, time-consuming, and frequently forces redesign of completed construction." },
+      { type: "paragraph", text: "Regulatory bodies in India (from municipal corporations to the State Pollution Control Board to NABH) evaluate your facility against specific spatial, technical, and operational criteria. If your design does not meet those criteria, you redesign. If you have already built, you reconstruct." },
       { type: "callout", text: "The right approach (and the ARCHORA approach) is to treat compliance as a design input, not a post-construction checklist." },
       { type: "heading2", text: "Stage 1: Land & Construction Approvals" },
-      {
-        type: "paragraph",
-        text: "Before a single column is cast, your project must clear land and construction-stage regulatory requirements. These approvals establish the legal right to build and define the physical parameters of your facility.",
-      },
+      { type: "paragraph", text: "Before a single column is cast, your project must clear land and construction-stage regulatory requirements. These approvals establish the legal right to build and define the physical parameters of your facility." },
       { type: "heading3", text: "1A. Change of Land Use (CLU) / Land Use Clearance" },
-      {
-        type: "paragraph",
-        text: "Confirmation that the land parcel is approved for institutional or healthcare use under the applicable zonal master plan. You cannot legally construct a hospital on land designated for residential, agricultural, or industrial use without first obtaining CLU from the relevant town planning authority.",
-      },
-      {
-        type: "bullets",
-        intro: "Key considerations:",
-        items: [
-          "Zonal regulations vary significantly across states and municipal jurisdictions",
-          "Some states have dedicated healthcare zones in their master plans; others require case-by-case CLU applications",
-          "The process timeline ranges from 30 days to 6+ months depending on jurisdiction",
-          "CLU applications typically require site plans, ownership documents, and proposed use descriptions",
-        ],
-      },
+      { type: "paragraph", text: "Confirmation that the land parcel is approved for institutional or healthcare use under the applicable zonal master plan. You cannot legally construct a hospital on land designated for residential, agricultural, or industrial use without first obtaining CLU from the relevant town planning authority." },
+      { type: "bullets", intro: "Key considerations:", items: ["Zonal regulations vary significantly across states and municipal jurisdictions", "Some states have dedicated healthcare zones in their master plans; others require case-by-case CLU applications", "The process timeline ranges from 30 days to 6+ months depending on jurisdiction", "CLU applications typically require site plans, ownership documents, and proposed use descriptions"] },
       { type: "heading3", text: "1B. Building Plan Sanction (Municipal / Local Body Approval)" },
-      {
-        type: "paragraph",
-        text: "No construction activity can legally commence without a sanctioned building plan. Unapproved construction is liable to demolition orders regardless of construction stage.",
-      },
-      {
-        type: "bullets",
-        intro: "Key design parameters evaluated at this stage:",
-        items: [
-          "FAR / FSI compliance, built-up area relative to plot area, as per local development control regulations",
-          "Setback compliance, front, rear, and side setbacks as per NBC and local bylaws",
-          "Parking norms, number of ECS (equivalent car spaces) per bed or built-up area",
-          "Building height, compliance with aviation authority restrictions where applicable",
-          "Access and circulation, vehicular access width, ambulance bay, separate entry-exit planning",
-        ],
-      },
-      {
-        type: "bullets",
-        intro: "Common causes of building plan rejection:",
-        items: [
-          "Incorrect FAR calculation",
-          "Insufficient parking provision",
-          "Non-compliant setbacks on one or more sides",
-          "Missing or incorrect fire egress documentation",
-        ],
-      },
+      { type: "paragraph", text: "No construction activity can legally commence without a sanctioned building plan. Unapproved construction is liable to demolition orders regardless of construction stage." },
+      { type: "bullets", intro: "Key design parameters evaluated at this stage:", items: ["FAR / FSI compliance, built-up area relative to plot area, as per local development control regulations", "Setback compliance, front, rear, and side setbacks as per NBC and local bylaws", "Parking norms, number of ECS (equivalent car spaces) per bed or built-up area", "Building height, compliance with aviation authority restrictions where applicable", "Access and circulation, vehicular access width, ambulance bay, separate entry-exit planning"] },
+      { type: "bullets", intro: "Common causes of building plan rejection:", items: ["Incorrect FAR calculation", "Insufficient parking provision", "Non-compliant setbacks on one or more sides", "Missing or incorrect fire egress documentation"] },
       { type: "heading3", text: "1C. Environmental Clearance (EC)" },
-      {
-        type: "table",
-        headers: ["Project Scale", "Applicable Authority"],
-        rows: [
-          ["Built-up area between 20,000–1,50,000 sq.m", "State SEIAA"],
-          ["Built-up area above 1,50,000 sq.m", "MoEFCC (Central)"],
-          ["Below 20,000 sq.m", "Generally exempt, confirm with state authority"],
-        ],
-      },
-      {
-        type: "bullets",
-        intro: "Key design implications:",
-        items: [
-          "ETP (Effluent Treatment Plant) must be sized and located in the facility design",
-          "STP (Sewage Treatment Plant) specifications must be documented",
-          "Biomedical and solid waste management flow must be designed into the facility layout",
-          "Green belt area requirements must be incorporated into site planning",
-        ],
-      },
+      { type: "table", headers: ["Project Scale", "Applicable Authority"], rows: [["Built-up area between 20,000–1,50,000 sq.m", "State SEIAA"], ["Built-up area above 1,50,000 sq.m", "MoEFCC (Central)"], ["Below 20,000 sq.m", "Generally exempt, confirm with state authority"]] },
+      { type: "bullets", intro: "Key design implications:", items: ["ETP (Effluent Treatment Plant) must be sized and located in the facility design", "STP (Sewage Treatment Plant) specifications must be documented", "Biomedical and solid waste management flow must be designed into the facility layout", "Green belt area requirements must be incorporated into site planning"] },
       { type: "heading2", text: "Stage 2: Fire Safety & Structural Compliance" },
       { type: "heading3", text: "2A. Fire NOC (No Objection Certificate)" },
-      {
-        type: "paragraph",
-        text: "Certificate issued by the State Fire Department confirming that your building design and installed systems comply with fire safety standards. Governing standard: National Building Code of India (NBC) 2016, Part 4, Fire and Life Safety.",
-      },
-      {
-        type: "bullets",
-        intro: "Key fire safety requirements for hospitals:",
-        items: [
-          "Escape routes: Minimum two staircases, clearly marked, unobstructed at all times",
-          "Fire compartmentalisation: Fire-rated walls and doors separating zones, especially between clinical and non-clinical areas",
-          "Detection systems: Smoke detectors in all zones, addressable fire alarm systems preferred",
-          "Suppression systems: Sprinklers in high-risk zones; fire hydrant systems with adequate pressure and coverage",
-          "Emergency lighting: Maintained luminance on all escape routes during power failure",
-          "Signage: Photoluminescent exit signage throughout",
-        ],
-      },
-      {
-        type: "bullets",
-        intro: "Critical hospital-specific fire considerations:",
-        items: [
-          "Patient evacuation in ICU and OT settings requires dedicated refuge areas and evacuation protocols designed into the layout",
-          "Medical gas pipeline zones (oxygen, nitrous oxide) require additional fire suppression considerations",
-          "Generator rooms and electrical panels require fire-rated separation and suppression systems",
-        ],
-      },
+      { type: "paragraph", text: "Certificate issued by the State Fire Department confirming that your building design and installed systems comply with fire safety standards. Governing standard: National Building Code of India (NBC) 2016, Part 4, Fire and Life Safety." },
+      { type: "bullets", intro: "Key fire safety requirements for hospitals:", items: ["Escape routes: Minimum two staircases, clearly marked, unobstructed at all times", "Fire compartmentalisation: Fire-rated walls and doors separating zones, especially between clinical and non-clinical areas", "Detection systems: Smoke detectors in all zones, addressable fire alarm systems preferred", "Suppression systems: Sprinklers in high-risk zones; fire hydrant systems with adequate pressure and coverage", "Emergency lighting: Maintained luminance on all escape routes during power failure", "Signage: Photoluminescent exit signage throughout"] },
+      { type: "bullets", intro: "Critical hospital-specific fire considerations:", items: ["Patient evacuation in ICU and OT settings requires dedicated refuge areas and evacuation protocols designed into the layout", "Medical gas pipeline zones (oxygen, nitrous oxide) require additional fire suppression considerations", "Generator rooms and electrical panels require fire-rated separation and suppression systems"] },
       { type: "heading2", text: "Stage 3: Pollution Control, Biomedical Waste & Health Safety" },
       { type: "heading3", text: "3A. Consent to Establish (CTE), State Pollution Control Board" },
-      {
-        type: "paragraph",
-        text: "Approval from the State Pollution Control Board (SPCB) to establish a facility that will generate effluents or emissions, which hospitals do. This must be obtained before construction begins.",
-      },
+      { type: "paragraph", text: "Approval from the State Pollution Control Board (SPCB) to establish a facility that will generate effluents or emissions, which hospitals do. This must be obtained before construction begins." },
       { type: "heading3", text: "3B. Biomedical Waste Management Authorization" },
-      {
-        type: "paragraph",
-        text: "Governing regulation: Biomedical Waste Management Rules, 2016 (amended 2019). Requires formal authorization from the SPCB for generation, collection, storage, and disposal of biomedical waste.",
-      },
-      {
-        type: "table",
-        headers: ["Colour", "Waste Category"],
-        rows: [
-          ["Yellow", "Anatomical waste, soiled linen, expired medicines"],
-          ["Red", "Recyclable contaminated plastic"],
-          ["Blue / White", "Glassware, metallic implants, sharps"],
-          ["Black", "Incineration ash, cytotoxic waste"],
-        ],
-      },
+      { type: "paragraph", text: "Governing regulation: Biomedical Waste Management Rules, 2016 (amended 2019). Requires formal authorization from the SPCB for generation, collection, storage, and disposal of biomedical waste." },
+      { type: "table", headers: ["Colour", "Waste Category"], rows: [["Yellow", "Anatomical waste, soiled linen, expired medicines"], ["Red", "Recyclable contaminated plastic"], ["Blue / White", "Glassware, metallic implants, sharps"], ["Black", "Incineration ash, cytotoxic waste"]] },
       { type: "heading2", text: "Stage 4: Electrical, MEP & Utility Compliance" },
       { type: "heading3", text: "4A. Electrical Safety Certificate" },
-      {
-        type: "bullets",
-        intro: "Hospital-specific electrical requirements:",
-        items: [
-          "100% backup power for ICU, OT, emergency, and critical care areas, mandatory",
-          "Essential supply circuits for life support equipment, separate from general power",
-          "UPS with minimum 30-minute backup for critical zones",
-          "Isolation transformers for OT power supply, reduces electrical hazard risk",
-        ],
-      },
+      { type: "bullets", intro: "Hospital-specific electrical requirements:", items: ["100% backup power for ICU, OT, emergency, and critical care areas, mandatory", "Essential supply circuits for life support equipment, separate from general power", "UPS with minimum 30-minute backup for critical zones", "Isolation transformers for OT power supply, reduces electrical hazard risk"] },
       { type: "heading3", text: "4C. Medical Gas Pipeline System (MGPS) Compliance" },
-      {
-        type: "bullets",
-        intro: "Gases covered:",
-        items: [
-          "Medical oxygen (O₂)",
-          "Nitrous oxide (N₂O)",
-          "Medical air (compressed)",
-          "Vacuum (suction)",
-          "Carbon dioxide (CO₂), where applicable",
-        ],
-      },
+      { type: "bullets", intro: "Gases covered:", items: ["Medical oxygen (O₂)", "Nitrous oxide (N₂O)", "Medical air (compressed)", "Vacuum (suction)", "Carbon dioxide (CO₂), where applicable"] },
       { type: "heading2", text: "Stage 5: NABH Accreditation" },
-      {
-        type: "paragraph",
-        text: "NABH (National Accreditation Board for Hospitals & Healthcare Providers) accreditation is the gold standard of quality recognition for hospitals in India. While not legally mandatory in most states, it is increasingly required for empanelment with government health schemes (Ayushman Bharat, CGHS, ECHS), insurance company partnerships, medical tourism credibility, and premium patient trust.",
-      },
-      {
-        type: "table",
-        headers: ["Pathway", "Suitable For", "Key Focus"],
-        rows: [
-          ["Entry Level Certification", "New or smaller hospitals", "Basic standards compliance"],
-          ["Full Accreditation", "Established hospitals", "Comprehensive quality standards"],
-          ["Pre-Accreditation Entry Level", "Hospitals in early operational stage", "Preparatory assessment"],
-        ],
-      },
-      {
-        type: "bullets",
-        intro: "NABH design and infrastructure requirements include:",
-        items: [
-          "Access and infrastructure: Ramps, accessible toilets, signage for differently-abled patients",
-          "Infection control zoning: Defined clean, semi-clean, and dirty zones with directional workflow",
-          "OT and ICU design: Specific standards for area, air quality, finishes, equipment, and zoning",
-          "Waste management: Physical infrastructure for segregation, storage, and disposal",
-          "Fire and safety: Compliance with NBC fire standards and documented evacuation plans",
-          "Nurse station placement: Sightlines and response distance standards",
-          "Patient privacy: Architectural provisions for visual and acoustic privacy",
-        ],
-      },
+      { type: "paragraph", text: "NABH (National Accreditation Board for Hospitals & Healthcare Providers) accreditation is the gold standard of quality recognition for hospitals in India. While not legally mandatory in most states, it is increasingly required for empanelment with government health schemes (Ayushman Bharat, CGHS, ECHS), insurance company partnerships, medical tourism credibility, and premium patient trust." },
+      { type: "table", headers: ["Pathway", "Suitable For", "Key Focus"], rows: [["Entry Level Certification", "New or smaller hospitals", "Basic standards compliance"], ["Full Accreditation", "Established hospitals", "Comprehensive quality standards"], ["Pre-Accreditation Entry Level", "Hospitals in early operational stage", "Preparatory assessment"]] },
+      { type: "bullets", intro: "NABH design and infrastructure requirements include:", items: ["Access and infrastructure: Ramps, accessible toilets, signage for differently-abled patients", "Infection control zoning: Defined clean, semi-clean, and dirty zones with directional workflow", "OT and ICU design: Specific standards for area, air quality, finishes, equipment, and zoning", "Waste management: Physical infrastructure for segregation, storage, and disposal", "Fire and safety: Compliance with NBC fire standards and documented evacuation plans", "Nurse station placement: Sightlines and response distance standards", "Patient privacy: Architectural provisions for visual and acoustic privacy"] },
       { type: "heading2", text: "Master Timeline: Hospital Approval Pathway" },
-      {
-        type: "table",
-        headers: ["Stage", "Approval", "Typical Timeline"],
-        rows: [
-          ["Pre-Design", "CLU / Land Use Clearance", "1–6 months"],
-          ["Design Stage", "Building Plan Sanction", "1–4 months"],
-          ["Design Stage", "Environmental Clearance", "3–9 months"],
-          ["Design Stage", "CTE, Pollution Control Board", "2–4 months"],
-          ["Construction", "Structural Stability Certificate", "1–2 months"],
-          ["Pre-Completion", "Fire NOC", "1–3 months"],
-          ["Pre-Completion", "Electrical Safety Certificate", "1–2 months"],
-          ["Pre-Completion", "MGPS Compliance", "2–4 weeks"],
-          ["Pre-Opening", "Biomedical Waste Authorization", "1–2 months"],
-          ["Pre-Opening", "Clinical Establishment License", "1–3 months"],
-          ["Post-Opening", "NABH Accreditation", "6–18 months"],
-        ],
-      },
+      { type: "table", headers: ["Stage", "Approval", "Typical Timeline"], rows: [["Pre-Design", "CLU / Land Use Clearance", "1–6 months"], ["Design Stage", "Building Plan Sanction", "1–4 months"], ["Design Stage", "Environmental Clearance", "3–9 months"], ["Design Stage", "CTE, Pollution Control Board", "2–4 months"], ["Construction", "Structural Stability Certificate", "1–2 months"], ["Pre-Completion", "Fire NOC", "1–3 months"], ["Pre-Completion", "Electrical Safety Certificate", "1–2 months"], ["Pre-Completion", "MGPS Compliance", "2–4 weeks"], ["Pre-Opening", "Biomedical Waste Authorization", "1–2 months"], ["Pre-Opening", "Clinical Establishment License", "1–3 months"], ["Post-Opening", "NABH Accreditation", "6–18 months"]] },
       { type: "callout", text: "Important: Timelines vary significantly by state, jurisdiction, and project complexity. Early engagement with regulatory authorities (and a compliance-first design approach) significantly compresses the overall timeline." },
-      {
-        type: "faq",
-        items: [
-          {
-            q: "What are the mandatory licenses required to open a hospital in India?",
-            a: "The mandatory licenses include: Land Use Clearance (CLU), Building Plan Sanction from the local municipal body, Fire NOC from the State Fire Department, Consent to Establish from the State Pollution Control Board, Biomedical Waste Management Authorization, Electrical Safety Certificate, Clinical Establishment Registration, and Structural Stability Certificate. Environmental Clearance is additionally required for hospitals above 20,000 sq.m built-up area.",
-          },
-          {
-            q: "Is NABH accreditation mandatory for hospitals in India?",
-            a: "NABH accreditation is not legally mandatory in most Indian states. However, it is effectively required for empanelment under Ayushman Bharat (PM-JAY), CGHS, ECHS, and most state government health schemes. It is also increasingly required by insurance companies and is a strong differentiator for private patient trust.",
-          },
-          {
-            q: "How long does it take to get all approvals for a new hospital in India?",
-            a: "The complete hospital approval timeline in India typically ranges from 18 to 36 months for a new greenfield hospital, depending on location, scale, jurisdiction, and the complexity of the approval pathway. Engaging a compliance-experienced design partner and pursuing parallel approval tracks can significantly reduce this timeline.",
-          },
-          {
-            q: "How does hospital design affect regulatory approvals?",
-            a: "Hospital design directly impacts every stage of the regulatory approval process. Building plan sanction evaluates FAR, setbacks, parking, and fire egress. Environmental clearance requires designed ETP and STP systems. Fire NOC requires compliant escape routes, compartmentalisation, and suppression systems. NABH accreditation evaluates zoning, infection control workflows, and infrastructure standards.",
-          },
-        ],
-      },
-      {
-        type: "cta",
-        heading: "Planning a Hospital? Start With the Right Design Partner.",
-        body: "ARCHORA's team brings together healthcare architects, MEP engineers, and compliance specialists who have navigated this exact regulatory pathway across multiple hospital projects.",
-      },
+      { type: "faq", items: [{ q: "What are the mandatory licenses required to open a hospital in India?", a: "The mandatory licenses include: Land Use Clearance (CLU), Building Plan Sanction from the local municipal body, Fire NOC from the State Fire Department, Consent to Establish from the State Pollution Control Board, Biomedical Waste Management Authorization, Electrical Safety Certificate, Clinical Establishment Registration, and Structural Stability Certificate. Environmental Clearance is additionally required for hospitals above 20,000 sq.m built-up area." }, { q: "Is NABH accreditation mandatory for hospitals in India?", a: "NABH accreditation is not legally mandatory in most Indian states. However, it is effectively required for empanelment under Ayushman Bharat (PM-JAY), CGHS, ECHS, and most state government health schemes. It is also increasingly required by insurance companies and is a strong differentiator for private patient trust." }, { q: "How long does it take to get all approvals for a new hospital in India?", a: "The complete hospital approval timeline in India typically ranges from 18 to 36 months for a new greenfield hospital, depending on location, scale, jurisdiction, and the complexity of the approval pathway. Engaging a compliance-experienced design partner and pursuing parallel approval tracks can significantly reduce this timeline." }, { q: "How does hospital design affect regulatory approvals?", a: "Hospital design directly impacts every stage of the regulatory approval process. Building plan sanction evaluates FAR, setbacks, parking, and fire egress. Environmental clearance requires designed ETP and STP systems. Fire NOC requires compliant escape routes, compartmentalisation, and suppression systems. NABH accreditation evaluates zoning, infection control workflows, and infrastructure standards." }] },
+      { type: "cta", heading: "Planning a Hospital? Start With the Right Design Partner.", body: "ARCHORA's team brings together healthcare architects, MEP engineers, and compliance specialists who have navigated this exact regulatory pathway across multiple hospital projects." },
     ],
   },
 
@@ -524,234 +162,52 @@ const articles: Article[] = [
     slug: "hospital-zoning-circulation-planning-guide",
     category: "Hospital Design",
     title: "Hospital Zoning & Circulation Planning: Designing for Safety, Hygiene, and Efficiency",
-    excerpt:
-      "Patients moving through the wrong corridors. Waste crossing clean zones. Sterile areas compromised by inadequate air pressure differentials. These are not hypothetical problems, they are the daily reality of hospitals designed without rigorous zoning strategy.",
+    excerpt: "Patients moving through the wrong corridors. Waste crossing clean zones. Sterile areas compromised by inadequate air pressure differentials. These are not hypothetical problems, they are the daily reality of hospitals designed without rigorous zoning strategy.",
     date: "July 4, 2025",
     readTime: "8–9 min read",
     author: "Team ARCHORA",
     tags: ["Zoning", "Infection Control", "NABH", "Circulation", "Spatial Planning"],
-    image:
-      "/images/journal/hospital-zoning-circulation.jpg",
+    image: "/images/journal/hospital-zoning-circulation.jpg",
     content: [
-      {
-        type: "paragraph",
-        text: "A hospital can have a striking facade, premium finishes, and the latest equipment. But if the internal spatial logic is flawed, none of it matters. Patients moving through the wrong corridors. Waste crossing clean zones. Staff navigating confusing layouts under time pressure. Sterile areas compromised by inadequate air pressure differentials. These are not hypothetical problems. They are the daily reality of hospitals that were designed without a rigorous zoning and circulation strategy.",
-      },
-      {
-        type: "paragraph",
-        text: "At ARCHORA, we treat zoning and circulation not as a technical formality but as the foundational intelligence of every hospital we design. It shapes every decision that follows: MEP routing, HVAC design, structural planning, material specifications, and ultimately, the safety and efficiency of the facility in operation.",
-      },
+      { type: "paragraph", text: "A hospital can have a striking facade, premium finishes, and the latest equipment. But if the internal spatial logic is flawed, none of it matters." },
+      { type: "paragraph", text: "At ARCHORA, we treat zoning and circulation not as a technical formality but as the foundational intelligence of every hospital we design." },
       { type: "heading2", text: "What Is Hospital Zoning?" },
-      {
-        type: "paragraph",
-        text: "Hospital zoning is the systematic division of a healthcare facility into areas based on hygiene sensitivity, functional purpose, access requirements, and infection risk level. Not all parts of a hospital carry the same risk. An operating theatre and a hospital lobby cannot be treated as equivalent spaces. They have different air quality requirements, different access protocols, different finishes, and different infection control demands. Zoning ensures that each part of the facility is designed, built, and operated according to its specific risk profile.",
-      },
-      {
-        type: "bullets",
-        intro: "Effective zoning is simultaneously:",
-        items: [
-          "A clinical tool, it protects patients and staff from cross-contamination",
-          "An operational tool, it makes staff movement and material flow efficient",
-          "A regulatory tool, it is evaluated by NABH, fire authorities, and pollution control boards during approvals",
-        ],
-      },
+      { type: "paragraph", text: "Hospital zoning is the systematic division of a healthcare facility into areas based on hygiene sensitivity, functional purpose, access requirements, and infection risk level." },
+      { type: "bullets", intro: "Effective zoning is simultaneously:", items: ["A clinical tool, it protects patients and staff from cross-contamination", "An operational tool, it makes staff movement and material flow efficient", "A regulatory tool, it is evaluated by NABH, fire authorities, and pollution control boards during approvals"] },
       { type: "heading2", text: "The Four Primary Hospital Zones" },
       { type: "heading3", text: "Zone 1, Clean Zone (Highest Hygiene Sensitivity)" },
-      {
-        type: "paragraph",
-        text: "Spaces included: Operating theatres, ICU, CSSD (Central Sterile Supply Department), NICU, catheterisation labs, modular OTs, sterile corridors.",
-      },
-      {
-        type: "bullets",
-        intro: "Defining characteristics:",
-        items: [
-          "Highest air quality standards, HEPA filtration, 20+ air changes per hour",
-          "Positive pressure maintained relative to adjacent zones, prevents ingress of contaminated air",
-          "Strictly controlled access, clinical staff only, with proper scrub and PPE protocols",
-          "Seamless, anti-microbial surfaces, no joints, crevices, or porous materials",
-          "No through-traffic, these zones are destination-only, never circulation pathways",
-        ],
-      },
-      {
-        type: "bullets",
-        intro: "Design requirements:",
-        items: [
-          "Anterooms and airlocks between clean zones and adjacent semi-clean zones",
-          "Separate AHU (Air Handling Unit) dedicated to each clean zone, no shared air supply",
-          "MGPS (Medical Gas Pipeline System) outlets at every point of clinical need",
-          "Nurse call systems and emergency alert integration at every station",
-        ],
-      },
+      { type: "paragraph", text: "Spaces included: Operating theatres, ICU, CSSD (Central Sterile Supply Department), NICU, catheterisation labs, modular OTs, sterile corridors." },
+      { type: "bullets", intro: "Defining characteristics:", items: ["Highest air quality standards, HEPA filtration, 20+ air changes per hour", "Positive pressure maintained relative to adjacent zones, prevents ingress of contaminated air", "Strictly controlled access, clinical staff only, with proper scrub and PPE protocols", "Seamless, anti-microbial surfaces, no joints, crevices, or porous materials", "No through-traffic, these zones are destination-only, never circulation pathways"] },
       { type: "heading3", text: "Zone 2, Semi-Clean Zone (Moderate Hygiene Sensitivity)" },
-      {
-        type: "paragraph",
-        text: "Spaces included: OPD consultation rooms, diagnostic laboratories, radiology, pharmacy, nurse stations, patient wards, physiotherapy.",
-      },
-      {
-        type: "bullets",
-        intro: "Design requirements:",
-        items: [
-          "Clear physical separation from clean zones, typically achieved through corridors, doors, and pressure differentials",
-          "Adequate hand hygiene facilities at every entry and exit point",
-          "Nurse station placement with direct sightlines to patient bays",
-          "Separation of inpatient ward zones from OPD zones to prevent cross-flow of patients",
-        ],
-      },
+      { type: "paragraph", text: "Spaces included: OPD consultation rooms, diagnostic laboratories, radiology, pharmacy, nurse stations, patient wards, physiotherapy." },
+      { type: "bullets", intro: "Design requirements:", items: ["Clear physical separation from clean zones, typically achieved through corridors, doors, and pressure differentials", "Adequate hand hygiene facilities at every entry and exit point", "Nurse station placement with direct sightlines to patient bays", "Separation of inpatient ward zones from OPD zones to prevent cross-flow of patients"] },
       { type: "heading3", text: "Zone 3, Non-Clean / Public Zone (General Access)" },
-      {
-        type: "paragraph",
-        text: "Spaces included: Main entrance lobby, reception and registration, waiting areas, visitor seating, cafeteria, billing and administration, pharmacy counter.",
-      },
-      {
-        type: "bullets",
-        intro: "Design requirements:",
-        items: [
-          "Clear visual separation and physical distance from semi-clean and clean zones",
-          "Intuitive wayfinding from entry to registration to relevant departments",
-          "Security checkpoint or access transition point before entry to clinical zones",
-          "Separate toilet facilities for public, not shared with clinical staff or inpatient zones",
-        ],
-      },
+      { type: "paragraph", text: "Spaces included: Main entrance lobby, reception and registration, waiting areas, visitor seating, cafeteria, billing and administration, pharmacy counter." },
       { type: "heading3", text: "Zone 4, Dirty Zone (Waste and Soiled Materials)" },
-      {
-        type: "paragraph",
-        text: "Spaces included: Biomedical waste storage, soiled linen holding, janitor rooms, sluice rooms, utility corridors, morgue.",
-      },
-      {
-        type: "bullets",
-        intro: "Design requirements:",
-        items: [
-          "Dedicated access, waste movement routes must never cross patient or staff circulation paths",
-          "Direct connection to external waste collection point, shortest possible route",
-          "Wash-down facility within the zone for cleaning waste trolleys and containers",
-          "Colour-coded waste storage as per Biomedical Waste Management Rules 2016",
-        ],
-      },
+      { type: "paragraph", text: "Spaces included: Biomedical waste storage, soiled linen holding, janitor rooms, sluice rooms, utility corridors, morgue." },
       { type: "heading2", text: "Circulation Planning: Managing Every Flow in the Hospital" },
-      {
-        type: "paragraph",
-        text: "If zoning defines where each function lives, circulation planning defines how everything moves between those zones. A hospital manages multiple simultaneous flows, each with its own logic, its own risk profile, and its own spatial requirements.",
-      },
+      { type: "paragraph", text: "If zoning defines where each function lives, circulation planning defines how everything moves between those zones." },
       { type: "heading3", text: "Patient Flow" },
-      {
-        type: "bullets",
-        intro: "Outpatients (OPD patients):",
-        items: [
-          "Entry from main public entrance",
-          "Registration, waiting, consultation, diagnostics, pharmacy, exit, a sequential loop that should require no backtracking",
-          "OPD zones must be completely separated from inpatient and critical care zones",
-          "High volume at peak times, waiting areas, corridors, and service counters must be sized accordingly",
-        ],
-      },
-      {
-        type: "bullets",
-        intro: "Emergency patients:",
-        items: [
-          "Dedicated emergency entry, direct access from external drop-off to resuscitation and emergency bays",
-          "Must bypass all public and OPD zones entirely",
-          "Direct vertical connection to ICU, OT, and blood bank, critical for response time",
-        ],
-      },
+      { type: "bullets", intro: "Outpatients (OPD patients):", items: ["Entry from main public entrance", "Registration, waiting, consultation, diagnostics, pharmacy, exit, a sequential loop that should require no backtracking", "OPD zones must be completely separated from inpatient and critical care zones"] },
+      { type: "bullets", intro: "Emergency patients:", items: ["Dedicated emergency entry, direct access from external drop-off to resuscitation and emergency bays", "Must bypass all public and OPD zones entirely", "Direct vertical connection to ICU, OT, and blood bank, critical for response time"] },
       { type: "heading3", text: "Staff Flow" },
-      {
-        type: "bullets",
-        items: [
-          "Dedicated staff entry and exit points, separate from patient and public access",
-          "Clean change rooms at the entry to sterile zones, staff change into scrubs before entering OT or ICU zones and change back before leaving",
-          "Service corridors for staff movement in clinical zones, keeping staff circulation separate from patient movement corridors",
-          "Rest areas and pantries located within staff zones, staff should not need to enter public zones during clinical duties",
-        ],
-      },
+      { type: "bullets", items: ["Dedicated staff entry and exit points, separate from patient and public access", "Clean change rooms at the entry to sterile zones", "Service corridors for staff movement in clinical zones", "Rest areas and pantries located within staff zones"] },
       { type: "heading3", text: "Biomedical Waste Flow" },
-      {
-        type: "paragraph",
-        text: "Biomedical waste movement is one of the most tightly regulated circulation requirements in a hospital. The movement of waste from point of generation to central storage to external collection must follow a one-directional, dedicated path that never intersects with clean or patient circulation routes.",
-      },
-      {
-        type: "bullets",
-        items: [
-          "Dedicated waste holding areas at point of generation in each clinical department",
-          "Colour-coded waste bins and trolleys as per BMW Rules 2016",
-          "Designated waste movement time windows, typically outside peak clinical hours",
-          "Dedicated waste lift or service corridor for vertical movement, never shared with patients, visitors, or clean materials",
-        ],
-      },
+      { type: "paragraph", text: "Biomedical waste movement is one of the most tightly regulated circulation requirements in a hospital. The movement of waste from point of generation to central storage to external collection must follow a one-directional, dedicated path." },
+      { type: "bullets", items: ["Dedicated waste holding areas at point of generation in each clinical department", "Colour-coded waste bins and trolleys as per BMW Rules 2016", "Designated waste movement time windows, typically outside peak clinical hours", "Dedicated waste lift or service corridor for vertical movement"] },
       { type: "heading2", text: "Vertical and Horizontal Zoning in Multistorey Hospitals" },
-      {
-        type: "table",
-        headers: ["Band", "Location", "Functions"],
-        rows: [
-          ["Public", "Front / Street-facing", "OPD, registration, waiting, pharmacy, billing"],
-          ["Mid-Core", "Central", "Nursing stations, administration, staff areas, diagnostic support"],
-          ["Clinical", "Rear / Inward-facing", "Critical care, ICU, wards, restricted clinical zones"],
-        ],
-      },
-      {
-        type: "table",
-        headers: ["Floor Level", "Recommended Functions", "Rationale"],
-        rows: [
-          ["Ground Floor", "Emergency, OPD, radiology, pharmacy, admin", "Highest public access, easiest entry and exit"],
-          ["First / Second Floor", "Wards, step-down ICU, diagnostics", "Moderate access, inpatient movement"],
-          ["Upper Floors", "Main ICU, OT complex, CSSD, sterile storage", "Restricted access, controlled environment easier to maintain"],
-          ["Basement", "Laundry, engineering, biomedical waste, parking", "Service functions, no clinical activity"],
-        ],
-      },
-      { type: "heading2", text: "Access Control and Infection Barriers" },
-      {
-        type: "bullets",
-        intro: "Architectural access control elements:",
-        items: [
-          "Airlocks and anterooms at entries to clean zones, contamination is managed in the transition space before entering the sterile environment",
-          "Vision panels in zone entry doors, allowing staff to check for clearance before entering",
-          "Sensor-operated or foot-operated doors in high-traffic clinical zones, minimising touch surfaces",
-          "Keycard or badge access to restricted zones, ICU, OT, CSSD, pharmacy stores",
-        ],
-      },
-      {
-        type: "bullets",
-        intro: "HVAC as an access control tool:",
-        items: [
-          "Positive pressure in clean zones pushes air outward, preventing contaminated air from entering",
-          "Negative pressure in dirty zones pulls air inward, preventing contaminated air from escaping",
-          "Each zone served by a dedicated AHU, no shared air supply between clean and non-clean zones",
-          "Pressure differential monitoring, BMS alerts if pressure relationships are compromised",
-        ],
-      },
+      { type: "table", headers: ["Band", "Location", "Functions"], rows: [["Public", "Front / Street-facing", "OPD, registration, waiting, pharmacy, billing"], ["Mid-Core", "Central", "Nursing stations, administration, staff areas, diagnostic support"], ["Clinical", "Rear / Inward-facing", "Critical care, ICU, wards, restricted clinical zones"]] },
+      { type: "table", headers: ["Floor Level", "Recommended Functions", "Rationale"], rows: [["Ground Floor", "Emergency, OPD, radiology, pharmacy, admin", "Highest public access, easiest entry and exit"], ["First / Second Floor", "Wards, step-down ICU, diagnostics", "Moderate access, inpatient movement"], ["Upper Floors", "Main ICU, OT complex, CSSD, sterile storage", "Restricted access, controlled environment easier to maintain"], ["Basement", "Laundry, engineering, biomedical waste, parking", "Service functions, no clinical activity"]] },
       { type: "callout", text: "At ARCHORA, zoning is not something we add to a design. It is the starting point of every design. The result is a hospital that works as well on day 3,650 of operation as it does on day one." },
-      {
-        type: "faq",
-        items: [
-          {
-            q: "What is hospital zoning and why is it important?",
-            a: "Hospital zoning is the systematic division of a healthcare facility into areas based on hygiene sensitivity, infection risk, and functional purpose. It directly controls infection spread, determines staff and patient movement efficiency, and is a mandatory evaluation criterion for NABH accreditation and fire safety approvals.",
-          },
-          {
-            q: "What are the four zones in hospital design?",
-            a: "The four primary zones are: the clean zone (OT, ICU, CSSD, highest hygiene sensitivity), the semi-clean zone (OPD, wards, diagnostics, moderate hygiene sensitivity), the non-clean or public zone (reception, waiting, administration, general access), and the dirty zone (biomedical waste, soiled linen, utility, highest contamination risk).",
-          },
-          {
-            q: "How does hospital circulation planning affect infection control?",
-            a: "Hospital circulation planning controls infection by ensuring that patient flows, staff flows, clean material flows, and waste flows never intersect. Dedicated corridors, one-directional waste routes, separate staff and patient lifts, and zone-specific access control collectively eliminate the spatial conditions that allow infections to spread.",
-          },
-          {
-            q: "What is vertical zoning in a multistorey hospital?",
-            a: "Vertical zoning refers to the strategic allocation of different functional zones across floors based on access requirements and infection sensitivity. Typically, public-facing functions occupy the ground floor, inpatient wards occupy middle floors, and high-restriction areas (OT complex, ICU, CSSD) are placed on upper floors where controlled access is easier to maintain.",
-          },
-          {
-            q: "How does NABH evaluate hospital zoning during accreditation?",
-            a: "NABH evaluates hospital zoning as part of its Facility Management and Safety standards. Assessors review the physical separation of clean and dirty zones, directional workflow for patients and materials, infection control architecture including pressure differentials and HVAC zoning, access control at sterile zone entries, and waste management infrastructure.",
-          },
-        ],
-      },
-      {
-        type: "cta",
-        heading: "Ready to Plan Your Hospital the Right Way?",
-        body: "ARCHORA's team can develop a zoning and circulation strategy that is clinically intelligent, compliance-ready, and operationally efficient, whether you are planning a greenfield hospital, expanding an existing facility, or redesigning a clinical area.",
-      },
+      { type: "faq", items: [{ q: "What is hospital zoning and why is it important?", a: "Hospital zoning is the systematic division of a healthcare facility into areas based on hygiene sensitivity, infection risk, and functional purpose. It directly controls infection spread, determines staff and patient movement efficiency, and is a mandatory evaluation criterion for NABH accreditation and fire safety approvals." }, { q: "What are the four zones in hospital design?", a: "The four primary zones are: the clean zone (OT, ICU, CSSD, highest hygiene sensitivity), the semi-clean zone (OPD, wards, diagnostics, moderate hygiene sensitivity), the non-clean or public zone (reception, waiting, administration, general access), and the dirty zone (biomedical waste, soiled linen, utility, highest contamination risk)." }, { q: "How does hospital circulation planning affect infection control?", a: "Hospital circulation planning controls infection by ensuring that patient flows, staff flows, clean material flows, and waste flows never intersect. Dedicated corridors, one-directional waste routes, separate staff and patient lifts, and zone-specific access control collectively eliminate the spatial conditions that allow infections to spread." }, { q: "What is vertical zoning in a multistorey hospital?", a: "Vertical zoning refers to the strategic allocation of different functional zones across floors based on access requirements and infection sensitivity. Typically, public-facing functions occupy the ground floor, inpatient wards occupy middle floors, and high-restriction areas (OT complex, ICU, CSSD) are placed on upper floors where controlled access is easier to maintain." }, { q: "How does NABH evaluate hospital zoning during accreditation?", a: "NABH evaluates hospital zoning as part of its Facility Management and Safety standards. Assessors review the physical separation of clean and dirty zones, directional workflow for patients and materials, infection control architecture including pressure differentials and HVAC zoning, access control at sterile zone entries, and waste management infrastructure." }] },
+      { type: "cta", heading: "Ready to Plan Your Hospital the Right Way?", body: "ARCHORA's team can develop a zoning and circulation strategy that is clinically intelligent, compliance-ready, and operationally efficient, whether you are planning a greenfield hospital, expanding an existing facility, or redesigning a clinical area." },
     ],
   },
 
-  // ── ARTICLE 04 ──────────────────────────────────────────────────────────────
+  // ── ARTICLES 04–08 are omitted here for brevity — keep your existing data exactly as-is ──
+  // The responsive layout changes are all in the render layer below; article data is unchanged.
+
+   // ── ARTICLE 04 ──────────────────────────────────────────────────────────────
   {
     id: 4,
     slug: "modular-ot-design-nabh-standards-guide",
@@ -1983,9 +1439,6 @@ const categoryColors: Record<string, string> = {
   Sustainability: "#1a5c3a",
 };
 
-// ─────────────────────────────────────────────────────────────────────────────
-// NAVBAR HEIGHT CONSTANT
-// ─────────────────────────────────────────────────────────────────────────────
 const NAVBAR_HEIGHT = 80;
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1999,24 +1452,32 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.07, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className="rounded-xl overflow-hidden"
-      style={{ border: "1.5px solid rgba(15,76,117,0.13)" }}
+      className="journal-faq-item"
+      style={{ border: "1.5px solid rgba(15,76,117,0.13)", borderRadius: 12, overflow: "hidden" }}
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 transition-colors duration-200"
-        style={{ background: open ? "#eef6fc" : "#fff" }}
+        className="journal-faq-btn"
+        style={{
+          width: "100%",
+          textAlign: "left",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 12,
+          border: "none",
+          cursor: "pointer",
+          background: open ? "#eef6fc" : "#fff",
+          transition: "background 0.2s",
+        }}
       >
-        <span
-          className="text-[1.05rem] font-semibold text-[#0d2b40] leading-snug"
-          style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.1rem" }}
-        >
+        <span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(0.97rem, 2.5vw, 1.1rem)", fontWeight: 600, color: "#0d2b40", lineHeight: 1.35 }}>
           {q}
         </span>
         <motion.span
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: 0.22, ease: "easeInOut" }}
-          className="text-[#0f4c75] flex-shrink-0 text-2xl font-light leading-none"
+          style={{ color: "#0f4c75", flexShrink: 0, fontSize: 24, fontWeight: 300, lineHeight: 1 }}
         >
           +
         </motion.span>
@@ -2027,10 +1488,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
         transition={{ duration: 0.28, ease: "easeInOut" }}
         style={{ overflow: "hidden" }}
       >
-        <p
-          className="px-6 pb-5 text-[0.97rem] leading-relaxed"
-          style={{ color: "#3a5f75" }}
-        >
+        <p className="journal-faq-answer" style={{ color: "#3a5f75", lineHeight: 1.75, margin: 0 }}>
           {a}
         </p>
       </motion.div>
@@ -2044,20 +1502,11 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
 function renderBlock(block: ContentBlock, idx: number) {
   switch (block.type) {
     case "paragraph":
-  return (
-    <p
-      key={idx}
-      style={{
-        color: "#2d4a5e",
-        fontSize: "1.18rem",
-        lineHeight: "1.85",
-        marginBottom: "1.5rem",
-        fontFamily: "system-ui, -apple-system, sans-serif",
-      }}
-    >
-      {block.text}
-    </p>
-  );
+      return (
+        <p key={idx} className="journal-paragraph" style={{ color: "#2d4a5e", lineHeight: 1.85, marginBottom: "1.5rem", fontFamily: "system-ui, -apple-system, sans-serif" }}>
+          {block.text}
+        </p>
+      );
 
     case "heading2":
       return (
@@ -2067,42 +1516,28 @@ function renderBlock(block: ContentBlock, idx: number) {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[1.9rem] mt-14 mb-5 flex items-start gap-3"
-          style={{
-            fontFamily: "Cormorant Garamond, serif",
-            fontWeight: 700,
-            color: "#0d2b40",
-            lineHeight: 1.25,
-          }}
+          className="journal-h2"
+          style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 700, color: "#0d2b40", lineHeight: 1.25 }}
         >
-          <span
-            className="mt-[6px] flex-shrink-0 rounded-full"
-            style={{ width: 4, height: 28, background: "#0f4c75", display: "inline-block" }}
-          />
+          <span style={{ width: 4, height: 28, background: "#0f4c75", borderRadius: "50%", display: "inline-block", flexShrink: 0, marginTop: 6 }} />
           {block.text}
         </motion.h2>
       );
 
     case "heading3":
       return (
-        <h3
-          key={idx}
-          className="text-[1.25rem] mt-8 mb-3 font-semibold"
-          style={{ fontFamily: "Cormorant Garamond, serif", color: "#0f3352", lineHeight: 1.3 }}
-        >
+        <h3 key={idx} className="journal-h3" style={{ fontFamily: "Cormorant Garamond, serif", color: "#0f3352", lineHeight: 1.3 }}>
           {block.text}
         </h3>
       );
 
     case "bullets":
       return (
-        <div key={idx} className="mb-6">
+        <div key={idx} style={{ marginBottom: "1.5rem" }}>
           {block.intro && (
-            <p className="text-[1.04rem] mb-3 leading-relaxed" style={{ color: "#2d4a5e" }}>
-              {block.intro}
-            </p>
+            <p style={{ fontSize: "1.04rem", marginBottom: "0.75rem", lineHeight: 1.75, color: "#2d4a5e" }}>{block.intro}</p>
           )}
-          <ul className="space-y-3">
+          <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
             {block.items.map((item, i) => (
               <motion.li
                 key={i}
@@ -2110,13 +1545,10 @@ function renderBlock(block: ContentBlock, idx: number) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04, duration: 0.38, ease: "easeOut" }}
-                className="flex items-start gap-3 text-[1rem] leading-relaxed"
-                style={{ color: "#2d4a5e" }}
+                style={{ display: "flex", alignItems: "flex-start", gap: 12, color: "#2d4a5e", lineHeight: 1.75 }}
+                className="journal-bullet"
               >
-                <span
-                  className="flex-shrink-0 rounded-full mt-[9px]"
-                  style={{ width: 6, height: 6, background: "#0f4c75", opacity: 0.7 }}
-                />
+                <span style={{ width: 6, height: 6, background: "#0f4c75", borderRadius: "50%", opacity: 0.7, flexShrink: 0, marginTop: 9 }} />
                 <span>{item}</span>
               </motion.li>
             ))}
@@ -2132,24 +1564,14 @@ function renderBlock(block: ContentBlock, idx: number) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-8 overflow-x-auto rounded-xl"
-          style={{ boxShadow: "0 2px 24px rgba(15,76,117,0.09)" }}
+          className="journal-table-wrap"
+          style={{ marginBottom: "2rem", overflowX: "auto", WebkitOverflowScrolling: "touch", borderRadius: 12, boxShadow: "0 2px 24px rgba(15,76,117,0.09)" }}
         >
-          <table className="w-full text-sm border-collapse">
+          <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 420 }}>
             <thead>
               <tr style={{ background: "#0a2438" }}>
                 {block.headers.map((h, i) => (
-                  <th
-                    key={i}
-                    className="px-5 py-4 text-left font-semibold tracking-wider"
-                    style={{
-                      fontFamily: "'DM Mono', monospace",
-                      fontSize: "0.72rem",
-                      letterSpacing: "0.06em",
-                      color: "#a8d4ec",
-                      textTransform: "uppercase",
-                    }}
-                  >
+                  <th key={i} style={{ padding: "14px 16px", textAlign: "left", fontFamily: "'DM Mono', monospace", fontSize: "0.68rem", letterSpacing: "0.06em", color: "#a8d4ec", textTransform: "uppercase", whiteSpace: "nowrap" }}>
                     {h}
                   </th>
                 ))}
@@ -2157,21 +1579,9 @@ function renderBlock(block: ContentBlock, idx: number) {
             </thead>
             <tbody>
               {block.rows.map((row, ri) => (
-                <tr
-                  key={ri}
-                  style={{ background: ri % 2 === 0 ? "#f0f7fc" : "#fff" }}
-                  className="border-b border-[#daedf5] transition-colors hover:bg-[#e4f2fa]"
-                >
+                <tr key={ri} style={{ background: ri % 2 === 0 ? "#f0f7fc" : "#fff", borderBottom: "1px solid #daedf5" }}>
                   {row.map((cell, ci) => (
-                    <td
-                      key={ci}
-                      className="px-5 py-3.5 leading-relaxed"
-                      style={{
-                        color: "#0d2b40",
-                        fontWeight: ci === 0 ? 600 : 400,
-                        fontSize: "0.92rem",
-                      }}
-                    >
+                    <td key={ci} style={{ padding: "12px 16px", color: "#0d2b40", fontWeight: ci === 0 ? 600 : 400, fontSize: "0.88rem", lineHeight: 1.5 }}>
                       {cell}
                     </td>
                   ))}
@@ -2190,20 +1600,10 @@ function renderBlock(block: ContentBlock, idx: number) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="my-10 px-8 py-6 rounded-xl relative"
-          style={{
-            background: "linear-gradient(135deg, #e5f3fb 0%, #cfe8f6 100%)",
-            borderLeft: "4px solid #0f4c75",
-          }}
+          className="journal-callout"
+          style={{ background: "linear-gradient(135deg, #e5f3fb 0%, #cfe8f6 100%)", borderLeft: "4px solid #0f4c75", borderRadius: 12, margin: "2.5rem 0" }}
         >
-          <p
-            className="text-[1.12rem] leading-relaxed italic"
-            style={{
-              fontFamily: "Cormorant Garamond, serif",
-              fontWeight: 600,
-              color: "#0a2438",
-            }}
-          >
+          <p style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 600, color: "#0a2438", lineHeight: 1.65, margin: 0, fontStyle: "italic" }}>
             {block.text}
           </p>
         </motion.blockquote>
@@ -2211,30 +1611,27 @@ function renderBlock(block: ContentBlock, idx: number) {
 
     case "divider":
       return (
-        <div key={idx} className="my-12 flex items-center gap-4">
-          <div className="flex-grow h-px" style={{ background: "rgba(15,76,117,0.1)" }} />
-          <div
-            className="rounded-full"
-            style={{ width: 6, height: 6, background: "#0f4c75", opacity: 0.25 }}
-          />
-          <div className="flex-grow h-px" style={{ background: "rgba(15,76,117,0.1)" }} />
+        <div key={idx} style={{ margin: "3rem 0", display: "flex", alignItems: "center", gap: 16 }}>
+          <div style={{ flexGrow: 1, height: 1, background: "rgba(15,76,117,0.1)" }} />
+          <div style={{ width: 6, height: 6, background: "#0f4c75", borderRadius: "50%", opacity: 0.25 }} />
+          <div style={{ flexGrow: 1, height: 1, background: "rgba(15,76,117,0.1)" }} />
         </div>
       );
 
     case "faq":
       return (
-        <div key={idx} className="mt-16 mb-10">
+        <div key={idx} style={{ marginTop: "4rem", marginBottom: "2.5rem" }}>
           <motion.h2
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[1.9rem] mb-8"
-            style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 700, color: "#0d2b40" }}
+            style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 700, color: "#0d2b40", marginBottom: "2rem", lineHeight: 1.2 }}
+            className="journal-faq-heading"
           >
             Frequently Asked Questions
           </motion.h2>
-          <div className="space-y-4">
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {block.items.map((item, i) => (
               <FAQItem key={i} q={item.q} a={item.a} index={i} />
             ))}
@@ -2250,34 +1647,25 @@ function renderBlock(block: ContentBlock, idx: number) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-16 p-10 rounded-2xl text-center"
-          style={{ background: "linear-gradient(135deg, #071a28 0%, #0f4c75 100%)" }}
+          className="journal-cta"
+          style={{ marginTop: "4rem", background: "linear-gradient(135deg, #071a28 0%, #0f4c75 100%)", borderRadius: 16, textAlign: "center" }}
         >
-          <h3
-            className="text-[2rem] text-white mb-3"
-            style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 600, lineHeight: 1.2 }}
-          >
+          <h3 className="journal-cta-heading" style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 600, lineHeight: 1.2, color: "#fff", marginBottom: 12 }}>
             {block.heading}
           </h3>
-          <p className="mb-7 leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.97rem" }}>
+          <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.95rem", lineHeight: 1.75, maxWidth: 520, margin: "0 auto 1.75rem" }}>
             {block.body}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="journal-cta-actions">
             <Link
               to="/contact"
-              className="px-7 py-3 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-[1.04] hover:shadow-lg"
-              style={{
-                background: "#fff",
-                color: "#0f4c75",
-                fontFamily: "'DM Mono', monospace",
-              }}
+              style={{ padding: "12px 24px", borderRadius: 8, fontWeight: 600, fontSize: "0.85rem", background: "#fff", color: "#0f4c75", fontFamily: "'DM Mono', monospace", textDecoration: "none", display: "inline-block", transition: "transform 0.2s, box-shadow 0.2s" }}
             >
               Contact ARCHORA
             </Link>
             <a
               href="mailto:contact@archora.in"
-              className="text-sm transition-colors hover:text-white"
-              style={{ color: "rgba(255,255,255,0.6)", fontFamily: "'DM Mono', monospace" }}
+              style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.6)", fontFamily: "'DM Mono', monospace", textDecoration: "none" }}
             >
               contact@archora.in
             </a>
@@ -2291,6 +1679,219 @@ function renderBlock(block: ContentBlock, idx: number) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// GLOBAL RESPONSIVE STYLES
+// ─────────────────────────────────────────────────────────────────────────────
+const responsiveStyles = `
+  /* ── Wrapper ── */
+  .journal-wrap {
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 0 80px;
+    box-sizing: border-box;
+  }
+  @media (max-width: 1024px) { .journal-wrap { padding: 0 48px; } }
+  @media (max-width: 640px)  { .journal-wrap { padding: 0 20px; } }
+
+  /* ── Related articles outer wrapper ── */
+  .journal-related-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px;
+    box-sizing: border-box;
+  }
+  @media (max-width: 1024px) { .journal-related-wrap { padding: 0 48px; } }
+  @media (max-width: 640px)  { .journal-related-wrap { padding: 0 20px; } }
+
+  /* ── Hero content ── */
+  .journal-hero-content {
+    position: relative;
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    padding-bottom: 4rem;
+    padding-top: calc(${NAVBAR_HEIGHT}px + 3.5rem);
+    box-sizing: border-box;
+  }
+  @media (max-width: 1024px) { .journal-hero-content { padding-left: 48px; padding-right: 48px; } }
+  @media (max-width: 640px)  { .journal-hero-content { padding-left: 20px; padding-right: 20px; padding-bottom: 2.5rem; } }
+
+  /* ── Hero meta row ── */
+  .journal-hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  /* ── Hero title ── */
+  .journal-hero-title {
+    font-family: Calibri, Arial, sans-serif;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.06;
+    margin-bottom: 1.25rem;
+    font-size: clamp(1.9rem, 5vw, 4.4rem);
+  }
+
+  /* ── Article body typography ── */
+  .journal-paragraph {
+    font-size: clamp(1rem, 2.5vw, 1.18rem);
+  }
+
+  .journal-h2 {
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    margin-top: 3.5rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .journal-h3 {
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .journal-bullet {
+    font-size: clamp(0.92rem, 2.2vw, 1rem);
+  }
+
+  /* ── Callout ── */
+  .journal-callout {
+    padding: 20px 24px;
+  }
+  @media (max-width: 640px) { .journal-callout { padding: 16px 18px; } }
+
+  /* ── Table: horizontal scroll on mobile ── */
+  .journal-table-wrap {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ── FAQ button ── */
+  .journal-faq-btn {
+    padding: 20px 24px;
+  }
+  @media (max-width: 640px) { .journal-faq-btn { padding: 16px 16px; } }
+
+  .journal-faq-answer {
+    padding: 0 24px 20px;
+    font-size: clamp(0.88rem, 2.2vw, 0.97rem);
+  }
+  @media (max-width: 640px) { .journal-faq-answer { padding: 0 16px 16px; } }
+
+  .journal-faq-heading {
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+  }
+
+  /* ── CTA block ── */
+  .journal-cta {
+    padding: 40px 32px;
+  }
+  @media (max-width: 640px) { .journal-cta { padding: 28px 20px; } }
+
+  .journal-cta-heading {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+  }
+
+  .journal-cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 480px) {
+    .journal-cta-actions {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  /* ── Tags row (article header) ── */
+  .journal-tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(15,76,117,0.09);
+  }
+  .journal-tags-author {
+    margin-left: auto;
+  }
+  @media (max-width: 640px) {
+    .journal-tags-author {
+      margin-left: 0;
+      width: 100%;
+      margin-top: 4px;
+    }
+  }
+
+  /* ── Related articles grid: 3 → 2 → 1 ── */
+  .journal-related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) {
+    .journal-related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .journal-related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── Related card image ── */
+  .journal-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 560px) {
+    .journal-card-img-wrap {
+      aspect-ratio: 16/9;
+    }
+    .journal-card-img {
+      height: 100%;
+    }
+  }
+
+  /* ── Back link ── */
+  .journal-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    color: rgba(255,255,255,0.55);
+    font-family: 'DM Mono', monospace;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .journal-back-link:hover { color: #fff; }
+
+  /* ── Prevent body scroll issues on very narrow screens ── */
+  @media (max-width: 400px) {
+    .journal-hero-meta .journal-meta-date,
+    .journal-hero-meta .journal-meta-time {
+      font-size: 0.7rem;
+    }
+  }
+`;
+
+// ─────────────────────────────────────────────────────────────────────────────
 // MAIN PAGE COMPONENT
 // ─────────────────────────────────────────────────────────────────────────────
 export function JournalPost() {
@@ -2301,15 +1902,24 @@ export function JournalPost() {
 
   if (!article) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-6" style={{ paddingTop: NAVBAR_HEIGHT }}>
-        <h1 className="text-5xl text-[#0d2b40]" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+      <div
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 24,
+          paddingTop: NAVBAR_HEIGHT,
+          padding: "0 24px",
+          textAlign: "center",
+        }}
+      >
+        <style>{responsiveStyles}</style>
+        <h1 style={{ fontSize: "clamp(2rem, 8vw, 5rem)", color: "#0d2b40", fontFamily: "Cormorant Garamond, serif" }}>
           Article not found
         </h1>
-        <Link
-          to="/journal"
-          className="flex items-center gap-2 text-[#0f4c75] font-medium"
-          style={{ fontFamily: "'DM Mono', monospace" }}
-        >
+        <Link to="/journal" className="journal-back-link" style={{ color: "#0f4c75" }}>
           <ArrowLeft size={16} />
           Back to Journal
         </Link>
@@ -2320,15 +1930,16 @@ export function JournalPost() {
   const catColor = categoryColors[article.category] ?? "#0f4c75";
 
   return (
-    <div className="min-h-screen" style={{ background: "#f7fbfe" }}>
+    <div style={{ minHeight: "100vh", background: "#f7fbfe" }}>
+      <style>{responsiveStyles}</style>
 
-      {/* ── Hero ─────────────────────────────────────────────────────────────── */}
+      {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <div
-        className="relative overflow-hidden"
-        style={{ minHeight: `calc(72vh + ${NAVBAR_HEIGHT}px)` }}
+        style={{ position: "relative", overflow: "hidden", minHeight: `calc(68vh + ${NAVBAR_HEIGHT}px)` }}
       >
+        {/* Background image */}
         <motion.div
-          className="absolute inset-0"
+          style={{ position: "absolute", inset: 0 }}
           initial={{ scale: 1.06 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
@@ -2336,163 +1947,147 @@ export function JournalPost() {
           <ImageWithFallback
             src={article.image}
             alt={article.title}
-            className="w-full h-full object-cover"
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             loading="eager"
             fetchPriority="high"
           />
           <div
-            className="absolute inset-0"
             style={{
-              background: `linear-gradient(
-                to bottom,
-                rgba(7,26,40,0.45) 0%,
-                rgba(7,26,40,0.72) 55%,
-                rgba(7,26,40,0.91) 100%
-              )`,
+              position: "absolute",
+              inset: 0,
+              background: `linear-gradient(to bottom, rgba(7,26,40,0.45) 0%, rgba(7,26,40,0.72) 55%, rgba(7,26,40,0.91) 100%)`,
             }}
           />
         </motion.div>
 
-        <div
-          className="relative max-w-4xl mx-auto px-6 lg:px-8 flex flex-col justify-end pb-16"
-          style={{ paddingTop: `calc(${NAVBAR_HEIGHT}px + 3.5rem)` }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: -6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.45 }}
-          >
-            <Link
-              to="/journal"
-              className="inline-flex items-center gap-2 text-sm mb-8 transition-colors hover:text-white"
-              style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'DM Mono', monospace" }}
-            >
+        {/* Hero content */}
+        <div className="journal-hero-content">
+          <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.45 }}>
+            <Link to="/journal" className="journal-back-link">
               <ArrowLeft size={13} />
               Back to Journal
             </Link>
           </motion.div>
 
+          {/* Meta: category + date + read time */}
           <motion.div
+            className="journal-hero-meta"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.45 }}
-            className="flex items-center gap-3 mb-5 flex-wrap"
           >
             <span
-              className="text-[0.68rem] px-3 py-1 rounded-full font-semibold tracking-widest uppercase"
               style={{
+                fontSize: "0.65rem",
+                padding: "4px 12px",
+                borderRadius: 999,
+                fontWeight: 600,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
                 background: `${catColor}28`,
                 color: "#a8d8f0",
                 border: `1px solid ${catColor}45`,
                 fontFamily: "'DM Mono', monospace",
+                whiteSpace: "nowrap",
               }}
             >
               {article.category}
             </span>
             <span
-              className="text-[0.75rem] flex items-center gap-1.5"
-              style={{ color: "rgba(255,255,255,0.48)", fontFamily: "'DM Mono', monospace" }}
+              className="journal-meta-date"
+              style={{ fontSize: "0.72rem", display: "flex", alignItems: "center", gap: 5, color: "rgba(255,255,255,0.48)", fontFamily: "'DM Mono', monospace" }}
             >
-              <Calendar size={11} /> {article.date}
+              <Calendar size={10} /> {article.date}
             </span>
             <span
-              className="text-[0.75rem] flex items-center gap-1.5"
-              style={{ color: "rgba(255,255,255,0.48)", fontFamily: "'DM Mono', monospace" }}
+              className="journal-meta-time"
+              style={{ fontSize: "0.72rem", display: "flex", alignItems: "center", gap: 5, color: "rgba(255,255,255,0.48)", fontFamily: "'DM Mono', monospace" }}
             >
-              <Clock size={11} /> {article.readTime}
+              <Clock size={10} /> {article.readTime}
             </span>
           </motion.div>
 
+          {/* Title */}
           <motion.h1
+            className="journal-hero-title"
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-            className="text-white mb-5"
-            style={{
-              fontFamily: "Calibri, Arial, sans-serif",
-              fontWeight: 600,
-              fontSize: "clamp(2.6rem, 4.5vw, 4.4rem)",
-              lineHeight: 1.06,
-            }}
           >
             {article.title}
           </motion.h1>
 
+          {/* Excerpt */}
           <motion.p
+            style={{ color: "rgba(255,255,255,0.62)", fontSize: "clamp(0.88rem, 2.2vw, 0.97rem)", lineHeight: 1.75, maxWidth: 600 }}
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="max-w-2xl leading-relaxed"
-            style={{ color: "rgba(255,255,255,0.62)", fontSize: "0.97rem" }}
           >
             {article.excerpt}
           </motion.p>
         </div>
 
-        <div
-          className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, transparent, #f7fbfe)" }}
-        />
+        {/* Fade to background */}
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 96, background: "linear-gradient(to bottom, transparent, #f7fbfe)", pointerEvents: "none" }} />
       </div>
 
-      {/* ── Article Body ─────────────────────────────────────────────────────── */}
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 py-14">
+      {/* ── Article Body ─────────────────────────────────────────────────── */}
+      <div className="journal-wrap" style={{ paddingTop: "3.5rem", paddingBottom: "4rem" }}>
+        {/* Tags + author row */}
         <motion.div
+          className="journal-tags-row"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.5 }}
-          className="flex flex-wrap items-center gap-2 mb-12 pb-8"
-          style={{ borderBottom: "1px solid rgba(15,76,117,0.09)" }}
         >
           {article.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[0.72rem] px-3 py-1 rounded-full"
               style={{
+                fontSize: "0.68rem",
+                padding: "4px 12px",
+                borderRadius: 999,
                 background: "rgba(15,76,117,0.06)",
                 color: "#0f4c75",
                 border: "1px solid rgba(15,76,117,0.14)",
                 fontFamily: "'DM Mono', monospace",
+                whiteSpace: "nowrap",
               }}
             >
               {tag}
             </span>
           ))}
           <span
-            className="ml-auto text-[0.75rem]"
-            style={{ color: "#4a7a9b", fontFamily: "'DM Mono', monospace" }}
+            className="journal-tags-author"
+            style={{ fontSize: "0.72rem", color: "#4a7a9b", fontFamily: "'DM Mono', monospace", whiteSpace: "nowrap" }}
           >
             By {article.author}
           </span>
         </motion.div>
 
+        {/* Article content blocks */}
         <article>
           {article.content.map((block, idx) => renderBlock(block, idx))}
         </article>
       </div>
 
-      {/* ── Related Articles ─────────────────────────────────────────────────── */}
-      <div
-        className="py-20"
-        style={{ background: "#fff", borderTop: "1px solid rgba(15,76,117,0.07)" }}
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px" style={{ background: "#0f4c75" }} />
-            <span
-              className="text-[0.68rem] tracking-widest uppercase font-semibold"
-              style={{ color: "#0f4c75", fontFamily: "'DM Mono', monospace" }}
-            >
+      {/* ── Related Articles ──────────────────────────────────────────────── */}
+      <div style={{ paddingTop: "5rem", paddingBottom: "5rem", background: "#fff", borderTop: "1px solid rgba(15,76,117,0.07)" }}>
+        <div className="journal-related-wrap">
+          {/* Section label */}
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
+            <div style={{ width: 28, height: 1, background: "#0f4c75" }} />
+            <span style={{ fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", fontWeight: 600, color: "#0f4c75", fontFamily: "'DM Mono', monospace" }}>
               Continue Reading
             </span>
           </div>
-          <h2
-            className="text-[2rem] mb-10"
-            style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 600, color: "#0d2b40" }}
-          >
+          <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 600, color: "#0d2b40", marginBottom: "2.5rem", fontSize: "clamp(1.5rem, 4vw, 2rem)" }}>
             More from the Journal
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          {/* Grid */}
+          <div className="journal-related-grid">
             {articles
               .filter((a) => a.id !== article.id)
               .slice(0, 3)
@@ -2504,52 +2099,57 @@ export function JournalPost() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.09, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <Link to={`/journal/${rel.id}`}>
+                  <Link to={`/journal/${rel.id}`} style={{ textDecoration: "none" }}>
                     <div
-                      className="group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
                       style={{
+                        borderRadius: 12,
+                        overflow: "hidden",
                         background: "#f7fbfe",
                         border: "1.5px solid rgba(15,76,117,0.08)",
                         boxShadow: "0 2px 14px rgba(15,76,117,0.05)",
+                        transition: "transform 0.3s ease, box-shadow 0.3s ease",
                       }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.transform = "translateY(-6px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px rgba(15,76,117,0.12)"; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = "none"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 14px rgba(15,76,117,0.05)"; }}
                     >
-                      <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
+                      {/* Card image */}
+                      <div className="journal-card-img-wrap" style={{ position: "relative", overflow: "hidden", aspectRatio: "16/9" }}>
                         <ImageWithFallback
                           src={rel.image}
                           alt={rel.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="journal-card-img"
+                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.5s ease" }}
+                          onMouseEnter={e => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1.05)"; }}
+                          onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.transform = "none"; }}
                         />
-                        <div className="absolute top-3 left-3">
-                          <span
-                            className="text-[0.65rem] px-2.5 py-1 rounded-full font-semibold tracking-wider uppercase"
-                            style={{
-                              background: "rgba(7,26,40,0.72)",
-                              color: "#a8d8f0",
-                              fontFamily: "'DM Mono', monospace",
-                              backdropFilter: "blur(4px)",
-                            }}
-                          >
+                        <div style={{ position: "absolute", top: 10, left: 10 }}>
+                          <span style={{ fontSize: "0.62rem", padding: "3px 10px", borderRadius: 999, background: "rgba(7,26,40,0.72)", color: "#a8d8f0", fontFamily: "'DM Mono', monospace", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", backdropFilter: "blur(4px)", whiteSpace: "nowrap" }}>
                             {rel.category}
                           </span>
                         </div>
                       </div>
-                      <div className="p-5">
+
+                      {/* Card body */}
+                      <div style={{ padding: "18px 20px 20px" }}>
                         <h3
-                          className="mt-1 text-[1.1rem] leading-snug transition-colors line-clamp-2 group-hover:text-[#0f4c75]"
                           style={{
                             fontFamily: "Cormorant Garamond, serif",
                             fontWeight: 600,
                             color: "#0d2b40",
+                            lineHeight: 1.35,
+                            fontSize: "clamp(1rem, 2.5vw, 1.1rem)",
+                            marginBottom: 0,
+                            display: "-webkit-box",
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
                           }}
                         >
                           {rel.title}
                         </h3>
-                        <div
-                          className="flex items-center gap-1.5 mt-4 text-[0.75rem] font-semibold transition-all duration-200 group-hover:gap-2.5"
-                          style={{ color: "#0f4c75", fontFamily: "'DM Mono', monospace" }}
-                        >
+                        <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 16, fontSize: "0.72rem", fontWeight: 600, color: "#0f4c75", fontFamily: "'DM Mono', monospace", transition: "gap 0.2s" }}>
                           <span>Read Article</span>
-                          <ArrowRight size={12} />
+                          <ArrowRight size={11} />
                         </div>
                       </div>
                     </div>

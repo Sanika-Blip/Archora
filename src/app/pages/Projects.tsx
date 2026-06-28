@@ -242,6 +242,7 @@ function GalleryLightbox({ images, index, onClose, onNav }: { images: string[]; 
       <button
         onClick={onClose}
         aria-label="Close gallery"
+        className="proj-lightbox-close"
         style={{
           position: "absolute", top: 24, right: 24, width: 40, height: 40,
           border: "1px solid rgba(75,204,212,0.3)", background: "rgba(10,22,40,0.8)",
@@ -254,6 +255,7 @@ function GalleryLightbox({ images, index, onClose, onNav }: { images: string[]; 
           <button
             onClick={e => { e.stopPropagation(); onNav((index - 1 + images.length) % images.length); }}
             aria-label="Previous image"
+            className="proj-lightbox-nav proj-lightbox-nav-left"
             style={{
               position: "absolute", left: 20, top: "50%", transform: "translateY(-50%)",
               width: 44, height: 44, border: "1px solid rgba(75,204,212,0.3)", background: "rgba(10,22,40,0.7)",
@@ -263,6 +265,7 @@ function GalleryLightbox({ images, index, onClose, onNav }: { images: string[]; 
           <button
             onClick={e => { e.stopPropagation(); onNav((index + 1) % images.length); }}
             aria-label="Next image"
+            className="proj-lightbox-nav proj-lightbox-nav-right"
             style={{
               position: "absolute", right: 20, top: "50%", transform: "translateY(-50%)",
               width: 44, height: 44, border: "1px solid rgba(75,204,212,0.3)", background: "rgba(10,22,40,0.7)",
@@ -326,6 +329,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
   role="dialog"
   aria-modal="true"
   aria-label={`${project.name} project details`}
+  className="proj-modal-panel"
   initial={{ opacity: 0, y: 60, scale: 0.96 }}
   animate={{ opacity: 1, y: 0, scale: 1 }}
   exit={{ opacity: 0, y: 40, scale: 0.96 }}
@@ -347,7 +351,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
   }}
 >
             {/* Hero image */}
-            <div style={{ position: "relative", height: 260, flexShrink: 0, overflow: "hidden" }}>
+            <div className="proj-modal-hero" style={{ position: "relative", height: 260, flexShrink: 0, overflow: "hidden" }}>
               <img
                 src={project.image} alt={`${project.name}, ${project.location}`}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
@@ -359,7 +363,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
               <div style={{ position: "absolute", top: 16, left: 16, width: 32, height: 32, borderLeft: "2px solid rgba(75,204,212,0.5)", borderTop: "2px solid rgba(75,204,212,0.5)" }} />
 
               {/* Status badge */}
-              <div style={{
+              <div className="proj-modal-status-badge" style={{
                 position: "absolute", top: 16, right: 56,
                 background: "rgba(10,22,40,0.85)", border: "1px solid rgba(75,204,212,0.2)",
                 padding: "5px 12px", display: "flex", alignItems: "center", gap: 6,
@@ -387,11 +391,11 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
               >×</button>
 
               {/* Title */}
-              <div style={{ position: "absolute", bottom: 22, left: 28, right: 28 }}>
+              <div className="proj-modal-title-wrap" style={{ position: "absolute", bottom: 22, left: 28, right: 28 }}>
                 <p style={{ color: "rgba(75,204,212,0.65)", fontSize: 12, letterSpacing: "0.26em", textTransform: "uppercase", fontFamily: FONT, margin: "0 0 7px", fontWeight: 400 }}>
                   {project.location}
                 </p>
-                <h2 style={{
+                <h2 className="proj-modal-title" style={{
                   color: "#ffffff", fontSize: 32,
                   fontFamily: FONT,
                   fontWeight: 400, margin: 0, lineHeight: 1.15,
@@ -402,7 +406,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
             </div>
 
             {/* Scrollable body */}
-            <div style={{ overflowY: "auto", padding: "28px 32px 36px", flex: 1 }}>
+            <div className="proj-modal-body" style={{ overflowY: "auto", padding: "28px 32px 36px", flex: 1 }}>
 
               {/* Description */}
               <p style={{ color: "rgba(255,255,255,0.95)", fontSize: 17, lineHeight: 1.85, margin: "0 0 30px", fontWeight: 400, fontFamily: FONT }}>
@@ -410,7 +414,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
               </p>
 
               {/* Two-column: Details + Scope */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}>
+              <div className="proj-modal-cols" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}>
 
                 {/* Project details table */}
                 <div>
@@ -424,6 +428,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
                     {Object.entries(project.details).map(([key, val], i, arr) => (
                       <div
                         key={key}
+                        className="proj-modal-detail-row"
                         style={{
                           display: "grid", gridTemplateColumns: "1fr 1.4fr",
                           borderBottom: i < arr.length - 1 ? "1px solid rgba(75,204,212,0.08)" : "none",
@@ -465,12 +470,13 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
                       Project Gallery
                     </span>
                   </div>
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
+                  <div className="proj-modal-gallery-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
                     {project.gallery.map((src, i) => (
                       <button
                         key={src}
                         onClick={() => setLightboxIndex(i)}
                         aria-label={`Open gallery image ${i + 1}`}
+                        className="proj-modal-gallery-thumb"
                         style={{
                           position: "relative", padding: 0, border: "1px solid rgba(75,204,212,0.12)",
                           background: "transparent", cursor: "pointer", overflow: "hidden",
@@ -492,7 +498,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
               )}
 
               {/* Footer CTAs */}
-              <div style={{ marginTop: 30, paddingTop: 22, borderTop: "1px solid rgba(75,204,212,0.1)", display: "flex", gap: 12, flexWrap: "wrap" }}>
+              <div className="proj-modal-footer-ctas" style={{ marginTop: 30, paddingTop: 22, borderTop: "1px solid rgba(75,204,212,0.1)", display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <button onClick={() => { onClose(); navigate("/contact"); }} style={{
                   padding: "12px 28px", background: C.blue, color: C.white,
                   border: "none", fontSize: 13, letterSpacing: "0.18em",
@@ -549,13 +555,224 @@ export function Projects() {
         <style>{`
           @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
           @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+          /* ============ RESPONSIVE LAYOUT RULES ============ */
+
+          /* Page-wide horizontal padding wrappers — fixed 80px sides crush
+             content on tablet/phone, scale down same as Home's .home-wrap. */
+          .proj-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 80px;
+            box-sizing: border-box;
+          }
+          @media (max-width: 1024px) {
+            .proj-wrap { padding: 0 48px; }
+          }
+          @media (max-width: 640px) {
+            .proj-wrap { padding: 0 24px; }
+          }
+
+          .proj-cta-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 80px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            box-sizing: border-box;
+          }
+          @media (max-width: 1024px) {
+            .proj-cta-wrap { padding: 0 48px; }
+          }
+          @media (max-width: 640px) {
+            .proj-cta-wrap { padding: 0 24px; }
+          }
+
+          /* Hero "featured project" card: fixed height + absolute badges
+             collide at small widths, and the 4-stat row overflows on phones. */
+          .proj-hero-card {
+            height: 460px;
+          }
+          @media (max-width: 760px) {
+            .proj-hero-card { height: auto; min-height: 420px; }
+          }
+
+          .proj-hero-content {
+            padding: 36px 40px;
+          }
+          @media (max-width: 640px) {
+            .proj-hero-content { padding: 24px 22px; }
+          }
+
+          .proj-hero-title {
+            font-size: 32px;
+            max-width: 600px;
+          }
+          @media (max-width: 640px) {
+            .proj-hero-title { font-size: 24px; }
+          }
+
+          .proj-hero-stats {
+            display: flex;
+            gap: 36px;
+            flex-wrap: wrap;
+          }
+          @media (max-width: 640px) {
+            .proj-hero-stats { gap: 20px 28px; }
+          }
+
+          .proj-hero-badges-top {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+          }
+
+          .proj-hero-click-hint {
+            position: absolute;
+            bottom: 28px;
+            right: 28px;
+          }
+          @media (max-width: 640px) {
+            .proj-hero-click-hint { display: none; }
+          }
+
+          /* Three smaller project cards: 3 cols -> 2 -> 1 */
+          .proj-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+          }
+          @media (max-width: 900px) {
+            .proj-cards-grid { grid-template-columns: repeat(2, 1fr); }
+          }
+          @media (max-width: 560px) {
+            .proj-cards-grid { grid-template-columns: 1fr; }
+          }
+
+          /* Experience strip: icon + text row wraps with tighter padding on phone */
+          .proj-experience-strip {
+            margin-top: 48px;
+            padding: 32px 40px;
+            background: ${C.navy};
+            display: flex;
+            align-items: center;
+            gap: 18px;
+          }
+          @media (max-width: 640px) {
+            .proj-experience-strip { padding: 22px 24px; }
+          }
+
+          /* CTA buttons row: 3 long uppercase buttons wrap into a stack on phone */
+          .proj-cta-btn-row {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+          @media (max-width: 560px) {
+            .proj-cta-btn-row { flex-direction: column; align-items: stretch; }
+          }
+
+          /* ===== Modal responsiveness ===== */
+          .proj-modal-panel {
+            top: 5vh;
+          }
+          @media (max-width: 760px) {
+            .proj-modal-panel { top: 0; max-height: 100vh !important; height: 100vh; }
+          }
+
+          .proj-modal-hero {
+            height: 260px;
+          }
+          @media (max-width: 640px) {
+            .proj-modal-hero { height: 200px; }
+          }
+
+          .proj-modal-title {
+            font-size: 32px;
+          }
+          @media (max-width: 640px) {
+            .proj-modal-title { font-size: 24px; }
+          }
+
+          .proj-modal-title-wrap {
+            left: 28px;
+            right: 28px;
+          }
+          @media (max-width: 640px) {
+            .proj-modal-title-wrap { left: 18px; right: 18px; bottom: 16px; }
+          }
+
+          .proj-modal-status-badge {
+            right: 56px;
+          }
+          @media (max-width: 480px) {
+            .proj-modal-status-badge { display: none; }
+          }
+
+          .proj-modal-body {
+            padding: 28px 32px 36px;
+          }
+          @media (max-width: 640px) {
+            .proj-modal-body { padding: 20px 18px 28px; }
+          }
+
+          /* Details + Scope two-column layout stacks on tablet/phone */
+          .proj-modal-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+          }
+          @media (max-width: 640px) {
+            .proj-modal-cols { grid-template-columns: 1fr; gap: 28px; }
+          }
+
+          .proj-modal-detail-row {
+            grid-template-columns: 1fr 1.4fr;
+          }
+          @media (max-width: 420px) {
+            .proj-modal-detail-row { grid-template-columns: 1fr; gap: 2px; }
+          }
+
+          /* Gallery grid: 3 cols -> 2 on phone */
+          .proj-modal-gallery-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+          @media (max-width: 480px) {
+            .proj-modal-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+          }
+
+          .proj-modal-gallery-thumb {
+            height: 110px;
+          }
+          @media (max-width: 480px) {
+            .proj-modal-gallery-thumb { height: 90px; }
+          }
+
+          .proj-modal-footer-ctas {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+          }
+          @media (max-width: 480px) {
+            .proj-modal-footer-ctas { flex-direction: column; }
+            .proj-modal-footer-ctas button { width: 100%; }
+          }
+
+          /* Lightbox nav arrows sit too close to image edges on narrow screens */
+          @media (max-width: 480px) {
+            .proj-lightbox-nav-left { left: 8px !important; width: 36px !important; height: 36px !important; }
+            .proj-lightbox-nav-right { right: 8px !important; width: 36px !important; height: 36px !important; }
+            .proj-lightbox-close { top: 12px !important; right: 12px !important; width: 34px !important; height: 34px !important; }
+          }
         `}</style>
 
         {/* ══════════════════════════════════════════
             PROJECTS, ONGOING PORTFOLIO
         ══════════════════════════════════════════ */}
         <section aria-labelledby="projects-heading" style={{ background: C.cream, padding: "120px 0", position: "relative" }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px" }}>
+          <div className="proj-wrap">
 
             <motion.div style={{ marginBottom: 72 }} {...fadeUp}>
               <SectionLabel text="Ongoing Portfolio" />
@@ -573,7 +790,8 @@ export function Projects() {
               role="button"
               tabIndex={0}
               onKeyDown={e => { if (e.key === "Enter" || e.key === " ") setActiveProject(projects[0]); }}
-              style={{ position: "relative", overflow: "hidden", cursor: "pointer", height: 460, marginBottom: 16, outline: "none" }}
+              className="proj-hero-card"
+              style={{ position: "relative", overflow: "hidden", cursor: "pointer", marginBottom: 16, outline: "none" }}
               onMouseEnter={e => { const img = (e.currentTarget as HTMLElement).querySelector("img")!; img.style.transform = "scale(1.04)"; }}
               onMouseLeave={e => { const img = (e.currentTarget as HTMLElement).querySelector("img")!; img.style.transform = "scale(1)"; }}
             >
@@ -600,19 +818,19 @@ export function Projects() {
               </div>
 
               {/* Click hint */}
-              <div style={{ position: "absolute", bottom: 28, right: 28, border: "1px solid rgba(75,204,212,0.35)", padding: "7px 16px", backdropFilter: "blur(6px)", background: "rgba(4,28,46,0.5)" }}>
+              <div className="proj-hero-click-hint" style={{ border: "1px solid rgba(75,204,212,0.35)", padding: "7px 16px", backdropFilter: "blur(6px)", background: "rgba(4,28,46,0.5)" }}>
                 <span style={{ color: "rgba(75,204,212,0.8)", fontSize: 12, fontFamily: FONT, letterSpacing: "0.18em" }}>View Full Details ↗</span>
               </div>
 
               {/* Content */}
-              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "36px 40px" }}>
+              <div className="proj-hero-content" style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
                 <p style={{ color: "rgba(255,255,255,0.92)", fontSize: 13, letterSpacing: "0.22em", textTransform: "uppercase", fontFamily: FONT, marginBottom: 10, fontWeight: 400 }}>
                   {projects[0].location}
                 </p>
-                <h3 style={{ color: C.white, fontSize: 32, fontFamily: FONT, fontWeight: 400, margin: "0 0 20px", maxWidth: 600 }}>
+                <h3 className="proj-hero-title" style={{ color: C.white, fontFamily: FONT, fontWeight: 400, margin: "0 0 20px" }}>
                   {projects[0].name}
                 </h3>
-                <div style={{ display: "flex", gap: 36 }}>
+                <div className="proj-hero-stats">
                   {[["300 Beds", "Capacity"], ["₹150 Cr+", "Project Value"], ["2,00,000 Sq Ft", "Built Area"], ["Full Turnkey", "Scope"]].map(([val, lbl]) => (
                     <div key={lbl}>
                       <div style={{ color: C.teal, fontSize: 22, fontFamily: FONT, marginBottom: 3, fontWeight: 400 }}>{val}</div>
@@ -624,7 +842,7 @@ export function Projects() {
             </motion.article>
 
             {/* Three smaller project cards */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+            <div className="proj-cards-grid">
               {projects.slice(1).map((p, i) => (
                 <motion.article
                   key={p.id}
@@ -688,7 +906,7 @@ export function Projects() {
             <motion.div
               initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.7 }}
-              style={{ marginTop: 48, padding: "32px 40px", background: C.navy, display: "flex", alignItems: "center", gap: 18 }}
+              className="proj-experience-strip"
             >
               <MedicalCross size={24} color={C.teal} opacity={0.6} />
               <div>
@@ -719,20 +937,20 @@ export function Projects() {
             />
           ))}
 
-          <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 80px", textAlign: "center", position: "relative", zIndex: 10 }}>
+          <div className="proj-cta-wrap">
             <motion.div
               initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.9 }}
             >
               <SectionLabel text="Ready to Start" light />
-              <h2 style={{ color: C.white, fontSize: "clamp(2.86rem, 4.5vw, 4.68rem)", marginBottom: 20, fontWeight: 400, lineHeight: 1.1, fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+              <h2 style={{ color: C.white, fontSize: "clamp(2.2rem, 4.5vw, 4.68rem)", marginBottom: 20, fontWeight: 400, lineHeight: 1.1, fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
                 Your Hospital Project Deserves<br />
                 <em style={{ color: C.teal }}>Specialists. Not Generalists.</em>
               </h2>
               <p style={{ color: "rgba(255,255,255,0.92)", marginBottom: 48, lineHeight: 1.85, fontSize: 18, maxWidth: 480, margin: "0 auto 48px" , fontFamily: "Calibri, Arial, sans-serif", fontWeight: 700 }}>
                 Whether you are starting from zero or at any stage of your healthcare project, ARCHORA is ready to help.
               </p>
-              <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+              <div className="proj-cta-btn-row">
                 <button onClick={() => navigate("/contact")} style={{
                   padding: "14px 32px", background: C.blue, color: C.white,
                   border: "none", fontSize: 19, letterSpacing: "0.18em",

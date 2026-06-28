@@ -303,12 +303,74 @@ export function Contact() {
         <style>{`
           @keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
           @keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+          /* ============ RESPONSIVE LAYOUT RULES ============ */
+
+          /* Shared section wrapper: fixed 80px side padding crushed mobile content. */
+          .contact-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 80px;
+            box-sizing: border-box;
+          }
+          @media (max-width: 1024px) {
+            .contact-wrap { padding: 0 48px; }
+          }
+          @media (max-width: 640px) {
+            .contact-wrap { padding: 0 24px; }
+          }
+
+          .contact-hero-wrap {
+            position: relative;
+            height: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 48px 80px 0;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+            box-sizing: border-box;
+          }
+          @media (max-width: 1024px) {
+            .contact-hero-wrap { padding: 40px 48px 0; }
+          }
+          @media (max-width: 640px) {
+            .contact-hero-wrap { padding: 32px 24px 0; }
+          }
+
+          /* Form rows: Name+Phone, Email+City. Two columns crush on mobile,
+             so stack into a single column under 600px. */
+          .contact-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+          }
+          @media (max-width: 600px) {
+            .contact-form-row {
+              grid-template-columns: 1fr;
+              gap: 24px;
+            }
+          }
+
+          /* Map address overlay: needs a max-width so long text can't run
+             past the viewport edge on narrow phones. */
+          .contact-map-overlay {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: ${C.navy};
+            padding: 12px 18px;
+            border-left: 3px solid ${C.red};
+            backdrop-filter: blur(8px);
+            max-width: calc(100% - 32px);
+            box-sizing: border-box;
+          }
         `}</style>
 
         {/* ══════════════════════════════════════════
             HERO
         ══════════════════════════════════════════ */}
-        <section style={{ position: "relative", height: "52vh", minHeight: 400, overflow: "hidden" }}>
+        <section style={{ position: "relative", height: "52vh", minHeight: 360, overflow: "hidden" }}>
           <img
             src="/images/hero/contact-hero.jpg"
             alt="ARCHORA healthcare infrastructure office, contact us"
@@ -317,26 +379,25 @@ export function Contact() {
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.62) 0%, rgba(4,28,46,0.36) 55%, rgba(4,28,46,0.14) 100%)" }} />
 
-          <div style={{ position: "relative", height: "100%", maxWidth: 1280, margin: "0 auto", padding: "60px 80px 0", display: "flex", alignItems: "center", zIndex: 10 }}>
+          <div className="contact-hero-wrap">
             <motion.div
               initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
-                <span style={{ color: "rgba(255,255,255,0.90)", fontSize: 15, fontWeight: 700, letterSpacing: "0.32em", textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
+                <span style={{ color: "rgba(255,255,255,0.90)", fontSize: 13, fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif" }}>
                   Healthcare Infrastructure Partner
                 </span>
               </div>
               <h1 style={{
-                fontSize: "clamp(2.6rem, 4.5vw, 4.4rem)", color: C.white,
+                fontSize: "clamp(2rem, 8vw, 4.4rem)", color: C.white,
                 fontFamily: "Calibri, Arial, sans-serif", fontWeight: 600,
-                lineHeight: 1.06, marginBottom: 16, letterSpacing: "-0.01em",
+                lineHeight: 1.1, marginBottom: 16, letterSpacing: "-0.01em",
               }}>
                 Let's Build Your<br />
                 <em style={{ color: C.teal, fontStyle: "italic" }}>Healthcare Facility</em> Together
               </h1>
-              {/* ↑ UPDATED: fontSize 15 → 17 */}
-              <p style={{ color: "rgba(255,255,255,0.52)", fontSize: 17, lineHeight: 1.75, maxWidth: 520, fontFamily: "Calibri, Arial, sans-serif" }}>
+              <p style={{ color: "rgba(255,255,255,0.52)", fontSize: 16, lineHeight: 1.75, maxWidth: 520, fontFamily: "Calibri, Arial, sans-serif" }}>
                 Tell us about your project and our team will get back to you within 24 working hours.
               </p>
             </motion.div>
@@ -346,19 +407,18 @@ export function Contact() {
         {/* ══════════════════════════════════════════
             MAIN: FORM + CONTACT INFO
         ══════════════════════════════════════════ */}
-        <section aria-labelledby="enquiry-heading" style={{ background: C.dark, padding: "100px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 80px", position: "relative" }}>
+        <section aria-labelledby="enquiry-heading" style={{ background: C.dark, padding: "64px 0", position: "relative", overflow: "hidden" }}>
+          <div className="contact-wrap" style={{ position: "relative" }}>
             <div style={{ maxWidth: 640, margin: "0 auto" }}>
 
               {/* ── ENQUIRY FORM ── */}
               <div>
                 <motion.div {...fadeUp}>
                   <SectionLabel text="Send Us an Enquiry" light />
-                  <h2 id="enquiry-heading" style={{ color: C.white, fontSize: "clamp(1.7rem, 2.8vw, 2.4rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, marginBottom: 12, lineHeight: 1.15 }}>
+                  <h2 id="enquiry-heading" style={{ color: C.white, fontSize: "clamp(1.6rem, 6vw, 2.4rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, marginBottom: 12, lineHeight: 1.2 }}>
                     Start a Conversation
                   </h2>
-                  {/* ↑ UPDATED: fontSize 14 → 16 */}
-                  <p style={{ color: "rgba(255,255,255,0.38)", fontSize: 16, lineHeight: 1.75, marginBottom: 44 }}>
+                  <p style={{ color: "rgba(255,255,255,0.38)", fontSize: 16, lineHeight: 1.75, marginBottom: 36 }}>
                     We work with doctors, hospital owners, healthcare investors, and chains across India.
                     Fill in the details below, no sales pressure, just honest expert advice.
                   </p>
@@ -372,7 +432,7 @@ export function Contact() {
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                       style={{
-                        padding: "60px 48px", border: "1px solid rgba(75,204,212,0.25)",
+                        padding: "44px 28px", border: "1px solid rgba(75,204,212,0.25)",
                         background: "rgba(75,204,212,0.04)", textAlign: "center",
                       }}
                     >
@@ -386,7 +446,6 @@ export function Contact() {
                       <h3 style={{ color: C.white, fontSize: 22, fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, marginBottom: 12 }}>
                         Enquiry Received
                       </h3>
-                      {/* ↑ UPDATED: fontSize 14 → 16 */}
                       <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 16, lineHeight: 1.75, maxWidth: 360, margin: "0 auto 28px" }}>
                         Our team will get back to you within 24 working hours. For urgent queries, WhatsApp us directly.
                       </p>
@@ -413,7 +472,7 @@ export function Contact() {
                       initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}
                     >
                       {/* Row 1: Name + Phone */}
-                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+                      <div className="contact-form-row">
                         <FieldGroup delay={0.05}>
                           <FormInput id="fullName" label="Full Name" placeholder="Dr. Rajesh Sharma" required />
                         </FieldGroup>
@@ -423,7 +482,7 @@ export function Contact() {
                       </div>
 
                       {/* Row 2: Email + City */}
-                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+                      <div className="contact-form-row">
                         <FieldGroup delay={0.15}>
                           <FormInput id="email" label="Email Address" type="email" placeholder="dr.sharma@hospital.com" />
                         </FieldGroup>
@@ -469,7 +528,7 @@ export function Contact() {
           aria-label="Office location map"
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 0.8 }}
-          style={{ height: 420, position: "relative", overflow: "hidden" }}
+          style={{ height: 340, position: "relative", overflow: "hidden" }}
         >
           <iframe
             title="ARCHORA Healthcare Infrastructure office location, Thane, Maharashtra"
@@ -479,7 +538,7 @@ export function Contact() {
             referrerPolicy="no-referrer-when-downgrade"
           />
           {/* Address overlay */}
-          <div style={{ position: "absolute", bottom: 24, left: 24, background: C.navy, padding: "14px 20px", borderLeft: `3px solid ${C.red}`, backdropFilter: "blur(8px)" }}>
+          <div className="contact-map-overlay">
             <p style={{ color: C.white, fontSize: 12, margin: 0, fontFamily: "Calibri, Arial, sans-serif" }}>ARCHORA, Thane East, Maharashtra</p>
             <p style={{ color: "rgba(255,255,255,0.38)", fontSize: 10, margin: "4px 0 0", fontFamily: "Calibri, Arial, sans-serif", letterSpacing: "0.1em" }}>903 Niramaya Heights · Mon–Sat 10AM–7PM</p>
           </div>
@@ -488,11 +547,11 @@ export function Contact() {
         {/* ══════════════════════════════════════════
             FAQ
         ══════════════════════════════════════════ */}
-        <section aria-labelledby="faq-heading" style={{ background: C.dark, padding: "100px 0", position: "relative", overflow: "hidden" }}>
-          <div style={{ maxWidth: 860, margin: "0 auto", padding: "0 80px", position: "relative" }}>
-            <motion.div style={{ textAlign: "center", marginBottom: 64 }} {...fadeUp}>
+        <section aria-labelledby="faq-heading" style={{ background: C.dark, padding: "64px 0", position: "relative", overflow: "hidden" }}>
+          <div className="contact-wrap" style={{ maxWidth: 860, position: "relative" }}>
+            <motion.div style={{ textAlign: "center", marginBottom: 48 }} {...fadeUp}>
               <SectionLabel text="Frequently Asked Questions" light />
-              <h2 id="faq-heading" style={{ color: C.white, fontSize: "clamp(1.7rem, 2.8vw, 2.6rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, margin: 0 }}>
+              <h2 id="faq-heading" style={{ color: C.white, fontSize: "clamp(1.6rem, 6vw, 2.6rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, margin: 0 }}>
                 Common Questions About Working With ARCHORA
               </h2>
             </motion.div>
@@ -511,12 +570,11 @@ export function Contact() {
                     style={{
                       width: "100%", textAlign: "left", background: openFaq === i ? "rgba(75,204,212,0.06)" : "rgba(255,255,255,0.02)",
                       border: "none", borderBottom: "1px solid rgba(75,204,212,0.1)",
-                      padding: "22px 24px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 20,
+                      padding: "20px 18px", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16,
                       transition: "background 0.25s",
                     }}
                   >
-                    {/* ↑ UPDATED: fontSize 14 → 16 */}
-                    <span style={{ color: C.white, fontSize: 16, fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, lineHeight: 1.4 }}>
+                    <span style={{ color: C.white, fontSize: 15.5, fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, lineHeight: 1.4 }}>
                       {faq.q}
                     </span>
                     <motion.span
@@ -535,9 +593,8 @@ export function Contact() {
                         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                         style={{ overflow: "hidden" }}
                       >
-                        <div style={{ padding: "16px 24px 22px", background: "rgba(75,204,212,0.03)", borderBottom: "1px solid rgba(75,204,212,0.1)" }}>
-                          {/* ↑ UPDATED: fontSize 13.5 → 15.5 */}
-                          <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 15.5, lineHeight: 1.85, margin: 0 }}>{faq.a}</p>
+                        <div style={{ padding: "16px 18px 22px", background: "rgba(75,204,212,0.03)", borderBottom: "1px solid rgba(75,204,212,0.1)" }}>
+                          <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 15, lineHeight: 1.85, margin: 0 }}>{faq.a}</p>
                         </div>
                       </motion.div>
                     )}
@@ -551,7 +608,7 @@ export function Contact() {
         {/* ══════════════════════════════════════════
             FINAL CTA
         ══════════════════════════════════════════ */}
-        <section aria-labelledby="final-cta" style={{ background: "#060f1e", padding: "120px 0", position: "relative", overflow: "hidden" }}>
+        <section aria-labelledby="final-cta" style={{ background: "#060f1e", padding: "80px 0", position: "relative", overflow: "hidden" }}>
           {[700, 520, 360].map((size, i) => (
             <div
               key={size} aria-hidden="true"
@@ -560,15 +617,14 @@ export function Contact() {
             />
           ))}
 
-          <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 80px", textAlign: "center", position: "relative", zIndex: 10 }}>
+          <div className="contact-wrap" style={{ maxWidth: 720, textAlign: "center", position: "relative", zIndex: 10 }}>
             <motion.div {...fadeUp}>
               <SectionLabel text="Ready to Start?" light />
-              <h2 id="final-cta" style={{ color: C.white, fontSize: "clamp(2rem, 4vw, 3.4rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, lineHeight: 1.1, marginBottom: 20 }}>
+              <h2 id="final-cta" style={{ color: C.white, fontSize: "clamp(1.9rem, 7vw, 3.4rem)", fontFamily: "Calibri, Arial, sans-serif", fontWeight: 400, lineHeight: 1.15, marginBottom: 20 }}>
                 Planning a Healthcare Facility?<br />
                 <em style={{ color: C.teal, fontStyle: "italic" }}>Let's Talk.</em>
               </h2>
-              {/* ↑ UPDATED: fontSize 14 → 16 */}
-              <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 16, lineHeight: 1.85, maxWidth: 480, margin: "0 auto 44px" }}>
+              <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 16, lineHeight: 1.85, maxWidth: 480, margin: "0 auto 36px" }}>
                 Whether you are starting from zero or need expert support at any stage, ARCHORA is ready to help you design, build, and deliver.
               </p>
               <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
@@ -618,7 +674,7 @@ function SubmitButton({ submitting }: { submitting?: boolean }) {
         border: "none", fontSize: 10, letterSpacing: "0.2em",
         textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif",
         cursor: submitting ? "default" : "pointer", transition: "all 0.25s ease",
-        display: "flex", alignItems: "center", gap: 10,
+        display: "flex", alignItems: "center", gap: 10, width: "100%", justifyContent: "center",
         opacity: submitting ? 0.7 : 1,
       }}
     >
