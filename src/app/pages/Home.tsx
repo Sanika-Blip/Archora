@@ -239,7 +239,7 @@ function SectionLabel({ text, light = false }: { text: string; light?: boolean }
       <span style={{ width: 28, height: 1, background: light ? "rgba(75,204,212,0.6)" : C.blue, display: "block" }} />
       <span style={{
         fontFamily: FONT,
-        fontSize: 13,
+        fontSize: 39,
         letterSpacing: "0.28em",
         textTransform: "uppercase",
         color: light ? "rgba(75,204,212,0.7)" : C.blue,
@@ -517,26 +517,6 @@ export function Home() {
               />
             ))}
             <div style={{ width: 1, height: 80, background: "rgba(255,255,255,0.12)" }} />
-          </div>
-
-          {/* Slide label top right */}
-          <div className="home-hero-slide-label">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={heroIndex}
-                initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }}
-                transition={{ duration: 0.35 }}
-                style={{
-                  display: "flex", alignItems: "center", gap: 8,
-                  fontSize: 12, letterSpacing: "0.28em", textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.92)", fontFamily: FONT,
-                  border: "1px solid rgba(255,255,255,0.15)", padding: "6px 14px",
-                  backdropFilter: "blur(8px)", whiteSpace: "nowrap",
-                }}
-              >
-                {heroSlides[heroIndex].label}
-              </motion.span>
-            </AnimatePresence>
           </div>
 
           {/* Main hero content */}

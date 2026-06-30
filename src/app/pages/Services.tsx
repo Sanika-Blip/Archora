@@ -455,20 +455,23 @@ export function Services() {
         @media (max-width: 1024px) { .svc-wrap-narrow { padding: 0 48px; } }
         @media (max-width: 640px)  { .svc-wrap-narrow { padding: 0 20px; } }
 
-        /* Hero content area */
+        /* Hero content area — now the flex container itself (matches About page pattern) */
         .svc-hero-content {
           position: relative;
+          height: 100%;
           max-width: 1200px;
           margin: 0 auto;
-          padding: 5rem 80px;
+          padding: 0 80px;
+          display: flex;
+          align-items: center;
           z-index: 2;
           box-sizing: border-box;
         }
-        @media (max-width: 1024px) { .svc-hero-content { padding: 4rem 48px; } }
-        @media (max-width: 640px)  { .svc-hero-content { padding: 3rem 20px; } }
+        @media (max-width: 1024px) { .svc-hero-content { padding: 0 48px; } }
+        @media (max-width: 640px)  { .svc-hero-content { padding: 0 20px; } }
 
         /* Hero heading */
-        .svc-hero-h1 { font-size: clamp(2rem, 5.5vw, 4.4rem); }
+        .svc-hero-h1 { font-size: clamp(2rem, 6vw, 4.4rem); }
 
         /* Hero sidebar decoration — hide on mobile */
         .svc-hero-sidebar {
@@ -580,7 +583,7 @@ export function Services() {
       `}</style>
 
       {/* ── Hero ── */}
-      <section style={{ position: "relative", minHeight: "72vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
+      <section style={{ position: "relative", height: "72vh", minHeight: "560px", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0 }}>
           <ImageWithFallback
             src="/images/hero/services-hero.jpg"
@@ -601,37 +604,39 @@ export function Services() {
         </div>
 
         <div className="svc-hero-content">
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 22 }}>
-            <span style={{ fontFamily: FONT, fontSize: "clamp(11px, 1.3vw, 15px)", letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(255,255,255,0.90)", fontWeight: 700 }}>Healthcare Infrastructure Services</span>
-          </motion.div>
+          <div style={{ maxWidth: "680px" }}>
+            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 22 }}>
+              <span style={{ fontFamily: FONT, fontSize: "clamp(11px, 1.3vw, 15px)", letterSpacing: "0.32em", textTransform: "uppercase", color: "rgba(255,255,255,0.90)", fontWeight: 700 }}>Healthcare Infrastructure Services</span>
+            </motion.div>
 
-          <motion.h1
-            className="svc-hero-h1"
-            initial={{ opacity: 0, y: 40, clipPath: "inset(100% 0 0 0)" }}
-            animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
-            transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontFamily: FONT, fontWeight: 600, color: "#fff", lineHeight: 1.08, marginBottom: 24, maxWidth: 700, letterSpacing: "-0.01em" }}
-          >
-            End-to-End Healthcare Infrastructure.<br />
-            <em style={{ fontStyle: "italic", color: "#4bccd4" }}>Designed. Built. Delivered.</em>
-          </motion.h1>
+            <motion.h1
+              className="svc-hero-h1"
+              initial={{ opacity: 0, y: 40, clipPath: "inset(100% 0 0 0)" }}
+              animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
+              transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              style={{ fontFamily: FONT, fontWeight: 600, color: "#fff", lineHeight: 1.06, marginBottom: "20px", letterSpacing: "-0.01em" }}
+            >
+              End-to-End Healthcare Infrastructure.<br />
+              <em style={{ fontStyle: "italic", color: "#4bccd4" }}>Designed. Built. Delivered.</em>
+            </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.6 }} style={{ fontFamily: FONT, fontSize: "clamp(14px, 2vw, 18px)", lineHeight: 1.9, color: "rgba(255,255,255,0.95)", maxWidth: 560, marginBottom: 40, fontWeight: 400 }}>
-            From your first sketch to final handover, ARCHORA is your single-window partner for designing and delivering hospitals, clinics, laboratories, medical colleges, and every form of healthcare infrastructure across India.
-          </motion.p>
+            <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.6 }} style={{ fontFamily: FONT, fontSize: "clamp(14px, 2vw, 18px)", lineHeight: 1.9, color: "rgba(255,255,255,0.95)", marginBottom: 40, fontWeight: 400 }}>
+              From your first sketch to final handover, ARCHORA is your single-window partner for designing and delivering hospitals, clinics, laboratories, medical colleges, and every form of healthcare infrastructure across India.
+            </motion.p>
 
-          <motion.div className="svc-hero-btns" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.8 }}>
-            <button onClick={() => document.getElementById("services-grid")?.scrollIntoView({ behavior: "smooth", block: "start" })} style={{ padding: "12px 28px", fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }}
-              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>
-              Explore Our Services
-            </button>
-            <button onClick={() => navigate("/contact")} style={{ padding: "12px 28px", fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }}
-              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>
-              Talk to Our Team →
-            </button>
-          </motion.div>
+            <motion.div className="svc-hero-btns" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.8 }}>
+              <button onClick={() => document.getElementById("services-grid")?.scrollIntoView({ behavior: "smooth", block: "start" })} style={{ padding: "12px 28px", fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "#1b6ca8", color: "#fff", border: "none", cursor: "pointer", transition: "all .25s" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "#4bccd4"; (e.currentTarget as HTMLButtonElement).style.color = "#041c2e"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#1b6ca8"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>
+                Explore Our Services
+              </button>
+              <button onClick={() => navigate("/contact")} style={{ padding: "12px 28px", fontSize: "clamp(12px, 1.4vw, 17px)", letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: FONT, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.25)", cursor: "pointer", transition: "all .25s" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(75,204,212,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#4bccd4"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}>
+                Talk to Our Team →
+              </button>
+            </motion.div>
+          </div>
         </div>
 
         <motion.div className="svc-scroll-hint" style={{ position: "absolute", bottom: 32, left: "50%", transform: "translateX(-50%)", flexDirection: "column", alignItems: "center", gap: 8, zIndex: 2 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}>

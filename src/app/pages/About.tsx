@@ -149,16 +149,16 @@ const statsData = [
 ];
 
 const services = [
-  "Feasibility Studies & DPRs",
-  "Healthcare Architecture & Space Planning",
-  "Regulatory Compliance & Accreditation-Ready Design",
-  "Hospital Licensing & Approvals Support",
-  "Structural Design for Healthcare",
-  "MEP Engineering for Healthcare",
-  "Modular OT & ICU Infrastructure",
-  "Turnkey Civil & Interior Execution",
-  "Medical Equipment Planning & Procurement",
-  "Project Management & Commissioning",
+  { title: "Feasibility Studies & DPRs", slug: "feasibility-studies" },
+  { title: "Healthcare Architecture & Space Planning", slug: "healthcare-architecture" },
+  { title: "Regulatory Compliance & Accreditation-Ready Design", slug: "regulatory-compliance" },
+  { title: "Hospital Licensing & Approvals Support", slug: "hospital-licensing" },
+  { title: "Structural Design for Healthcare", slug: "structural-design" },
+  { title: "MEP Engineering for Healthcare", slug: "mep-engineering" },
+  { title: "Modular OT & ICU Infrastructure", slug: "modular-ot-icu" },
+  { title: "Turnkey Civil & Interior Execution", slug: null },
+  { title: "Medical Equipment Planning & Procurement", slug: null },
+  { title: "Project Management & Commissioning", slug: null },
 ];
 
 const FONT = "Calibri, 'Calibri', Arial, sans-serif";
@@ -296,8 +296,17 @@ function LeaderCardMobile({ leader, onClick }: { leader: (typeof leaders)[0]; on
 }
 
 function LeaderCard({ leader, isActive, onHover, onClick }: { leader: (typeof leaders)[0]; isActive: boolean; onHover: (id: number | null) => void; onClick: (leader: (typeof leaders)[0]) => void }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isActive && cardRef.current) {
+      cardRef.current.scrollIntoView({ behavior: "smooth", inline: "nearest", block: "nearest" });
+    }
+  }, [isActive]);
+
   return (
     <motion.div
+      ref={cardRef}
       className="relative flex-shrink-0 cursor-pointer"
       style={{ width: isActive ? "420px" : "260px", borderRadius: "16px", overflow: "hidden", transition: "width 0.5s cubic-bezier(0.22,1,0.36,1)", border: `1px solid ${isActive ? leader.accentColor + "60" : "rgba(255,255,255,0.08)"}` }}
       onMouseEnter={() => onHover(leader.id)}
@@ -392,14 +401,28 @@ function PhilCard({ item, index, expanded, onToggle }: { item: (typeof philosoph
   );
 }
 
-function ServiceItem({ service, index }: { service: string; index: number }) {
+function ServiceItem({ service, index }: { service: { title: string; slug: string | null }; index: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
+  const navigate = useNavigate();
+  const goTo = () => navigate(service.slug ? `/services/${service.slug}` : "/services");
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, x: -16 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }} className="group flex items-start gap-4 py-4 border-b" style={{ borderColor: "rgba(75,209,217,0.1)", cursor: "default" }} whileHover={{ x: 6, transition: { duration: 0.2 } }}>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: -16 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+      className="group flex items-start gap-4 py-4 border-b"
+      style={{ borderColor: "rgba(75,209,217,0.1)", cursor: "pointer" }}
+      whileHover={{ x: 6, transition: { duration: 0.2 } }}
+      role="button"
+      tabIndex={0}
+      onClick={goTo}
+      onKeyDown={e => { if (e.key === "Enter" || e.key === " ") goTo(); }}
+    >
       <span style={{ fontFamily: FONT, fontSize: "14px", color: "rgba(75,209,217,0.45)", letterSpacing: "1px", flexShrink: 0, marginTop: "2px", minWidth: "24px" }}>{String(index + 1).padStart(2, "0")}</span>
       <motion.div className="flex-1 flex items-center justify-between" whileHover={{ color: "#4bd1d9" }}>
-        <span style={{ fontFamily: FONT, fontSize: "16px", color: "#ffffff", lineHeight: 1.6, transition: "color 0.2s", fontWeight: 400 }} className="group-hover:text-teal-300">{service}</span>
+        <span style={{ fontFamily: FONT, fontSize: "16px", color: "#ffffff", lineHeight: 1.6, transition: "color 0.2s", fontWeight: 400 }} className="group-hover:text-teal-300">{service.title}</span>
         <motion.div initial={{ opacity: 0, x: -4 }} whileHover={{ opacity: 1, x: 0 }} style={{ color: "#4bd1d9", flexShrink: 0, marginLeft: "12px" }}><ArrowRight size={13} /></motion.div>
       </motion.div>
     </motion.div>
@@ -606,11 +629,14 @@ export function About() {
           display: flex;
           gap: 20px;
           overflow-x: auto;
-          padding: 8px;
-          justify-content: center;
+          padding: 8px 80px;
+          width: 100%;
+          justify-content: safe center;
           scrollbar-width: none;
           -ms-overflow-style: none;
         }
+        @media (max-width: 1024px) { .about-leaders-desktop { padding: 8px 48px; } }
+        @media (max-width: 640px)  { .about-leaders-desktop { padding: 8px 20px; } }
         .about-leaders-desktop::-webkit-scrollbar { display: none; }
         .about-leaders-mobile {
           display: none;
@@ -744,14 +770,16 @@ export function About() {
       {/* ── Leadership ── */}
       <section className="about-section-py relative" style={{ background: "linear-gradient(160deg,#040e1a 0%,#071e30 60%,#04141f 100%)" }}>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style={{ width: "80vw", height: "80vw", borderRadius: "50%", background: "radial-gradient(circle, rgba(75,209,217,0.04) 0%, transparent 70%)" }} />
-        <div className="about-wrap relative" style={{ zIndex: 10 }}>
-          <motion.div className="mb-12 text-center" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <SectionLabel text="Leadership" color="rgba(75,209,217,0.6)" dotColor="rgba(75,209,217,0.4)" />
-            <h2 className="about-h2 text-white font-light" style={{ fontFamily: FONT, fontWeight: 600 }}>Built by People Who Know Healthcare Infrastructure</h2>
-            <p className="mt-3 max-w-xl mx-auto" style={{ color: "#ffffff", fontFamily: FONT, fontSize: "clamp(15px, 2vw, 18px)", lineHeight: 1.8, fontWeight: 400 }}>A founding team that has designed and delivered healthcare facilities at every scale, from primary care clinics to large NHS hospitals in the United Kingdom.</p>
-          </motion.div>
+        <div className="relative" style={{ zIndex: 10 }}>
+          <div className="about-wrap">
+            <motion.div className="mb-12 text-center" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+              <SectionLabel text="Leadership" color="rgba(75,209,217,0.6)" dotColor="rgba(75,209,217,0.4)" />
+              <h2 className="about-h2 text-white font-light" style={{ fontFamily: FONT, fontWeight: 600 }}>Built by People Who Know Healthcare Infrastructure</h2>
+              <p className="mt-3 max-w-xl mx-auto" style={{ color: "#ffffff", fontFamily: FONT, fontSize: "clamp(15px, 2vw, 18px)", lineHeight: 1.8, fontWeight: 400 }}>A founding team that has designed and delivered healthcare facilities at every scale, from primary care clinics to large NHS hospitals in the United Kingdom.</p>
+            </motion.div>
+          </div>
 
-          {/* Desktop horizontal accordion */}
+          {/* Desktop horizontal accordion — full width, no boundary container */}
           <div ref={scrollRef} className="about-leaders-desktop">
             {leaders.map((leader) => (
               <LeaderCard key={leader.id} leader={leader} isActive={hoveredId === leader.id} onHover={setHoveredId} onClick={setSelectedLeader} />
@@ -759,10 +787,12 @@ export function About() {
           </div>
 
           {/* Mobile 2-col grid */}
-          <div className="about-leaders-mobile">
-            {leaders.map((leader) => (
-              <LeaderCardMobile key={leader.id} leader={leader} onClick={setSelectedLeader} />
-            ))}
+          <div className="about-wrap">
+            <div className="about-leaders-mobile">
+              {leaders.map((leader) => (
+                <LeaderCardMobile key={leader.id} leader={leader} onClick={setSelectedLeader} />
+              ))}
+            </div>
           </div>
         </div>
         {selectedLeader && <LeaderModal leader={selectedLeader} onClose={() => setSelectedLeader(null)} />}

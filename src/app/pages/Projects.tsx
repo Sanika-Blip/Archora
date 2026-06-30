@@ -36,7 +36,7 @@ function SectionLabel({ text, light = false }: { text: string; light?: boolean }
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
       <span style={{ width: 28, height: 1, background: light ? "rgba(75,204,212,0.6)" : C.blue, display: "block" }} />
-      <span style={{ fontFamily: "monospace", fontSize: 19, letterSpacing: "0.28em", textTransform: "uppercase", color: light ? "rgba(75,204,212,0.7)" : C.blue }}>
+      <span style={{ fontFamily: "monospace", fontSize: 39, letterSpacing: "0.28em", textTransform: "uppercase", color: light ? "rgba(75,204,212,0.7)" : C.blue }}>
         {text}
       </span>
     </div>
@@ -574,7 +574,7 @@ export function Projects() {
           }
 
           .proj-cta-wrap {
-            max-width: 720px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 80px;
             text-align: center;
@@ -943,10 +943,10 @@ export function Projects() {
               viewport={{ once: true }} transition={{ duration: 0.9 }}
             >
               <SectionLabel text="Ready to Start" light />
-              <h2 style={{ color: C.white, fontSize: "clamp(2.2rem, 4.5vw, 4.68rem)", marginBottom: 20, fontWeight: 400, lineHeight: 1.1, fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
-                Your Hospital Project Deserves<br />
-                <em style={{ color: C.teal }}>Specialists. Not Generalists.</em>
-              </h2>
+              <h2 style={{ color: C.white, fontSize: "clamp(1.9rem, 4vw, 3.4rem)", marginBottom: 20, fontWeight: 400, lineHeight: 1.15, fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+  <span style={{ whiteSpace: "nowrap" }}>Your Hospital Project Deserves Specialists.</span><br />
+  <em style={{ color: C.teal, whiteSpace: "nowrap" }}>Not Generalists.</em>
+</h2>
               <p style={{ color: "rgba(255,255,255,0.92)", marginBottom: 48, lineHeight: 1.85, fontSize: 18, maxWidth: 480, margin: "0 auto 48px" , fontFamily: "Calibri, Arial, sans-serif", fontWeight: 700 }}>
                 Whether you are starting from zero or at any stage of your healthcare project, ARCHORA is ready to help.
               </p>

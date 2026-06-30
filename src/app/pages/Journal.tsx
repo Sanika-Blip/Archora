@@ -263,7 +263,7 @@ function SectionLabel({ text, light = false }: { text: string; light?: boolean }
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
       <span style={{ width: 28, height: 1, background: light ? "rgba(75,204,212,0.6)" : C.blue, display: "block" }} />
-      <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 13, letterSpacing: "0.28em", textTransform: "uppercase" as const, color: light ? "rgba(75,204,212,0.7)" : C.blue }}>
+      <span style={{ fontFamily: "Calibri, Arial, sans-serif", fontSize: 39, letterSpacing: "0.28em", textTransform: "uppercase" as const, color: light ? "rgba(75,204,212,0.7)" : C.blue }}>
         {text}
       </span>
     </div>

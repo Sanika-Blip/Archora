@@ -1179,7 +1179,7 @@ export const servicesData: ServiceData[] = [
 
 function SectionLabel({ text, color }: { text: string; color: string }) {
   return (
-    <p style={{ fontFamily: FONT, fontSize: 18, letterSpacing: "3px", textTransform: "uppercase", color, marginBottom: 16, display: "flex", alignItems: "center", gap: 14, fontWeight: 600 }}>
+    <p style={{ fontFamily: FONT, fontSize: 39, letterSpacing: "3px", textTransform: "uppercase", color, marginBottom: 16, display: "flex", alignItems: "center", gap: 14, fontWeight: 600 }}>
       <span style={{ display: "block", width: 32, height: "0.5px", background: color }} />
       {text}
       <span style={{ display: "block", width: 32, height: "0.5px", background: color }} />
