@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useInView } from "motion/react";
 import {
   ArrowLeft, ArrowRight, ChevronDown, ChevronUp,
   FileText, Building2, Shield, ScrollText, Wrench, Zap, Activity, Check,
+  HardHat, Package, ClipboardList,
 } from "lucide-react";
 
 const WHATSAPP_URL = "https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project.";
@@ -1173,6 +1174,468 @@ export const servicesData: ServiceData[] = [
       body: "Talk to ARCHORA today. We will design, engineer, and deliver a modular OT and ICU that meets every NABH standard, satisfies every surgeon and intensivist on your team, and performs at the highest clinical level from the first case to the thousandth.",
     },
   },
+
+  {
+    id: "08",
+    slug: "turnkey-execution",
+    icon: <HardHat size={24} />,
+    color: "#7eb8f7",
+    pageTitle: "Turnkey Civil Construction and Interior Execution for Hospitals and Healthcare Facilities in India | ARCHORA",
+    metaDesc: "ARCHORA delivers turnkey civil construction and healthcare interior execution for hospitals, clinics, diagnostic centres, and medical colleges across India. Single point accountability from foundation to handover. Talk to our team today.",
+    heroH1: "Turnkey Civil Construction and Interior Execution for Hospitals and Healthcare Facilities in India",
+    heroSub: "Building a healthcare facility is not like building any other structure. Every wall, every floor, every ceiling, every surface, and every finish in a healthcare building has a clinical consequence. ARCHORA delivers the complete civil construction and interior execution of healthcare facilities under a single contract, a single programme, and a single point of accountability from foundation to handover.",
+    problem: {
+      heading: "Why Healthcare Construction Fails When It Is Managed Like Standard Civil Construction",
+      body: [
+        "The majority of healthcare construction projects in India that overrun their budget, their programme, or their quality expectations share one common characteristic. They were managed like standard civil construction projects.",
+        "A standard civil contractor builds to a drawing. A healthcare construction partner builds to a clinical brief. When a general contractor manages a healthcare project without healthcare-specific coordination, walls and slabs get cast before MEP services are fully coordinated, medical gas chases get plastered over before the pipeline contractor arrives, modular OT installers find slab-to-slab heights that fall short of what a laminar airflow ceiling needs, and NABH inspectors find clean and dirty corridor separations that don't match the approved layout.",
+        "These are not hypothetical scenarios. They are the predictable consequences of managing healthcare construction without healthcare-specific coordination expertise.",
+        "ARCHORA eliminates these risks by delivering the complete civil and interior execution of healthcare facilities under a single coordinated team that understands the clinical, regulatory, and technical requirements of every element of the building from the ground up.",
+      ],
+    },
+    explainer: {
+      heading: "What Turnkey Civil and Interior Execution Means at ARCHORA",
+      body: [
+        "Turnkey at ARCHORA means one team, one contract, and one point of accountability for the complete construction and interior delivery of your healthcare facility. You are not managing a civil contractor, a separate MEP contractor, a separate modular OT contractor, and a separate interior contractor simultaneously.",
+        "The civil construction, structural works, MEP installation, modular OT and ICU installation, interior finishes, medical equipment installation, and commissioning of every system are all coordinated by one team working from one set of drawings to one construction programme. When a coordination issue arises on site, it is resolved within the ARCHORA team, not across the interface between multiple independent contractors.",
+      ],
+    },
+    coverage: {
+      heading: "Civil Construction and Interior Execution Scope — What ARCHORA Delivers",
+      sections: [
+        {
+          heading: "Site Preparation and Enabling Works",
+          items: [
+            "Site survey, setting out, and demolition or clearance where required",
+            "Earthworks, excavation, and ground preparation",
+            "Temporary site infrastructure, shoring, and dewatering where required",
+          ],
+        },
+        {
+          heading: "Foundation, Substructure and Structural Frame",
+          items: [
+            "Foundation construction including pile caps, raft, and strip foundations",
+            "Basement construction, waterproofing, and below-ground drainage",
+            "Reinforced concrete frame construction with all MEP sleeves and penetrations cast in at the correct locations",
+            "Staircase, lift core, and roof structure construction including rooftop plant rooms and helipads",
+          ],
+        },
+        {
+          heading: "External Envelope Works",
+          items: [
+            "External wall construction, waterproofing, and insulation",
+            "Facade, cladding, glazing, and curtain wall installation",
+            "Roof waterproofing, external drainage, paving, and landscaping",
+          ],
+        },
+        {
+          heading: "Internal Civil Works and MEP Rough-In",
+          items: [
+            "Internal partition walls, plaster, screed, and wet-area waterproofing",
+            "Slab penetration boxing and wall chasing for concealed MEP services",
+            "Electrical conduit, plumbing, medical gas, HVAC ductwork, and fire protection rough-in, fully coordinated with the civil programme",
+          ],
+        },
+        {
+          heading: "Clinical Area Flooring and Wall Finishes",
+          items: [
+            "Homogeneous vinyl and epoxy flooring for wards, corridors, OTs, ICUs, and laboratories",
+            "Seamless integral coved skirting at all wall-floor junctions in clinical areas",
+            "Modular panel systems for OTs, ICUs, and cleanrooms, plus lead lining for radiation rooms",
+            "Handrails, crash rails, and impact-resistant wall protection in high-traffic areas",
+          ],
+        },
+        {
+          heading: "Clinical Ceilings, Doors and Ironmongery",
+          items: [
+            "Grid, gypsum, and modular flush ceiling systems sized to maximise MEP service space above ceiling",
+            "Hermetically sealed automated doors for OT and ICU entrances, lead-lined doors for radiation rooms, fire-rated doors at compartment boundaries",
+            "Observation windows and pass-through hatches between clean and dirty areas",
+          ],
+        },
+        {
+          heading: "Joinery, Signage and Wayfinding",
+          items: [
+            "Nurse station, reception, and consultation room joinery",
+            "Laboratory bench and fume hood installation",
+            "Internal wayfinding, room identification, fire exit, and clinical zone signage",
+          ],
+        },
+        {
+          heading: "MEP Final Fix and Specialist Clinical Fitout",
+          items: [
+            "Electrical, plumbing, medical gas, HVAC, and fire detection final fix and labelling",
+            "Complete modular OT and ICU fitout including panel systems, laminar airflow, lighting, pendants, and headwall units",
+            "Radiology, laboratory, pharmacy, CSSD, and blood bank specialist fitout",
+          ],
+        },
+      ],
+    },
+    extra: {
+      heading: "Healthcare Facilities ARCHORA Delivers on a Turnkey Basis",
+      tableHead: ["Facility Type", "Scope of Turnkey Delivery"],
+      tableRows: [
+        ["Multi-Speciality Hospital", "Complete civil, MEP, OT, ICU, interior, equipment installation, commissioning"],
+        ["Super-Speciality Hospital", "Civil, radiation vaults, hybrid OT, cath lab, MEP, interiors, commissioning"],
+        ["Nursing Home", "Civil, MEP, OT, ward fitout, interiors, commissioning"],
+        ["Medical College Hospital", "Civil, MEP, teaching OTs, simulation lab, hostel, interiors, commissioning"],
+        ["Diagnostic Centre", "Civil, imaging room fitout, radiation shielding, MEP, interiors, commissioning"],
+        ["Standalone OT Complex", "Modular OT, MEP, panel system, lighting, pendants, commissioning"],
+        ["ICU Complex", "Modular ICU, headwall units, MEP, panel system, commissioning"],
+        ["Clinic and Polyclinic", "Civil, MEP, consultation room fitout, interiors, commissioning"],
+      ],
+    },
+    process: [
+      { step: "01", title: "Pre-Construction Planning", desc: "A detailed construction programme, site logistics plan, procurement schedule, and MEP coordination exercise resolves potential clashes on paper before they can become a problem on site." },
+      { step: "02", title: "Site Mobilisation and Enabling Works", desc: "Temporary infrastructure, safety systems, demolition, earthworks, and below-ground drainage are completed before the main construction phase begins." },
+      { step: "03", title: "Structural Works", desc: "The complete structural frame is executed with all MEP sleeves and penetrations cast in at the correct locations, eliminating the need for core drilling after the fact." },
+      { step: "04", title: "MEP Rough-In", desc: "Electrical, plumbing, medical gas, and HVAC rough-in follows immediately behind the structural works on each floor, fully coordinated with the civil programme." },
+      { step: "05", title: "Internal Civil and Partition Works", desc: "Partition walls, plaster, screed, and waterproofing are completed floor by floor in sequence with MEP rough-in." },
+      { step: "06", title: "Specialist Clinical Area Installation", desc: "Modular OT and ICU installation, radiation room fitout, and laboratory fitout are executed in parallel with the general programme once MEP rough-in is complete." },
+      { step: "07", title: "Interior Finishes", desc: "Flooring, wall finishes, ceilings, doors, joinery, and furniture are installed from the top floor down, keeping completed areas clean while work continues above." },
+      { step: "08", title: "MEP Final Fix and Testing", desc: "Electrical fixtures, plumbing fixtures, medical gas outlets, HVAC grilles, and fire devices are installed and individually tested before commissioning begins." },
+      { step: "09", title: "Commissioning and System Validation", desc: "Every MEP system is commissioned, tested, and validated against its design performance criteria, from air change rates to medical gas pressure and earth continuity." },
+      { step: "10", title: "Handover and Post-Handover Support", desc: "A fully commissioned, snagging-complete, NABH-ready facility is handed over with as-built drawings, O&M manuals, and commissioning records, with support continuing through the defects liability period." },
+    ],
+    whyUs: {
+      heading: "Why Choose ARCHORA for Turnkey Civil and Interior Execution?",
+      points: [
+        "One team, one contract, one accountability, there is no pointing between contractors and no dispute about who owns a coordination failure",
+        "Every site manager and specialist installer on an ARCHORA project understands why clean and dirty corridors cannot cross and why clinical flooring must be laid without joints in infection-sensitive areas",
+        "Because ARCHORA provides both design and construction, the build team works from drawings they helped create, so design issues are resolved fast and without an adversarial relationship between designer and builder",
+        "An ARCHORA handover is a validated handover: air change rates measured, medical gas pressures verified, electrical systems tested, ready to operate clinically on day one",
+      ],
+    },
+    whoNeeds: {
+      heading: "Who Needs Turnkey Civil and Interior Execution?",
+      bullets: [
+        "Healthcare promoters who want a single point of accountability from foundation to finishing",
+        "Hospitals, nursing homes, diagnostic centres, and medical colleges undertaking new construction or major fitout",
+        "Facilities building standalone OT or ICU complexes that require specialist coordination",
+        "Promoters who have found that managing multiple independent contractors is creating delays and coordination failures",
+      ],
+    },
+    faqs: [
+      { q: "What does turnkey construction mean for a hospital project?", a: "Turnkey construction means a single construction partner takes complete responsibility for delivering the entire facility from civil construction through MEP, specialist clinical fitout, interiors, equipment installation, commissioning, and handover, under one contract and one point of accountability." },
+      { q: "How does ARCHORA coordinate civil and MEP works to avoid clashes on site?", a: "All structural, architectural, and MEP drawings are overlaid in a pre-construction coordination exercise to identify and resolve clashes before construction begins, with BIM-based 3D coordination used on complex projects. MEP sleeves are cast into slabs during structural construction, eliminating retrospective core drilling." },
+      { q: "Can ARCHORA build a hospital while an adjacent facility remains operational?", a: "Yes. ARCHORA develops detailed site logistics plans, temporary hoarding strategies, dust and noise management plans, and infection control construction risk assessments for projects adjacent to occupied clinical areas." },
+      { q: "What quality standards does ARCHORA apply to healthcare construction?", a: "Material approval before procurement, inspection at all critical construction stages, MEP pressure testing before concealment, and a formal snagging and defect resolution process before handover, with clinical area finishes inspected against infection control standards." },
+      { q: "How long does it take to build a hospital on a turnkey basis?", a: "A small nursing home or clinic can be delivered in six to nine months. A mid-size multi-speciality hospital typically takes eighteen to thirty months. A large hospital or medical college complex can take thirty-six to forty-eight months or more, depending on scope." },
+      { q: "Does ARCHORA handle regulatory inspections during construction?", a: "Yes. ARCHORA coordinates all regulatory inspections during construction, prepares the required documentation, accompanies inspectors on site visits, and manages resolution of any observations before the next phase proceeds." },
+    ],
+    relatedServices: [
+      { title: "Feasibility Studies & Detailed Project Reports", slug: "feasibility-studies" },
+      { title: "Healthcare Architecture & Clinical Space Planning", slug: "healthcare-architecture" },
+      { title: "Structural Design for Healthcare Facilities", slug: "structural-design" },
+      { title: "MEP Engineering for Healthcare", slug: "mep-engineering" },
+      { title: "Modular OT & ICU Infrastructure", slug: "modular-ot-icu" },
+      { title: "Medical Equipment Planning & Procurement", slug: "medical-equipment-planning" },
+      { title: "Project Management & Commissioning", slug: "project-management" },
+    ],
+    bottomCTA: {
+      heading: "Ready to Build Your Healthcare Facility With One Team Accountable for Everything?",
+      body: "Talk to ARCHORA today. We will deliver your hospital, clinic, diagnostic centre, or medical college from foundation to handover under a single turnkey contract, to the clinical standard, regulatory compliance, and construction quality your healthcare facility demands.",
+    },
+  },
+  {
+    id: "09",
+    slug: "medical-equipment-planning",
+    icon: <Package size={24} />,
+    color: "#7eb8f7",
+    pageTitle: "Medical Equipment Planning and Procurement Services for Hospitals in India | ARCHORA",
+    metaDesc: "ARCHORA provides end-to-end medical equipment planning and procurement for hospitals, diagnostic centres, and healthcare facilities across India. Needs assessment, vendor selection, installation, and commissioning. Talk to our team today.",
+    heroH1: "Medical Equipment Planning and Procurement Services for Hospitals and Healthcare Facilities in India",
+    heroSub: "The medical equipment in your hospital is not a procurement exercise. It is a clinical strategy decision. ARCHORA plans and procures medical equipment as an integrated part of the healthcare facility design and construction process, ensuring every piece of equipment is clinically appropriate, correctly specified, properly installed, and ready to operate on the day your facility opens.",
+    problem: {
+      heading: "Why Medical Equipment Procurement Goes Wrong in Healthcare Projects",
+      body: [
+        "The most common failure mode is late procurement. Long-lead equipment including CT scanners, MRI systems, cath lab equipment, and linear accelerators typically have delivery timelines of six to twelve months. Facilities that are structurally complete sit empty for months waiting for equipment, and opening dates slip.",
+        "The second most common failure mode is incorrect specification, choosing equipment on price alone without understanding the clinical or infrastructure implications, resulting in equipment that doesn't meet the department's needs or requires provisions that were never built into the design.",
+        "The third is poor installation coordination. Major equipment has specific electrical, structural, radiation shielding, and MEP requirements. When procurement is managed separately from design and construction, these requirements are missed and discovered late.",
+        "ARCHORA integrates medical equipment planning into the facility design process from day one, eliminating all three failure modes.",
+      ],
+    },
+    explainer: {
+      heading: "Why Equipment Planning Must Begin With the Building Design",
+      body: [
+        "Every clinical space in a hospital is sized and serviced around the equipment that will sit inside it. The room size of an MRI suite, the shielding of a CT room, and the pendant configuration of an OT are all determined by the specific equipment selected. If equipment planning begins after the design is fixed, expensive design changes and infrastructure modifications become unavoidable.",
+        "ARCHORA treats medical equipment planning as a design input, not a post-construction shopping exercise.",
+      ],
+    },
+    coverage: {
+      heading: "Medical Equipment Planning and Procurement — What ARCHORA Covers",
+      sections: [
+        {
+          heading: "Equipment Needs Assessment and Master Equipment List",
+          items: [
+            "Clinical service inventory and case mix analysis with department leadership",
+            "Department-by-department equipment needs assessment",
+            "Master Equipment List development covering every department, categorised by clinical priority, lead time, and cost",
+            "Equipment budget development and phasing strategy",
+          ],
+        },
+        {
+          heading: "Equipment Brief and Room Data Sheets",
+          items: [
+            "Equipment dimensions, weight, and floor loading requirements for every major item",
+            "Electrical, HVAC, plumbing, medical gas, and radiation shielding requirements captured per item",
+            "Integration of every requirement into the Room Data Sheets for all clinical spaces before construction begins",
+          ],
+        },
+        {
+          heading: "Procurement Strategy and Vendor Management",
+          items: [
+            "Procurement programme sequenced against delivery lead times and the construction programme",
+            "Technical specification preparation and Request for Quotation issue",
+            "Vendor submission evaluation against technical and commercial criteria, independent of any vendor relationship",
+            "Negotiation support and preferred vendor recommendation",
+          ],
+        },
+        {
+          heading: "Installation Coordination and Supervision",
+          items: [
+            "Infrastructure readiness verification before equipment installation commences",
+            "Vendor installation supervision and acceptance inspection for all major items",
+          ],
+        },
+        {
+          heading: "Equipment Commissioning and Acceptance Testing",
+          items: [
+            "Acceptance testing protocol preparation and witnessing for all major equipment",
+            "Performance parameter verification against specification, including image quality testing for imaging systems",
+            "Equipment acceptance certification and defect resolution",
+          ],
+        },
+        {
+          heading: "Biomedical Engineering and Asset Management Setup",
+          items: [
+            "Biomedical engineering function setup advice",
+            "Planned preventive maintenance schedule development for all equipment",
+            "Equipment inventory and asset register, and maintenance contract negotiation support",
+          ],
+        },
+      ],
+    },
+    extra: {
+      heading: "Equipment Categories ARCHORA Plans and Procures",
+      tableHead: ["Equipment Category", "Examples"],
+      tableRows: [
+        ["Diagnostic Imaging", "MRI, CT, X-ray, Fluoroscopy, Ultrasound, Mammography, DEXA"],
+        ["Nuclear Medicine", "PET-CT, SPECT-CT, Gamma Camera"],
+        ["Radiation Therapy", "Linear Accelerator, Brachytherapy, Simulation CT"],
+        ["Cardiac Catheterisation", "Cath Lab System, IVUS, FFR Systems"],
+        ["Operating Theatre", "OT Table, OT Lights, Surgical Pendants, Anaesthesia Machines, Patient Monitors"],
+        ["Intensive Care", "Ventilators, Patient Monitors, Infusion Pumps, Defibrillators, CRRT"],
+        ["Neonatal and Paediatric", "Incubators, Phototherapy, Neonatal Ventilators and Monitors"],
+        ["Endoscopy", "Video Endoscopy Towers, Gastroscopes, Colonoscopes, Bronchoscopes"],
+        ["Sterilisation", "Autoclaves, Washer Disinfectors, Ultrasonic Cleaners"],
+        ["Laboratory and Pathology", "Analysers, Centrifuges, Microscopes, Haematology and Biochemistry Systems"],
+        ["Blood Bank", "Blood Bank Refrigerators, Component Separators, Blood Irradiators"],
+        ["Pharmacy", "Dispensing Systems, Laminar Flow Workbenches, Refrigeration"],
+      ],
+    },
+    process: [
+      { step: "01", title: "Clinical Services and Equipment Needs Assessment", desc: "Engagement with clinical leadership on services, case mix, and workflows drives the Master Equipment List." },
+      { step: "02", title: "Master Equipment List and Budget Development", desc: "A complete Master Equipment List with preliminary budgets and a phasing strategy aligned to the opening programme." },
+      { step: "03", title: "Equipment Brief and Infrastructure Integration", desc: "Equipment Briefs for all major items are integrated into Room Data Sheets and the building design before construction begins." },
+      { step: "04", title: "Procurement Programme Development", desc: "A procurement programme sequenced to the construction programme, ensuring on-time delivery of all long-lead items." },
+      { step: "05", title: "Technical Specification and RFQ", desc: "Technical specifications and Request for Quotation documents are prepared and issued across all equipment categories." },
+      { step: "06", title: "Vendor Evaluation and Selection", desc: "Vendor submissions are evaluated against technical and commercial criteria with independent recommendations to the promoter." },
+      { step: "07", title: "Installation Coordination and Supervision", desc: "Infrastructure readiness is verified before installation, and installation is supervised and inspected on acceptance." },
+      { step: "08", title: "Commissioning and Acceptance Testing", desc: "Acceptance testing is witnessed and verified for all major equipment items before certification." },
+      { step: "09", title: "Biomedical Engineering and Asset Management Setup", desc: "Support for the biomedical engineering function, maintenance schedules, and comprehensive maintenance contracts." },
+    ],
+    whyUs: {
+      heading: "Why Choose ARCHORA for Medical Equipment Planning and Procurement?",
+      points: [
+        "Because ARCHORA designs and builds the facility as well as planning the equipment, requirements are integrated into the building design from the beginning, with no infrastructure surprises on install day",
+        "Recommendations are clinically informed and vendor independent, based on clinical suitability, specification, after-sales support, and total cost of ownership, with no commercial relationship with any manufacturer",
+        "Procurement expertise spans every major equipment category from diagnostic imaging through ICU, OT, and laboratory systems",
+        "Programme discipline ensures long-lead equipment is ordered at the correct point in the construction programme, preventing the equipment-related opening delays that affect many new facilities",
+      ],
+    },
+    whoNeeds: {
+      heading: "Who Needs Medical Equipment Planning and Procurement?",
+      bullets: [
+        "Hospital promoters and investors planning a new facility who need equipment strategy integrated with design",
+        "Existing hospitals expanding or renovating and needing to assess, retain, or replace equipment",
+        "Diagnostic centres and speciality clinics investing in high-value imaging or lab equipment",
+        "Any promoter who wants vendor-independent guidance rather than a vendor-driven equipment list",
+      ],
+    },
+    faqs: [
+      { q: "When should medical equipment planning begin in a hospital project?", a: "At the same time as architectural design, not after construction is complete, since the size and servicing of every clinical space is determined by the equipment it will house." },
+      { q: "What is a Master Equipment List and why is it important?", a: "A comprehensive inventory of every equipment item across every department, with specification, quantity, priority, cost, and lead time, that drives the equipment budget, the infrastructure design, and the procurement programme." },
+      { q: "How does ARCHORA ensure equipment vendors are selected fairly and correctly?", a: "Through detailed technical specifications issued to multiple qualified vendors via a formal RFQ process, evaluated on structured technical and commercial criteria with full transparency and no commercial relationship with any vendor." },
+      { q: "What are long-lead equipment items and why do they matter for programme planning?", a: "Items such as MRI, CT, PET-CT, linear accelerators, and cath lab systems typically take six to twelve months to deliver. Ordering them late leaves a structurally complete facility unable to open." },
+      { q: "Does ARCHORA handle the installation and commissioning of medical equipment?", a: "ARCHORA coordinates and supervises installation, verifies infrastructure readiness beforehand, and witnesses acceptance testing, working alongside the vendor's own installation team." },
+      { q: "Can ARCHORA help with medical equipment planning for an existing hospital that is expanding?", a: "Yes. ARCHORA assesses the existing inventory, identifies what can be retained, upgraded, or relocated, and coordinates the equipment transition with the construction programme to minimise disruption." },
+    ],
+    relatedServices: [
+      { title: "Feasibility Studies & Detailed Project Reports", slug: "feasibility-studies" },
+      { title: "Healthcare Architecture & Clinical Space Planning", slug: "healthcare-architecture" },
+      { title: "MEP Engineering for Healthcare", slug: "mep-engineering" },
+      { title: "Modular OT & ICU Infrastructure", slug: "modular-ot-icu" },
+      { title: "Turnkey Civil & Interior Execution", slug: "turnkey-execution" },
+      { title: "Project Management & Commissioning", slug: "project-management" },
+    ],
+    bottomCTA: {
+      heading: "Ready to Build a Medical Equipment Programme That Works From Day One?",
+      body: "Talk to ARCHORA today. We will plan, specify, procure, install, and commission every piece of medical equipment in your facility as an integrated part of the design and construction programme, ensuring your facility opens on time, within budget, and fully equipped.",
+    },
+  },
+  {
+    id: "10",
+    slug: "project-management",
+    icon: <ClipboardList size={24} />,
+    color: "#7eb8f7",
+    pageTitle: "Healthcare Project Management and Commissioning Services in India | ARCHORA",
+    metaDesc: "ARCHORA provides end-to-end healthcare project management and commissioning for hospitals, diagnostic centres, and medical colleges across India. On time, within budget, and NABH ready. Talk to our team today.",
+    heroH1: "Healthcare Project Management and Commissioning Services in India",
+    heroSub: "A healthcare facility project combines the complexity of large-scale construction with the precision of clinical engineering, the rigour of regulatory compliance, and the irreversibility of a fixed opening date. ARCHORA provides specialist project management and commissioning that keeps your project on programme, within budget, and ready for clinical operation and NABH accreditation from the first day of handover.",
+    problem: {
+      heading: "Why Healthcare Projects Overrun, Overspend, and Underdeliver",
+      body: [
+        "Most healthcare projects in India are managed as a sequence of independent workstreams rather than a single integrated programme, with no single person accountable for coordinating civil construction, MEP design, equipment procurement, regulatory approvals, and clinical planning against one master programme.",
+        "A general project manager understands construction sequencing but not that MEP coordination for an OT zone must finish before the slab is cast, that long-lead equipment must be ordered eighteen months ahead of opening, or that NABH documentation must begin two years before the accreditation survey.",
+        "Without a structured commissioning programme, commissioning becomes a chaotic post-construction exercise that delays opening and leaves deficiencies in critical systems unresolved.",
+        "Without dedicated regulatory programme management, regulatory delays routinely become the critical path to opening. ARCHORA addresses all four failure modes through a single integrated programme from inception to clinical operation.",
+      ],
+    },
+    explainer: {
+      heading: "Commissioning Is Not Construction Sign-Off. It Is Clinical Validation.",
+      body: [
+        "Commissioning is the systematic process of verifying that every system in a healthcare facility is installed correctly, operates as designed, and meets its specified performance criteria before clinical operation begins. It is significantly more complex than commissioning a commercial building because of the number and interdependency of clinical and engineering systems, and because commissioning failures carry patient safety consequences, not just operational inconvenience.",
+      ],
+    },
+    coverage: {
+      heading: "Healthcare Project Management and Commissioning — What ARCHORA Covers",
+      sections: [
+        {
+          heading: "Project Inception and Programme Establishment",
+          items: [
+            "Master project programme development covering all workstreams from design through clinical operation",
+            "Project governance structure, stakeholder engagement plan, and risk register",
+            "Project management information system and project office setup",
+          ],
+        },
+        {
+          heading: "Design and Construction Programme Management",
+          items: [
+            "Design team coordination, clinical stakeholder engagement, and regulatory submission programme management",
+            "Construction progress monitoring, contractor and subcontractor coordination, and quality and HSE programme oversight",
+            "Materials procurement programme management and change order control",
+          ],
+        },
+        {
+          heading: "Cost Management and Budget Control",
+          items: [
+            "Healthcare-specific cost plan development at inception and through design development",
+            "Tender preparation, evaluation, and contract award recommendation",
+            "Cost reporting, budget variance analysis, and contingency management through to final account",
+          ],
+        },
+        {
+          heading: "Regulatory and NABH Accreditation Programme Management",
+          items: [
+            "Building plan approval, Fire NOC, Clinical Establishments Act registration, and all statutory licence programme management",
+            "NABH standards gap analysis, infrastructure compliance verification, documentation programme, and pre-assessment through final assessment management",
+          ],
+        },
+        {
+          heading: "Medical Equipment Procurement Programme Management",
+          items: [
+            "Long-lead equipment order placement monitoring integrated with the construction programme",
+            "Equipment delivery tracking, installation sequencing, and acceptance testing witnessing",
+          ],
+        },
+        {
+          heading: "Clinical Readiness Programme Management",
+          items: [
+            "Staff recruitment, credentialing, and clinical training programme coordination",
+            "Information systems go-live, pharmacy and supply chain readiness, and mock drill coordination",
+            "Opening readiness assessment and sign-off",
+          ],
+        },
+        {
+          heading: "MEP and Specialist Clinical Area Commissioning",
+          items: [
+            "HVAC, medical gas, electrical, fire protection, plumbing, and BMS commissioning with full test documentation",
+            "Modular OT, ICU, radiology, laboratory, CSSD, and blood bank commissioning including particle count and radiation safety verification",
+          ],
+        },
+        {
+          heading: "Integrated Systems Testing and Handover Documentation",
+          items: [
+            "Emergency power restoration, fire alarm integration, and full facility simulation testing prior to clinical operation",
+            "Complete commissioning documentation pack including as-built drawings, O&M manuals, and warranty and training records",
+          ],
+        },
+      ],
+    },
+    extra: {
+      heading: "Healthcare Project Types ARCHORA Manages",
+      tableHead: ["Project Type", "Project Management Scope"],
+      tableRows: [
+        ["New Multi-Speciality Hospital", "Full programme from inception to clinical operation"],
+        ["New Super-Speciality Hospital", "Full programme with specialist commissioning for cath lab, hybrid OT, radiation therapy"],
+        ["Hospital Expansion and Renovation", "Phased programme management with operational hospital interface"],
+        ["Medical College Hospital", "Full programme with university affiliation and NMC compliance tracks"],
+        ["Diagnostic Centre", "Full programme with imaging equipment and radiation safety tracks"],
+        ["Standalone OT Complex", "Construction and commissioning programme management"],
+        ["Greenfield Clinic or Polyclinic", "Accelerated programme management for shorter delivery timelines"],
+        ["Nursing Home", "Full programme from design through clinical operation"],
+      ],
+    },
+    process: [
+      { step: "01", title: "Design and Approvals", desc: "Architectural, structural, MEP, and specialist clinical design, together with all regulatory submissions, managed as a single coordinated design programme." },
+      { step: "02", title: "Construction and Fitout", desc: "Civil construction, MEP installation, specialist clinical fitout, and equipment installation managed as one coordinated construction programme." },
+      { step: "03", title: "Equipment and Technology", desc: "Medical equipment planning, procurement, delivery, installation, and acceptance testing managed as a dedicated track integrated with construction." },
+      { step: "04", title: "Regulatory and Accreditation", desc: "All licences, NOCs, and accreditation programmes including NABH managed as a dedicated compliance track running in parallel with design and construction." },
+      { step: "05", title: "Clinical and Operational Readiness", desc: "Staff recruitment, training, clinical policy development, and information systems managed as a dedicated operational readiness track, all integrated into one Master Project Programme." },
+    ],
+    whyUs: {
+      heading: "Why Choose ARCHORA for Healthcare Project Management and Commissioning?",
+      points: [
+        "Specialist healthcare knowledge across every track means programme risks are identified and managed before they become delays, not after",
+        "A single project management team is accountable for the entire programme, with no gaps between design, construction, equipment procurement, and commissioning management",
+        "Proven commissioning capability validates OT laminar airflow, medical gas, and isolated power systems to a documented performance standard before handover",
+        "Because ARCHORA often also designs and builds the facility, the project management team works with complete knowledge of every design and construction decision, eliminating the information gaps that create commissioning delays",
+      ],
+    },
+    whoNeeds: {
+      heading: "Who Needs Healthcare Project Management and Commissioning?",
+      bullets: [
+        "Promoters and investors who need one team accountable for their entire project from inception to opening",
+        "Hospitals, medical colleges, and diagnostic centres pursuing NABH accreditation alongside construction",
+        "Projects expanding or renovating within an operational healthcare environment",
+        "Any healthcare project where a fixed opening date makes programme discipline critical",
+      ],
+    },
+    faqs: [
+      { q: "What is healthcare project management and how is it different from standard construction project management?", a: "It is the specialist discipline of managing design, construction, equipment procurement, regulatory compliance, commissioning, and clinical readiness as one integrated programme, covering healthcare-specific elements like NABH accreditation and clinical system commissioning that general construction project management does not address." },
+      { q: "When should a healthcare project manager be appointed?", a: "At the very beginning of the project, before design begins, so the master programme, governance structure, and regulatory approval programme are established from day one rather than after risks have already materialised." },
+      { q: "What does healthcare facility commissioning involve?", a: "Systematic verification that every system, from HVAC and medical gas to modular OTs and laboratories, is installed correctly, operates as designed, and meets its performance criteria, with full testing, documentation, and formal certification before clinical use." },
+      { q: "How does ARCHORA manage the NABH accreditation programme within a hospital project?", a: "As a dedicated track running in parallel with design and construction from the start, including a gap analysis, ongoing compliance verification, documentation programme, and management of pre-assessment through final assessment and observation resolution." },
+      { q: "Can ARCHORA manage a hospital expansion project within an operational facility?", a: "Yes, including infection control risk assessments, temporary hoarding and segregation strategies, and construction scheduling designed to minimise disruption to operational departments." },
+      { q: "What is integrated systems testing and why is it important before a hospital opens?", a: "It verifies that all building systems work correctly together, such as a fire alarm event triggering door closure, suppression, emergency power transfer, and nurse call notification simultaneously, since discovering an integration failure after opening creates a patient safety risk that should never exist." },
+    ],
+    relatedServices: [
+      { title: "Feasibility Studies & Detailed Project Reports", slug: "feasibility-studies" },
+      { title: "Healthcare Architecture & Clinical Space Planning", slug: "healthcare-architecture" },
+      { title: "Regulatory Compliance & Accreditation-Ready Design", slug: "regulatory-compliance" },
+      { title: "Hospital Licensing & Approvals Support", slug: "hospital-licensing" },
+      { title: "MEP Engineering for Healthcare", slug: "mep-engineering" },
+      { title: "Modular OT & ICU Infrastructure", slug: "modular-ot-icu" },
+      { title: "Turnkey Civil & Interior Execution", slug: "turnkey-execution" },
+      { title: "Medical Equipment Planning & Procurement", slug: "medical-equipment-planning" },
+    ],
+    bottomCTA: {
+      heading: "Ready to Deliver Your Healthcare Project On Time, Within Budget, and Clinically Ready From Day One?",
+      body: "Talk to ARCHORA today. We will manage every workstream of your healthcare facility project from inception to clinical operation under a single integrated programme, with one team accountable for every milestone from the first design drawing to the first patient admission.",
+    },
+  },
+  
 ];
 
 // ─── Helper Components ─────────────────────────────────────────────────────────

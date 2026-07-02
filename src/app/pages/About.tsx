@@ -156,9 +156,9 @@ const services = [
   { title: "Structural Design for Healthcare", slug: "structural-design" },
   { title: "MEP Engineering for Healthcare", slug: "mep-engineering" },
   { title: "Modular OT & ICU Infrastructure", slug: "modular-ot-icu" },
-  { title: "Turnkey Civil & Interior Execution", slug: null },
-  { title: "Medical Equipment Planning & Procurement", slug: null },
-  { title: "Project Management & Commissioning", slug: null },
+  { title: "Turnkey Civil & Interior Execution", slug:  "turnkey-execution" },
+  { title: "Medical Equipment Planning & Procurement", slug: "medical-equipment-planning" },
+  { title: "Project Management & Commissioning", slug: "project-management" },
 ];
 
 const FONT = "Calibri, 'Calibri', Arial, sans-serif";

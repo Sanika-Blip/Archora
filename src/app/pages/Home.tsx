@@ -171,7 +171,7 @@ function AnimatedCounter({ to, suffix = "" }: { to: number; suffix?: string }) {
 // ─────────────────────────────────────────────
 const heroSlides = [
   {
-    src: "/images/hero/hero-slide-1.jpg",
+    src: "/images/projects/gallery/binar-mp-03.png",
     label: "01, Architecture",
     tag: "India's Dedicated Partner",
     headline: "India's Dedicated Healthcare Infrastructure Partner",
@@ -192,7 +192,7 @@ const heroSlides = [
     sub: "From concept to commissioning, ARCHORA takes complete responsibility so you don't manage 15 vendors alone.",
   },
   {
-    src: "/images/hero/hero-slide-4.jpg",
+    src: "/images/projects/gallery/binar-mp-06.png",
     label: "04, Innovation",
     tag: "Global Standards",
     headline: "Global Standards. Pan-India Delivery.",
@@ -208,9 +208,9 @@ const services = [
   { num: "05", slug: "structural-design", title: "Structural Design for Healthcare", desc: "Healthcare-specific structural engineering for heavy equipment loads, seismic compliance, and clinical environments." },
   { num: "06", slug: "mep-engineering", title: "MEP Engineering for Healthcare", desc: "Hospital-grade HVAC, medical gas pipeline systems, electrical, plumbing, fire safety, and building management." },
   { num: "07", slug: "modular-ot-icu", title: "Modular OT & ICU Infrastructure", desc: "Design, supply, and installation of modular operating theatres and ICUs with laminar airflow and cleanroom standards." },
-  { num: "08", slug: null, title: "Turnkey Civil & Interior Execution", desc: "Complete healthcare construction and interior fit-out through a single point of accountability." },
-  { num: "09", slug: null, title: "Medical Equipment Planning & Procurement", desc: "Department-wise planning, budget optimisation, vendor evaluation, procurement support, and installation coordination." },
-  { num: "10", slug: null, title: "Project Management & Commissioning", desc: "End-to-end project management from planning through to commissioning and handover: protecting your timeline." },
+  { num: "08", slug:  "turnkey-execution", title: "Turnkey Civil & Interior Execution", desc: "Complete healthcare construction and interior fit-out through a single point of accountability." },
+  { num: "09", slug: "medical-equipment-planning", title: "Medical Equipment Planning & Procurement", desc: "Department-wise planning, budget optimisation, vendor evaluation, procurement support, and installation coordination." },
+  { num: "10", slug: "project-management", title: "Project Management & Commissioning", desc: "End-to-end project management from planning through to commissioning and handover: protecting your timeline." },
 ];
 
 const metrics = [
@@ -683,39 +683,18 @@ export function Home() {
                 <div style={{ position: "relative", border: `1px solid rgba(75,204,212,0.15)`, padding: 24, background: "rgba(75,204,212,0.02)" }}>
                   <div style={{ position: "absolute", top: -1, left: -1, width: 40, height: 40, borderLeft: `2px solid ${C.teal}`, borderTop: `2px solid ${C.teal}`, opacity: 0.5 }} />
                   <div style={{ position: "absolute", bottom: -1, right: -1, width: 40, height: 40, borderRight: `2px solid ${C.teal}`, borderBottom: `2px solid ${C.teal}`, opacity: 0.5 }} />
-                  <svg viewBox="0 0 440 380" style={{ width: "100%" }} xmlns="http://www.w3.org/2000/svg" aria-label="Hospital schematic floor plan">
-                    <line x1="20" y1="340" x2="420" y2="340" stroke="#4bccd4" strokeWidth="1" opacity="0.35" />
-                    <rect x="80" y="110" width="280" height="230" fill="none" stroke="#4bccd4" strokeWidth="1.5" opacity="0.6" />
-                    <rect x="160" y="60" width="120" height="55" fill="none" stroke="#4bccd4" strokeWidth="1" opacity="0.5" />
-                    {[0,1,2,3].map(row => [0,1,2,3,4].map(col => (
-                      <rect key={`${row}-${col}`} x={96+col*48} y={126+row*46} width="28" height="24"
-                        fill="none" stroke="#4bccd4" strokeWidth="0.7" opacity={0.25 + (row+col) % 3 * 0.06} />
-                    )))}
-                    <rect x="196" y="298" width="48" height="42" fill="none" stroke="#4bccd4" strokeWidth="1.2" opacity="0.75" />
-                    <line x1="220" y1="298" x2="220" y2="340" stroke="#4bccd4" strokeWidth="0.6" opacity="0.4" />
-                    <rect x="210" y="72" width="20" height="7" rx="1.5" fill={C.red} opacity="0.85" />
-                    <rect x="214" y="68" width="12" height="15" rx="1.5" fill={C.red} opacity="0.85" />
-                    <line x1="55" y1="110" x2="55" y2="340" stroke="#4bccd4" strokeWidth="0.5" strokeDasharray="4 4" opacity="0.3" />
-                    <line x1="49" y1="110" x2="61" y2="110" stroke="#4bccd4" strokeWidth="0.5" opacity="0.3" />
-                    <line x1="49" y1="340" x2="61" y2="340" stroke="#4bccd4" strokeWidth="0.5" opacity="0.3" />
-                    {([
-                      [130, 42, "OT Block"], [220, 42, "ICU / HDU"], [310, 42, "Admin"],
-                      [130, 88, "Emergency"], [220, 88, "Radiology"], [310, 88, "Pharmacy"],
-                    ] as [number, number, string][]).map(([x, y, t], i) => (
-                      <text key={i} x={x} y={y} textAnchor="middle" fill="#4bccd4" fontSize="7" fontFamily="Calibri, Arial, sans-serif" opacity="0.45">{t}</text>
-                    ))}
-                    <rect x="310" y="125" width="74" height="22" rx="2" fill="none" stroke="#4bccd4" strokeWidth="0.8" opacity="0.5" />
-                    <text x="347" y="140" textAnchor="middle" fill="#4bccd4" fontSize="7.5" fontFamily="Calibri, Arial, sans-serif" opacity="0.65">NABH READY</text>
-                    <circle cx="42" cy="308" r="16" fill="none" stroke="#4bccd4" strokeWidth="0.6" opacity="0.25" />
-                    <line x1="42" y1="323" x2="42" y2="340" stroke="#4bccd4" strokeWidth="0.8" opacity="0.25" />
-                    <circle cx="398" cy="308" r="16" fill="none" stroke="#4bccd4" strokeWidth="0.6" opacity="0.25" />
-                    <line x1="398" y1="323" x2="398" y2="340" stroke="#4bccd4" strokeWidth="0.8" opacity="0.25" />
-                  </svg>
-                  <div style={{ display: "flex", justifyContent: "center", marginTop: 12 }}>
-                    <span style={{ color: "rgba(75,204,212,0.35)", fontSize: 12, letterSpacing: "0.22em", textTransform: "uppercase", fontFamily: FONT }}>
-                      Schematic Floor Plan, Archora Standard
-                    </span>
-                  </div>
+                  <img
+  src="/images/hero/problem-we-solve.jpg"
+  alt="Healthcare infrastructure project by ARCHORA"
+  style={{
+    width: "100%",
+    height: "520px",
+    objectFit: "cover",
+    borderRadius: "2px",
+    display: "block",
+  }}
+  loading="lazy"
+/>
                 </div>
               </motion.div>
             </div>

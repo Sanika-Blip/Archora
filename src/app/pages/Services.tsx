@@ -161,7 +161,7 @@ const services = [
   },
   {
     id: "08",
-    slug: null,
+    slug: "turnkey-execution",
     icon: <HardHat size={22} />,
     title: "Turnkey Civil & Interior Execution",
     shortDesc: "From foundation to finishing, single-window accountability.",
@@ -184,7 +184,7 @@ const services = [
   },
   {
     id: "09",
-    slug: null,
+    slug: "medical-equipment-planning",
     icon: <Package size={22} />,
     title: "Medical Equipment Planning & Procurement",
     shortDesc: "Right equipment, right location, right budget.",
@@ -205,7 +205,7 @@ const services = [
   },
   {
     id: "10",
-    slug: null,
+    slug: "project-management",
     icon: <ClipboardList size={22} />,
     title: "Project Management & Commissioning",
     shortDesc: "On time. On budget. No surprises.",
@@ -237,7 +237,7 @@ const processSteps = [
   { num: "06", title: "Commissioning & Handover", desc: "Every system commissioned, every environment validated. Operationally ready, fully documented, fully compliant." },
 ];
 
-const DETAIL_SLUGS = new Set(["01", "02", "03", "04", "05", "06", "07"]);
+const DETAIL_SLUGS = new Set(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"]);
 
 function ServiceModal({ service, onClose }: { service: (typeof services)[0]; onClose: () => void }) {
   const navigate = useNavigate();
@@ -367,7 +367,7 @@ function ServiceCard({ service, index, onClick }: { service: (typeof services)[0
         {service.icon}
       </div>
 
-      <p style={{ fontFamily: FONT, fontSize: "clamp(11px, 1.2vw, 15px)", letterSpacing: "3px", textTransform: "uppercase", color: `${service.color}90`, marginBottom: 8, fontWeight: 600 }}>{service.id}, Service</p>
+      
       <h3 style={{ fontFamily: FONT, fontSize: "clamp(1.2rem, 2.5vw, 1.7rem)", fontWeight: 600, color: "#fff", lineHeight: 1.3, marginBottom: 10 }}>{service.title}</h3>
       <p style={{ fontFamily: FONT, fontSize: "clamp(13px, 1.6vw, 17px)", lineHeight: 1.8, color: "rgba(255,255,255,0.92)", marginBottom: 18, fontWeight: 400 }}>{service.shortDesc}</p>
 
