@@ -190,3 +190,11 @@
   font-family: Calibri, Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 }
+
+/* Headlines: prevent a lone word (or the closing full stop) from
+   wrapping onto its own line on its own — keeps the last line of a
+   heading sentence balanced instead of breaking awkwardly before
+   the period. */
+h1, h2 {
+  text-wrap: pretty;
+}

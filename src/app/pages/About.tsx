@@ -707,7 +707,7 @@ export function About() {
       {/* ── Hero ── */}
       <section ref={heroRef} className="hero-section relative overflow-hidden" style={{ height: "85vh", minHeight: "560px" }}>
         <motion.div className="absolute inset-0" style={{ y: heroY }}>
-          <ImageWithFallback src="/images/about/team-professionals.jpg" alt="ARCHORA, Healthcare Infrastructure" className="w-full h-full object-cover" style={{ scale: 1.04 }} loading="eager" fetchPriority="high" />
+          <ImageWithFallback  alt="ARCHORA, Healthcare Infrastructure" className="w-full h-full object-cover" style={{ scale: 1.04 }} loading="eager" fetchPriority="high" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(120deg, rgba(4,28,46,0.6) 0%, rgba(4,28,46,0.3) 55%, rgba(4,28,46,0.08) 100%)" }} />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(4,28,46,0.4) 0%, transparent 45%)" }} />
           <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.07) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />

@@ -562,14 +562,8 @@ export function Journal() {
         `}</style>
 
         {/* ── HERO ── */}
-        <section style={{ position: "relative", height: "52vh", minHeight: 380, overflow: "hidden" }}>
-          <img
-            src="/images/hero/journal-hero.jpg"
-            alt="ARCHORA Healthcare Infrastructure Journal"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }}
-            fetchPriority="high"
-          />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.6) 0%, rgba(4,28,46,0.36) 60%, rgba(4,28,46,0.14) 100%)" }} />
+        <section style={{ position: "relative", height: "52vh", minHeight: 380, overflow: "hidden", background: "linear-gradient(160deg, #040e1a 0%, #071e30 60%, #04141f 100%)" }}>
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.05) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
 
           <div className="jrnl-hero-inner" style={{ position: "relative", height: "100%", maxWidth: 1280, margin: "0 auto", display: "flex", alignItems: "center", zIndex: 10 }}>
             <motion.div initial={{ opacity: 0, y: 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>

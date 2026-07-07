@@ -30,7 +30,7 @@ function SEOHead() {
         "@id": "https://archora.in/contact#webpage",
         "url": "https://archora.in/contact",
         "name": "Contact ARCHORA | Hospital Design & Healthcare Infrastructure Enquiries",
-        "description": "Planning a hospital, clinic, modular OT, or healthcare facility? Contact ARCHORA for expert healthcare infrastructure consultation. Based in Thane, serving pan-India.",
+        "description": "Planning a hospital, clinic, modular OT, or healthcare facility? Contact ARCHORA for expert healthcare infrastructure consultation. Based in Thane, serving clients globally.",
         "isPartOf": { "@id": "https://archora.in/#website" },
         "breadcrumb": {
           "@type": "BreadcrumbList",
@@ -79,7 +79,7 @@ function SEOHead() {
           {
             "@type": "Question",
             "name": "Does ARCHORA work outside Maharashtra?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. We provide healthcare infrastructure services pan-India. Remote consultations are available and our team can visit project sites anywhere in India." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. We provide healthcare infrastructure services globally. Remote consultations are available and our team can visit project sites anywhere." }
           },
           {
             "@type": "Question",
@@ -104,13 +104,13 @@ function SEOHead() {
   return (
     <Helmet>
       <title>Contact ARCHORA | Hospital Design & Healthcare Infrastructure Enquiries</title>
-      <meta name="description" content="Planning a hospital, clinic, modular OT, or healthcare facility? Contact ARCHORA for expert healthcare infrastructure consultation. Based in Thane, serving pan-India." />
+      <meta name="description" content="Planning a hospital, clinic, modular OT, or healthcare facility? Contact ARCHORA for expert healthcare infrastructure consultation. Based in Thane, serving clients globally." />
       <meta name="keywords" content="contact ARCHORA, hospital design enquiry, healthcare infrastructure India, NABH hospital design consultation, modular OT enquiry, hospital construction India, Thane healthcare infrastructure" />
       <link rel="canonical" href="https://archora.in/contact" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://archora.in/contact" />
       <meta property="og:title" content="Contact ARCHORA | Hospital Design & Healthcare Infrastructure Enquiries" />
-      <meta property="og:description" content="Planning a hospital, clinic, modular OT, or healthcare facility? Contact ARCHORA, India's dedicated healthcare infrastructure partner. Based in Thane, pan-India delivery." />
+      <meta property="og:description" content="Planning a hospital, clinic, modular OT, or healthcare facility? Contact ARCHORA, a dedicated healthcare infrastructure partner. Based in Thane, delivering globally." />
       <meta property="og:image" content="https://archora.in/og-image.jpg" />
       <meta property="og:locale" content="en_IN" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -229,7 +229,7 @@ const faqs = [
   },
   {
     q: "Does ARCHORA work outside Maharashtra?",
-    a: "Yes. We provide healthcare infrastructure services pan-India. Remote consultations are available and our team can visit project sites anywhere in India."
+    a: "Yes. We provide healthcare infrastructure services globally. Remote consultations are available and our team can visit project sites anywhere."
   },
   {
     q: "How quickly will ARCHORA respond to my enquiry?",
@@ -370,14 +370,8 @@ export function Contact() {
         {/* ══════════════════════════════════════════
             HERO
         ══════════════════════════════════════════ */}
-        <section style={{ position: "relative", height: "52vh", minHeight: 360, overflow: "hidden" }}>
-          <img
-            src="/images/hero/contact-hero.jpg"
-            alt="ARCHORA healthcare infrastructure office, contact us"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%" }}
-            fetchPriority="high"
-          />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.62) 0%, rgba(4,28,46,0.36) 55%, rgba(4,28,46,0.14) 100%)" }} />
+        <section style={{ position: "relative", height: "52vh", minHeight: 360, overflow: "hidden", background: "linear-gradient(160deg, #040e1a 0%, #071e30 60%, #04141f 100%)" }}>
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.05) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
 
           <div className="contact-hero-wrap">
             <motion.div

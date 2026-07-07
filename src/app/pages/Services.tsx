@@ -6,7 +6,6 @@ import {
   Activity, HardHat, Package, ClipboardList, ArrowRight,
   ChevronDown, Users, CheckCircle, Star, TrendingUp, X
 } from "lucide-react";
-import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 const WHATSAPP_URL = "https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project.";
 const FONT = "Calibri, 'Calibri', Arial, sans-serif";
@@ -583,16 +582,8 @@ export function Services() {
       `}</style>
 
       {/* ── Hero ── */}
-      <section style={{ position: "relative", height: "72vh", minHeight: "560px", overflow: "hidden" }}>
+      <section style={{ position: "relative", height: "72vh", minHeight: "560px", overflow: "hidden", background: "linear-gradient(160deg, #040e1a 0%, #071e30 60%, #04141f 100%)" }}>
         <div style={{ position: "absolute", inset: 0 }}>
-          <ImageWithFallback
-            src="/images/hero/services-hero.jpg"
-            alt="Healthcare Infrastructure Services"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            loading="eager"
-            fetchPriority="high"
-          />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg, rgba(4,18,30,0.6) 0%, rgba(4,18,30,0.34) 55%, rgba(4,18,30,0.1) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.06) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
         </div>
 

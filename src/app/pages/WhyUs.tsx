@@ -95,9 +95,9 @@ const faqSections = [
   {
     id:"general", label:"General, About ARCHORA",
     questions:[
-      { q:"What is ARCHORA and what does the company do?", a:"ARCHORA is a healthcare infrastructure company based in Thane, Maharashtra, serving clients pan-India. We specialise in hospital design, hospital construction, healthcare interiors, MEP services, modular OTs, ICU setup, IVF labs, diagnostic centres, NABH-compliant facility planning, and turnkey healthcare project delivery. We work exclusively in the healthcare sector." },
+      { q:"What is ARCHORA and what does the company do?", a:"ARCHORA is a healthcare infrastructure company based in Thane, Maharashtra, serving clients internationally. We specialise in hospital design, hospital construction, healthcare interiors, MEP services, modular OTs, ICU setup, IVF labs, diagnostic centres, NABH-compliant facility planning, and turnkey healthcare project delivery. We work exclusively in the healthcare sector." },
       { q:"Is ARCHORA only a design firm or do you also construct?", a:"ARCHORA offers both. We provide end-to-end turnkey healthcare infrastructure services, from concept design and architectural planning all the way through construction, interiors, MEP installation, and commissioning. Most of our clients prefer the turnkey model because it eliminates coordination gaps between multiple vendors." },
-      { q:"Where does ARCHORA operate? Only Maharashtra or pan-India?", a:"We are headquartered in Thane, Maharashtra, but we take on healthcare infrastructure projects across India. We have worked on projects in multiple states and are fully equipped for remote consultations, site visits, and project execution outside Maharashtra." },
+      { q:"Where does ARCHORA operate? Only Maharashtra or globally?", a:"We are headquartered in Thane, Maharashtra, but we take on healthcare infrastructure projects across India and internationally. We have worked on projects in multiple states and countries, and are fully equipped for remote consultations, site visits, and project execution anywhere." },
       { q:"What makes ARCHORA different from a regular architecture firm?", a:"ARCHORA works exclusively in healthcare infrastructure. Our team understands infection control zoning, NABH compliance requirements, clinical workflows, MEP specifications for medical-grade environments, and the operational realities of running a hospital, not just the aesthetics of the building. A general architect may not account for the difference between a clean zone and a sterile zone in an OT complex, at ARCHORA, this is our baseline." },
       { q:"Does ARCHORA handle renovation and expansion projects or only new builds?", a:"Both. We handle greenfield projects (new hospitals and facilities built from scratch) as well as renovation, expansion, and refurbishment of existing healthcare facilities. In renovation projects, we work in phases to minimise disruption to ongoing operations." },
     ],
@@ -433,17 +433,8 @@ export function WhyUs() {
         {/* ══════════════════════════════════════
             1. HERO, dark navy
         ══════════════════════════════════════ */}
-        <section ref={heroRef} style={{ position:"relative", minHeight:"72vh", overflow:"hidden" }}>
-          <motion.div style={{ position:"absolute", inset:0, y:heroY }}>
-            <img
-              src="/images/hero/why-us-hero.jpg"
-              alt="ARCHORA healthcare infrastructure"
-              style={{ width:"100%", height:"115%", objectFit:"cover", objectPosition:"center 35%" }}
-              fetchPriority="high"
-            />
-          </motion.div>
-          <div style={{ position:"absolute", inset:0, background:"linear-gradient(115deg,rgba(4,28,46,0.6) 0%,rgba(4,28,46,0.36) 55%,rgba(4,28,46,0.1) 100%)" }}/>
-          <div style={{ position:"absolute", inset:0, background:"linear-gradient(to top,rgba(4,28,46,0.42) 0%,transparent 45%)" }}/>
+        <section ref={heroRef} style={{ position:"relative", minHeight:"72vh", overflow:"hidden", background:"linear-gradient(160deg, #040e1a 0%, #071e30 60%, #04141f 100%)" }}>
+          <div style={{ position:"absolute", inset:0, backgroundImage:"radial-gradient(circle, rgba(75,209,217,0.05) 1px, transparent 1px)", backgroundSize:"28px 28px", pointerEvents:"none" }}/>
           {[220,140,80].map((size,i) => (
             <div key={size} style={{ position:"absolute", top:"18%", right:"9%",
               width:size, height:size, border:`1px solid rgba(75,204,212,${0.06+i*0.03})`,
@@ -548,7 +539,7 @@ export function WhyUs() {
               style={{ borderTop:"1px solid rgba(75,204,212,0.08)", padding:"28px 0 0" }}>
               <p style={{ color:"rgba(255,255,255,0.35)", fontSize:14, fontFamily:"Calibri, Arial, sans-serif",
                 letterSpacing:"0.12em", margin:0 }}>
-                Headquartered in Thane · Pan-India delivery · Healthcare only since founding
+                Headquartered in Thane · Global delivery · Healthcare only since founding
               </p>
               <button onClick={() => navigate("/facilities")} style={{ padding:"10px 24px", background:"transparent",
                 color:"rgba(75,204,212,0.65)", border:"1px solid rgba(75,204,212,0.2)",

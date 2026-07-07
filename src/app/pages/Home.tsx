@@ -195,7 +195,7 @@ const heroSlides = [
     src: "/images/projects/gallery/binar-mp-06.png",
     label: "04, Innovation",
     tag: "Global Standards",
-    headline: "Global Standards. Pan-India Delivery.",
+    headline: "Global Standards. International Delivery.",
     sub: "NHS-level healthcare infrastructure expertise meets India-specific clinical realities, in every project we deliver.",
   },
 ];
@@ -630,7 +630,7 @@ export function Home() {
             animate={{ x: ["0%", "-50%"] }}
             transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
           >
-            {Array(6).fill(["Hospital Planning", "Modular OT Design", "ICU Infrastructure", "NABH Compliance", "MEP Engineering", "Turnkey Delivery", "Medical Equipment Planning", "Pan India Projects"]).flat().map((item, i) => (
+            {Array(6).fill(["Hospital Planning", "Modular OT Design", "ICU Infrastructure", "NABH Compliance", "MEP Engineering", "Turnkey Delivery", "Medical Equipment Planning", "International Projects"]).flat().map((item, i) => (
               <span key={i} style={{
                 color: "rgba(75,204,212,0.45)", fontSize: 13, letterSpacing: "0.26em",
                 textTransform: "uppercase", fontFamily: FONT,
@@ -730,7 +730,7 @@ export function Home() {
                 </div>
 
                 <div className="home-stat-3">
-                  {[["20+", "Years Collective Experience"], ["Pan India", "Delivery"], ["NHS-Level", "UK Expertise"]].map(([val, lbl]) => (
+                  {[["20+", "Years Collective Experience"], ["Global", "Delivery"], ["NHS-Level", "UK Expertise"]].map(([val, lbl]) => (
                     <div key={lbl} style={{ borderTop: `2px solid ${C.blue}`, paddingTop: 14 }}>
                       <div style={{ fontSize: 22, color: C.navy, fontFamily: FONT, marginBottom: 6, lineHeight: 1, fontWeight: 400 }}>{val}</div>
                       <p style={{ fontSize: 12.5, color: "#1a1a1a", textTransform: "uppercase", letterSpacing: "0.12em", lineHeight: 1.5, margin: 0, fontWeight: 400, fontFamily: FONT }}>{lbl}</p>

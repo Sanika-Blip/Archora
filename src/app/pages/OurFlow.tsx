@@ -278,17 +278,8 @@ export function OurFlow() {
         {/* ═══════════════════════════════════
             HERO
         ═══════════════════════════════════ */}
-        <section ref={heroRef} style={{ position: "relative", height: "70vh", minHeight: 560, overflow: "hidden" }}>
-          <motion.div style={{ position: "absolute", inset: 0, y: heroY }}>
-            <img
-              src="/images/hero/our-flow-hero.jpg"
-              alt="ARCHORA process"
-              style={{ width: "100%", height: "115%", objectFit: "cover", objectPosition: "center 40%" }}
-              fetchPriority="high"
-            />
-          </motion.div>
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(110deg, rgba(4,28,46,0.6) 0%, rgba(4,28,46,0.35) 55%, rgba(4,28,46,0.12) 100%)" }} />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(4,28,46,0.45) 0%, transparent 45%)" }} />
+        <section ref={heroRef} style={{ position: "relative", height: "70vh", minHeight: 560, overflow: "hidden", background: "linear-gradient(160deg, #040e1a 0%, #071e30 60%, #04141f 100%)" }}>
+          <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(75,209,217,0.05) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
 
           {/* Decorative rotating ring */}
           <div
