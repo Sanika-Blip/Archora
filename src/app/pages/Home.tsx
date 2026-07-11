@@ -181,14 +181,14 @@ const heroSlides = [
     src: "/images/hero/hero-slide-2.jpg",
     label: "02, Compliance",
     tag: "NABH From Day One",
-    headline: "NABH-Compliant Design. From Day One.",
+    headline: "NABH-Compliant Design.\nFrom Day One.",
     sub: "No retrofitting. No last-minute corrections. Every standard integrated from the very first drawing.",
   },
   {
     src: "/images/hero/hero-slide-3.jpg",
     label: "03, Delivery",
     tag: "Single Accountability",
-    headline: "One Team. One Contract. Full Accountability.",
+    headline: "One Team. One Contract.\nFull Accountability.",
     sub: "From concept to commissioning, ARCHORA takes complete responsibility so you don't manage 15 vendors alone.",
   },
   {
@@ -419,11 +419,11 @@ export function Home() {
           }
 
           .home-hero-inner {
-            max-width: 680px;
+             max-width: 760px; 
           }
 
           .home-hero-headline {
-            font-size: clamp(2.1rem, 7vw, 4.4rem);
+            font-size: clamp(2.1rem, 6vw, 3.6rem); 
           }
 
           /* About image frame: decorative offset border + corner brackets add
@@ -550,21 +550,22 @@ export function Home() {
 
               <AnimatePresence mode="wait">
                 <motion.h1
-                  key={heroIndex}
-                  className="home-hero-headline"
-                  initial={{ opacity: 0, y: 36, clipPath: "inset(100% 0 0 0)" }}
-                  animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
-                  exit={{ opacity: 0, y: -24 }}
-                  transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                  style={{
-                    color: C.white,
-                    marginBottom: 24, lineHeight: 1.1,
-                    fontFamily: FONT, fontWeight: 600,
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  {heroSlides[heroIndex].headline}
-                </motion.h1>
+  key={heroIndex}
+  className="home-hero-headline"
+  initial={{ opacity: 0, y: 36, clipPath: "inset(100% 0 0 0)" }}
+  animate={{ opacity: 1, y: 0, clipPath: "inset(0% 0 0 0)" }}
+  exit={{ opacity: 0, y: -24 }}
+  transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+  style={{
+    color: C.white,
+    marginBottom: 24, lineHeight: 1.1,
+    fontFamily: FONT, fontWeight: 600,
+    letterSpacing: "-0.01em",
+    whiteSpace: "pre-line", // ← added
+  }}
+>
+  {heroSlides[heroIndex].headline}
+</motion.h1>
               </AnimatePresence>
 
               <motion.p
