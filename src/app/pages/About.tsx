@@ -67,7 +67,7 @@ const leaders = [
     image: "/images/team/aditya-kashikar.png",
     accentColor: "#7eb8f7",
     stats: [{ label: "Experience", value: "18+" }, { label: "NHS", value: "Projects" }, { label: "Countries", value: "2" }],
-    shortBio: "Aditya brings over 18 years of NHS healthcare capital programme leadership to ARCHORA, currently serving as Associate Director at WSP UK.",
+    shortBio: "Aditya brings over 18 years of NHS healthcare capital programme leadership to ARCHORA",
     fullBio: [
       "Ar. Aditya Kashikar is ARCHORA's SME and Lead Healthcare Advisory Consultant, bringing over 18 years of healthcare capital planning and infrastructure programme leadership from the UK's National Health Service to the Indian market.",
       " An architect by initial training with an MSc in Construction Management, Development Economics and International Development from the University of Greenwich, he is also an NEC3/4 Accredited Project Manager and a Member of both the Association for Project Management and the Association of Construction Quality Professionals.",
