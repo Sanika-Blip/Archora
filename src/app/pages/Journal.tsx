@@ -23,6 +23,14 @@ function SEOHead() {
     "blogPost": [
       {
         "@type": "BlogPosting",
+        "headline": "Why Every Hospital Needs a View: Nature, Daylight and Patient Recovery",
+        "url": "https://archora.in/journal/biophilic-hospital-design-daylight-nature-patient-recovery",
+        "datePublished": "2026-09-08",
+        "author": { "@type": "Person", "name": "Ar. Vivek Patil" },
+        "keywords": "biophilic design in hospital architecture, hospital daylight design, healing gardens, healthcare architecture"
+      },
+      {
+        "@type": "BlogPosting",
         "headline": "Healing by Design: How Hospital Architecture Directly Influences Patient Recovery",
         "url": "https://archora.in/journal/healing-by-design-how-architecture-influences-patient-recovery",
         "datePublished": "2025-06-27",
@@ -139,6 +147,18 @@ export interface ArticleMeta {
 }
 
 export const articlesMeta: ArticleMeta[] = [
+  {
+    id: 9,
+    slug: "biophilic-hospital-design-daylight-nature-patient-recovery",
+    category: "Hospital Design",
+    title: "Why Every Hospital Needs a View: Nature, Daylight and Patient Recovery",
+    excerpt: "How daylight, natural views, courtyards and greenery can create healthier and more supportive hospital environments, without compromising clinical function.",
+    date: "September 8, 2026",
+    readTime: "8–9 min read",
+    author: "Ar. Vivek Patil, Director & Principal Architect, ARCHORA",
+    tags: ["Biophilic Design", "Daylight", "Healing Gardens", "Patient Recovery", "Healthcare Architecture"],
+    image: "/images/journal/biophilic-hospital-design.jpg",
+  },
   {
     id: 1,
     slug: "healing-by-design-how-architecture-influences-patient-recovery",
