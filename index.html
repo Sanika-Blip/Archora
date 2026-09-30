@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-<link rel="icon" type="image/png" href="/alogo.png" sizes="48x48" />  
-  <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 1. Page Title & Meta Description (Headline & text shown in Google results) -->
     <title>ARCHORA - Healthcare Architecture Partner</title>
     <meta name="description" content="ARCHORA is a healthcare architecture firm designing NABH-compliant hospitals, clinics, OTs, ICUs, and labs across India, from planning to installation." />
+
+    <!-- 2. Site Name Settings (Fixes Google showing 'archora.in' instead of 'ARCHORA') -->
+    <meta property="og:site_name" content="ARCHORA" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ARCHORA",
+      "url": "https://archora.in/"
+    }
+    </script>
+
+    <!-- 3. Favicon Tags for Googlebot & Browsers -->
+    <link rel="icon" type="image/png" sizes="48x48" href="/alogo.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/alogo.png" />
+    <link rel="apple-touch-icon" href="/alogo.png" />
+
     <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
   </head>
 
