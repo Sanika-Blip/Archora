@@ -210,28 +210,28 @@ export function Navbar() {
           <div className="flex items-center justify-between h-[72px]">
 
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 no-underline">
-              <img
-                src="/logo.png"
-                alt="Archora"
-                style={{ height: "82px", width: "auto" }}
-              />
-              <span
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "10px",
-                  fontWeight: 600,
-                  letterSpacing: "0.22em",
-                  textTransform: "uppercase",
-                  color: "rgba(0,0,0,0.78)",
-                  borderLeft: "1px solid rgba(0,0,0,0.15)",
-                  paddingLeft: "12px",
-                  lineHeight: 1,
-                }}
-              >
-                Healthcare Architecture
-              </span>
-            </Link>
+<Link to="/" className="flex items-center gap-3 no-underline">
+  <img
+    src="/logo.png"
+    alt="Archora Logo"
+    style={{ height: "48px", width: "auto", objectFit: "contain" }}
+  />
+  <span
+    style={{
+      fontFamily: "'DM Sans', sans-serif",
+      fontSize: "10px",
+      fontWeight: 600,
+      letterSpacing: "0.22em",
+      textTransform: "uppercase",
+      color: "rgba(0,0,0,0.78)",
+      borderLeft: "1px solid rgba(0,0,0,0.15)",
+      paddingLeft: "12px",
+      lineHeight: 1,
+    }}
+  >
+    Healthcare Architecture
+  </span>
+</Link>
 
             {/* Desktop nav links */}
             <div className="hidden md:flex items-center gap-7">
