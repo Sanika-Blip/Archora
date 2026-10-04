@@ -220,7 +220,7 @@ export function WhyUs() {
   return (
     <>
       <Helmet>
-        <title>Why Choose ARCHORA, Healthcare Infrastructure Specialists | India</title>
+        <title>Why Choose ARCHORA - Healthcare Infrastructure Specialists | India</title>
         <meta name="description" content="ARCHORA is India's dedicated healthcare infrastructure partner." />
         <script type="application/ld+json">{JSON.stringify({
           "@context":"https://schema.org","@type":"FAQPage",
