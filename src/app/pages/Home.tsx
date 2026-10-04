@@ -91,7 +91,26 @@ function SEOHead() {
       }
     ]
   };
-
+// 1. Define schemaOrg right above your return statement
+const schemaOrg = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://archora.in/#website",
+      "url": "https://archora.in/",
+      "name": "ARCHORA",
+      "alternateName": ["Archora Healthcare Architecture", "Archora India"]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://archora.in/#organization",
+      "name": "ARCHORA",
+      "url": "https://archora.in/",
+      "logo": "https://archora.in/alogo.png"
+    }
+  ]
+};
   return (
     <Helmet>
       {/* Primary Meta */}
