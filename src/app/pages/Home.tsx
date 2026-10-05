@@ -25,72 +25,7 @@ const C = {
 // SEO COMPONENT
 // ─────────────────────────────────────────────
 function SEOHead() {
-  const schemaOrg = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://archora.in/#organization",
-        "name": "ARCHORA",
-        "url": "https://archora.in",
-        "logo": "https://archora.in/logo.png",
-        "description": "India's dedicated healthcare infrastructure partner, hospital design, construction, modular OT & ICU, NABH-compliant architecture, and turnkey delivery across India.",
-        "areaServed": "IN",
-        "knowsAbout": [
-          "Hospital Architecture",
-          "Healthcare Infrastructure",
-          "NABH Compliance",
-          "Modular OT Design",
-          "ICU Infrastructure",
-          "Medical Equipment Planning",
-          "Hospital Construction",
-          "MEP Engineering"
-        ],
-        "sameAs": []
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://archora.in/#website",
-        "url": "https://archora.in",
-        "name": "ARCHORA - Healthcare Architecture & Infrastructure Partner",
-        "publisher": { "@id": "https://archora.in/#organization" }
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://archora.in/#webpage",
-        "url": "https://archora.in",
-        "name": "ARCHORA - Healthcare Architecture & Infrastructure Partner",
-        "description": "ARCHORA is a healthcare architecture firm designing NABH-compliant hospitals, clinics, OTs, ICUs, and labs across India, from planning to installation.",
-        "isPartOf": { "@id": "https://archora.in/#website" },
-        "about": { "@id": "https://archora.in/#organization" },
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://archora.in" }]
-        }
-      },
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://archora.in/#localbusiness",
-        "name": "ARCHORA Healthcare Infrastructure",
-        "description": "Full-service healthcare infrastructure firm, hospital architecture, MEP engineering, modular OT & ICU, NABH compliance, turnkey delivery across India.",
-        "url": "https://archora.in",
-        "priceRange": "₹₹₹",
-        "areaServed": [
-          { "@type": "Country", "name": "India" }
-        ],
-        "serviceType": [
-          "Hospital Design and Architecture",
-          "Healthcare Construction",
-          "Modular OT Infrastructure",
-          "ICU Design",
-          "NABH Compliance Consulting",
-          "Medical Equipment Planning",
-          "MEP Engineering for Healthcare",
-          "Hospital Project Management"
-        ]
-      }
-    ]
-  };
+ 
 // 1. Define schemaOrg right above your return statement
 const schemaOrg = {
   "@context": "https://schema.org",
