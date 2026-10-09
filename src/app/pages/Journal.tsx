@@ -23,11 +23,11 @@ function SEOHead() {
     "blogPost": [
       {
         "@type": "BlogPosting",
-        "headline": "Why Every Hospital Needs a View: Nature, Daylight and Patient Recovery",
-        "url": "https://archora.in/journal/biophilic-hospital-design-daylight-nature-patient-recovery",
-        "datePublished": "2026-09-08",
+        "headline": "The Blueprint for Success: Master Planning, NABH Compliance, and Turnkey Hospital Architecture",
+        "url": "https://archora.in/journal/master-planning-nabh-compliance-turnkey-hospital-architecture",
+        "datePublished": "2026-10-09",
         "author": { "@type": "Person", "name": "Ar. Vivek Patil" },
-        "keywords": "biophilic design in hospital architecture, hospital daylight design, healing gardens, healthcare architecture"
+        "keywords": "hospital master planning, NABH compliance, turnkey hospital architecture, modular OT design, ICU architecture, hospital design India"
       },
       {
         "@type": "BlogPosting",
@@ -92,6 +92,14 @@ function SEOHead() {
         "datePublished": "2026-02-20",
         "author": { "@type": "Person", "name": "Prasad Patil" },
         "keywords": "hospital timeline, NABH-first design, turnkey delivery, project planning"
+      },
+       {
+        "@type": "BlogPosting",
+        "headline": "Why Every Hospital Needs a View: Nature, Daylight and Patient Recovery",
+        "url": "https://archora.in/journal/biophilic-hospital-design-daylight-nature-patient-recovery",
+        "datePublished": "2026-09-08",
+        "author": { "@type": "Person", "name": "Ar. Vivek Patil" },
+        "keywords": "biophilic design in hospital architecture, hospital daylight design, healing gardens, healthcare architecture"
       }
     ]
   };
@@ -149,7 +157,7 @@ export interface ArticleMeta {
 export const articlesMeta: ArticleMeta[] = [
   {
     id: 10,
-    slug: "biophilic-hospital-design-daylight-nature-patient-recovery",
+    slug: "master-planning-nabh-compliance-turnkey-hospital-architecture",
     category: "Hospital Design",
     title: "The Blueprint for Success: Master Planning, NABH Compliance, and Turnkey Hospital Architecture",
     excerpt: "Discover how specialized hospital master planning, Day-1 NABH compliance integration, modular OT/ICU engineering, and turnkey execution build high-efficiency, profitable medical facilities.",

@@ -39,7 +39,7 @@ const articles: Article[] = [
   // ── ARTICLE 10 ──────────────────────────────────────────────────────────────
   {
     id: 10,
-    slug: "biophilic-hospital-design-daylight-nature-patient-recovery",
+    slug: "master-planning-nabh-compliance-turnkey-hospital-architecture",
     category: "Hospital Design",
     title: "The Blueprint for Success: Master Planning, NABH Compliance, and Turnkey Hospital Architecture",
     excerpt:
