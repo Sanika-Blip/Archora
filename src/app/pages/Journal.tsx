@@ -148,16 +148,16 @@ export interface ArticleMeta {
 
 export const articlesMeta: ArticleMeta[] = [
   {
-    id: 9,
+    id: 10,
     slug: "biophilic-hospital-design-daylight-nature-patient-recovery",
     category: "Hospital Design",
-    title: "Why Every Hospital Needs a View: Nature, Daylight and Patient Recovery",
-    excerpt: "How daylight, natural views, courtyards and greenery can create healthier and more supportive hospital environments, without compromising clinical function.",
-    date: "September 8, 2026",
-    readTime: "8–9 min read",
+    title: "The Blueprint for Success: Master Planning, NABH Compliance, and Turnkey Hospital Architecture",
+    excerpt: "Discover how specialized hospital master planning, Day-1 NABH compliance integration, modular OT/ICU engineering, and turnkey execution build high-efficiency, profitable medical facilities.",
+    date: "October 9, 2026",
+    readTime: "5–6 min read",
     author: "Ar. Vivek Patil, Director & Principal Architect, ARCHORA",
-    tags: ["Biophilic Design", "Daylight", "Healing Gardens", "Patient Recovery", "Healthcare Architecture"],
-    image: "/images/journal/biophilic-hospital-design.jpg",
+    tags: ["Master Planning", "NABH Compliance", "Turnkey Healthcare", "Modular OT", "Hospital Architecture"],
+    image: "/images/journal/hospital-planning-and-designing.jpg",
   },
   {
     id: 1,
@@ -254,6 +254,18 @@ export const articlesMeta: ArticleMeta[] = [
     author: "Prasad Patil, Founder & CEO, ARCHORA",
     tags: ["Hospital Timeline", "NABH-First Design", "Turnkey Delivery", "Project Planning", "Single-Window"],
     image: "/images/journal/hospital-startup-timeline.jpg",
+  },
+  {
+    id: 9,
+    slug: "biophilic-hospital-design-daylight-nature-patient-recovery",
+    category: "Hospital Design",
+    title: "Why Every Hospital Needs a View: Nature, Daylight and Patient Recovery",
+    excerpt: "How daylight, natural views, courtyards and greenery can create healthier and more supportive hospital environments, without compromising clinical function.",
+    date: "September 8, 2026",
+    readTime: "8–9 min read",
+    author: "Ar. Vivek Patil, Director & Principal Architect, ARCHORA",
+    tags: ["Biophilic Design", "Daylight", "Healing Gardens", "Patient Recovery", "Healthcare Architecture"],
+    image: "/images/journal/biophilic-hospital-design.jpg",
   },
 ];
 
