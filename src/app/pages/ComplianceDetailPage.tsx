@@ -3,7 +3,7 @@ import { useParams, useNavigate, Navigate, Link } from "react-router";
 import { motion, AnimatePresence, useInView } from "motion/react";
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project.";
+const WHATSAPP_URL = "https://wa.me/917218444700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project.";
 
 // Single font for this entire page system, per spec.
 const FONT = "Calibri, Arial, sans-serif";

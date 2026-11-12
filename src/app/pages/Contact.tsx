@@ -47,7 +47,7 @@ function SEOHead() {
         "url": "https://www.archora.in",
         "logo": "https://www.archora.in/logo.png",
         "image": "https://www.archora.in/office-image.jpg",
-        "telephone": "+917218344700",
+        "telephone": "+917218444700",
         "email": "contact@archora.in",
         "address": {
           "@type": "PostalAddress",
@@ -66,7 +66,7 @@ function SEOHead() {
         "areaServed": "India",
         "description": "ARCHORA is India's trusted healthcare infrastructure company specialising in hospital design, construction, modular OTs, ICU setup, IVF labs, and NABH-compliant healthcare facilities.",
         "priceRange": "₹₹₹",
-        "sameAs": ["https://wa.me/917218344700"]
+        "sameAs": ["https://wa.me/917218444700"]
       },
       {
         "@type": "FAQPage",
@@ -444,7 +444,7 @@ export function Contact() {
                         Our team will get back to you within 24 working hours. For urgent queries, WhatsApp us directly.
                       </p>
                       <a
-                        href="https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project."
+                        href="https://wa.me/917218444700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project."
                         target="_blank" rel="noopener noreferrer"
                         style={{
                           display: "inline-flex", alignItems: "center", gap: 8,
@@ -631,7 +631,7 @@ export function Contact() {
                   Send an Enquiry
                 </a>
                 <a
-                  href="https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project."
+                  href="https://wa.me/917218444700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project."
                   target="_blank" rel="noopener noreferrer"
                   style={{ padding: "14px 32px", background: "transparent", color: "rgba(255,255,255,0.8)", border: "1px solid rgba(255,255,255,0.3)", textDecoration: "none", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "Calibri, Arial, sans-serif", display: "flex", alignItems: "center", gap: 8 }}
                 >

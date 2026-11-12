@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useInView, useScroll, useTransform } from "mot
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router";
 
-const WHATSAPP_URL = "https://wa.me/917218344700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project.";
+const WHATSAPP_URL = "https://wa.me/917218444700?text=Hi%20ARCHORA%2C%20I%20am%20interested%20in%20discussing%20a%20healthcare%20infrastructure%20project.";
 
 const FONT = "Calibri, Arial, sans-serif";
 
